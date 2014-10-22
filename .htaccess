@@ -1,0 +1,35 @@
+ErrorDocument 404 /index.php?/
+
+# Simple 404 for missing files
+<FilesMatch "(\.jpe?g|gif|png|bmp)$">
+  ErrorDocument 404 "File Not Found"
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  #redirect to feedpress
+  RewriteCond %{HTTP_HOST} ^(perrynoble.com)$
+  RewriteCond %{HTTP_USER_AGENT} !^(FeedPress|FeedValidator) [NC]
+  Redirect 302 /feeds/rss http://feedpress.me/perrynoble
+
+  #remove www
+  RewriteCond %{REQUEST_URI} !=/server-status
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ %{HTTP:X-Forwarded-Proto}://%1/$1 [R=301,L]
+
+  #remove trailing slash if present
+  RewriteCond %{REQUEST_METHOD} !=POST
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ $1 [L,R=301]
+
+  #Remove index.php - Directory Check Method
+  RewriteCond %{REQUEST_URI} !=/server-status
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /index.php/$1 [L]
+</ifModule>
+
+
