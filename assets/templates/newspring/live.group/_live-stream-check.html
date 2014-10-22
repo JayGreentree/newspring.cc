@@ -1,0 +1,36 @@
+{exp:channel:entries channel="services_new" status="Live Stream Schedule" dynamic="off"}
+	{services search:service_type="{embed:type}" search:service_starttime="<={current_time format='%H:%i'}" search:service_endtime=">{current_time format='%H:%i'}" var_prefix="service"}
+		{!-- During a Service --}
+		{embed="newspring:_embeds/_hero" 
+			title="Watch Live" 
+			image_url="{embed:series_image}"
+			video="live,{PUBLIC_EMBED_CODE}"
+		}
+		<section>
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item">
+						<div class="text--constrained">
+							<h2>{title}</h2>
+							<p>{collection_description}</p>
+						</div>
+						{embed="newspring:_embeds/_share-buttons"
+							alignment=""
+							title="Watch '{title}' at"
+							hashtag="{collection_hashtag}"
+							share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+						}
+					</div>
+				</div>
+			</div>
+		</section>
+	{/services} 
+	{if "{services:total_rows search:service_type='{embed:type}' search:service_starttime='<={current_time format='%H:%i'}' search:service_endtime='>{current_time format='%H:%i'}'}"}
+	{if:else}
+		{!-- NOT During a Service --}
+		{embed="newspring:_embeds/_hero" 
+			title="Stream Offline" 
+			image_url="{embed:series_image}"
+		}
+	{/if}
+{/exp:channel:entries}

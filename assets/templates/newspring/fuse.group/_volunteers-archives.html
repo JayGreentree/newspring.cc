@@ -1,0 +1,98 @@
+{embed='includes/header' 
+	title='Archives | Fuse Volunteers' 
+	body_id='{segment_1}' 
+	body_class="subnav" 
+	page_class="page-border" 
+	style="fancybox"
+	group_style="{segment_1}"
+	group_script="{segment_1}" 
+	fb_title="Archives | Fuse Volunteers" 
+	fb_url=""
+	meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}' 
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"	
+}
+
+{exp:minimee:js minify="y" combine="y"}
+	<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+	<script src="/assets/backup/old_js/jquery.jcarousel.min.js"></script>
+	<script src="/assets/backup/old_js/jquery.fancybox.pack.js"></script>
+	<script src="/assets/backup/old_js/jquery.fancybox.media.js"></script>
+	<script src="/assets/backup/old_js/jquery.tools.scrollable.min.js"></script>
+{/exp:minimee:js}
+
+</div><!-- //page - wraps header -->
+
+{embed="{segment_1}/_subnav"}
+
+<div id="subnav_page" class="c_12 clearfix page-border">
+
+	{embed="{segment_1}/_volunteers-tertiarynav"}
+
+	{if segment_4}
+		<div class="g_10 p_1 s_1">
+			{exp:channel:entries 
+				channel="fuse_volunteers" 
+				orderby="date" 
+				sort="desc" 
+				search:editorial_campus="{segment_4}"
+				paginate="bottom" 
+				disable="member_data|catergories"
+				limit="12"
+			}
+
+			{if count == "1"}
+				<h1 class="fuse-campus">{editorial_campus}{title}{/editorial_campus} Fuse</h1>
+			{/if}
+
+				<div id="{entry_id}" class="entry clearfix {if count == total_results}last{/if}">
+					<h1>{title}<span class="entry_date">{entry_date format="%F %j%S, %Y"}</span></h1>
+
+					<div class="post-container">{editorial_legacy_body}</div>
+				</div>
+
+			{paginate}
+				<div class="g_10 g_a g_o clearfix pagination">
+					<div class="pagination-outer">
+						<div class="pagination-inner clearfix">
+							{pagination_links}
+						</div>
+					</div>
+				</div>
+			{/paginate}
+
+			{if no_results}
+				{redirect="{segment_1}/{segment_2}/{segment_3}/"}
+			{/if}
+
+			{/exp:channel:entries}
+		</div>
+	{if:else}
+		<div class="g_10 p_1 s_1 bottom" id="fuse-archives">
+			<h2>Fuse Campus Archives</h2>
+			<ul>
+				{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc"}
+					{exp:playa:parents channel="services" var_prefix="serv"}
+						{serv:services_times search:type="Fuse" limit="1"}
+							<li class="g_3"><a href="{url_title_path='fuse/volunteers/archives'}">{title} Campus</a></li>
+						{/serv:services_times}
+					{/exp:playa:parents}
+				{/exp:channel:entries}
+			</ul>
+		</div>
+	{/if}
+</div>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+	$('.modal').fancybox({
+      'width'       : '50%',
+      'height'      : '75%',
+      'autoScale'       : false,
+      'titlePosition'   : 'inside',
+      'transitionIn'    : 'none',
+      'transitionOut'   : 'none'
+    });
+</script>
+
+{embed='includes/footer'}

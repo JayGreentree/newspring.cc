@@ -1,0 +1,150 @@
+{layout="_layouts/master"
+	title="Watch Live Services"
+	description="Join us online every Sunday at 8:30am, 10am, 11:30am, 4:30pm and 6pm."
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{!-- IF THERE IS A CURRENT SERIES --}
+{exp:channel:entries channel="series_newspring" limit="1" status="Open|Hidden"}
+
+	{!-- ONLY SHOW THE CURRENT SERIES --}
+	{if {SUNDAY_LIVE_FEED_CONDITIONS} OR '{LIVE_PAGE_OVERRIDE}' == 'on'}
+		
+		{!-- IF IT IS SUNDAY --}
+		{embed="newspring:_embeds/_hero" 
+			title="Watch Live" 
+			image_url="{collection_image}{collection_image_2x1}{/collection_image}"
+			video="live,{PUBLIC_EMBED_CODE}"
+		}
+
+		<section>
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item one-whole centered flush">
+						<div class="text--constrained">
+							<h2>{title}</h2>
+							<p>{collection_description}</p>
+						</div>
+						{embed="newspring:_embeds/_share-buttons"
+							alignment=""
+							title="Watch '{title}' at"
+							hashtag="{collection_hashtag}"
+							share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+						}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section--primary">
+			<div class="shell hard--ends">
+				<div class="soft--ends">
+					<div class="grid floating centered">
+						<div class="grid__item floating__item two-thirds portable-one-whole handheld-one-whole anchored-left flush">
+							<h2 class="flush" style="padding-top: 5px;">Something Not Working?</h2>
+							<hr class="hidden half visuallyhidden--anchored">
+						</div><div class="grid__item floating__item one-third portable-one-whole handheld-one-whole anchored-right flush">
+							{!-- <a href="https://newspring.wufoo.com/forms/mq9eftt0uefc73/" target="_blank" class="btn">We Can Help You!</a> --}
+							<a href="#" class="btn" data-modal-open="/_embeds/wufoo-form-embed/mq9eftt0uefc73">We Can Help!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section--dark">
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item one-half handheld-one-whole centered">
+						<div class="text--padded-sides">
+							<h3>Find a Location</h3>
+							<p>Join us at one of our <a href="/locations">{embed="_embeds/_campus-count"} locations</a> across the state of South Carolina.</p>
+						</div>
+					</div><div class="grid__item one-half handheld-one-whole centered">
+						<div class="text--padded-sides">
+							<h3>Watch Online</h3>
+							<p>{embed="locations/_service-times" entry_id="28341" type="newspring"}.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{if:else}
+		{!-- IF IT IS MONDAY THROUGH SATURDAY --}
+		{embed="newspring:_embeds/_hero" 
+			title="Stream Offline"
+			image_url="{collection_image}{collection_image_2x1}{/collection_image}"
+		}
+		<section>
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item one-whole centered flush">
+						<div class="text--constrained">
+							{exp:playa:parents channel="sermons" start_on="{current_time}" show_future_entries="yes" sort="asc" limit="1" var_prefix="collection_entry"}
+								<h3 class="capitalize">Watch Live {collection_entry:entry_actualdate:relative units='days|hours'}</h3>
+							{/exp:playa:parents}
+							<h2>{title}</h2>
+
+							<p>{collection_description}</p>
+						</div>
+						{embed="newspring:_embeds/_share-buttons"
+							alignment=""
+							title="Watch '{title}' at"
+							hashtag="{collection_hashtag}"
+							share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+						}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section--dark">
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item one-half handheld-one-whole centered">
+						<div class="text--padded-sides">
+							<h3>Find a Location</h3>
+							<p>Join us at one of our <a href="/locations">{embed="_embeds/_campus-count"} locations</a> across the state of South Carolina.</p>
+						</div>
+					</div><div class="grid__item one-half handheld-one-whole centered">
+						<div class="text--padded-sides">
+							<h3>Watch Online</h3>
+							<p>{embed="locations/_service-times" entry_id="28341" type="newspring"}.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	{/if}
+
+	{embed="newspring:_embeds/_discover"
+		type="promoted"
+	}
+
+{!-- 	{if:else}
+		IF IN BETWEEN SERIES, SHOW NEXT UPCOMING SERIES
+		{embed="newspring:live/_upcoming"}
+	{/if} --}
+{/exp:channel:entries}

@@ -1,0 +1,7 @@
+<ul id="breadcrumb" class="g_12 clearfix">
+	<li class="home"><a href="/" title="Home">Home</a></li>
+	{!-- {embed:links} --}
+	{exp:navee:custom_crumbs nav_title="{embed:navtitle}" wrap_type="none"}
+		<li {if class}class="{class}"{/if}><a href="{link}">{text}</a></li>
+	{/exp:navee:custom_crumbs}
+</ul>

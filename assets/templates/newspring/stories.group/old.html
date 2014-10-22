@@ -1,0 +1,60 @@
+{preload_replace:title="Stories"}
+{preload_replace:site="newspring"}
+{preload_replace:channel="stories"}
+{preload_replace:entry_limit="10"}
+{preload_replace:status="Featured"}
+{preload_replace:paginate="n"}
+{preload_replace:masonry="y"}
+{preload_replace:base_column_width=""}
+{preload_replace:show_related_entries="y"}
+{preload_replace:search_suggestions="
+<span class='tag' data-modal-open='search-modal' data-search-link='search-modal'>Salvation</span>
+"}
+{preload_replace:url_prefix="{segment_1}"}
+{preload_replace:section_style="y"}
+{preload_replace:section_hero="//s3.amazonaws.com/ns.images/newspring/editorial/articles/newspring.blog.hero.moods.celebrate.jpg"}
+
+{if segment_2}
+	{exp:md_detect_page_type url_segment="{segment_2}"}
+		{if pagination_page}
+			{embed="newspring:_embeds/_editorial-list"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				masonry="{masonry}"
+				base_column_width="{base_column_width}"
+				entry_limit="{entry_limit}"
+				status="{status}"
+				paginate="{paginate}"
+				search_suggestions="{search_suggestions}"
+				section_hero="{section_hero}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+			}
+		{if:else}
+			{embed="newspring:_embeds/_editorial-entry"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				show_related_entries="{show_related_entries}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+			}
+		{/if}
+	{/exp:md_detect_page_type}
+{if:else}
+	{embed="newspring:_embeds/_editorial-list"
+		title="{title}"
+		site="{site}"
+		channel="{channel}"
+		masonry="{masonry}"
+		base_column_width="{base_column_width}"
+		entry_limit="{entry_limit}"
+		status="{status}"
+		paginate="{paginate}"
+		search_suggestions="{search_suggestions}"
+		section_hero="{section_hero}"
+		section_style="{section_style}"
+		url_prefix="{url_prefix}"
+	}
+{/if}

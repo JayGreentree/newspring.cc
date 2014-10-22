@@ -1,0 +1,34 @@
+<ul class="promos clearfix g_12">
+	{exp:channel:entries channel='series_fuse' dynamic='off' status='open' disable='categories|member_data|pagination|trackbacks' limit='1' orderby='series_date' search:series_hero='not IS_EMPTY' search:series_hidden='IS_EMPTY' }
+	<li><a href="/series/{url_title}/" title="Watch the Current Series: {title}" class="g_8 g_a">
+		{if series_hero}
+			{exp:imgsizer:size image="{series_hero}" width="630" height="260" alt="{title} Image" class="border" quality="70"}
+		{if:else}
+			<span alt="{title} Image" class="series image border"/>{title}</span>
+		{/if}
+	</a></li>
+	{/exp:channel:entries}
+	{exp:channel:entries channel='advertisements' dynamic='off' search:ad_location='watchandlisten' status='open' disable='categories|member_data|pagination|trackbacks' limit='1'}
+	<li><a href="{ad_url}" title="{title}" class="g_4 g_o"><img src="{ad_image}" alt="{title}"></a></li>
+	{/exp:channel:entries}
+</ul>
+
+<h1 class="g_12">Recent Sermons</h1>
+
+<ul class="g_12 episodes">
+	{exp:channel:entries channel='sermons_fuse' dynamic='off' status='open' disable='categories|member_data|pagination|trackbacks' limit='3' orderby='episode_date'}
+	
+	{preload_replace:url='/series/{related_entries id="series"}{url_title}{/related_entries}/{url_title}/'}
+	
+	<li class="{switch='first||last'}">
+		<p class="img"><a href="{url}" title="Watch {title}">
+			{related_entries id="series"}
+				{exp:imgsizer:size image="{series_hero}" width="138" height="80" alt="{title} Image" class="border" quality="70"}
+			{/related_entries}
+		</p>
+		<h3><a href="{url}" title="Watch {title}">Week&nbsp;{episode_week}: {title}</a></h3>
+		<p>{exp:trunchtml inline='_&hellip;'chars='40' bread_words='yes'}{episode_description}{/exp:trunchtml}</p>
+	</li>
+	{/exp:channel:entries}
+</ul>
+

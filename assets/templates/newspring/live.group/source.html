@@ -1,0 +1,48 @@
+{layout="_layouts/simple"
+	title="Private Live Stream"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+<style>
+	html {background: #fff;}
+	body {
+		margin: 0 auto;
+		padding: 0;
+	}
+	#video {
+		background: #eee;
+		text-align: center;
+		margin: 100px auto;
+		padding: 20px;
+		width: 808px;
+	}
+</style>
+
+{if logged_in AND (member_group != "20" OR member_group != "39")}
+	<div id="video">
+		<script src='//player.ooyala.com/v3/ZmJmNTVlNDk1NjcwYTVkMzAzODkyMjg0'></script><div id='ooyalaplayer' style='width:768px;height:432px'></div><script>OO.ready(function() { OO.Player.create('ooyalaplayer', '{PRIVATE_EMBED_CODE}'); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
+	</div>
+{if:else}
+	{embed="newspring:_embeds/_signin"}
+{/if}

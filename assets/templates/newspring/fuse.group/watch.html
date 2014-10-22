@@ -1,0 +1,41 @@
+{if segment_3}
+	{if segment_4}
+		{embed="watch/_sermon" 
+			series_channel="series_fuse" 
+			sermon_channel="sermons_fuse"
+			url_prefix="fuse/watch"
+			series_url="{segment_3}"
+			sermon_url="{segment_4}"
+			subnav="y"
+		}
+	{if:else}
+		{exp:md_detect_page_type url_segment="{segment_3}"}
+			{if pagination_page}
+		 		{embed="watch/_home" 
+					series_channel="series_fuse" 
+					sermon_channel="sermons_fuse"
+					url_prefix="fuse/watch"
+					subnav="y"
+				}
+	 		{if:else}
+				{embed="watch/_series" 
+					series_channel="series_fuse" 
+					sermon_channel="sermons_fuse"
+					url_prefix="fuse/watch"
+					series_url="{segment_3}"
+					sermon_url="{segment_4}"
+					subnav="y"
+				}
+			{/if}
+		{/exp:md_detect_page_type}
+	{/if}
+{if:else}
+	{embed="watch/_home" 
+		series_channel="series_fuse" 
+		sermon_channel="sermons_fuse"
+		url_prefix="fuse/watch"
+		subnav="y"
+	}
+{/if}
+
+{embed="includes/footer"}

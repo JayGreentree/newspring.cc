@@ -1,0 +1,34 @@
+{preload_replace:page_channel="blog"}
+{preload_replace:page_title="Blog"}
+
+{embed="includes/header"
+	body_id="blog" 
+	body_class="subnav" 
+	page_class="page-border" 
+	style="blog"
+	use_alt=""
+	title="{page_title}"
+	fb_title="{page_title}" 
+	fb_url="" 
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+}
+
+</div><!-- //page - wraps header on pages with subnav-->
+
+{embed="{segment_1}/_subnav" page_template="{page_channel}"}
+
+<div class="c_12 clearfix page-border">
+
+	<div class="g_4">
+
+	</div>
+	<div class="g_8">
+
+	</div>
+	<div class="clear"></div>
+
+{!-- Breadcrumb if needed
+	{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li><a href="{path={segment_1}/{segment_2}}" title="View the {page_channel} page">Campus</a></li><li class="last"><a href="{path={segment_1}/{segment_2}/{segment_3}}" title="View this campus page">{exp:phpstringfun function="ucfirst"}{last_segment}{/exp:phpstringfun}</a></li>'}
+--}
+
+{embed='includes/footer'}

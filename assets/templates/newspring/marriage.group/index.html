@@ -1,0 +1,23 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		body_id="marriage" 
+		title='Marriage Resources' 
+		body_class="alt" 
+		use_alt='yes' 
+		group_style="{segment_1}"
+	}
+{/exp:ce_cache:escape}
+
+{if segment_2}{embed='marriage/list'}
+{if:else}{embed='marriage/default'}
+{/if}
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+<div id="tranny" style="display: none;"></div>
+
+{/exp:ce_cache:it}

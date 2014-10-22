@@ -1,0 +1,15 @@
+{!--
+	Default: {embed="_embeds/_image-resize" src=""}
+	Full: {embed="_embeds/_image-resize" src="" width=" type=""}
+
+	@NOTE Planning on not using this as it adds unnecessary overhead to every template.
+--}
+{exp:ce_img:single src='{embed:src}' {if embed:width}width='{embed:width}'{/if} crop='yes' url_only='yes'}
+
+{exp:ce_img:single src='' width='1700' crop='yes' url_only='yes'}
+
+{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1700' crop='yes' url_only='yes'}{/collection_image}
+
+{editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}
+
+{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}

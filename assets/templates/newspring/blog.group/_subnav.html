@@ -1,0 +1,16 @@
+<div id="subnav" class="c_12 clearfix">
+	<div  class="g_3">
+		<h1>
+			<a href="{path={segment_1}}" {exp:md_detect_page_type url_segment="{segment_2}"}{if pagination_page OR segment_2 == ""}class="active"{/if}{/exp:md_detect_page_type}>Blog<span></span></a>
+			 <a href="http://feeds.newspring.cc/newspring-blog" class="blog-rss" title="Subscribe to the Blog RSS"><span>Subscribe to the Blog RSS </span>f<span>eed</span></a>
+       <a onclick="window.open('http://feedpress.it/e/mailverify?feed_id=newspring-blog', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" class="blog-rss no-low popup600" title="Subscribe to the Blog by Email"><span>Subscribe to Blog by Email</span>M<span>ail</span></a>
+     </h1>
+	</div>
+	<div class="g_9 right">
+		<a href="{path={segment_1}/articles}" {if segment_2 == "articles"}class="active"{/if}>Articles<span></span></a>
+		<a href="{path={segment_1}/devotionals}" {if segment_2 == "devotionals"}class="active"{/if}>Daily Devotionals<span></span></a>
+		<a href="{path={segment_1}/resources}" {if segment_2 == "resources"}class="active"{/if}>Resources<span></span></a>
+		<a href="{path={segment_1}/stories}" {if segment_2 == "stories"}class="active"{/if}>Stories<span></span></a>
+		<a href="{path={segment_1}/episode}" {if segment_2 == "episode"}class="active"{/if}>Sermons<span></span></a>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+{!--
+
+Related Editorial Embed
+
+REQUIRES: Math Plugin, Stash
+
+- Stashes the result of total_results - 3 as {total_results_less_three}
+- If there are an odd number of results, the last three entries will be three columns - otherwise halves
+
+--}
+{exp:ce_cache:it id='editorial-related'}
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			{exp:tag:related_entries
+				channel="{embed:channel}"
+				entry_id="{embed:entry_id}"
+				tag_group_id="5"
+				limit="{embed:limit}"
+				rank_method="clicks|total_entries"
+			}{exp:stash:set name="total_results_less_three"}{exp:math formula='{total_results} - 3' absolute='yes'}{/exp:stash:set}<div class="grid__item
+
+			{if total_results % 2 == 1}
+				one-half handheld-one-whole
+				{if count > {exp:stash:get name='total_results_less_three'}}
+					one-third
+					{if count != total_results}
+						lap-one-half palm-wide-one-half {if total_results > 3} visuallyhidden--handheld{if:else} palm-one-whole{/if}
+					{if:else}
+						visuallyhidden--lap visuallyhidden--handheld
+					{/if}
+				{/if}
+			{if:else}
+				one-half handheld-one-whole
+			{/if}
+
+			">
+				{!-- Editorial Image --}
+					<a href="{path='{segment_1}/{url_title}'}" class="ratio--hero background--fill clickable flush" style="background-image: url({if '{embed:section_hero}' != ''}{exp:ce_img:single src='{embed:section_hero}' width='1000' crop='yes' url_only='yes'}{if:elseif editorial_image}{editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{if:elseif entry_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{/if});">
+						<div class="ratio__item floating">
+							<div class="floating__item">
+
+							</div>
+						</div>
+					</a>
+					<div class="card">
+						<a href="{path='{segment_1}/{url_title}'}" class="link--invisible">
+							<h3>{title}</h3>
+						</a>
+						<a href="{path='{segment_1}/{url_title}'}" class="link--arrow">{if entry_video}Watch{if:else}Read{/if} Story</a>
+					</div>
+			</div>{/exp:tag:related_entries}
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

@@ -1,0 +1,49 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="title"}Guest Services{/layout:set}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+<section class="section--dark section--condensed">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole handheld-centered">
+				<br>
+				<h2>Guest Services</h2>
+				<br>
+			</div>{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc"}<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+				<div class="card flush">
+					<h3 class="dark">{title}</h3>
+					<a href="{path='/{segment_1}/{url_title}'}" class="link--arrow">Campus Dashboard</a>
+				</div>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>

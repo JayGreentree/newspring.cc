@@ -1,0 +1,73 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Fuse Series | Resources for Churches" 
+		body_id="resources" 
+		body_class="subnav" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+	{embed="includes/_trinav" navtitle="footernav"}
+
+{exp:channel:entries channel="series_fuse" orderby='series_date' status='open' search:series_hidden="IS_EMPTY" search:series_video_resources="not IS_EMPTY" limit="10" paginate="bottom"}
+<div class="resource g_12 clearfix">
+	<div class="description g_9 g_a">
+		<a href="{url_title_path='fuse/watch'}" onclick="_gaq.push(['_trackEvent','{segment_1}', 'Series', 'Image: {title}']);">{exp:ce_img:single src="{series_hero}" width="300" alt="{title} Image" class="thumb border"}</a>
+		<h2>{title}</h2>
+		<p>{exp:eehive_hacksaw chars = "280" append = "&hellip;"}{series_description}{/exp:eehive_hacksaw} <a href="{url_title_path='fuse/watch'}" onclick="_gaq.push(['_trackEvent','{segment_1}', 'Series', 'Watch Link: {title}']);">Watch This Series</a></p>
+	</div>
+
+	<ul class="clearfix g_3 g_o">
+			<li class="g_3 g_a">
+				{!-- Disabled as we don't currently provide print resources for Fuse Series 			{if series_print_resources}
+					<p class="button">
+						{if logged_out}
+						<a href="{path='resources/login/{segment_2}'}" title="Download Print Resources" class="btn">Sign In For Print Files</a>
+						{if:else}
+						<a href="{series_print_resources}" title="Download Print Resources" onclick="_gaq.push(['_trackEvent','Fuse Resources', 'Download', 'The One Series Video']);" class="btn">Download Print Files</a>
+						{/if}
+					</p>
+				{if:else}
+				<p class="button-disabled">No print files available.</p>
+				{/if} --}
+				{if series_video_resources}
+					<p class="button">
+						{exp:ce_cache:escape}
+							{if logged_out}
+							<a href="{path='resources/login/{segment_2}/students'}" title="Download Video Resources" class="btn">Sign In For Video Files</a>
+							{if:else}
+							<a href="{series_video_resources}" title="Download Video Resources" onclick="_gaq.push(['_trackEvent','Fuse Series Video Resources', 'Download', '{title}']);" class="btn">Download Video Files</a>
+							{/if}
+						{/exp:ce_cache:escape}
+					</p>
+				{if:else}
+				<p class="button-disabled">No video files available.</p>
+				{/if}
+			</li>
+		</ul>
+</div>
+{paginate}
+<div class="paginate g_12 clearfix">
+	<ul>
+		<li class="pagination clearfix">{pagination_links}</li>
+	<ul>
+</div>
+{/paginate}
+
+{/exp:channel:entries}
+
+</div>
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

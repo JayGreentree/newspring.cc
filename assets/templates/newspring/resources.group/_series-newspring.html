@@ -1,0 +1,75 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="NewSpring Series | Resources for Churches" 
+		body_id="resources" 
+		body_class="subnav" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+	{embed="includes/_trinav" navtitle="footernav"}
+
+{exp:channel:entries channel="series" orderby='series_date' status='open' search:series_hidden="IS_EMPTY" limit="10" paginate="bottom" offset="1"}
+<div class="resource g_12 clearfix">
+	<div class="description g_9 g_a">
+		<a href="{url_title_path='watch'}" onclick="_gaq.push(['_trackEvent','{segment_1}', 'Series', 'Image: {title}']);">{exp:ce_img:single src="{series_hero}" width="300" alt="{title} Image" class="thumb border"}</a>
+		<h2><a href="{url_title_path='watch'}">{title}</a></h2>
+		<p>{exp:eehive_hacksaw chars = "180" append = "&hellip;"}{series_description}{/exp:eehive_hacksaw} <a href="{url_title_path='watch'}" onclick="_gaq.push(['_trackEvent','{segment_1}', 'Series', 'Watch Link: {title}']);">Watch This Series</a></p>
+	</div>
+
+	<ul class="clearfix g_3 g_o">
+		<li class="g_3 g_a">
+			{if series_print_resources}
+				<p class="button">
+					{exp:ce_cache:escape}
+						{if logged_out}
+						<a href="{path='resources/login/{segment_2}/newspring'}" title="Download Print Resources" class="btn">Sign In For Print Files</a>
+						{if:else}
+						<a href="{series_print_resources}" title="Download Print Resources" onclick="_gaq.push(['_trackEvent','NewSpring Series Print Resources', 'Download', '{title}']);" class="btn">Download Print Files</a>
+						{/if}
+					{/exp:ce_cache:escape}
+				</p>
+			{if:else}
+			<p class="button-disabled">No print files available</p>
+			{/if}
+			{if series_video_resources}
+				<p class="button">
+					{exp:ce_cache:escape}
+						{if logged_out}
+						<a href="{path='resources/login/{segment_2}/newspring'}" title="Download Video Resources" class="btn">Sign In For Video Files</a>
+						{if:else}
+						<a href="{series_video_resources}" title="Download Video Resources" onclick="_gaq.push(['_trackEvent','NewSpring Series Video Resources', 'Download', '{title}']);" class="btn">Download Video Files</a>
+						{/if}
+					{/exp:ce_cache:escape}
+				</p>
+			{if:else}
+			<p class="button-disabled">No video files available</p>
+			{/if}
+		</li>
+	</ul>
+</div>
+{paginate}
+<div class="paginate g_12 clearfix">
+	<ul>
+		<li class="pagination clearfix">{pagination_links}</li>
+	<ul>
+</div>
+{/paginate}
+{/exp:channel:entries}
+
+</div>
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

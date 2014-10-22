@@ -1,0 +1,28 @@
+<section class="section--search">
+	<div class="shell hard--top">
+		<hr class="hidden flush--top">
+		<div class="grid">
+			<div class="grid__item centered">
+				{!-- If an Entry ID is passed, search will suggest tags for that entry from the topics group --}
+				{if embed:entry_id}
+					{exp:tag:tags
+						entry_id="{embed:entry_id}"
+						tag_group_id="5"
+						orderby="clicks"
+						sort="asc"
+					}
+					{if tag_count == 1}<p class="text--larger">Discover more {if embed:title}<b>{embed:title}</b>{/if} about {/if}<span class="tag collection-color" data-modal-open="search-modal" data-google-search-link="search-modal">{tag}</span>{if tag_count != tag_total_results}, {if:else}.</p>{/if}
+					{/exp:tag:tags}
+				{if:elseif embed:suggestions}
+					{!-- Otherwise it will list the exact terms passed through the embed variable --}
+					<p class="text--larger">Discover more {if embed:title}<b class='lowercase'>{embed:title}</b>{/if} about {embed:suggestions}.</p>
+				{/if}
+
+			  	<div data-modal-open="search-modal" class="btn btn--icon">
+					Search for something else...
+					<span class="icon icon--search"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

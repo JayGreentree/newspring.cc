@@ -1,0 +1,36 @@
+{if embed:link}<a href="{embed:link}">{/if}
+<section class="hard cutout--triangle{if embed:image_url == ''} section--dark{/if} {if embed:section_class}{embed:section_class}{/if}">
+
+	<div class="shell hero background--fill {if embed:image_classes}{embed:image_classes}{/if}" style="background-image:url({exp:ce_img:single src='{embed:image_url}' width='1700' crop='yes' url_only='yes'})" data-lazy-load="{exp:ce_img:single src='{embed:image_url}' width='1700' crop='yes' url_only='yes'}">
+
+		<div class="overlay floating ratio--hero handheld-ratio--square hard flush
+		{if embed:h-align}floating--{embed:h-align}{if:else}floating--center{/if}
+		{if embed:v-align}floating--{embed:v-align}{if:else}floating--bottom{/if}
+		{if embed:title OR embed:summary OR embed:video}overlay--gradient handheld-overlay--solid-dark{/if}"  {if embed:video}data-video="{embed:video}"{/if}>
+			<div class="floating__item overlay__item overlay--light">
+				{!-- Category Tag for Editorials --}
+				{if embed:tag}<p><span class="outlined outlined--tag">{embed:tag}</span></p>{/if}
+
+				{!-- Title --}
+				<h1>{embed:title}</h1>
+
+				{!-- Summary --}
+				{if embed:summary}<p class="text--constrained">{embed:summary}</p>{if:else}<br />{/if}
+
+				{!-- Video --}
+				{if embed:video}
+					{if embed:video_title}<h2 class="text--constrained visuallyhidden--handheld">{embed:video_title}</h2>{/if}
+					<div class="fa fa-icon fa-icon--play fa-icon--light"></div>
+				{/if}
+
+				{!-- Author(s) --}
+				{exp:tag:tags site="newspring" entry_id='{embed:entry_id}' tag_group_id='6' orderby='total_entries' sort='asc'}{if count == 1}<p class="capitalize"><strong>By: {/if}{tag}{if tag_count == tag_total_results}</strong></p>{if:else}, {/if}{/exp:tag:tags}
+
+				{!-- Content NEEDS TO BE MOVED TO A LAYOUT BECAUSE SINGLE QUOTES --}
+				{if embed:content}
+					{embed:content}
+				{/if}
+			</div>
+		</div>
+	</div>
+</section>{if embed:link}</a>{/if}

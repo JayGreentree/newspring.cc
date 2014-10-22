@@ -1,0 +1,18 @@
+{!-- 
+	Cache Clean
+	Cleans an entire driver cache
+
+	Instructions:
+	To view clean a specific driver, use this format: http://newspring.cc/cache/clean/driver_name
+--}
+{if logged_in}
+	{if group_id == "1" OR group_id == "36"}
+
+		<h2>Clean Driver Cache</h2>
+		<p>Hang on to your butts. (Not implemented yet)</p>
+		{!--exp:ce_cache:clean--}
+		
+	{/if}
+{if:else}
+	{redirect="/"}
+{/if}

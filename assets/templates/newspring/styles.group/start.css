@@ -1,0 +1,36 @@
+#p_start h1 {
+	background: url(//images.newspring.cc/site/start/header.jpg) 0 0 no-repeat;
+	margin-top: 10px;
+	height: 125px;
+}
+
+#p_start h2,
+#p_start h2 a {
+	color: #333;
+	font-size: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#p_start .resource {
+	border-top: 1px solid #DEDEDE;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+#p_start .resource li p { font: italic 11px/14px "Lucida Fax", "Lucida Roman", "Times New Roman", serif; }
+
+#p_start .resource .button { margin-bottom: 10px; }
+
+#p_start .resource .button a {
+	background-image: none;
+	font: normal bold 10px/25px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	height: 23px;
+	padding: 0;
+	text-align: center;
+}
+
+#p_start .thumb {
+	float: left;
+	margin-right: 20px;
+}

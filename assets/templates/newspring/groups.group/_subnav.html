@@ -1,0 +1,17 @@
+<div id="subnav" class="c_12 clearfix">
+	<div  class="g_2">
+		<h1>
+			<a href="{path={segment_1}}" >Groups<span></span></a>
+		</h1>
+	</div>
+	<div class="g_10 right">
+		{!-- <a href="{path={segment_1}}" {if segment_2 == ""}class="active"{/if}>Step Up Groups<span></span></a> --}
+		
+{!-- 		<a href="{path={segment_1}/host}" {if segment_2 == "host"}class="active"{/if}>Host a Group<span></span></a> --}
+		<a href="{path={segment_1}/}" {if segment_2 == ""}class="active"{/if}>Vision<span></span></a>
+		<a href="{path={segment_1}/study}" {if segment_2 == "study"}class="active"{/if}>Studies<span></span></a>
+		<a href="{path={segment_1}/leaders}" {if segment_2 == "leaders"}class="active"{/if}>Leaders<span></span></a>
+		<a href="{path={segment_1}/serve}" {if segment_2 == "serve"}class="active"{/if}>Serving Opportunities<span></span></a>
+
+	</div>
+</div>

@@ -1,0 +1,13 @@
+				{exp:channel:entries 
+					channel="{embed:all_channels}"
+					limit="5" 
+					orderby="random"
+					dynamic="off"
+					disable="member_data|pagination|trackbacks"
+					category="{embed:category_id}"
+					status="open|featured"
+				}
+					<li>
+						<a href="/{segment_1}/{channel_short_name}/{url_title}" title="{title} &mdash; {channel}"><strong>{title}</strong> <span>{channel}</span></a>
+					</li>
+				{/exp:channel:entries}

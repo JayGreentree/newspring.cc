@@ -1,0 +1,99 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id="contents"}
+
+{exp:channel:entries channel="albums" url_title="{segment_2}"}
+
+{exp:ce_cache:escape}
+	{layout:set name="title"}{title} | Music{/layout:set}
+	{layout:set name="description"}{exp:eehive_hacksaw}{album_description}{/exp:eehive_hacksaw}{/layout:set}
+	{layout:set name="image"}{album_image}{/layout:set}
+{/exp:ce_cache:escape}
+
+<section>
+	<div class="shell background--fill overlay overlay--solid-light overlay--light" style="background-image: url({exp:ce_img:single src='{album_image_blurred}' url_only='yes'});">
+		<div class="grid overlay__item floating floating--left">
+			<hr class="quarter hidden">
+			<div class="grid__item floating__item one-half handheld-one-whole">
+				<img src="{exp:ce_img:single src='{album_image}' width='1000' url_only='yes'}" alt="{title}">
+			</div><div class="grid__item floating__item one-half handheld-one-whole handheld-centered light">
+				<a href="{path='/{segment_1}'}" class="link--arrow reverse light">View More Albums</a>
+				<h2 class="light">{title}</h2>
+				<p>{album_description}</p>
+				{album_links search:album_links_type="iTunes"}
+				<a href="{album_links_url}" target="_blank" class="btn btn--light">Buy the Album</a>
+				{/album_links}
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<h2>Track List</h2>
+			</div>{if album_tracks:total_rows}<div class="grid__item {if album_tracks:total_rows > 15}one-half portable-one-whole handheld-one-whole {if:else}one-whole {/if} flush">
+				<div class="text--constrained">
+					<ol class="list--ruled list--small {if album_tracks:total_rows > 15}flush--bottom {/if}left">
+					{album_tracks var_prefix="track"}
+					<li class="flush">{track:album_tracks_title}<span class="float--right visuallyhidden--palm">{track:album_tracks_duration}</span></li>
+			{if track:row_count == 15}
+					</ol>
+				</div>
+			</div><div class="grid__item {if album_tracks:total_rows > 15}one-half portable-one-whole handheld-one-whole {if:else}one-whole {/if}">
+				<div class="text--constrained">
+					<ol start="16" class="list--ruled list--small left">
+			{/if}
+					{/album_tracks}
+				</ol>
+				</div>
+			</div>
+			{/if}
+		</div>
+	</div>
+</section>
+
+{if album_downloads}
+<section class="section--transparent">
+	<div class="shell background--fill overlay overlay--solid-light overlay--light" style="background-image: url({exp:ce_img:single src='{album_image_blurred}' url_only='yes'});">
+		<div class="grid overlay__item floating">
+			{album_downloads var_prefix="download"}<div class="grid__item floating__item {if download:total_rows % 2 != 0}{if download:count == download:total_results} one-whole {/if}{if:else}one-half handheld-one-whole{/if} centered">
+				<h2 class="light">{download:type}</h2>
+				<a href="{download:file}" class="btn btn--light">Download</a>
+			</div>{/album_downloads}
+		</div>
+	</div>
+</section>
+{/if}
+
+{/exp:channel:entries}
+{/exp:ce_cache:it}

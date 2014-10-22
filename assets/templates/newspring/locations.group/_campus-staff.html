@@ -1,0 +1,41 @@
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Campus Leaders</h2>
+			</div>
+			{exp:channel:entries site="newspring" channel="campuses" status="Open|Coming Soon" url_title="{embed:campus}"}
+				{exp:playa:parents site="newspring" channel="members" orderby="mbr_staff_title" sort="asc" search:mbr_staff_title="={embed:titles}" var_prefix="member"}<div class="grid__item one-quarter portable-one-half palm-wide-one-half palm-one-whole">
+					<div class="ratio--square image--round background--fill" style="background-image: url({if '{member:mbr_site_image}' != ''}{exp:ce_img:single src='{member:mbr_site_image}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global-origin}/all/member_images/members.nophoto.jpg' width='1000' crop='yes' url_only='yes'}{/if});"></div>
+					<h3>{member:mbr_first_name}<br>{member:mbr_last_name}</h3>
+					<p><i>{member:mbr_staff_title}</i></p>
+					{!-- <a href="mailto:{member:mbr_first_name}.{member:mbr_last_name}@newspring.cc" class="link--arrow">Email</a> --}
+					<ul class="social-icons">
+					    {member:if mbr_user_facebook}<li>
+					    	<a href="http://facebook.com/{member:mbr_user_facebook}" class="fa fa-fw fa-facebook facebook" target="_blank"></a>
+					    </li>{/if}{!--
+					    --}{member:if mbr_user_twitter}<li>
+					    	<a href="https://twitter.com/{member:mbr_user_twitter}" class="fa fa-fw fa-twitter twitter" target="_blank"></a>
+					    </li>{/if}{!--
+					    --}{member:if mbr_user_instagram}<li>
+					    	<a href="http://instagram.com/{member:mbr_user_instagram}" class="fa fa-fw fa-instagram instagram" target="_blank"></a>
+					    </li>{/if}{!--
+					    --}<li>
+					    	<a href="mailto:{member:mbr_first_name}.{member:mbr_last_name}@newspring.cc" class="fa fa-fw fa-envelope email" title="Email Person" target="_blank"></a>
+					    </li>
+					</ul>
+				</div>{/exp:playa:parents}
+				{if embed:jobs == 'on'}
+				{exp:playa:parents site="newspring" channel="jobs" limit="1" var_prefix="job"}{if total_results > 0}
+					<div class="grid__item one-quarter portable-one-half palm-wide-one-half palm-one-whole">
+						<div class="ratio--square image--round background--fill" style="background-image: url({images-global-origin}/all/member_images/members.nophoto.green.jpg);"></div>
+						<h3>Your Name<br>Here</h3>
+						<p><i>Positions Available at the {title} Campus</i></p>
+						<a href="{path='jobs/{url_title}'}" class="btn">Apply</a>
+					</div>
+				{/if}{/exp:playa:parents}
+				{/if}
+			{/exp:channel:entries}
+		</div>
+	</div>
+</section>

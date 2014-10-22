@@ -1,0 +1,92 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Resources for Churches" 
+		body_id="resources" 
+		body_class="groups subnav" 
+		script="" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+
+{exp:channel:entries 
+	channel="groups_study" 
+	limit="1" 
+	url_title="{segment_3}"
+}
+<div class="study_overview clearfix" id="main_content">
+	<div class="g_4 study">
+		<a href="{path={segment_1}/{segment_2}/{segment_3}}" title="View the {title} Groups Study overview page.">
+			{if groups_study_related_series }
+				{exp:playa:children field="groups_study_related_series"}
+					{exp:ce_img:single src="{series_hero}" width="300" attributes='class="study-cover border" alt="{title} Image" title="View the {title} Groups Study"'}
+				{/exp:playa:children}
+
+			{if:else}
+				{exp:ce_img:single src="{groups_study_hero}" width="300" attributes='class="study-cover border" alt="{title} Image" title="View the {title} Groups Study"'}
+			{/if}
+		</a>
+		{exp:playa:parents url_title="{segment_4}" var_prefix="session"}
+			{session:if groups_study_entry_pdf}<p><a class="btn pdf border" href="{session:groups_study_entry_pdf}" title="Download a PDF of this individual session.">Download PDF <span>I</span></a></p>{/if}
+			{session:if groups_study_entry_videodownload}<p><a class="btn pdf border" href="{session:groups_study_entry_videodownload}" title="Download a PDF of this individual session.">Download Video <span>9</span></a></p>{/if}
+		{/exp:playa:parents}	
+
+		{groups_study_description}
+	</div>
+
+	<div class="g_8 article">
+		{exp:playa:parents url_title="{segment_4}" var_prefix="session"}
+			<div class="study_description">
+				{!-- 
+				NEXT/PREV DISABLED FOR STEP UP
+				{embed="{segment_1}/_study-next" coparent_ids="{session:exp:playa:coparent_ids}"} --}
+				<h2>{session:title}</h2>
+				{session:groups_study_entry_description}
+			</div>
+
+			<div class="study_content">
+				{session:if groups_study_entry_video}
+					<div id="video">
+						<script src="http://player.ooyala.com//player.js?width=620&callback=playerAPICallback&embedCode={session:groups_study_entry_video}&height=348&playerId=ooplayer&wmode=transparent"> </script>
+					</div>
+				{/if}
+
+				{session:groups_study_entry_content}
+			</div>
+		{/exp:playa:parents}	
+
+	</div>
+</div> <!-- //main_content -->
+</div>
+
+{!--
+<script type="text/javascript">
+	$(document).ready(function($) { 
+		$(window).on('scroll', function(){
+			var _top =  $(window).scrollTop();
+			//console.log(_top);
+			if(_top > 490){
+			  $('#video').addClass('scroll');
+			}else if(_top < 490){
+			  $('#video').removeClass('scroll');
+			}
+		});
+	});
+</script>
+--}
+{/exp:channel:entries}
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

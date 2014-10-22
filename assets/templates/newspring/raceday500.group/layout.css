@@ -1,0 +1,372 @@
+/*
+'########:::::'###:::::'######::'########::::'########:::::'###::::'##:::'##:
+ ##.... ##:::'## ##:::'##... ##: ##.....::::: ##.... ##:::'## ##:::. ##:'##::
+ ##:::: ##::'##:. ##:: ##:::..:: ##:::::::::: ##:::: ##::'##:. ##:::. ####:::
+ ########::'##:::. ##: ##::::::: ######:::::: ##:::: ##:'##:::. ##:::. ##::::
+ ##.. ##::: #########: ##::::::: ##...::::::: ##:::: ##: #########:::: ##::::
+ ##::. ##:: ##.... ##: ##::: ##: ##:::::::::: ##:::: ##: ##.... ##:::: ##::::
+ ##:::. ##: ##:::: ##:. ######:: ########:::: ########:: ##:::: ##:::: ##::::
+..:::::..::..:::::..:::......:::........:::::........:::..:::::..:::::..:::::
+'########:::'#####:::::'#####:::
+ ##.....:::'##.. ##:::'##.. ##::
+ ##:::::::'##:::: ##:'##:::: ##:
+ #######:: ##:::: ##: ##:::: ##:
+...... ##: ##:::: ##: ##:::: ##:                                              
+'##::: ##:. ##:: ##::. ##:: ##::
+. ######:::. #####::::. #####:::
+:......:::::.....::::::.....::::
+'########:'########::'######::'########:'####:'##::::'##::::'###::::'##:::::::
+ ##.....:: ##.....::'##... ##:... ##..::. ##:: ##:::: ##:::'## ##::: ##:::::::
+ ##::::::: ##::::::: ##:::..::::: ##::::: ##:: ##:::: ##::'##:. ##:: ##:::::::
+ ######::: ######:::. ######::::: ##::::: ##:: ##:::: ##:'##:::. ##: ##:::::::
+ ##...:::: ##...:::::..... ##:::: ##::::: ##::. ##:: ##:: #########: ##:::::::
+ ##::::::: ##:::::::'##::: ##:::: ##::::: ##:::. ## ##::: ##.... ##: ##:::::::
+ ##::::::: ########:. ######::::: ##::::'####:::. ###:::: ##:::: ##: ########:
+..::::::::........:::......::::::..:::::....:::::...:::::..:::::..::........::
+*/
+
+
+* { margin: 0 auto; }
+
+body {
+	background: #000;
+	border-top: .45em solid #F68840;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	}
+
+#fsko {	background: #000; }
+
+/* RESPONSIVE MEDIA */
+
+img {
+	display: block;
+  	border: 0;
+	margin: 0 auto;
+	max-width: 100%;
+	}
+
+.logo {
+  height: 49em;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	padding: 4em 0 6em;
+	}
+
+.play_button {
+	display: block;
+	text-indent: -9999px;
+	background: url('//ns.images.s3.amazonaws.com/newspring/fsko/play-button.png') no-repeat;
+	height: 64px;
+	width: 64px;
+	margin: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -32px;
+	margin-top: -32px;
+	opacity: .75;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	transition: all .2s linear;
+	}
+
+.ooyala-embed:hover .play_button {opacity: 1;}
+
+.video {
+    background: #000;
+	/*position: relative;*/
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+    margin-bottom: 3em;
+	overflow: hidden;
+	-webkit-box-shadow: 0 8px 8px -8px #000;
+	   -moz-box-shadow: 0 8px 8px -8px #000;
+	        box-shadow: 0 8px 8px -8px #000;
+	}
+
+.video iframe,
+.video object,
+.video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	}
+
+
+/* TYPOGRAPHY */
+
+a { text-decoration: none; }
+
+h1 {
+	color: #F68840;
+	font-family: Helvetica, sans-serif;
+	}
+
+h2 {
+	border-bottom: .07em solid #FFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #F68840;
+	padding-bottom: .2em;
+	text-shadow: 0 0 2em #000;
+	text-transform: uppercase;
+	}
+
+h3 {
+	color: #FFF;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	margin: 1em auto;
+	text-align: center;
+	}
+
+h4 {
+	color: #FFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 600;
+	margin: 1em auto;
+	text-align: center;
+	}
+
+h5 {
+	color: #FFF;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	margin: 2em auto;
+	line-height: 2em;
+	text-align: center;
+	}
+
+strong { color: #FFF; }
+
+/* OPEN */
+
+#open { background: #000; }
+
+#open h2 {
+	text-shadow: none;
+	}
+
+#open h3 { color: #e7620b; }
+
+#open p { color: #BBB; }
+
+#open strong { color: #BBB; }
+
+#intro {
+	margin: 0 auto;
+	padding: 2em 0 4em;
+	}
+
+
+/* FLYER */
+
+#flyer {
+	float: left;
+	padding: 0 20px 40px 0;
+	width: 110px;
+	}
+
+#flyer:hover { opacity: .7; }
+
+#download a { color: #F68840; font-weight: bold; }
+#download a:hover { color: #FFF; }
+
+
+/* BACKGROUNDS */
+
+#and, #chs, #col,
+#flo, #gvl, #spa {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	padding: 7em 0;
+	-moz-box-shadow: inset 1px 1px 60px -6px #000;
+	-webkit-box-shadow: inset 1px 1px 60px -6px #000;
+	box-shadow: inset 1px 1px 60px -6px #000;
+	}
+
+#and { background-image: url('//images.newspring.cc/site/fuse/fsko/and.jpg'); }
+#chs { background-image: url('//images.newspring.cc/site/fuse/fsko/chs.jpg'); }
+#col { background-image: url('//images.newspring.cc/site/fuse/fsko/col.jpg'); }
+#flo { background-image: url('//images.newspring.cc/site/fuse/fsko/flo.jpg'); }
+#gvl { background-image: url('//images.newspring.cc/site/fuse/fsko/gvl.jpg'); }
+#spa { background-image: url('//images.newspring.cc/site/fuse/fsko/spa.jpg'); }
+
+
+/* CAMPUSES */
+
+.hidden { display: none; }
+
+#fsko span { display: block; }
+
+.campus em {
+	font-style: normal;
+	text-transform: uppercase;
+	}
+
+.campus a {
+	color: #FFF;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 4em;
+	font-weight: 800;
+	margin: 0;
+	letter-spacing: .05em;
+	line-height: 2em;
+	padding: 0;
+	text-align: center;
+	}
+
+.ombreuno 		{ background: #f47420; }
+.ombredos 		{ background: #e7620b; }
+.ombretres 		{ background: #c75409; }
+.ombrequatro 	{ background: #a64708; }
+.ombrecinco 	{ background: #863906; }
+.ombreseis 		{ background: #652b05; }
+
+
+/* FOOTER */
+
+#footer { padding: 2em 0 4em; }
+
+#footer a,
+#footer a:visited {
+	border-bottom: .15em solid #F68840;
+	color: #FFF;
+	padding-bottom: .2em;
+	text-decoration: none;
+	}
+
+#footer a:hover {
+	border-bottom: .15em solid #222;
+	color: #F68840;
+	padding-bottom: .2em;
+	text-decoration: none;
+	}
+
+
+/* BUTTONS */
+
+.button,
+button,
+.button:visited,
+button:visited,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	background: #e7620b;
+	border: .1em solid #c75409;
+	border-top: .1em solid #f47420;
+	border-left: .1em solid #f47420;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	border-radius: .3em;
+	color: #FFF;
+	display: inline-block;
+	font-size: 1em;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 .1em rgba(195, 75, 0, .75);
+	cursor: pointer;
+	margin: .75em 0 .85em;
+	line-height: normal;
+	padding: .4em .8em;
+	}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+	background: #FFF;
+	border: .1em solid #444;
+	color: #e7620b;
+	text-shadow: none;
+	}
+
+.share {
+  width: 100%;
+  margin-bottom: 0px;
+}
+.share li {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+}
+
+.share li#twitter-share {
+  position: relative;
+  /*bottom: 30px;*/
+}
+#twitter-share iframe {
+	width: 58px !important;
+}
+.tagboard {
+	clear: both;
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/* HACKS */
+
+.clear{clear:both}
+.ir{text-indent:-20000em;overflow:hidden}
+.clearfix:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
+.clearfix{display:inline-block}
+* html.clearfix{height:1%}
+.clearfix{display:block}
+
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+
+	.campus a {
+		font-size: 4em;
+		}
+
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+
+	.unseen {
+		top: 0 !important;
+		margin-left: -50% !important;
+		left: 50% !important;
+		height: 50% !important;
+		width: 95% !important;
+	}
+	#ooyalaplayer {
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.campus a {
+		font-size: 1.75em;
+		line-height: 3em;
+		}
+
+	h5 { font-size: 1em; }
+
+	}

@@ -1,0 +1,108 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Live" 
+		body_id="live" 
+		script="NewSpring.LiveLog" 
+		fb_url="{path=live}" 
+		fb_title="Live" 
+		fb_describe="Watch what's happening at NewSpring's campus in Anderson, SC. NewSpring Live is available every Sunday at 9:15am, 11:15am, and 6pm." 
+	}
+{/exp:ce_cache:escape}
+
+<!--[if lte IE 7]>
+<style type="text/css" media="screen">
+  #p_live form#livelog {
+    margin-left: -670px;
+    position: fixed !important;
+    position: absolute !important;
+  }
+  
+  #p_live form#livelog p.welcome { margin-bottom: 15px; }
+  
+  #p_live #white_bottom a#go { padding: 5px 15px; }
+  
+  #p_live #overlay {
+    position: fixed !important;
+    position: absolute;
+  }
+</style>
+<![endif]-->
+
+<form action="/livelog/" method="post" accept-charset="utf-8" id="livelog" style="display:none;">
+  <p class="welcome"><strong>Welcome to NewSpring</strong></p>
+  
+  <p class="label"><label for="location">Where are you?</label></p>
+  <p><input type="text" name="location" value="" id="location" /></p>
+  
+  <p class="label"><label for="quantity">Total number of people watching?</label></p>
+  <p><input type="text" name="quantity" value="" id="quantity" /></p>
+  
+  <p id="white_bottom"><a href="#skip" id="skip">Skip</a> <a href="#go" id="go">Watch the Service</a></p>
+</form>
+<div id="overlay" style="display:none;"></div>
+
+{exp:channel:entries channel='series' disable='member_data|trackbacks' orderby='series_date' search:current_series="y" search:series_hidden="IS_EMPTY" status='open' limit="1"}
+<div id="main_attraction" class="g_12 clearfix">
+
+	<h1>Welcome to NewSpring Live</h1>
+
+	<div id="video">
+		<script src="http://player.ooyala.com/player.js?width=512&amp;height=288&amp;embedCode=wzYzB5OkQ0yARHnyRQGwVkP-kTz8res_"></script>
+		<noscript>
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="ooyalaPlayer_7h1li_g6cmv0ns" width="512" height="288" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+				<param name="movie" value="http://player.ooyala.com/player.swf?embedCode=wzYzB5OkQ0yARHnyRQGwVkP-kTz8res_&amp;version=2">
+				<param name="bgcolor" value="#000000">
+				<param name="allowScriptAccess" value="always">
+				<param name="allowFullScreen" value="true">
+				<param name="flashvars" value="embedType=noscriptObjectTag&amp;embedCode=wzYzB5OkQ0yARHnyRQGwVkP-kTz8res_">
+				<embed src="http://player.ooyala.com/player.swf?embedCode=wzYzB5OkQ0yARHnyRQGwVkP-kTz8res_&amp;version=2" bgcolor="#000000" width="512" height="288" name="ooyalaPlayer_7h1li_g6cmv0ns" align="middle" play="true" loop="false" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="&amp;embedCode=wzYzB5OkQ0yARHnyRQGwVkP-kTz8res_" pluginspage="http://www.adobe.com/go/getflashplayer"></embed>
+			</object>
+		</noscript>
+	</div>
+	{exp:ce_img:single src="{series_hero}" width="940" attributes='class="current_series" alt="{title} Image"'}
+	<ul class="clearfix">
+ <li>Sundays at {embed="live/_service-times"}{!--9:15am, 11:15am, 4:00pm &amp; 6:00pm--}</li>
+		<li class="last">Having video issues? <script language="JavaScript" type="text/javascript">
+		//<!--
+		function hiveware_enkoder(){var i,j,x,y,x=
+		"x=\"783d22325c225c5c783d5c222f33377476793e23347c3a38637431253563283c337573" +
+		"37665a7967383e296a37312d5d233634333437662a3c6270732d7938337e67662938333331" +
+		"377073673838383e6a3e296a37343e5d5d5d23313437383c6a333735373a34643d7934373a" +
+		"3c6a35342f6d6733373d376738666f6737686637353779753834693c2f37346d3838326a2c" +
+		"343864333637663e37363736666f36372a7c33337a68346534332c33333e79346536756937" +
+		"622f743737363c31373a76633463643564333374753637736a2c66383e2934346a2d373535" +
+		"3a383134342a383837332a33353c7e3463667c3738367a3e5d5d5d373638357a237a2f3c65" +
+		"2c38383e3374763566633333363431747a3e757338766f373a2837296b366633383534382a" +
+		"3c233c31373674646b3e66776235376236366d29792f643735373437696273427571663339" +
+		"2929312a2a3c3633393734793e792f7433312826337663747573342837643729322a3c7a39" +
+		"3339372c3e28283c677937322f367073296a3e3336343337313c6a3d7964747631372f6d66" +
+		"6f68633439383175693c6a2c35313374753e352a7c7a38337339372c3e792f743137363834" +
+		"7663747573296a36372d296a2d332a37373864383c7e6770733638332a34296a3e333c652a" +
+		"3136316a3d792f6d366438313c666f6875697e64337a5d3c6a2c3e352333373c6b2a7c7a2c" +
+		"3e67383e6637792f7476636577623733747573296a6d293835792d332a3c7e2f323764697a" +
+		"3e7a2f743a3662736476637475733342753764296b2a3c5c22293138332a3b793d27272a34" +
+		"663c793b783d756e35373e79676573636170352f743837652878293b7663346274666f7228" +
+		"6975383673293d303b693c3835322a38782e6c656e373c7a36336774683b693e283138282b" +
+		"2b297b6a3c373367703d782e636835357329376172436f64366a3e31376541742869313c66" +
+		"376a292d313b693d3437792f66286a3c3337366d663832296a2b3d396f68333139343b792b" +
+		"756938383c3d537472696a34372c3e6e672e66723937372a386f6d436861317c7a38367243" +
+		"6f64652c3e376479286a297d79223b6a3d6576616c28782e636861724174283029293b783d" +
+		"782e7375627374722831293b793d27273b666f7228693d303b693c782e6c656e6774683b69" +
+		"2b3d3130297b792b3d782e73756273747228692c35293b7d666f7228693d353b693c782e6c" +
+		"656e6774683b692b3d3130297b792b3d782e73756273747228692c35293b7d793d792e7375" +
+		"62737472286a293b\";y='';for(i=0;i<x.length;i+=2){y+=unescape('%'+x.substr(" +
+		"i,2));}y";
+		while(x=eval(x));}hiveware_enkoder();
+		//-->
+		</script>.</li>
+	</ul>
+</div>
+{/exp:channel:entries}
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

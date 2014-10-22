@@ -1,0 +1,135 @@
+{layout="_layouts/master"
+	title="Reading Your Bible"
+	description="The Bible tells us the truth of who God is. If you want to know more about God and His promises, reading the Bible is your next step."
+	image="http:{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.moods.rest.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+{embed="newspring:_embeds/_hero"
+	title="Reading Your Bible"
+	video="{segment_1},txdGY1bzq4u-AqWiaZYuyVz_liocCCRr"
+	summary=""
+	image_url="{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.moods.rest.jpg"
+}
+{exp:scripturizer}
+<section>
+	<div class="shell">
+		<div class="grid text--constrained">
+			<div class="grid__item one-whole hard">
+				<h2 class="centered">Just 10 Minutes a Day</h2>
+				<p>You can spare that, right? Reading the Bible for just <em>10 minutes</em> a day can change <em>the rest</em> of your days. It will bring you hope, encouragement, guidance, and practical advice on the every day issues you&rsquo;re facing. The Bible is relevant to everyone, everywhere, at any time.</p>
+
+				<blockquote>
+					<p>All Scripture is God-breathed...</p>
+					<footer><a href="#">2 Timothy 3:16</a></footer>
+				</blockquote>
+
+				<p>You can&rsquo;t have a close relationship with someone you never talk to. It&rsquo;s impossible. God&rsquo;s word&mdash;the Bible&mdash;is the primary way He speaks to us. And it&rsquo;s the absolute <em>best</em> way to discover how to follow Jesus on a daily basis. If you want to know more about God and His promises, reading the Bible is your next step.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<h2>Where Do I Start?</h2>
+
+					<p>The Bible can seem pretty intimidating if you&rsquo;ve never read it&mdash;lots of &ldquo;thee&rsquo;s&rdquo; and &ldquo;thou&rsquo;s.&rdquo; We want to make it easy for you to get started and build a habit of spending time with God by reading His word every day with these online <a href="/studies">Studies.</a></p>
+					<p>You can also text "ReadMyBible" to 89800 and we'll send you devotionals via text message every Monday, Wednesday and Friday.</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid hard flush">
+			<div class="grid__item one-half handheld-one-whole hard flush">
+				<div class="ratio ratio--square flush">
+					{exp:low_reorder:entries set="studies" limit="1"}
+					<a href="{if collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/studies/{url_title}/{session:url_title}'}{/exp:playa:parents}{/if}" class="ratio__item clickable background--fill flush border--inset centered"
+						style="background-image: url({collection_image}{exp:ce_img:single src='{collection_image_1x1}' width='1000' crop='yes' url_only='yes'}{/collection_image});">
+					</a>
+					{/exp:low_reorder:entries}
+				</div>
+			</div><div class="grid__item one-half handheld-one-whole hard">
+			<div class="grid flush hard">
+				<div class="grid__item one-whole hard flush">
+					<div class="grid flush hard">
+						{exp:low_reorder:entries set="studies" limit="4" offset="1"}<div class="grid__item one-half hard flush">
+							<div class="ratio ratio--square flush">
+								<a href="{if collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/studies/{url_title}/{session:url_title}'}{/exp:playa:parents}{/if}" class="ratio__item clickable background--fill border--inset"
+									style="background-image: url({collection_image}{exp:ce_img:single src='{collection_image_1x1}' width='1000' crop='yes' url_only='yes'}{/collection_image})">
+								</a>
+							</div>
+						</div>{/exp:low_reorder:entries}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{!--
+		<div class="grid hard flush">
+			<div class="grid__item one-whole hard">
+					<div class="grid flush hard">
+						{exp:low_reorder:entries set="studies" limit="5" offset="5"}<div class="grid__item one-fifth {if count != total_results}handheld-one-half flush {if:else}handheld-one-whole {/if}hard">
+							<div class="ratio ratio--square flush">
+								<a href="{if collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/studies/{url_title}/{session:url_title}'}{/exp:playa:parents}{/if}" class="ratio__item clickable background--fill border--inset"
+									style="background-image: url({collection_image}{exp:ce_img:single src='{collection_image_1x1}' width='1000' crop='yes' url_only='yes'}{/collection_image})">
+								</a>
+							</div>
+						</div>{/exp:low_reorder:entries}
+					</div>
+				</div>
+			</div>
+		</div>
+		--}
+
+	</div>
+
+	{!--
+	<div class="shell">
+		<div class="grid hard flush">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<p>You can also text "ReadMyBible" to 89800 and we'll send you devotionals via text message every Monday, Wednesday and Friday.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	--}
+
+</section>
+{/exp:scripturizer}
+
+{embed="newspring:_embeds/_discover"
+	type="promoted"
+	channel="sermons"
+	suggestions="<span class='tag' data-modal-open='search-modal' data-google-search-link='search-modal'>Salvation</span>"
+}
+{/exp:ce_cache:it}

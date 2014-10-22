@@ -1,0 +1,134 @@
+{layout="_layouts/master"
+	title="Groups"
+	description="NewSpring Groups are people taking next steps together. Join a Group and you'll learn why we belive you can&rsquo;t do life alone.&rdquo;"
+	image="http:{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.friendship.groupselfie.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+{embed="newspring:_embeds/_hero"
+	title="Groups"
+	summary="NewSpring Groups are people taking next steps together. Join a Group and you'll learn why we believe you can&rsquo;t do life alone."
+	image_url="{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.friendship.groupselfie.jpg"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid text--constrained">
+			<div class="grid__item one-whole hard centered">
+				<h2>What Should I Expect?</h2>
+				<p>The goal of joining a group is to grow in your walk with Jesus around people that can support you in taking your next steps. We believe life is better when you live in community. There are Group options available for Married, Coed, Men’s and Women’s. We want to help you find the best fit.</p>
+				<div class="centered">
+					<a href="https://newspring.infellowship.com/GroupSearch" target="_blank" class="btn flush">Sign Up for a Group</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell overlay overlay--gradient-left overlay--light background--fill" style="background: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/_fpo/fpo.groupleaders.jpg' width='1700' crop='yes' url_only='yes'}) center;">
+		<div class="grid overlay__item left handheld-centered">
+			<div class="grid__item one-half handheld-one-whole">
+				<h2>Lead a Group</h2>
+				<p>Do you want to help NewSpring reach 100,000? Do you want to see people grow in their faith as you take next steps together?</p>
+				<a href="/groups/leaders" class="btn">Start Leading</a>
+			</div><div class="grid__item one-half handheld-one-whole">
+			</div>
+		</div>
+	</div>
+</section>
+
+{exp:channel:entries channel="stories" limit="1" entry_id="132347" status="featured|open"}
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole">
+				<div class="grid floating">
+					<div class="grid__item floating__item one-half portable-one-whole handheld-one-whole flush">
+						<div class="ratio--landscape background--fill" style="background-image: url({entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1700' crop='yes' url_only='yes'}{/entry_image});"></div>
+					</div><div class="grid__item floating__item one-half portable-one-whole handheld-one-whole left handheld-centered">
+						<h3>{entry_subtitle}</h3>
+						<p>{entry_description}
+						</p>
+						<a href="/stories/{url_title}" class="link--arrow">{if entry_video}Watch{if:else}Read{/if} Story</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:channel:entries}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<h2>Frequently Asked Questions</h2>
+			</div><div class="grid__item one-half handheld-one-whole">
+				<h3>Is childcare provided?</h3>
+				<p>Not all Groups offer childcare, but there are options available. Make sure to let us know if you would like to join a group with childcare. Some groups will have participants share responsibility in watching the children, split the cost for a sitter, or make other arrangements.</p>
+			</div><div class="grid__item one-half handheld-one-whole">
+				<h3>How often do Groups meet?</h3>
+				<p>Groups meet on different days and times throughout the week. Some choose to meet every week, bi-weekly, or once a month.</p>
+				<p>Our <a href="https://newspring.infellowship.com/GroupSearch">Group search site</a> has details on the day, time, and how often each Group meets.</p>
+			</div><div class="grid__item one-half handheld-one-whole">
+				<h3>Where do Groups meet?</h3>
+				<p>Groups meet in homes, restaurants, and coffee shops all across the state. We will help you find a Group near you based on the zip code or campus entered when you sign up.</p>
+			</div><div class="grid__item one-half handheld-one-whole">
+				<h3>What will my Group study?</h3>
+				<p>You can find the study options we offer <a href="/groups/studies">here.</a> Some Groups may decide to use their own study.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell overlay overlay--gradient-right overlay--light background--fill" style="background: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/articles/laughingfriends.jpg' width='1700' crop='yes' url_only='yes'}) center;">
+		<div class="grid overlay__item right handheld-centered">
+			<div class="grid__item one-half handheld-one-whole">
+			</div><div class="grid__item one-half handheld-one-whole">
+				<h2>Group Studies</h2>
+				<p>There is a library of resources that will help you understand what the Bible says and how to apply it to your life. Each study includes group topics, discussion guides, and practical next steps.</p>
+				<a href="/groups/studies" class="btn">View Group Studies</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Questions?</h2>
+				<p>If you have questions email <a href="mailto:groups@newspring.cc">groups@newspring.cc</a> so we help you with whatever you need.</p>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

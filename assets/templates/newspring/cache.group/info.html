@@ -1,0 +1,30 @@
+{!-- 
+	Cache Info
+	Displays meta data about the requested url
+
+	Instructions:
+	To view info about a specific page, use this format: http://newspring.cc/cache/info/page/segment/here
+--}
+{preload_replace:full_url="{segment_3}/{if segment_4}{segment_4}/{/if}{if segment_5}{segment_5}/{/if}{if segment_6}{segment_6}/{/if}{if segment_7}{segment_7}/{/if}{if segment_8}{segment_8}{/if}"}
+
+{if logged_in && group_id == "1" OR group_id == "36"}
+	<h2>Cache Metadata ({server_name})</h2>
+	<p>URL: <strong>{full_url}</strong></p>
+	{exp:ce_cache:get_metadata
+		url_override="{full_url}"
+	}
+		<p>Driver: <strong>{driver}</strong></p>
+        <p>Expires: {expiry format="%D, %F %d, %Y - %g:%i:%s"}</p>
+        <p>Made: {made format="%D, %F %d, %Y - %g:%i:%s"}</p>
+        <p>Initial Time To Live: {ttl} seconds</p>
+        <p>Remaining Time To Live: {ttl_remaining} seconds</p>
+        <p>File size: {size}</p>
+        <p>Raw file size: {size_raw} bytes</p> 
+        {if no_results}I got 99 problems, but a cache ain't one{/if}
+	{/exp:ce_cache:get_metadata}
+
+	<p><a href="{path={full_url}}">&laquo; Back to page</a></p>
+
+{if:else}
+	{redirect="/"}
+{/if}

@@ -1,0 +1,1 @@
+{exp:query sql="SELECT title FROM exp_channel_titles WHERE entry_id = (SELECT rel_child_id FROM exp_relationships WHERE rel_id = '{embed:id}');"}{title}{/exp:query}

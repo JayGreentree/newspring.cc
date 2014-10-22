@@ -1,0 +1,56 @@
+<section class="section--grey" id="{segment_1}">
+	<div class="shell soft--ends">
+		<div class="grid">
+			{exp:scripturizer}
+			{exp:channel:entries site="newspring" channel="{embed:entries_channel}" url_title="{segment_3}" dynamic="off" show_future_entries="yes"}<div class="grid__item one-whole push--top centered">
+
+				<div class="text--constrained">
+					<h3 class="dark">Session {embed:count}</h3>
+					<h2>{title}</h2>
+					<p class="text--larger">{entry_scripture}{if total_rows > 0 }<!--
+					-->{if row_count == 1 && total_rows > 1}Passages: <!--
+					-->{if:elseif row_count == 1}Passage: <!--
+					-->{if:else}, {/if}<!--
+					-->{book} {passage}<!--
+				-->{/if}{/entry_scripture}
+					</p>
+				</div>
+			</div><div class="grid__item one-whole">
+				<div class="text--constrained">
+					{if entry_video}
+					<div class="centered">
+						<div class="fa fa-icon fa-icon--play fa-icon--primary fa-icon--filled" data-video="{url_title}, {entry_video}"></div>
+						<br><br>
+					</div>
+					{/if}
+					<div class="editorial-wrapper">
+						{entry_body}
+					</div>
+
+					{exp:playa:coparents site="newspring" field="entry_study" parse="inward" sort="asc" dynamic="off" offset="{exp:math formula='{embed:count} - 1' absolute='yes'}" limit="1" var_prefix="session"}
+						<div class="centered push--top">
+							<a href="{path='studies/{segment_2}/{session:url_title}#{segment_1}'}" class="link--arrow">Next Session</a>
+						</div>
+						{if no_coparents}
+							<div class="centered push--top">
+								<a href="/studies" class="link--arrow">View All Studies</a>
+							</div>
+						{/if}
+					{/exp:playa:coparents}
+
+				</div>
+			</div><div class="grid__item one-whole centered">
+				{!-- Share Links --}
+				<h3>Share</h3>
+				{embed="newspring:_embeds/_share-buttons"
+					alignment=""
+					flush="y"
+					title="{title}"
+					hashtag="{exp:playa:children entry_id='{embed:entry_id}' field='collection_series' var_prefix='series'}{series:collection_hashtag}{/exp:playa:children}"
+					share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+				}
+			</div>{/exp:channel:entries}
+			{/exp:scripturizer}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,100 @@
+{exp:ce_cache:it tags="jobs"}
+
+{preload_replace:page_channel="{segment_2}"}
+{preload_replace:sibling_channel="campuses"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='jobs' 
+		body_class="subnav" 
+		title='Jobs' 
+		page_class="page-border" 
+		group_style="{segment_1}"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+{if segment_3 == ""}
+	<div id="hero" class="g_12">We're on a mission to reach 100,000 people in South Carolina with the Gospel of Jesus...'</div><!-- end #hero -->
+{/if}
+
+<div id="main_content">
+	{if segment_3 == ""}
+		<div class="g_11" id="job-filter">
+			<p>Filter by: 
+				<a href="{path=jobs/department}" {if segment_2 == "department"}class="current"{/if}>Department</a> | 
+				<a href="{path=jobs/campuses}" {if segment_2 == "campuses"}class="current"{/if}>Campus</a><p>
+		</div>
+		<div class="g_1">
+			<a href="{path=feeds/jobs}" class="button">RSS <b class="caret caret-right"></b></a>
+		</div>
+	
+		<ul id="job-categories" class="clearfix">
+		{exp:channel:entries channel='{page_channel}' disable='categories|member_data|pagination|trackbacks' status='open|Coming Soon' sort="asc"}
+				{if {exp:playa:total_parents channel='jobs' category="not 184"}}
+				    <li class="g_3"><a href="{url_title_path=jobs/{segment_2}}" title="View available jobs in the {title} department">{title}</a></li>
+				{/if}
+			
+				{if count != total_results}
+				{!--switch="|||</ul><hr class='job-groups'><ul id='job-categories' class='clearfix'>"--}
+				{/if}
+		{/exp:channel:entries}
+		</ul>
+		
+	{if:else}
+
+		{exp:channel:entries channel='{page_channel}' disable='categories|member_data|pagination|trackbacks' status='open|Coming Soon' orderby="title" sort="asc" url_title="{segment_3}"}
+			<div class="top-row clearfix">
+				<div class="g_9"><h2>{title}</h2></div>
+				<div class="g_3">
+					{embed="jobs/_dropdown" page_channel="{page_channel}"}
+				</div>
+			</div>
+			<div class="g_12">
+				<p class="jobs-total">({exp:playa:total_parents channel="jobs" category="not 184"}) Open Position{if {exp:playa:total_parents channel="jobs"} > 1}s{/if}</p>
+			</div>
+			
+			{exp:playa:siblings channel="{sibling_channel}" orderby="title" sort="asc" status='open|Coming Soon|Hidden' var_prefix="campuses"}{!-- go through campus or department list --}
+			
+					{campuses:exp:playa:parents channel="jobs" category="not 184" var_prefix="jobs" search:job_{segment_2}="{entry_id}" orderby="title" sort="asc" }{!-- find and sort jobs by campus in the active department --}
+						{jobs:if count == "1"}
+							<div class="g_3 job-section">
+								<h3>{campuses:title}</h3>
+								<ul class="job-list">
+						{/if}
+								<li><a href="{jobs:url_title_path=jobs}" title="View the {jobs:title} job">{jobs:title} </a></li>
+						{jobs:if count == "{jobs:total_results}"}
+								</ul>
+							</div>
+						{/if}
+					{/exp:playa:parents}
+			{/exp:playa:siblings}
+
+			{if no_results}
+				{redirect="/jobs/{segment_2}/"}
+			{/if}
+
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	{/if}
+</div>
+
+{embed='jobs/_ads'}
+
+{if segment_3 != ""}
+	<div class="g_12 hr alt"><hr></div>
+  	
+  {exp:channel:entries channel='department' dynamic="off" url_title="{segment_3}" disable='categories|member_data|pagination|trackbacks' limit="1"}
+  {embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li><a href="{path={segment_1}/{segment_2}}" title="View the {page_channel} page">Department</a></li><li class="last"><a href="{path={segment_1}/{segment_2}/{segment_3}}" title="View this department page">{title}</a></li>'}
+  {/exp:channel:entries}    
+{/if}
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

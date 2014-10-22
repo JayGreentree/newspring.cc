@@ -1,0 +1,108 @@
+{exp:rss:feed channel='{embed:channel}'}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+{if embed:title == "Sermon Audio"}
+<atom:link rel="self" href="{site_url}/feeds/audio/newspring" />
+{/if}
+{if embed:title == "Sermon Video"}
+<atom:link rel="self" href="{site_url}/feeds/video/newspring" />
+{/if}
+{if embed:title == "Fuse Audio" }
+<atom:link rel="self" href="{site_url}/feeds/audio/fuse" />
+{/if}
+{if embed:title == "Fuse Video" }
+<atom:link rel="self" href="{site_url}/feeds/video/fuse" />
+{/if}
+
+<channel>
+	<ttl>60</ttl>
+	<title>{site_name} {embed:title}</title>
+	<link>{site_url}</link>
+	<language>en-US</language>
+	<copyright>Free to distribute. Do not sell.</copyright>
+
+	<itunes:explicit>no</itunes:explicit>
+
+{if embed:channel == "sermons"}
+  <description>NewSpring is a church where change takes place. This podcast includes messages from Senior Pastor Perry Noble and others, holding nothing back on subjects that are real and relevant in our culture today. Visit NewSpring online at www.NewSpring.cc for additional content like this.</description>
+  <itunes:image href="http://ns.images.s3.amazonaws.com/newspring/icons/newspring.podcast.png"></itunes:image>
+  <itunes:author>Senior Pastor Perry Noble</itunes:author>
+  <itunes:summary>NewSpring is a church where change takes place. This podcast includes messages from Senior Pastor Perry Noble and others, holding nothing back on subjects that are real and relevant in our culture today. Visit NewSpring online at www.NewSpring.cc for additional content like this.</itunes:summary>
+  <itunes:keywords>newspring,new,spring,community,church,perry,noble,god,jesus,anderson</itunes:keywords>
+  <itunes:owner>
+  <itunes:name>{site_name}</itunes:name>
+  <itunes:email>hello@newspring.cc</itunes:email>
+  </itunes:owner>
+{/if}
+
+{if embed:channel == "sermons_fuse"}
+  <itunes:image href="http://ns.images.s3.amazonaws.com/fuse/icons/fuse.podcast.jpg" />
+  <itunes:author>Brad Cooper</itunes:author>
+  <description>Connecting students with God, other students and
+  leaders</description>
+  <itunes:subtitle>Connecting students with God, other students and leaders</itunes:subtitle>
+  <itunes:summary>Fuse is the weekly gathering of the NewSpring Student Ministry. We&#39;re dedicated to providing a place for students (6th&#8211;12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ. We want to engage and reach youth culture, so no matter what campus you&#39;re near, NewSpring has an environment each week for students to meet Christ and grow closer to Him. </itunes:summary>
+  <itunes:keywords>fuse, newspring church, sin, bcoop, brad cooper, perry noble, youth, relevant, god, jesus, anderson</itunes:keywords>
+  <itunes:owner>
+  <itunes:name>NewSpring Student Ministry</itunes:name>
+  <itunes:email>fuse@newspring.cc</itunes:email>
+  </itunes:owner>
+{/if}
+
+	<itunes:category text="Religion &amp; Spirituality">
+	<itunes:category text="Christianity" />
+	</itunes:category>
+
+
+	{exp:channel:entries channel='{embed:channel}' status='open'
+  orderby='entry_actualdate' disable='member_data|pagination|trackbacks'
+  limit="100" dynamic="off"}
+	{if entry_audio OR entry_video_medium}
+	<item>
+		<title>{exp:xml_encode protect_entities='yes'}{exp:playa:children field_id="{embed:series_fieldid}" var_prefix="ser"}{ser:title}{/exp:playa:children}: {title}{/exp:xml_encode}</title>
+		<itunes:author>{exp:xml_encode}{speaker}{/exp:xml_encode}</itunes:author>
+		<itunes:subtitle>{exp:phpstringfun function="html_entity_decode"
+    par1=ENT_QUOTES par2="UTF-8"}{exp:xml_encode protect_entities='yes'}{exp:char_limit
+    total='200'}{entry_description}{/exp:char_limit}{/exp:xml_encode}{/exp:phpstringfun}</itunes:subtitle>
+
+    <itunes:summary>{exp:phpstringfun function="html_entity_decode"
+    par1=ENT_QUOTES par2="UTF-8"}{exp:xml_encode protect_entities='yes'}{exp:char_limit
+    total='250'}{entry_description}{/exp:char_limit}{/exp:xml_encode}{/exp:phpstringfun}</itunes:summary>
+		{if embed:title == "Sermon Audio" AND entry_audio}
+  		<itunes:image href="http://ns.images.s3.amazonaws.com/newspring/icons/newspring.podcast.png"></itunes:image>
+			{entry_audio}
+			<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/{extension}" />
+			<guid>{url}#When:{entry_actualdate format='%H:%i:00Z'}</guid>
+			{/entry_audio}
+		{/if}
+		{if embed:title == "Sermon Video" AND entry_video_medium}
+  		<itunes:image href="http://ns.images.s3.amazonaws.com/newspring/icons/newspring.podcast.png"></itunes:image>
+			{entry_video_medium}
+			<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/{extension}" />
+			<guid>{url}#When:{entry_actualdate format='%H:%i:00Z'}</guid>
+			{/entry_video_medium}
+		{/if}
+    {if embed:title == "Fuse Audio" AND entry_audio}
+      <itunes:image href="http://ns.images.s3.amazonaws.com/fuse/icons/fuse.podcast.jpg" />
+			{entry_audio}
+			<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/{extension}" />
+			<guid>{url}#When:{entry_actualdate format='%H:%i:00Z'}</guid>
+			{/entry_audio}
+		{/if}
+		{if embed:title == "Fuse Video" AND entry_video_medium}
+      <itunes:image href="http://ns.images.s3.amazonaws.com/fuse/icons/fuse.podcast.jpg" />
+			{entry_video_medium}
+			<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/{extension}" />
+			<guid>{url}#When:{entry_actualdate format='%H:%i:00Z'}</guid>
+			{/entry_video_medium}
+		{/if}
+		<pubDate>{entry_actualdate format='%r'}</pubDate>
+		<itunes:keywords>{exp:xml_encode}{exp:tag:tags backspace='1'}{tag},{/exp:tag:tags}{/exp:xml_encode}</itunes:keywords>
+	</item>
+	{/if}
+	{/exp:channel:entries}
+
+</channel>
+</rss>
+{/exp:rss:feed}

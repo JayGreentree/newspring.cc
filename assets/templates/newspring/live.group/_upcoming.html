@@ -1,0 +1,58 @@
+{!-- IF IN BETWEEN SERIES, SHOW NEXT UPCOMING SERIES 
+	{current_time format='%Y-%m-%d %H:%i'}
+	I don't think start_on will work because it uses the entry date, which is different than the series start date.
+	Perhaps we can search the series start date?
+	
+	RE: ^
+
+	This will work if we consistently set the entry date to be the same as the start date.
+	--}
+{exp:channel:entries channel="series_newspring" status="Open|Hidden" show_future_entries="yes" start_on="{current_time}" sort="desc" limit="1"}
+
+	{embed="newspring:_embeds/_hero" 
+		title="" 
+		image_url="{collection_image}{collection_image_2x1}{/collection_image}"
+	}
+
+	<section>
+		<div class="shell">
+			<div class="grid">
+				<div class="grid__item one-whole centered flush">
+					<div class="text--constrained">
+						<h2>{title}</h2>
+						<h3 class="capitalize">A New Series Starting {collection_startdate:relative units="days|hours"}</h3>
+						<p>{collection_description}</p>
+					</div>
+					{embed="newspring:_embeds/_share-buttons"
+						alignment=""
+						title="Watch '{title}' at"
+						hashtag="{collection_hashtag}"
+						share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section--dark">
+		<div class="shell">
+			<div class="grid">
+				<div class="grid__item one-half handheld-one-whole centered">
+					<div class="text--padded-sides">
+						<h3>Find a Location</h3>
+						<p>Join us at one of our <a href="/locations">{embed="_embeds/_campus-count"} locations</a> across the state of South Carolina.</p>
+					</div>
+				</div><div class="grid__item one-half handheld-one-whole centered">
+					<div class="text--padded-sides">
+						<h3>Watch Online</h3>
+						<p>{embed="locations/_service-times" entry_id="28341" type="newspring"}.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{embed="newspring:_embeds/_discover"
+		type="promoted"
+	}
+
+{/exp:channel:entries}

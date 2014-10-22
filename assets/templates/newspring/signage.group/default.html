@@ -1,0 +1,88 @@
+{exp:ce_cache:it}
+
+{!--Had to add category variable before something is screwy with the URI routing for the word 'kidspring'.  Dynamically using segment_2 doesn't work, but if I but kidspring directly in the search field it will work.  However even if 'kidspring' is directly plugged into the search field, clicking on other links work to bring up kidspring results but clicking on kidspring still doesn't bring up anything.  I think this has something todo with PATH but I don't have time to solve right now.  Adding it to long term fix list. --}
+
+{if segment_2 == ''}	
+	{preload_replace:category="outdoor"}
+	{preload_replace:outdoor="current"}
+  	
+{/if}
+{if segment_2 == 'outdoor'}
+  	{preload_replace:outdoor="current"}
+	{preload_replace:category="outdoor"}
+{/if}
+
+{if segment_2 == 'indoor'}
+	{preload_replace:indoor="current"}
+	{preload_replace:category="indoor"}
+{/if}
+
+{if segment_2 == 'ks'}
+	{preload_replace:kidspring="current"}
+	{preload_replace:category="kidspring"}
+{/if}
+
+{if segment_2 == 'fuse'}
+	{preload_replace:fuse="current"}
+	{preload_replace:category="fuse"}
+{/if}
+	
+ <div id="hero" class="g_12"></div>
+		
+		<div id="sub_content" class="g_3">
+			<h3>Categories</h3>
+			<ul>
+				<li><a href="/signage/outdoor" class="{outdoor}" title=""><span>NewSpring Brand Outdoor</span></a></li>
+				<li><a href="/signage/indoor" class="{indoor}" title=""><span>NewSpring Brand Indoor</span></a></li>
+				<li><a href="/signage/fuse" class="{fuse}" title=""><span>Fuse</span></a></li>
+				<li><a href="/signage/ks" class="{kidspring}" title=""><span>KidSpring</span></a></li>
+			</ul>
+		</div>	
+
+    <div id="main_content" class="g_7 p_1 s_1">
+<ul class="signs">
+  {exp:channel:entries channel='signage' orderby="title" search:signage_category='{category}' dynamic='off'}
+    {if no_results}
+      <li>
+        <p>Nothing to Display</p>
+      </li>
+    {/if}
+				<li>
+					<div class="preview"><a href="{sign_image}">{if signage_thumbs}{exp:ce_img:single src="{signage_thumbs}" height="150" width="150"}{if:else}<img src="//images.newspring.cc/uploads/signage/thumbs/nophoto.png" alt="sign_image" />{/if}</a></div>
+					<div class="info">
+						<ul>
+							<li><span class="name">{title}</span></li>
+							{if sign_dimensions}<li>Dimensions:&nbsp;&nbsp;{sign_dimensions}{if row_count == total_rows}{if total_rows > 1} or {/if}{if:elseif row_count > 1}, {/if}<span class="dimensions">{width}in</span> x <span>{height}in</span>{/sign_dimensions}</li>{/if}
+							{if sign_and_frame_cost}
+								{sign_and_frame_cost}
+							<li>Frame: {frame}</li>	
+								{/sign_and_frame_cost}
+							{/if}
+							<li>Materials: {sign_materials}</li>
+							{if sign_and_frame_cost}
+								{sign_and_frame_cost}
+							<li>Frame Estimate:<span class="cost"> {estimate}</span></li>
+								{/sign_and_frame_cost}
+							{/if}	
+							{if sign_cost}
+								{sign_cost}
+							<li>Sign Estimate:<span class="cost"> {estimate}</span></li>
+								{/sign_cost}
+							{/if}
+							{if unit_cost}
+								{unit_cost}
+							<li>Unit Estimate:<span class="cost"> {estimate}</span></li>
+								{/unit_cost}
+							{/if}
+						
+						
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</li>
+	{/exp:channel:entries}
+		</ul>
+	</div>
+</div><!-- end #page -->
+
+{/exp:ce_cache:it}

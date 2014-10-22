@@ -1,0 +1,99 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Serving Opportunities | Groups' 
+		body_id='groups' 
+		body_class='subnav' 
+		page_class="page-border"
+		group_style="{segment_1}" 
+	}
+{/exp:ce_cache:escape}
+{!-- Don't forget to add the category tag to the title var --}
+
+</div><!-- //page -->
+
+{embed='includes/_subnav' navtitle="mainnav"}
+
+<div class="c_12 clearfix page-border">
+
+	<div class="g_8 article">
+
+		{if segment_3}
+			{exp:md_detect_page_type url_segment="{segment_3}"}
+
+				{if pagination_page}
+					{!--Display nothing --}
+					{!--{exp:stash:set name="is_pagination" type="snippet"}pagination{/exp:stash:set}--}
+				{if:else}
+					<h2 class="category">{exp:low_title:entry url_title="{segment_3}" channel="campuses"}</h2>
+				{/if}
+
+			{/exp:md_detect_page_type}
+		{/if}
+
+		{!--
+		{exp:stash:get name="is_pagination" type="snippet"}
+		{if is_pagination}{if:else}{segment_3}{/if} {is_pagination}
+		--}
+
+		{exp:channel:entries channel="{embed:page_channel}" search:groups_serving_campus="{segment_3}" order="date" sort="desc" limit="30" dynamic="off"}
+
+			<div class="g_8 section g_a g_o {if count == total_results}last{/if}">
+				{exp:playa:children id="groups_serving_campus" var_prefix="campuses"}
+					<a href="{path={segment_1}/{segment_2}/{campuses:url_title}/{url_title}}" class="btn serve" title="View the {title} serving opportunity">Read More</a>
+					{!--<div class="entry_date">{entry_date format="%m.%d.%Y"}</div>--}
+					<h2><a href="{path={segment_1}/{segment_2}/{campuses:url_title}/{url_title}}" title="View this serving opportunity">{title}</a><span class="campus-tag">{campuses:title}</span></h2>
+				{/exp:playa:children}
+
+				{exp:eehive_hacksaw append='&hellip;' chars='250'}
+					{groups_serving_description}
+					{groups_serving_details}
+				{/exp:eehive_hacksaw}	
+
+				<div class="clearfix entry-extras">
+					{!--
+					{exp:playa:children id="groups_serving_campus"}<a href="{path={segment_1}/{segment_2}/{campuses:url_title}/{url_title}}" class="btn" title="View the {title} serving opportunity">Read More</a>{/exp:playa:children}
+					--}
+
+					<div class="tags">
+						{categories}
+							<a href="{path={segment_1}/{segment_2}}">{category_name}</a>
+						{/categories}
+					</div>
+				</div>		
+
+			</div>
+
+			{!--
+			{paginate}
+				<div class="g_8 g_a g_o clearfix pagination">
+					<div class="pagination-outer">
+						<div class="pagination-inner clearfix">
+							{pagination_links}
+						</div>
+					</div>
+				</div>
+			{/paginate}
+			--}
+
+			{if no_results}
+				<h2>No Results</h2>
+				<p>There are currently no serving opportunities available at this campus.</p>
+			{/if}
+
+		{/exp:channel:entries}		
+	</div>
+
+	<div class="sidebar-categories g_3">
+		{embed="{segment_1}/_serve-campuses"}
+	</div>
+	
+	{!-- Video Player --}
+	{ooyala_video}	
+  	
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

@@ -1,0 +1,61 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries channel="{embed:page_channel}" order="date" sort="desc" limit="1" dynamic="off" url_title="{segment_4}"}
+
+	{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='{title} | {exp:low_title:entry url_title="{segment_3}" channel="campuses"} | Serving Opportunities | Groups' 
+		body_id='groups' 
+		body_class='subnav' 
+		page_class="page-border"
+		group_style="{segment_1}" 
+	}
+	{/exp:ce_cache:escape}
+
+	</div><!-- //page -->
+
+	{embed='includes/_subnav' navtitle="mainnav"}
+
+	<div class="c_12 clearfix page-border">
+
+		<div class="g_8 article">
+			
+			<div class="g_8 section g_a g_o {if count == total_results}last{/if}">
+				<div class="entry_date">{entry_date format="%m.%d.%Y"}</div>
+
+				<h2>{title}<span class="campus-tag">{exp:playa:children id="groups_serving_campus" var_prefix="campuses"}{campuses:title}{/exp:playa:children}</span></h2>
+				{groups_serving_description}
+
+				<div class="clearfix">
+					<h3>How you can serve</h2>
+					{groups_serving_details}
+				</div>
+
+				
+				<div class="clearfix">
+					<h3>Contact Information</h2>
+					{groups_serving_contact}
+				</div>
+
+			</div>
+			
+		</div>
+
+		<div class="sidebar-categories g_3">
+			{embed="{segment_1}/_serve-campuses"}
+		</div>
+
+		{!-- Video Player --}
+	  {ooyala_video}	
+	
+	{exp:ce_cache:escape}
+	{embed='includes/footer'}
+	{/exp:ce_cache:escape}
+
+	{if no_results}
+		{redirect="{segment_1}/{segment_2}/{segment_3}"}
+	{/if}
+
+{/exp:channel:entries}	
+
+{/exp:ce_cache:it}

@@ -1,0 +1,422 @@
+/* DEFAULT STUFF */
+
+html {
+	background: #FFF url(//images.newspring.cc/site/stewardship/bg.png);
+ 	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+ 	font-size: 13px;
+}
+
+#nav, #page {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-radius: 0;
+}
+
+#p_stewardship .divider {
+	width: 940px;
+	border-top: 1px solid #d8d8d8;
+	margin-left: 10px;
+}
+
+#p_stewardship .need-help {
+	width: 940px;
+	border-top: 1px solid #d8d8d8;
+	margin: 17px 0 0 10px;
+}
+
+#p_stewardship .need-help-02 {
+	width: 940px;
+	border-top: 1px solid #d8d8d8;
+	margin: 0 0 10px 10px;
+}
+
+.ie #p_stewardship .need-help-02 {
+	margin-bottom: 5px;
+}
+
+/* FINANCIAL STEWARDSHIP H1 / CONTACT US BUTTON */
+#p_stewardship #headline {
+	margin-left: 8px;
+}
+
+#p_stewardship h1 {
+	font-size: 42px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 4px 0 -2px 0;
+}
+
+.ie #p_stewardship h1 {
+	font-size: 42px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: -19px 0 -2px 0;
+}
+
+#p_stewardship .contact-button a {
+	width: 110px;
+	height: 30px;
+    -khtml-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #CCC url(//images.newspring.cc/site/buttons/arrows/white.png) 92% 50% no-repeat;
+    color: #FFF;
+    font-size: 14px;
+    display: block;
+    line-height: 35px;
+    padding: 0 0 2px 12px;
+	margin: 18px 0 0 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#p_stewardship .contact-button a:hover { 
+	background-color: #888;
+}
+
+.ie #p_stewardship .contact-button a {
+	height: 20px;
+    line-height: 35px;
+    padding: 0 0 17px 12px;
+	margin: -3px 0 0 20px;
+}
+
+/* Budget form download button */
+#p_stewardship a.button.budget {
+	width: 117px;
+	height: 30px;
+    -khtml-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #ccc url(//images.newspring.cc/site/buttons/arrows/white.png) 92% 50% no-repeat;
+    color: #FFF;
+    font-family: 'StandardCT-ExtraBold';
+    font-size: 14px;
+    display: block;
+    line-height: 35px;
+    padding: 0 0 2px 12px;
+	margin: 8px 20px 0 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    float:left;
+
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+	#p_stewardship a.button.budget:hover {
+	    background-color: #8cc63f;
+	}
+
+/* GET STARTED BUDGETING */
+#p_stewardship #budgeting {
+	margin: 10px 0 15px 9px;
+}
+
+#p_stewardship h2 {
+	font-size: 20px;
+	color: #aaa;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 10px 0 0 0;
+}
+
+#p_stewardship h4 {
+	font-size: 20px;
+	color: #666;
+}
+
+.gecko #p_stewardship h4 {
+	font-size: 18px;
+}
+
+.ie #p_stewardship h4 {
+	font-size: 18px;
+}
+
+#p_stewardship .step-01 {
+	margin-left: 0;
+	padding-top: 7px;
+	background: url(//images.newspring.cc/site/stewardship/green_check.png) 89% 12% no-repeat;
+}
+
+#p_stewardship .step-02 {
+	margin-left: 25px;
+	padding-top: 7px;
+	background: url(//images.newspring.cc/site/stewardship/green_check.png) 72% 12% no-repeat;
+}
+
+#p_stewardship .step-03 {
+	margin-left: -61px;
+	padding-top: 7px;
+	background: url(//images.newspring.cc/site/stewardship/green_check.png) 93% 12% no-repeat;
+}
+
+#p_stewardship .steps-copy {
+	line-height: 17px;
+}
+
+/* STILL NEED HELP? */
+#p_stewardship #need-help {
+	margin: 8px 0 8px 10px;
+}
+
+.ie #p_stewardship #need-help {
+	margin: -7px 0 8px 10px;
+}
+
+#p_stewardship h3 {
+	font-family: "Lucida Fax", serif;
+	color: #666;
+	font-size: 28px;
+	font-style: italic;
+	font-weight: 100;
+	letter-spacing: -1px;
+}
+
+#p_stewardship #more {
+	margin-left: 20px;
+}
+
+.ie #p_stewardship #more {
+	margin-top: -13px;
+}
+
+
+#p_stewardship .more-button {
+	margin-top: 2px;
+}
+
+#p_stewardship .more-button a {
+	width: 260px;
+	height: 30px;
+    -khtml-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #CCC url(//images.newspring.cc/site/buttons/arrows/white.png) 96% 50% no-repeat;
+    color: #FFF;
+    font-size: 14px;
+    display: block;
+    line-height: 35px;
+    padding: 0 0 2px 12px;
+	margin: 12px 0 0 28px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.ie #p_stewardship .more-button a {
+	height: 10px;
+	padding: 0 0 29px 12px;
+	margin: 9px 0 0 28px;
+}
+
+#p_stewardship .more-button a:hover { 
+	background-color: #888;
+}
+
+/* SUCCESS STORIES */
+#p_stewardship #left-side {
+	margin: 10px 0 0 10px;
+}
+
+#p_stewardship #left-side h2 {
+	margin-bottom: 10px;
+}
+
+#p_stewardship .play {
+	background: url(//images.newspring.cc/site/stewardship/play.png) no-repeat;
+	position: absolute;
+	float: right;
+	left: 50px;
+	top: 20px;
+	pointer-events: none;
+	padding: 20px;
+	z-index: 100;
+	opacity: 0.8;
+}
+
+#p_stewardship .story-title {
+	font-family: "Lucida Fax", serif;
+	color: #666;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#p_stewardship .story-content {
+	line-height: 18px;
+}
+
+#p_stewardship #story-divider {
+	width: 380px;
+	border-top: 1px solid #d8d8d8;
+	margin: 0 0 20px 0;
+}
+
+.ie #p_stewardship #story-divider {
+	margin: 14px 0 20px 0;
+}
+
+#p_stewardship .story-01 {
+	margin: 0;
+}
+
+#p_stewardship .story-01 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .story-01 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .story-02 {
+	margin: 20px 0 20px 0;
+}
+
+#p_stewardship .story-02 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .story-02 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .story-03 {
+	margin: 0 0 20px 0;
+}
+
+#p_stewardship .story-03 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .story-03 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+/* RESOURCES */
+#p_stewardship .resources {
+	margin: -19px 0 20px 0;
+}
+
+.ie #p_stewardship .resources {
+	margin: -28px 0 20px 0;
+}
+
+#p_stewardship .resources h2 {
+	margin-bottom: 5px;
+}
+
+#p_stewardship .resources img {
+	margin: 13px 20px 0 0;
+}
+
+.ie #p_stewardship .resources img {
+	margin: -3px 20px 0 0;
+}
+
+/* SERMONS */
+#p_stewardship #right-side {
+	margin: 10px 0 0 -29px;
+}
+
+#p_stewardship #right-side h2 {
+	margin-bottom: 10px;
+}
+
+#p_stewardship .sermon-title {
+	font-family: "Lucida Fax", serif;
+	color: #666;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#p_stewardship .sermon-content {
+	line-height: 18px;
+}
+
+#p_stewardship .sermon-01 {
+	margin: 0;
+}
+
+#p_stewardship .sermon-01 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .sermon-01 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .sermon-02 {
+	margin: 20px 0 20px 0;
+}
+
+#p_stewardship .sermon-02 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .sermon-02 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .sermon-03 {
+	margin: 0 0 20px 0;
+}
+
+#p_stewardship .sermon-03 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .sermon-03 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .sermon-04 {
+	margin: 0 0 20px 0;
+}
+
+#p_stewardship .sermon-04 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .sermon-04 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+#p_stewardship .sermon-05 {
+	margin: 0 0 20px 0;
+}
+
+#p_stewardship .sermon-05 img {
+	margin: 0 20px 0 0;
+}
+
+#p_stewardship .sermon-05 p {
+	font-size: 13px;
+	line-height: 17px;
+	margin-top: 5px;
+}
+
+/* FOOTER */
+#footer {
+	width: 940px;
+	border-top: 1px solid #d8d8d8;
+	padding: 30px 0 40px;
+}

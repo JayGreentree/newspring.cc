@@ -1,0 +1,19 @@
+{exp:http_header content_type="text/xml"}
+
+{exp:channel:entries channel="articles|devotionals|studies|episode|stories" sticky="no" limit="1"  dynamic="off"  }
+<tile>
+	<visual lang="en-US" version="2">
+
+		<binding template="TileSquare150x150Text02" branding="name">
+			<text id="1">{title}</text>
+			<text id="2">{exp:low_replace find="QUOTE|NEWLINE|/\s+/|&nbsp;|&mdash;" replace="\QUOTE|SPACE|SPACE|SPACE|-" multiple="yes" regex="yes"}{exp:eehive_hacksaw words='10' append = '...'  }{editorial_legacy_body}{entry_description}{/exp:eehive_hacksaw}{/exp:low_replace}</text>
+		</binding>
+
+		<binding template="TileWide310x150Text09" branding="name">
+			<text id="1">{title}</text>
+			<text id="2">{exp:low_replace find="QUOTE|NEWLINE|/\s+/|&nbsp;|&mdash;" replace="\QUOTE|SPACE|SPACE|SPACE|-" multiple="yes" regex="yes"}{exp:eehive_hacksaw words='15' append = '...'  }{editorial_legacy_body}{entry_description}{/exp:eehive_hacksaw}{/exp:low_replace}</text>
+		</binding>
+
+	</visual>
+</tile>
+{/exp:channel:entries}

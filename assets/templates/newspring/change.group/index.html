@@ -1,0 +1,74 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+  {embed="includes/header" 
+  title="5 Days To Change" 
+  body_id="change" 
+  body_class="change" 
+  style="fancybox"
+  group_style="{segment_1}"
+  fb_url="{path={segment_1}}" 
+  fb_title="5 Days To Change"
+  fb_image="http://images.newspring.cc/section/home/heroes/newspring.hero.fivedaystochange.png"
+  }
+{/exp:ce_cache:escape}
+
+<script type="text/javascript" src="//use.typekit.net/fyf7cve.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<div class="hr alt"><hr></div>
+
+<div class="g_8">
+	<img class="change" src="http://images.newspring.cc/section/change/change.jpg">
+</div>
+
+<div class="g_4 intro">
+	<p>Ready to change, but not sure where to start? Join Perry over the next five days to discover your next step and have the best year ever.</p>
+	<div class="social_buttons clearfix">
+		{embed="includes/_share_links" 
+				layout="box"
+				fb-url="{path={segment_1}/{segment_2}/{segment_3}}"
+				twitter-text="Ready to change, but not sure where to start? Check this out!" 
+				twitter-url="{path={segment_1}/{segment_2}/{segment_3}}" 
+				twitter-hashtag=""
+				twitter-via="newspring"
+		}
+    </div>
+</div>
+
+<div class="hr alt"><hr></div>
+
+<div class="clearfix"></div>
+
+{exp:channel:entries channel="5_days_to_change" sort="asc"}
+	<div class="video-wrapper clearfix section">
+		<div class="g_4">
+			<div class="video-box">
+				<a href="#" class="play_button_new ooyala-embed border" data-embed="{5days_ooyalaembed}">
+				<span class="icon"></span>
+				<span class="text">Watch Video</span>
+				</a>
+				<h2>DAY {count}</h2>
+			</div>
+		</div>
+		<div class="g_8">
+			<h1>{title}</h1>
+			{5days_description}
+		</div>
+	</div>
+{/exp:channel:entries}
+
+<ul class="giving-links clearfix">
+  <li class="blackened"><a href="{path=blog/resources}" title="Visit the Blog Resources"><em>Read More:</em> Journey<br> To Change</a></li>
+  <li class="blackened"><a href="{path=groups}" title="Sign Up Today!" ><em>You Can't Do Life Alone:</em> Join A<br/> Group</a></li>
+  <li class="blackened"><a href="{path=watch/change}" title="Watch The Change Series"><em>Watch:</em> Watch The<br>Change Series</a></li>
+</ul>
+	
+
+{ooyala_video}
+
+{exp:ce_cache:escape}
+  {embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

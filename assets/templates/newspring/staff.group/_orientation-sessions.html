@@ -1,0 +1,9 @@
+<ul>
+	{exp:channel:entries channel="staff_sessions" order="date" sort="asc" dynamic="off"}
+		<li>
+			<a href="{url_title_path={segment_1}/{segment_2}}"{if segment_3 == url_title} class="current"{/if}>
+				{title} {if segment_3 == url_title}<span class="tippy"></span>{/if}
+			</a>
+		</li>
+	{/exp:channel:entries}
+</ul>

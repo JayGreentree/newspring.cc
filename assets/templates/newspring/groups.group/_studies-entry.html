@@ -1,0 +1,101 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries channel="groups_study" url_title="{segment_3}" dynamic="off" status="Featured|Open"}
+
+	{exp:playa:children channel="series_newspring"}
+	<style>
+		.collection-color, .collection-color:hover, .collection-color h3, .collection-color h3:hover { color: #{collection_bgcolor} !important; border-color: #{collection_bgcolor}; }
+		.btn.collection-color:hover { background: #{collection_bgcolor}; color: white; }
+		a.link--arrow.collection-color:after, a.link--arrow.collection-color:hover:after { color: #{collection_bgcolor}; border-color: #{collection_bgcolor}; }
+		.section--collection .shell { background: #{collection_bgcolor}; }
+		.section--collection .btn:hover { color: #{collection_bgcolor}; }
+	</style>
+	{/exp:playa:children}
+
+	{exp:playa:parents channel="groups_study_entry" status="Open|Hidden" url_title="{segment_4}" dynamic="off" var_prefix="session"}
+
+		{exp:ce_cache:escape}
+			{layout:set name="title"}{session:title}  | {title} | Group Studies | Groups{/layout:set}
+			{layout:set name="description"}{session:entry_description}{/layout:set}
+		{/exp:ce_cache:escape}
+
+		{embed="newspring:_embeds/_hero"
+		    title="&nbsp;"
+		    summary=""
+		    image_url="{collection_image}{collection_image_2x1}{/collection_image}"
+		    video="{session:if entry_video}{session:url_title},{session:entry_video}{/if}"
+		}
+
+		<section>
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item one-whole handheld-centered">
+						<div class="text--constrained">
+							<a href="{path='/{segment_1}/{segment_2}/{segment_3}'}" class="link--arrow reverse dark collection-color">{title} Group Study</a>
+							{!-- Title --}
+							<h2 class="collection-color">{session:title}</h2>
+
+							{!-- Tag List --}
+							{exp:tag:tags
+								entry_id="{session:entry_id}"
+								tag_group_id="5"
+								orderby="clicks"
+								sort="asc"
+							}{if tag_total_results > 0}{if tag_count == 1}<ul class="inline">{/if}
+								<li class="tag"><span data-modal-open="search-modal" data-google-search-link="search-modal">{tag}</span></li>
+							{/if}{if tag_total_results == tag_count}</ul>{/if}{/exp:tag:tags}
+
+							<div class="editorial-wrapper handheld-left" data-share="{title}">{session:entry_body}</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid">
+					<div class="grid__item one-half flush soft-half--bottom handheld-one-whole centered">
+
+						{!-- Share Links --}
+						<h3>Share</h3>
+						{embed="newspring:_embeds/_share-buttons"
+							alignment=""
+							title="{title} Group Study"
+							hashtag="{collection_hashtag}"
+							share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+						}
+					</div><div class="grid__item one-half flush soft-half--bottom handheld-one-whole centered">
+						<h3>Download</h3>
+						{session:entry_downloads}
+						<a href="{file}" target="_blank" class="btn">Download PDF</a>
+						{/session:entry_downloads}
+					</div>
+				</div>
+			</div>
+		</section>
+	{/exp:playa:parents}
+{/exp:channel:entries}
+{/exp:ce_cache:it}

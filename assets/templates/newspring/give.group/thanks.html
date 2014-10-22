@@ -1,0 +1,70 @@
+{layout="_layouts/master"
+	title="Thank You"
+	description="God doesn&rsquo;t want something from you; He wants something for you. More than you could ask for or imagine. And we do, too. We want you to be financially free."
+	image="{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.spiritual.water.2.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+{embed="newspring:_embeds/_non-hero"
+	section="section--dark"
+	title="Thank You"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<div class="text--constrained">
+					<p>We're SO excited to walk alongside of you as you take this next step!
+	You don't have to wait until Sunday, you can get started now by going to <a href="/give">www.newspring.cc/give</a>!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section--grey">
+	<div class="shell">
+			<div class="grid__item one-whole centered">
+				<h2>Related Giving Story</h2>
+			</div>
+			{exp:channel:entries channel="stories" entry_id="124385"}
+			<div class="grid floating floating--left">
+				<div class="grid__item floating__item one-half portable-one-whole handheld-one-whole flush">
+					<div class="ratio--landscape background--fill" style="background-image: url({entry_image}{entry_image_2x1}{/entry_image});"></div>
+				</div><div class="grid__item floating__item one-half portable-one-whole handheld-one-whole">
+					<h3>{title}</h3>
+					<p>{exp:eehive_hacksaw chars = "170" append = "&hellip;"}{entry_body}{/exp:eehive_hacksaw} <a href="{url_title_path=stories}">{if entry_video}Watch{if:else}Read{/if} the story</a>.</p>
+				</div>
+			</div>
+			{/exp:channel:entries}
+	</div>
+</section>
+
+{/exp:ce_cache:it}

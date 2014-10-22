@@ -1,0 +1,89 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_channel="groups"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='blog' 
+		body_class='blog groups ministries subnav' 
+		page_class="page-border" 
+		title='Groups Resources' 
+		use_alt=''
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page -->
+
+{embed='includes/_subnav' navtitle="mainnav"}
+
+<div class="c_12 clearfix page-border">
+	<div class="g_2 side">
+		<p class="link study">Group Study Options</p>
+		<ul>
+			<li><a href="#">PDFs</a></li>
+			<li><a href="#">Videos</a></li>
+			<li><a href="{path="{page_channel}/resources/category/recommended"}">Recommended</a></li>
+		</ul>
+		<hr>
+		<p class="link guides">Sermon Group Guides</p>
+		<ul>
+			{exp:channel:entries channel='{page_channel}' paginate='bottom' limit='3'  disable='member_data|trackbacks' status='open' dynamic="off" category="102"}
+			<li><a href="{url_title_path={page_channel}/resources}">{title}</a></li>
+			{/exp:channel:entries}
+			<li><a href="{path="{page_channel}/resources/category/groups-guides"}">More...</a></li>
+		</ul>
+	</div>
+
+	<div id="entries" class="g_8">
+		{exp:channel:category_heading channel="{page_channel}"}
+			<h1 class="category">{category_name}</h1>
+		{/exp:channel:category_heading}
+		
+		{exp:channel:entries channel='{page_channel}' paginate='bottom' limit='5'  disable='member_data|trackbacks' status='open'}
+		<div class="entry">
+			<h2>
+				<a href="{url_title}" title="Permalink for {title}">{title}</a>
+				<span class="date">{entry_date format='%m.%d.%y'}</span>
+			</h2>
+			
+			<div class="body">
+				{if last_segment == url_title}
+					{exp:eehive_hacksaw allow="<p><strong><ul><ol><li><a><br /><br>"}{editorial_legacy_body}{/exp:eehive_hacksaw}
+				{if:else}
+					{exp:eehive_hacksaw words="100" allow="<p><strong>" append="&hellip; <strong><a href='{url_title_path=groups/resources}'>READ MORE</a></strong>"}
+						{editorial_legacy_body}
+					{/exp:eehive_hacksaw}
+					{if "{categories}{category_name}{/categories}" != ""}
+						<p class="categories"><strong>Tags:</strong> 
+							{categories backspace="2"}<a href="{path='{page_channel}/resources'}">{category_name}</a>, {/categories}</p>
+					{if:else}
+					{/if}
+				{/if}
+			</div>
+			{if count != total_results}<hr>{/if}
+		</div>
+		
+		{paginate}
+		<p class="pagination clearfix g_6 p_2">{pagination_links}</p>
+		{/paginate}
+		
+		{/exp:channel:entries}
+	</div>
+
+<div class="g_2 side">
+	{exp:channel:categories parent_only="yes" show="99|98|152|153" style="linear" backspace="14"}
+	    {if last_segment == category_url_title}
+		{if:else}
+			<p><a href="{path='{page_channel}/resources'}" class="link {category_url_title}">{category_name}</a></p><hr>
+		{/if}
+	{/exp:channel:categories}
+</div>
+
+{embed='includes/breadcrumb' links='<li><a href="/ministries/" title="">Ministries</a></li><li><a href="/{page_channel}/" title="">{if page_channel == "kidspring"}KidSpring{if:else}{exp:phpstringfun function="ucfirst"}{page_channel}{/exp:phpstringfun}{/if}</a></li><li class="last"><a href="" title="/{page_channel_url}/">Blog</a></li>'}
+</div>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

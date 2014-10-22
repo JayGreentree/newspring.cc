@@ -1,0 +1,75 @@
+{embed="newspring:_global/pre_head" group_style="blankenship"}
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/_shared/sliders/jquery.flexslider.js"></script>
+
+<script type="text/javascript" src="//use.typekit.net/ice7qhs.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body>
+<section class="searchBar">
+	<form action="#">
+		<input type="text" placeholder="Search our Web Pages, Series, Sermons, Articles, Stories and more...">
+	</form>
+	<div class="trigger">
+		<span class="icon--search"></span>
+	</div>
+	<script>
+		$('.searchBar .trigger').click(function(){
+			if($(this).hasClass('active')) {
+				$('.searchBar').css('margin-top','-113px');
+			} else {
+				$('.searchBar').css('margin-top','0');
+				$('.searchBar input').focus();
+			}
+			$(this).toggleClass('active');
+		});
+	</script>
+</section>
+<section class="masthead">
+	<a href="/_testing/brian" class="logo">
+		<div class="newspring--icon"></div>
+		<h1 class="flush">NewSpring</h1>
+	</a>
+	{!-- <form action="#" class="input--search">
+		<input type="text" placeholder="Search">
+		<div class="icon icon--search"></div>
+	</form> --}
+	{!-- <a href="#" class="profile">
+		<img src="https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/128.jpg" alt="Profile Picture">Jennifer
+	</a> --}
+	<nav class="nav--dropdown">
+		<ul>
+			<li class="has-kids">
+				<a href="#">About Us</a>
+			</li><li class="has-kids">
+				<a href="#">Locations</a>
+				<ul>
+					<li><a href="#">Find a Campus Near You</a></li>
+					{exp:channel:entries channel="campuses" status="open|Coming Soon" category="not 156" orderby="title" sort="asc"}
+					<li><a href="#">{title}</a></li>
+					{/exp:channel:entries}
+				</ul>
+			</li><li class="has-kids">
+				<a href="#">Next Steps</a>
+				<ul>
+					<li><a href="#">Salvation</a></li>
+					<li><a href="#">Baptism</a></li>
+					<li><a href="#">Ownership</a></li>
+					<li><a href="#">Serving</a></li>
+					<li><a href="#">Care &amp; Prayer</a></li>
+					<li><a href="#">Missions</a></li>
+					<li><a href="#">Groups</a></li>
+					<li><a href="#">Financial Planning</a></li>
+				</ul>
+			</li><li class="has-kids">
+				<a href="#">Watch &amp; Learn</a>
+			</li><li>
+				<a href="#">Give</a>
+			</li>
+		</ul>
+	</nav>
+</section>

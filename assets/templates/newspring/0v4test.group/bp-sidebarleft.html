@@ -1,0 +1,159 @@
+{layout="_layouts/global"
+  title="Single Col Hero"
+  description="Single Col Hero Layout"
+  image="http://jon.ee/image/2a1R3N2W0K3a/Image%202014-04-03%20at%204.42.48%20PM.png"
+  page_type=""
+  article_section=""
+  tags=""
+  publish_time=""
+
+  google_author=""
+  google_page_profile=""
+
+  twitter_publisher=""
+  twitter_author=""
+
+  facebook_profile=""
+  facebook_app=""
+
+  typekit=""
+
+  section_style="{segment_1}"
+  section_script=""
+
+  meta=""
+  footer=""
+}
+
+{layout:set name="meta"}
+  {!-- Add additional meta tags here --}
+{/layout:set}
+
+	<div class="masthead">
+		<section>
+	        <div class="shell">
+	            <div class="newspring--icon"></div>
+	            <h1>NewSpring</h1>
+	            <form action="#">
+	                <input type="text" placeholder="Search">
+	            </form>
+	            <ul class="navigation">
+	                <li class="has-kids"><a href="#">About</a></li>
+	                <li class="has-kids"><a href="#">Locations</a></li>
+	                <li class="has-kids"><a href="#">Next Steps</a></li>
+	                <li class="has-kids"><a href="#">Watch &amp; Read</a></li>
+	                <li><a href="#">Give</a></li>
+	            </ul>
+	        </div>
+		</section>
+    </div>
+
+{exp:channel:entries channel="betterpagestest"}
+
+	<div class="hero" style="background-image: url('{hero_image}{url}{/hero_image}')">
+		<h1 class="giga">{title}</h1>
+	</div>
+	
+	<section>
+		<div class="hero_copy">
+			<div class="grid">
+				<div class="grid__item one-whole columns">
+					{hero_copy}
+						<h2>{heading}</h2>
+						<p class="text-cols--2">{copy}</p>
+					{/hero_copy}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="grid">
+		  <div class="grid__item one-quarter columns">
+		  
+		  	{left_sidebar}
+		  	
+		  		{heading}
+			  		{value}
+			  	{/heading}
+			  
+			  	{textarea}
+			  		<p>{value}</p>
+			  	{/textarea}
+			  	
+			  	{rich_text}
+			  		{value}
+			  	{/rich_text}
+			  	
+			  	{wysiwyg}
+				   {value}
+				{/wysiwyg}
+				
+				{asset}
+					<img src="{url}" />
+				{/asset}
+				
+				{wygwam}
+					{value}
+				{/wygwam}
+				
+				{code}
+					{value}
+				{/code}
+		  	
+		  	{/left_sidebar}
+		  
+		  	
+		  </div><!--
+		  --><div class="grid__item three-quarters columns">
+		  
+			{right_content}
+		  
+			  	{heading}
+			  		{value}
+			  	{/heading}
+			  
+			  	{textarea}
+			  		<p>{value}</p>
+			  	{/textarea}
+			  	
+			  	{rich_text}
+			  		{value}
+			  	{/rich_text}
+			  	
+			  	{wysiwyg}
+				   {value}
+				{/wysiwyg}
+				
+				{wygwam}
+					{value}
+				{/wygwam}
+				
+				{code}
+					{value}
+				{/code}
+		
+			{/right_content}
+			
+		  </div>
+		</div>
+	</section>
+	
+	<section class="cta">
+		{call_to_action}
+			<center>
+				<h2>{cta_header}</h2>
+				<a href="{cta_link}" class="btn">{cta_text_link}</a>
+				<h4>{cta_subheading}</h4>
+			</center>
+		{/call_to_action}
+	</section>
+{/exp:channel:entries}
+    
+{layout:set name="related-content"}
+  {embed="_testing/related-entries"}
+{/layout:set}
+
+{layout:set name="footer"}
+  {!-- Add additional footer content/scripts here --}
+{/layout:set}

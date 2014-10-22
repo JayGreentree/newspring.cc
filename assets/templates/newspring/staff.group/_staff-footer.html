@@ -1,0 +1,16 @@
+<!-- Social Media Links/Icons -->
+		<div id="staff_footer" class="clearfix">
+			<ul class="social_media">
+				<li><a href="{social_twitter}" title="Follow NewSpring on Twitter" id="twitter" class="img ir">Twitter</a></li>
+				<li><a href="{social_facebook}" title="NewSpring on Facebook" id="facebook" class="img ir">Facebook</a></li>
+				<li><a href="{social_youtube}" title="Media from NewSpring Church on YouTube" id="youtube" class="img ir">YouTube</a></li>
+				<li><a href="{social_vimeo}" title="NewSpring Media on vimeo" id="vimeo" class="img ir">vimeo</a></li>
+				<li><a href="{social_flickr}" title="NewSpring Church's photostream on Flickr" id="flickr" class="img ir">Flickr</a></li>
+			</ul>
+
+			<p class="next_event">
+				{exp:channel:entries channel="staff_hub" order="date" sort="desc" limit="1" dynamic="no" url_title="staff-hub"}
+					<strong>Next Event:</strong> {staff_hub_event}
+				{/exp:channel:entries}
+			</p>
+		</div>

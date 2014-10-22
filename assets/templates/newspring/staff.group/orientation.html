@@ -1,0 +1,189 @@
+{if logged_in}
+	{exp:user:stats dynamic="off"}
+		{if user_access == "staff"}
+		{!-- If a user has started a session, they'll automatically be returned to the last session they were on --}
+			{if segment_3 == ""}
+				{if staff_session_current}
+					{redirect="{segment_1}/{segment_2}/{staff_session_current}"}
+				{if:else}
+					{redirect="{segment_1}/{segment_2}/welcome"}
+				{/if}
+			{/if}
+		{/if}
+	{/exp:user:stats}
+{/if}
+
+{embed='includes/header' 
+	title='Staff Development | Staff Hub' 
+	body_id='orientation' 
+	body_class='subnav' 
+	page_class="page-border"
+	group_script="{segment_1}"
+	group_style="{segment_1}" 
+}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="staffnav"}
+
+<div class="c_12 clearfix page-border">
+	
+	{if logged_in}
+		{exp:user:stats dynamic="off"}
+			{if user_access == "staff"}
+
+				{exp:ce_cache:it}
+
+				{exp:channel:entries channel="staff_sessions" order="date" sort="asc" limit="1"}
+
+				<div class="g_12 section body grow">
+					
+
+					{!-- Only display the hero on the welcome/intro page 
+						Eventually think it makes sense to remove the hero entirely :( 
+						This way we can make the tertiary nav consistent across all pages
+					--}
+					{if url_title == "welcome"}
+						<div class="hero">
+							<img src="//images.newspring.cc/site/leadership/899.hero.staffdevelopment.jpg" alt="Staff Development Hero Image" class="border" />
+						</div>
+					{if:else}
+						<div class="session_nav">
+							{embed="{segment_1}/_orientation-sessions"}
+						</div>
+					{/if}
+
+					<div class="article g_8 g_a">
+						<h2>{title}</h2>
+
+						{staff_session_description}
+
+						{!-- Displays additional content related to this section if it exists --}
+						{exp:playa:parents channel="staff_content" sort="asc"}
+							<div class="content{if count == "1"} first{/if} clearfix">
+								<div class="g_4 g_a">
+									{staff_content_media}
+										{if media_video}
+										{!-- If an embedcode exists, show video type, otherwise, display audio player --}
+											<a href="#" class="ooyala-embed" data-embed="{media_video}">
+												<span class="btn play small">Play Video</span>
+												{exp:ce_img:single src="{media_image}" width="300" height="168" crop="yes" attributes='alt="{title} Image"'}
+											</a>
+										{if:else}
+										<div class="jp-audio" id="audio_container_{url_title}" rel="audio_player_{url_title}">
+											{!--<a href="#" class="" data-embed="{media_audio:url}">Play Audio</a>--}
+											<div class="jp-type-single">
+								              <div class='jp-interface'>
+								                <a href="{media_audio:url}" onclick="_gaq.push(['_trackEvent','Play', 'Staff Development', '{title}']);" class="jp-play" id="audio_{count}">9</a>
+								                  <a href="javascript:;" class="jp-pause" style="display:none;">~</a>
+								                  <div class="jp-progress progress">
+								                      <div class="jp-seek-bar">
+								                          <div class="jp-play-bar"></div>
+								                      </div>
+								                  </div>
+								                  <ul class="jp-time-holder clearfix">
+														<li class="jp-current-time"></li>
+														<li class="jp-duration"></li>
+								                  </ul>	
+								              </div>  
+									        </div>
+									        <div id="audio_player_{url_title}" preload="metadata"></div>
+										</div>
+										{/if}
+									{/staff_content_media}
+								</div>
+								<div class="g_4 g_o">
+									<h3>{title}</h3>
+									<p>{staff_content_summary}</p>
+								</div>
+
+								{!-- Shows related sub video/audio entries --}
+								{if staff_content_sub}
+									<div class="sub clear clearfix">
+										{staff_content_sub}
+											<div class="g_2 {switch='g_a|||g_o'}">
+												{if sub_video}
+													<a href="#" class="ooyala-embed video_link" data-embed="{sub_video}">
+														{exp:ce_img:single src="{sub_image}" width="140" height="79" crop="yes" attributes='alt="{sub_title} Image"'}
+														{sub_title}
+													</a>
+												{if:else}
+													<div class="jp-audio" id="audio_container_{row_count}" rel="audio_player_{row_count}">
+														{!--<a href="#" class="" data-embed="{media_audio:url}">Play Audio</a>--}
+														<div class="jp-type-single">
+											              <div class='jp-interface'>
+											                <a href="{sub_audio:url}" onclick="_gaq.push(['_trackEvent','Play', 'Staff Development', '{sub_title}']);" class="jp-play small" id="audio_sub_{row_count}">9</a>
+											                  <a href="javascript:;" class="jp-pause small" style="display:none;"><span>~</span></a>
+											                  <div class="jp-progress progress">
+											                      <div class="jp-seek-bar">
+											                          <div class="jp-play-bar"></div>
+											                      </div>
+											                  </div>
+											                  <ul class="jp-time-holder clearfix">
+																	<li class="jp-current-time"></li>
+																	<li class="jp-duration"></li>
+											                  </ul>	
+											              </div>  
+												        </div>
+												        <div id="audio_player_{row_count}" preload="metadata"></div>
+												        <div class="video_link clear">{sub_title}</div>
+													</div>
+												{/if}
+											</div>
+										{/staff_content_sub}
+									</div>
+								{/if}
+							</div>
+						{/exp:playa:parents}
+					</div>
+					
+					<div class="sidebar g_3 g_o">
+						<div class="agenda">
+							<h6>Agenda</h6>
+
+							{staff_session_checklist}
+
+							{embed="{segment_1}/_orientation-next"}
+						</div>
+					</div>
+				</div>
+
+				{!-- Video Player --}
+				{ooyala_video}	
+				
+			{if url_title != "welcome"}
+				<script type="text/javascript">
+					$(document).ready(function($) { 
+						$(window).on('scroll', function(){
+							var _top =  $(window).scrollTop();
+							//console.log(_top);
+							if(_top > 388){
+							  $('.agenda').addClass('scroll');
+							}else if(_top < 388){
+							  $('.agenda').removeClass('scroll');
+							}
+						});
+					});
+				</script>
+			{/if}
+
+			{/exp:channel:entries}
+
+			{/exp:ce_cache:it}	
+
+		{if:else}
+					
+			{!-- if user doesn't have access, redirect --}
+			{redirect="/"}
+
+		{/if}
+	{/exp:user:stats}
+
+{if:else}
+
+	{!-- if not logged in, redirect to login --}
+	{redirect="login/staff/orientation"}
+
+{/if}
+
+{embed='includes/footer'}

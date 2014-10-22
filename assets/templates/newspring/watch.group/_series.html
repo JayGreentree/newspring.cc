@@ -1,0 +1,147 @@
+{exp:ce_cache:it}
+
+{!-- 
+	This partial is shared between the NewSpring + Fuse Watch pages, hence the multiple {embed:} variables.  Please be careful when making changes to make sure you don't break something on the other template! 
+--}
+
+{exp:channel:entries channel='{embed:series_channel}' disable='member_data|trackbacks' status='open|hidden' url_title='{embed:series_url}' dynamic='on' require_entry="yes"}
+
+{if no_results}{redirect="404"}{/if}
+{if logged_out && status == 'hidden'}
+	{redirect="watch"}
+{/if}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='{embed:sermon_channel}' 
+		body_class='{url_title}{if series_css} bespoken{/if}{if "{embed:subnav}" == "y" } subnav{/if}{if series_light_switch == "dark"} dark{if:else} light{/if}' 
+		page_class='{if "{embed:subnav}" == "y" }page-border{/if}'
+		group_style='watch' 
+		title='{title} | Watch{if segment_1 == "fuse"} | Fuse{/if}' 
+		fb_title='{title} | Watch{if segment_1 == "fuse"} | Fuse{/if}' 
+		fb_url='{site_url}/{embed:url_prefix}/{embed:series_url}'
+		fb_image='{exp:ce_img:single src="{series_hero}" url_only="y" width="1800"}'
+		fb_describe='{exp:eehive_hacksaw}{series_description}{/exp:eehive_hacksaw}'
+	}
+{/exp:ce_cache:escape}
+
+<style>
+	html {
+		background: #{series_bg_color};
+	}
+</style>
+
+{if "{embed:subnav}" == "y" }
+	</div><!-- //page - wraps header -->
+	{embed="includes/_subnav" navtitle="mainnav"}
+	<div id="subnav_page" class="c_12 clearfix page-border">
+{/if}
+
+<div id="hero" class="g_12">
+	{exp:ce_img:single src="{series_hero}" width="940" height="400" crop="yes" attributes='alt="" title="" class="border-top"'}
+
+	{if current_series == "y"}
+		{exp:playa:parents field="{embed:series_channel}" limit="1" orderby="entry_date" sort="desc" var_prefix="serm"}
+			{if no_parents}
+				<p class="episode-title border-bottom">Series Begins {series_date format="%F %j%S"}!</p>
+			{/if}
+			<a href="#" class="play_button_new ooyala-embed border" data-embed="{serm:embed_code}">
+				<span class="icon"></span>
+			</a>
+			<p class="episode-title border-bottom">{serm:episode_week} - {serm:title}</p>
+		{/exp:playa:parents}
+	{if:elseif current_series == '' AND trailer}
+		<a href="#" class="play_button_new ooyala-embed border" data-embed="{trailer}">
+			<span class="icon"></span>
+		</a>
+		<p class="episode-title border-bottom">Trailer</p>
+	{if:else}
+		{exp:playa:parents field="{embed:series_channel}" limit="1" orderby="entry_date" sort="asc" var_prefix="serm"}
+			<a href="#" class="play_button_new ooyala-embed border" data-embed="{serm:embed_code}">
+				<span class="icon"></span>
+			</a>
+			<p class="episode-title border-bottom">{serm:episode_week} - {serm:title}</p>
+		{/exp:playa:parents}
+	{/if}
+</div>
+
+{!-- SERIES DETAILS --}
+<div id="series-episode-detail" class="g_12 clearfix">
+	<div id="episodes" class="g_5 g_a">
+		<h6>Sermons</h6>
+		<div id="episode-list">
+			{if current_series}
+				{exp:playa:parents field="{embed:series_channel}" status='open|hidden' orderby='episode_date' sort="desc" var_prefix="serm"}
+					{if no_parents}
+						<div class="empty-series">
+							<h3>Series Begins {series_date format="%F %j%S"}!</h3>
+							<p>We’d love for you to be our guest at NewSpring Church this Sunday. We have eight campuses in South Carolina, so visit our <a href='{path=newhere/locations/}'>Locations &amp; Service Times</a> page to find a campus near you!</p>
+						</div>
+					{/if}
+					<div class="episode-entry {if serm:count == 1}first{/if}">
+						<div class="clearfix">
+							<h3><a href="{path={embed:url_prefix}/{url_title}/{serm:url_title}}">{serm:episode_week} - {serm:title}</a></h3>
+							<span class="episode-date">{serm:episode_date format='%F %j%S, %Y'}</span>
+							<span>{serm:episode_description}</span>
+						</div>
+					</div>
+				{/exp:playa:parents}
+			{if:else}
+				{exp:playa:parents field="{embed:series_channel}" status='open|hidden' orderby='episode_date' sort="asc" var_prefix="serm"}
+					{if no_parents}
+						<div class="empty-series">
+							<h2>Series Begins {series_date format="%F %j%S"}!</h2>
+							<p>Checkout <a href='{path=newhere/locations/}'>Locations &amp; Service Times</a> at a Campus Near You!</p>
+						</div>
+					{/if}
+					<div class="episode-entry {if serm:count == 1}first{/if}">
+						<div class="clearfix">
+							<h3><a href="{path={embed:url_prefix}/{url_title}/{serm:url_title}}">{serm:episode_week} - {serm:title}</a></h3>
+							<span class="episode-date">{serm:episode_date format='%F %j%S, %Y'}</span>
+							<span>{serm:episode_description}</span>
+						</div>
+					</div>
+				{/exp:playa:parents}
+			{/if}				
+		</div>
+	</div>		
+		
+	<div id="description" class="g_4">
+		<div class="description">
+		<h6>Series Description</h6>
+			{series_description}
+		</div>
+	</div>
+	<div id="share" class="g_3 g_o">
+		<h6>Share</h6>
+		{embed="includes/_share_links" 
+			layout="box"
+			fb-url="{path={embed:url_prefix}/{url_title}}"
+			twitter-text="{title}" 
+			twitter-url="{path={embed:url_prefix}/{url_title}}" 
+			twitter-hashtag="{exp:uri_prettify}{segment_2}{/exp:uri_prettify}" 
+			twitter-via="newspring"
+		}
+		<div class="itunes resources">
+			<h6>iTunes</h6>
+			<ul>
+				{if segment_1 != "fuse"}
+				<li><a class="media" href="http://itunes.apple.com/us/podcast/newspring-church-sermon-video/id297461509" onclick="_gaq.push(['_trackEvent','NewSpring', 'iTunes', 'Video']);">Video (M4V)</a></li>
+				{/if}
+				<li>
+					{if segment_1 == "fuse"}
+					<a class="media" href="https://itunes.apple.com/us/podcast/newspring-student-ministry/id427665513?mt=2" onclick="_gaq.push(['_trackEvent','Fuse', 'iTunes', 'Audio']);">Audio (MP3)</a>
+					{if:else}
+					<a class="media" href="http://itunes.apple.com/us/podcast/newspring-church-sermon-audio/id128344835" onclick="_gaq.push(['_trackEvent','NewSpring', 'iTunes', 'Audio']);">Audio (MP3)</a>
+					{/if}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+{ooyala_video}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

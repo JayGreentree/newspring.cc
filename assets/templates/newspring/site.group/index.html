@@ -1,0 +1,82 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		body_id="home" 
+		body_class="alt" 
+		use_alt='yes' 
+		script='home'
+	}
+	{preload_replace:CURRENT_TIME='{current_time format="%H%i"}'}
+	{preload_replace:CURRENT_DAY='{current_time format="%w"}'}
+{/exp:ce_cache:escape}
+
+<div class="flex-container g_12">
+	<div class="flexslider">		
+		<ul class="flex-slides" id="heroes">
+			{exp:ce_cache:escape}
+				{exp:low_reorder:entries set="home_heroes" disable='categories|member_data|pagination|trackbacks'}
+					{if hero_repeatschedule}
+						{!-- If this hero is scheduled for today... --}
+						{if '{current_time format="%w"}' == '{hero_repeatschedule}{hero_day}{/hero_repeatschedule}'}
+							{!-- If this hero is scheduled for right now... --}
+							{if '{current_time format="%H%i"}' >= '{hero_repeatschedule}{hero_starttime}{/hero_repeatschedule}' AND '{current_time format="%H%i"}' < '{hero_repeatschedule}{hero_endtime}{/hero_repeatschedule}'}
+								<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero', '{hero_link}']);">{/if}{exp:ce_img:single src="{hero_images search:image_type='=Large'}{image}{/hero_images}" width="940" height="400" crop="yes" attributes='alt="{hero_image_alt}" title="{hero_link_title}"'}{if hero_link}</a>{/if}</li>
+							{/if}
+						{/if}
+					{if:else}
+						<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero', '{hero_link}']);">{/if}
+								{exp:ce_img:single src="{hero_images search:image_type='=Large'}{image}{/hero_images}" width="940" height="400" crop="yes" attributes='alt="{hero_image_alt}" title="{hero_link_title}"'}
+							{if hero_link}
+							</a>{/if}
+						</li>
+					{/if}
+				{/exp:low_reorder:entries}
+			{/exp:ce_cache:escape}
+		</ul>
+		<ul class="flex-control-nav">
+			<i id="tippy" class="hide"></i>
+			{exp:ce_cache:escape}
+				{exp:low_reorder:entries set="home_heroes" disable='categories|member_data|pagination|trackbacks' orderby='sticky'}
+					{if hero_repeatschedule}
+						{!-- If this hero is scheduled for today... --}
+						{if '{current_time format="%w"}' == '{hero_repeatschedule}{hero_day}{/hero_repeatschedule}'}
+							{!-- If this hero is scheduled for right now... --}
+							{if '{current_time format="%H%i"}' >= '{hero_repeatschedule}{hero_starttime}{/hero_repeatschedule}' AND '{current_time format="%H%i"}' < '{hero_repeatschedule}{hero_endtime}{/hero_repeatschedule}'}
+								<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero Nav', '{hero_link}']);">{/if}{hero_link_title}{if hero_link}</a>{/if}</li>
+							{/if}
+						{/if}
+					{if:else}
+						<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero Nav', '{hero_link}']);">{/if}{hero_link_title}{if hero_link}</a>{/if}</li>
+					{/if}
+				{/exp:low_reorder:entries}
+			{/exp:ce_cache:escape}
+		</ul>			
+	</div>
+</div>
+<div id="sidekick" class="g_12">
+	{exp:ce_cache:escape}
+		{exp:low_reorder:entries set="home_sidekicks" disable='categories|member_data|pagination|trackbacks' dynamic='off' limit='4' status='open'}
+			<a href="{hero_link}" class="g_3 {switch='g_a|||g_o'}" style="background-image: url({hero_images search:image_type='=Medium'}{image}{/hero_images}); background-size: 220px 150px;" onclick="_gaq.push(['_trackEvent','Home', 'Sidekick', '{hero_link}']);">
+				<span class="title">{hero_link_title}</span>
+				<span class="subtitle">{hero_subtitle}</span>
+			</a>
+		{/exp:low_reorder:entries}
+	{/exp:ce_cache:escape}
+</div>
+<div id="halfkick" class="g_12">
+	{exp:ce_cache:escape}
+		{exp:low_reorder:entries set="home_halfkicks" disable='categories|member_data|pagination|trackbacks' dynamic='off' orderby='random' limit='4' status='open'}
+			<a href="{hero_link}" class="g_3 {switch='g_a|||g_o'}" style="background-image: url({hero_images search:image_type='=Small'}{image}{/hero_images});" onclick="location.href = '{hero_link}';_gaq.push(['_trackEvent','Home', 'Halfkick', '{hero_link}']);">
+				<span class="title">{hero_link_title}</span>
+				<span class="subtitle">{hero_subtitle}</span>
+			</a>
+		{/exp:low_reorder:entries}
+	{/exp:ce_cache:escape}
+</div>
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

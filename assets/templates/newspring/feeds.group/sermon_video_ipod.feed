@@ -1,0 +1,3 @@
+{exp:ce_cache:it seconds="86400"}
+	{embed='feeds/media' title='Sermon Video (iPod)' type='ipod' series_fieldid="17"}
+{/exp:ce_cache:it}

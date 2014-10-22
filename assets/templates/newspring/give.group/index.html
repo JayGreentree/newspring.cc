@@ -1,0 +1,169 @@
+{layout="_layouts/master"
+	title="Give"
+	description="God doesn&rsquo;t want something from you; He wants something for you. More than you could ask for or imagine. And we do, too. We want you to be financially free."
+	image="{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.spiritual.water.2.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{if segment_2}
+	{!-- Display a 404 if segment_2 exists --}
+	{redirect="404"}
+{/if}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+{embed="newspring:_embeds/_hero"
+	title="You Can&rsquo;t Outgive God"
+	summary="God doesn&rsquo;t want something from you; He wants something for you. More than you could ask for or imagine. And we do, too. We want you to be financially free."
+	image_url="{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.spiritual.water.2.jpg"
+	content="<a href='https://newspring.infellowship.com/onlinegiving/history' class='btn palm-one-whole push-quarter--bottom'>Sign In</a> <h3 class='flush inline'><small class='caps light soft-quarter flush'>or</small></h3> <a href='https://give.newspring.cc' class='btn palm-one-whole push-quarter--bottom'>Give Without an Account</a>"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole">
+				<h2 class="centered">Why Do We Give?</h2>
+				{exp:scripturizer}
+				<p class="text--constrained">We believe the top competitor for our devotion to Jesus is money (<i>Matthew 6:24</i>). Giving allows us to demonstrate that He is more important to us than material things.</p>
+				<p class="text--constrained">We believe you can’t outgive God, so when you’re trusting Him with your tithes and offerings we <em>know</em> that He will bless the rest (<i>Proverbs 3:9-10</i> and <i>Malachi 3:10-12</i>).</p>
+				<p class="text--constrained">We think Christians should be the most generous people (<i>2 Corinthians 9:6</i>) on earth to support worthy causes, and there is no organization with more potential to change the world than the local church (<i>Ephesians 3:10</i>)!</p>{/exp:scripturizer}
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section--primary">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole">
+				<h2 class="centered">What is Tithing?</h2>
+			</div><div class="grid__item one-whole handheld-one-whole left">
+				<div class="text--constrained">
+					{exp:scripturizer}
+						<p><b>A tithe&mdash;which just means <i>&ldquo;tenth&rdquo;</i>&mdash;</b>is defined as the first 10% of a person’s income that is to be given back to the local church. Tithing is a principle that is taught throughout the entire Bible. When we tithe, we are expressing worship in a tangible way by putting God first in our lives.</p>
+						<p>Bringing our tithes is an opportunity for us to give God our thanks, show God we trust Him, and fight against greed in our hearts...all while allowing us to be a part of the most important work in life that is spreading the Good News of Jesus Christ!</p>
+						<p>If you would like to read more about what the Bible has to say about tithing, check out these passages: <i>Leviticus 27:30</i>, <i>Proverbs 3:9-10</i>, <i>Malachi 3:6-10</i>, <i>Matthew 6:19-24</i> and <i>1 Corinthians 16:1-2</i>.</p>
+					{/exp:scripturizer}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item anchored-one-half one-whole left">
+				<div class="text--constrained">
+
+						<h2>How Much Is Your Tithe?</h2>
+						<p class="light text--constrained">Enter the amount you were paid before taxes or anything else was taken out of your paycheck.</p>
+
+
+						<form id="tithe-calc" onsubmit="return toSubmit();" class="hard" action="#" data-parsley-validate>
+
+							<p>
+							<label for="gross">Paycheck Gross Amount</label>
+							<input id="gross" type="text" placeholder="400.00" class="text" />
+							</p>
+							<button id="submit" type="submit" class="ready submit">Calculate Tithe</button>
+						</form>
+
+						<form id="tithe-give" class="hard visuallyhidden"  action="https://give.newspring.cc/" >
+							<p>
+							<label for="tithe">Tithe Amount</label>
+							<input id="tithe" type="text" onfocus="return onReset();" class="text" />
+							</p>
+							<button id="tithe-amount" class="ready submit" type="submit">Give Now</button>
+						</form>
+
+						<script>
+							function toSubmit(){
+								var gross = $('#gross').val().replace(/,/g, '');
+								var tithe = ((gross*.1)).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+								var isGood = !isNaN(parseInt(tithe)) && isFinite(tithe);
+								if(isGood == false || tithe < 0) {
+									onReset();
+								}
+								else {
+									$('#tithe-calc').addClass('visuallyhidden');
+									$('#tithe-give').removeClass('visuallyhidden');
+									$('#tithe').val(tithe);
+									$('#tithe-amount').text('Give $' + tithe + ' Now');
+								}
+								return false;
+							}
+
+							function onReset() {
+								$('#gross').val('');
+								$('#tithe-calc').removeClass('visuallyhidden');
+								$('#tithe-give').addClass('visuallyhidden');
+								$('#gross').focus();
+								return false;
+							}
+						</script>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+{!--
+<section>
+	<div class="shell overlay overlay--gradient-left background--fill" style="background: url({exp:ce_img:single src='{images-global-origin}/newspring/editorial/articles/newspring.blog.hero.marriage.movingin.jpg' width='1700' crop='yes' url_only='yes'}) bottom
+	;">
+		<div class="grid floating floating--left">
+			<div class="grid__item overlay__item floating__item five-twelfths handheld-one-whole">
+				<div class="overlay--light">
+					<h2>90-Day Tithing Challenge</h2>
+					<p>If you haven't started tithing yet, we want to extend the 90–Day Tithing Challenge to you.</p>
+					<a href="/give/challenge" class="btn">Take the Challenge</a>
+				</div><div class="grid__item floating__item seven-twelfths handheld-one-whole centered">
+			</div>
+			</div>
+		</div>
+	</div>
+</section>
+--}
+
+<section class="section--texture section--pattern">
+	<div class="shell">
+		<div class="grid floating floating--left">
+			<div class="grid__item one-whole">
+				<h2 class="centered light">2013 Annual Report</h2>
+				<div class="text--constrained centered">
+					<p>Every number has a name, every name has a story, and every story matters to God. Because of this we’re always going to celebrate numbers at NewSpring!</p>
+					<a href="/annualreport" class="btn btn--light">View the Report</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{/exp:ce_cache:it}

@@ -1,0 +1,122 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Fuse Volunteers' 
+		body_id='fuse' 
+		body_class="subnav" 
+		page_class="page-border"
+		group_style="fuse" 
+		fb_title="Fuse Volunteers" 
+		fb_url="" 
+		meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}' 
+		fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:it}
+
+<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+<script src="/assets/backup/old_js/jquery.jcarousel.min.js"></script>
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="mainnav"}
+
+<div id="subnav_page" class="c_12 clearfix page-border">
+	<div class="session_nav">
+		<ul>
+			<li>
+				<a href="/fuse/volunteers">About</a>
+			</li>
+			<li>
+				{if segment_3 == 'jumpoff'}
+				<a href="/fuse/volunteers/jumpoff" class="current">Jump Off <span class="tippy"></span></a>
+				{if:else}
+				<a href="/fuse/volunteers/jumpoff">Jump Off</a>
+				{/if}
+			</li>
+			<li>
+				{if segment_3 == 'smallgroups'}
+				<a href="/fuse/volunteers/smallgroups" class="current">Small Groups <span class="tippy"></span></a>
+				{if:else}
+				<a href="/fuse/volunteers/smallgroups">Small Groups</a>
+				{/if}
+			</li>
+			<li>
+				{if segment_3 == 'guestservices'}
+				<a href="/fuse/volunteers/guestservices" class="current">Guest Services <span class="tippy"></span></a>
+				{if:else}
+				<a href="/fuse/volunteers/guestservices">Guest Services</a>
+				{/if}
+			</li>
+		</ul>
+	</div>
+
+	<div class="g_3" id="sub_content">
+		<h3>Choose Your Campus</h3>
+		<ul>
+			{exp:channel:entries channel="campuses" dynamic="off" orderby="title" sort="asc" sticky="no" category="not 156" status="Open"}
+				<li><a href="{url_title_path={segment_1}/{segment_2}/{segment_3}}" class="leader{if url_title == segment_4} current{/if}"><span>{title} ({exp:playa:total_parents channel='fuse_volunteers' category="{segment_3_category_id}" search:fuse_campus="{segment_4}"})</span></a></li>
+			{/exp:channel:entries}
+		</ul>
+
+		<h3>Stay In Touch</h3>
+		<ul>
+			<li><a href="http://bradcooper.us">Brad Cooper's Blog</a></li>
+			<li><a href="http://twitter.com/bcoop">Brad's Twitter</a></li>
+		</ul>
+
+		<h3>Care Resources</h3>
+		<ul>
+			<li><a href="http://media.newspring.cc/doc/fuse/fuse.baptism.facts.pdf">Baptism Facts</a></li>
+			<li><a href="http://media.newspring.cc/doc/fuse/fuse.care.topic.cards.pdf">Topic Cards</a></li>
+			<li><a href="http://media.newspring.cc/doc/fuse/091212.fuse.romansroad.pdf">Romans Roads</a></li>
+			<li><a href="http://media.newspring.cc/doc/fuse/090512.fuse.biblereferences.pdf">Topical Bible References</a></li>
+		</ul>
+	</div>
+
+	<div class="g_7 p_1 s_1" id="main_content">
+		{if segment_4 == ""}
+		{!-- Show Entries by category(Section) that don't have a campus assigned --}
+		
+			{exp:channel:entries channel="fuse_volunteers" paginate="none" category="{segment_3_category_id}" search:fuse_campus="IS_EMPTY" limit="1"}
+
+				<div class="entry">
+					<h1>{title}<span class="entry_date">{entry_date format="%m.%d.%Y"}</span></h1>
+					
+					{fuse_body}
+				</div>
+
+			{/exp:channel:entries}
+
+		{if:else}
+		{!-- Filter entries by category AND campus --}
+
+			{exp:channel:entries channel="fuse_volunteers" paginate="none" category="{segment_3_category_id}" search:fuse_campus="{segment_4}" limit="3"}
+				{if count == "1"}
+					<div class="section-title">{fuse_campus}{title}{/fuse_campus} {categories}{if "{segment_3}" == "{category_url_title}" }{category_name}{/if}{/categories}</div>
+				{/if}
+
+				<div class="entry">
+			    	<h1>{title}</h1>
+					
+					{fuse_body}
+
+				</div>
+
+				{if no_results}
+					<h1>Nothing To See Here</h1>
+					<p>There aren't any posts to display in in the {segment_4} section!</p>
+				{/if}
+			{/exp:channel:entries}
+
+		{/if}
+
+	</div>
+
+	<div class="clear"></div>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

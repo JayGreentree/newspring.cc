@@ -1,0 +1,59 @@
+{preload_replace:master_channel_name='episode'}
+{exp:rss:feed channel='{master_channel_name}'}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+	<ttl>60</ttl>
+
+	<title>{site_name} {embed:title}</title>
+	<description>NewSpring is a church where change takes place. This podcast includes messages from Senior Pastor Perry Noble and others, holding nothing back on subjects that are real and relevant in our culture today. Visit NewSpring online at www.NewSpring.cc for additional content like this.</description>
+	<link>{site_url}</link>
+	<language>en-US</language>
+	<copyright>Free to distribute. Do not sell.</copyright>
+
+	<itunes:author>Senior Pastor Perry Noble</itunes:author>
+	<itunes:summary>NewSpring is a church where change takes place. This podcast includes messages from Senior Pastor Perry Noble and others, holding nothing back on subjects that are real and relevant in our culture today. Visit NewSpring online at www.NewSpring.cc for additional content like this.</itunes:summary>
+	<itunes:explicit>no</itunes:explicit>
+	
+	<itunes:owner>
+		<itunes:name>{site_name}</itunes:name>
+		<itunes:email>web@newspring.cc</itunes:email>
+	</itunes:owner>
+	
+	<itunes:image href="{site_url}images/site/podcast.jpg"></itunes:image>
+	<itunes:category text="Religion &amp; Spirituality">
+	<itunes:category text="Christianity" />
+	</itunes:category>
+	
+	<itunes:keywords>newspring,new,spring,community,church,perry,noble,god,jesus,anderson</itunes:keywords>
+
+	{exp:channel:entries channel='{master_channel_name}' status='open' orderby='episode_date' disable='member_data|pagination|trackbacks' search:hide_from_podcast="IS_EMPTY" limit="100"}
+	{if mp3 OR mp4 OR m4v}
+	<item>
+		<title>{exp:xml_encode protect_entities='yes'}{series}{series:title}{/series}: {title}{/exp:xml_encode}</title>
+		<itunes:author>{exp:xml_encode}{speaker}{/exp:xml_encode}</itunes:author>
+		<itunes:subtitle>{exp:xml_encode protect_entities='yes'}{exp:char_limit total='250'}{episode_description}{/exp:char_limit}{/exp:xml_encode}</itunes:subtitle>
+		<itunes:summary>{exp:xml_encode protect_entities='yes'}{exp:char_limit total='250'}{episode_description}{/exp:char_limit}{/exp:xml_encode}</itunes:summary>
+		
+		<itunes:image href="{site_url}images/site/podcast.jpg"></itunes:image>
+		
+		{if embed:type == 'audio' AND mp3}
+		<enclosure url="{mp3}" length="1" type="audio/mpeg" />
+		<guid>{mp3}#When:{episode_date format='%H:%i:00Z'}</guid>
+		{if:elseif embed:type == 'ipod' AND mp4}
+		<enclosure url="{mp4}" length="1" type="video/mp4" />
+		<guid>{mp4}#When:{episode_date format='%H:%i:00Z'}</guid>
+		{if:elseif m4v}
+		<enclosure url="{m4v}" length="1" type="video/x-m4v" />
+		<guid>{m4v}#When:{episode_date format='%H:%i:00Z'}</guid>
+		{/if}
+		
+		<pubDate>{episode_date format='%r'}</pubDate>
+		<itunes:keywords>{exp:xml_encode}{exp:tag:tags backspace='1'}{tag},{/exp:tag:tags}{/exp:xml_encode}</itunes:keywords>
+	</item>
+	{/if}
+	{/exp:channel:entries}
+	
+</channel>
+</rss>
+{/exp:rss:feed}

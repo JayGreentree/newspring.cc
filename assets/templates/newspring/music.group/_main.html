@@ -1,0 +1,125 @@
+{layout="_layouts/master"
+	title="Music"
+	description="It&rsquo;s our hope that the music at NewSpring would captivate you, draw you in, and prepare your heart to encounter Jesus every week!"
+	image="http:{images-global}/{site_short_name}/_fpo/fpo.Music8.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id="contents" seconds="604800"}
+
+
+{embed="newspring:_embeds/_hero"
+	title="Music"
+	summary="It&rsquo;s our hope that the music at NewSpring would captivate you, draw you in, and prepare your heart to encounter Jesus every week!"
+	image_url="{images-global}/{site_short_name}/_fpo/fpo.Music8.jpg"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole">
+				<div class="text--constrained centered">
+					<h2>What can you expect to hear at NewSpring?</h2>
+					<p>We&rsquo;ll use multiple musical styles and songs, performed with world class excellence. We&rsquo;ll play songs you&rsquo;d hear on the radio. We&rsquo;ll sing hymns that have been sung for centuries, worship songs we&rsquo;ve written, and songs from other churches around the world; all with the goal of helping people just like you encounter Jesus.</p>
+					<a href="{path='locations'}" class="btn">Plan Your Visit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell background--fill overlay overlay--solid" style="background: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/music/newspring.hero.worship6.jpg' width='1700' crop='yes' url_only='yes'}) bottom;">
+		<div class="overlay__item centered">
+			<blockquote class="blockquote--whitequote">
+				<p class="light text--constrained">Music at NewSpring Church is about reaching people far from God and helping them follow Jesus step by step.</p>
+			</blockquote>
+	
+			<h6 class="caps"><strong class="light">Choose a Recent Album</strong></h6>
+			<a href="#albums" data-scroll class="icon--light icon--arrow-down"></a>
+
+		</div>
+	</div>
+</section>
+
+<section id="albums">
+	<div class="shell hard">
+		<div class="grid border--inset hard flush">
+			<div class="grid__item one-half handheld-one-whole hard flush">
+				<div class="ratio ratio--square flush">
+					{exp:channel:entries channel="albums" limit="1"}
+					<a href="{path='{segment_1}/{url_title}'}" class="ratio__item background--fill flush border--inset centered clickable"
+						style="background-image: url({exp:ce_img:single src='{album_image:url}' width='1000' crop='yes' url_only='yes'})">
+					</a>
+					{/exp:channel:entries}
+				</div>
+			</div><div class="grid__item one-half handheld-one-whole hard flush">
+			<div class="grid flush hard">
+				<div class="grid__item one-whole hard flush">
+					<div class="grid flush hard">
+						{exp:channel:entries channel="albums" offset="1" limit="4"}<div class="grid__item one-half hard flush">
+							<div class="ratio ratio--square flush">
+								<a href="{path='{segment_1}/{url_title}'}" class="ratio__item background--fill border--inset v clickable"
+									style="background-image: url({exp:ce_img:single src='{album_image:url}' width='500' crop='yes' url_only='yes'})">
+								</a>
+							</div>
+						</div>{/exp:channel:entries}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid hard flush">
+			<div class="grid__item one-whole hard flush">
+					<div class="grid flush hard">
+						{exp:channel:entries channel="albums" offset="5" limit="5"}<div class="grid__item one-fifth {if count == total_results}handheld-one-whole {if:else}handheld-one-half {/if} hard flush">
+							<div class="ratio ratio--square flush">
+								<a href="{path='{segment_1}/{url_title}'}" class="ratio__item background--fill border--inset v clickable"
+									style="background-image: url({exp:ce_img:single src='{album_image:url}' width='500' crop='yes' url_only='yes'})">
+								</a>
+							</div>
+						</div>{/exp:channel:entries}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell overlay overlay--gradient-right handheld-overlay--solid background--fill" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/_fpo/fpo.Music1.jpg' width='1700' crop='yes' url_only='yes'});">
+		<div class="grid overlay__item">
+			<div class="grid__item one-half visuallyhidden--portable visuallyhidden--handheld"></div><div class="grid__item one-half lap-wide-and-down-one-whole portable-centered handheld-centered">
+				<div class="overlay--light overlay__item">
+					<h2>Band Auditions</h2>
+					<p>Is serving with NewSpring Music your next step?</p>
+					<a href="{path='{segment_1}/auditions'}" class="btn">Learn More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

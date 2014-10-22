@@ -1,0 +1,126 @@
+{embed='includes/header' 
+	title='HR Hub | Staff' 
+	body_id='hub' 
+	body_class='subnav' 
+	page_class="page-border"
+	group_script='' 
+	group_style="{segment_1}" 
+}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="staffnav"}
+
+<div class="c_12 clearfix page-border hub">
+	{if logged_in}
+		{exp:user:stats dynamic="off"}
+			{if user_access == "staff"}
+
+				{exp:ce_cache:it}
+
+				{exp:channel:entries channel="staff_hub" order="date" sort="desc" limit="1" url_title="hr-hub"}
+					<div class="staff_section">
+						<div class="divider"></div>
+						<h2>Logins/Links</h2>
+						<ul class="btn-group clearfix">
+							{staff_hub_logins}
+						    	<li class="{switch='g_a||g_o'}"><a href="{login_url}" title="{login_description}" onclick="_gaq.push(['_trackEvent','Staff', 'Link Clicked', '{login_title}']);">{login_title}</a></li>
+							{/staff_hub_logins}
+						</ul>
+					</div>
+
+					<div class="staff_section">
+						<div class="divider"></div>
+						<h2>Documents</h2>
+						<ul class="btn-group clearfix">
+							{staff_hub_documents}
+						    	<li class="{switch='g_a||g_o'}"><a href="{document_upload:url}" title="{document_description}" onclick="_gaq.push(['_trackEvent','Staff', 'Link Clicked', '{document_title}']);">{document_title}</a></li>
+							{/staff_hub_documents}
+						</ul>
+					</div>
+
+					
+				{/exp:channel:entries}
+				
+				{!-- Seems silly to have to use a separate channel entries tag for this, but I don't have time to find a more elegant solution! --}
+				{exp:channel:entries channel="jobs" disable="member_data|pagination|category_fields|custom_fields" dynamic="off" status="open"category="not 182|183|184"}
+					{if count == "1"}
+						<div id="sign-up" class="clearfix last">
+						<div class="column-left">
+							<p>One of the things that could keep us from reaching 100,000 people is not having enough leaders. Do you know someone who would be a good fit at NewSpring?</p>
+						</div>
+						<div class="g_4 g_o">
+							<a href="{path=jobs/department}" class="border">Browse Public Jobs ({total_results})</a>
+						</div>
+					</div>
+					{/if}
+				{/exp:channel:entries}
+				
+				{!-- Display internal job count --}
+				{exp:channel:entries channel="jobs" disable="member_data|pagination|category_fields|custom_fields" dynamic="off" status="open|Featured|hidden"category="184"}
+					{if count == "1"}
+						<div class="clearfix section category">
+							<h2 class="internal-header">Internal Jobs <span class="job-total">({total_results})</span></h2>
+						</div>
+					{/if}
+				{/exp:channel:entries}
+
+				{!-- Have to use this method in order to sort by campus since we can't orderby a playa field --}
+				{exp:channel:entries dynamic="no" channel="campuses" status="open|Coming Soon" orderby="title" sort="asc" disable="member_data" }
+
+
+					{exp:playa:parents
+						channel="jobs" 
+						disable="member_data" 
+						orderby="title"
+						sort="asc" 
+						dynamic="off"
+						status="open|Featured|hidden"
+						category="184"
+					}
+						
+						<div id="main_content" class="section clearfix">
+							<div class="g_4">
+								<strong><a href="{url_title_path=jobs/internal}" title="View the {title} internal job">{title}{categories} <span class="internal">{category_name}</span>{/categories}</a></strong>
+								{!--<input type="text" class="entry_url" value="{path={segment_1}/jobs/{url_title}}"> 
+								<a href="#" class="copy_url" title="Copy this link to your clipboard!">n</a>--}
+							</div>
+							
+							<div class="g_2">
+								<span class="job-filter">{exp:playa:children field="job_campus" status="open|Coming Soon"}{title}{/exp:playa:children}</span>
+							</div>
+
+							<div class="g_3">
+								<span class="job-filter">{exp:playa:children field="job_department"}{title}{/exp:playa:children}</span>
+							</div>
+							<div class="g_2">
+								<span class="job-contact">
+									<a href="{url_title_path=jobs/internal}" title="View the {title} internal job" class="btn">View Job <span class="caret right"></span></a>
+								</span>
+								{!--<p class="entry_date">Posted on: {entry_date format="%m.%d.%Y"}</p>--}
+							</div>
+						</div>
+					{/exp:playa:parents}
+
+				{/exp:channel:entries}
+
+				{embed="{segment_1}/_staff-footer"}
+
+				{/exp:ce_cache:it}
+
+			{if:else}
+
+				{!-- if user doesn't have access, redirect --}
+				{redirect="/"}
+
+			{/if}
+		{/exp:user:stats}
+		
+	{if:else}
+	
+		{!-- if not logged in, display sign in box --}
+		{embed="includes/_signin"}	
+
+	{/if}
+
+{embed='includes/footer'}	

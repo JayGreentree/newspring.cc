@@ -1,0 +1,69 @@
+{exp:ce_cache:it}
+<div class="centered section g_10 p_1 s_1">
+	<div class="column-wrapper">
+		<h2>What Can I Expect as a Parent?</h2>
+		<p>We want to inform you and give you as many details as possible to make sure you know your student is taken care of. We know how important your student(s) are to you, and we want you to know that they are important to us as well! Here are several ways to stay informed and get all of your questions answered:</p>
+		<p>Our Fuse staff hosts a parent meeting at each campus prior to the trip each year. At this meeting, you will get a booklet that includes arrival and departure times, a list of suggested items to bring, security info, FAQ's and every other piece of information you need to know in order to help prepare you and your student for the trip.</p>
+	</div>
+</div>
+<div class="section g_12">
+	<div class="g_3 g_a p_1">
+		<h2>Parent Meetings</h2>
+		<p>Our Fuse staff hosts a parent meeting at each campus prior to the trip each year. At this meeting, you will get a booklet that includes arrival and departure times, a list of suggested items to bring, security info, FAQ's and every other piece of information you need to know in order to help prepare you and your student for the trip.</p>
+	</div>
+	<div class="centered g_8 g_o">
+		<table id="parent-meetings">
+			<tr>
+				<th>Campus</th>
+				<th>Meeting Time</th>
+				<th>Directions</th>
+			</tr>
+			{exp:channel:entries channel="events" category="308" orderby="events_date" sort="asc"}
+			<tr>
+				<td>{exp:playa:children channel="campuses"}{title}{/exp:playa:children}</td>
+				<td>{events_date format="%l, %F %j%S @ %g:%i%a"}</td>
+				<td><a href="#" class="btn">Get Directions</a></td>
+			</tr>
+			{/exp:channel:entries}
+		</table>
+	</div>
+</div>
+<div class="section g_12">
+	<div class="g_6 p_1 g_a">
+		<h2>Sign Up for The Gauntlet</h2>
+	</div>
+	<div class="g_5 g_o">
+		<div id="campus-select" class="selectbox">
+			<p>Choose Your Campus <span class="arrow"></span></p>
+			<ul>
+				{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc"}
+				<li><a href="#">{title}</a></li>
+				{/exp:channel:entries}
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="faqs" class="section g_10 p_1 s_1">
+		<h2>FAQs</h2>
+	<div class="g_4 s_1 g_a">
+		<h3>Who can go to The Gauntlet?</h3>
+		<p>Any student in the 6th through 12th grade as of the Spring of 2013.</p>
+		<h3>When is The Gauntlet?</h3>
+		<p>July 29 - August 2, 2013</p>
+		<h3>Where is The Gauntlet?</h3>
+		<p>Daytona Beach, Florida</p>
+		<h3>What kind of adult supervision is provided?</h3>
+		<p>We will bring our Fuse volunteers to serve as small group leaders and supervision for our students. Each volunteer will be trained, background-checked, and interviewed. There will be 1 leader for every 3 students.</p>
+	</div>
+	<div class="g_5 g_o">
+		<h3>Will there be trained medical staff accompanying our group to The Gauntlet?</h3>
+		<p>Yes.</p>
+		<h3>Will NewSpring staff and volunteers be administering student medication?</h3>
+		<p>No. Due to the volume of students attending The Gauntlet, all student medication will need to be managed by the student.</p>
+		<h3>Will my student be able to take a cell phone?</h3>
+		<p>No. Because we believe this trip has the potential to be life-changing, we want to eliminate anything that might distract students from focusing on God.</p>
+		<h3>What should I do if I have more questions?</h3>
+		<p>Bring your questions to the parent meeting. We will cover all of the trip details and have a time for you to ask any remaining questions you have. Also, you may contact us at <a href="mailto:gauntlet@newspring.cc">gauntlet@newspring.cc</a>.</p>	
+	</div>
+</div>
+{/exp:ce_cache:it}

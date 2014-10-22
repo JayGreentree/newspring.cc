@@ -1,0 +1,176 @@
+{layout="newspring:_layouts/master"
+	title="Sermons"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="2592000"}
+
+{exp:channel:entries site="{embed:site}" channel="{embed:collection_entry_channel}" url_title="{segment_3}" dynamic="off"}
+	{exp:playa:children site="{embed:site}" channel='{embed:collection_channel}' var_prefix='series'}
+
+		{exp:ce_cache:escape}
+			{layout:set name="title"}{title} | {series:title} | Sermons{/layout:set}
+
+			{layout:set name="image"}
+				{series:if collection_image}{series:collection_image}{collection_image_2x1}{/series:collection_image}{if:else}http:{meta_image}{/if}
+			{/layout:set}
+
+			{layout:set name="description"}
+				{exp:eehive_hacksaw}{entry_description}{/exp:eehive_hacksaw}
+			{/layout:set}
+		{/exp:ce_cache:escape}
+
+		<style>
+			.collection-color, .collection-color:hover, .collection-color h3, .collection-color h3:hover { color: #{series:collection_bgcolor} !important; border-color: #{series:collection_bgcolor}; }
+			.btn.collection-color:hover { background: #{series:collection_bgcolor}; color: white; }
+			a.link--arrow.collection-color:after, a.link--arrow.collection-color:hover:after { color: #{series:collection_bgcolor}; border-color: #{series:collection_bgcolor}; }
+			.section--collection .shell { background: #{series:collection_bgcolor}; }
+			.section--collection .btn:hover { color: #{series:collection_bgcolor}; }
+		</style>
+
+		{embed="newspring:_embeds/_hero"
+			h-align=""
+			v-align="bottom"
+			image_url="{series:collection_image}{collection_image_2x1}{/series:collection_image}"
+			video="{url_title}, {entry_video}"
+			video_title="{title}"
+		}
+
+
+		<section data-share="{title}">
+			<div class="shell">
+				<div class="grid">
+					<div class="grid__item two-thirds lap-seven-twelfths handheld-one-whole handheld-centered">
+						<a href="{path='/{segment_1}/{segment_2}'}" class="link--arrow reverse dark">{series:title}</a>
+						{!-- Title --}
+						<h2 class="collection-color">{title}</h2>
+
+						{!-- Tag List --}
+						{exp:tag:tags
+							entry_id="{entry_id}"
+							tag_group_id="5"
+							orderby="clicks"
+							sort="asc"
+						}{if tag_total_results > 0}{if tag_count == 1}<ul class="inline">{/if}
+							<li class="tag"><span data-modal-open="search-modal, search-modal, true" data-google-search-link="search-modal">{tag}</span></li>
+						{/if}{if tag_total_results == tag_count}</ul>{/if}{/exp:tag:tags}
+
+						{!-- Date & Speakers --}
+						<p class="colfax"><b>
+
+								{!-- Mobile Date Format --}
+								<span class="float--left visuallyhidden--anchored visuallyhidden--portable visuallyhidden--palm-wide">{if current_time >= collection_startdate AND current_time < collection_enddate}{entry_date:relative units="weeks|days"}{if:else}{entry_date format="%n/%j/%y"}{/if}</span>
+
+								{!-- Tablet/Desktop Date Format --}
+								<span class="float--left visuallyhidden--palm">{if current_time >= collection_startdate AND current_time < collection_enddate}{entry_date:relative units="weeks|days"}{if:else}{entry_date format="%F %j%S, %Y"}{/if}</span>
+
+								{!-- Speaker Tags --}
+								<span class="float--right capitalize dark">
+									{exp:tag:tags site="{embed:site}" entry_id="{entry_id}" tag_group_id="4" backspace="2" orderby="total_entries" sort="asc"}{tag}, {/exp:tag:tags}
+								</span>
+							</b></p><br><br>
+
+						<p class="handheld-left">{entry_description}</p>
+
+						{!-- This is current ONLY used for sermon transcripts and we're hiding until we can redesign this page --}
+						{if entry_body}
+							<div class="visuallyhidden">
+								<h3>Sermon Transcript</h3>
+								{entry_body}
+							</div>
+						{/if}
+
+					</div><div class="grid__item one-third lap-five-twelfths handheld-one-whole flush centered">
+						{!-- Share Links --}
+						<h3>Share</h3>
+						{embed="newspring:_embeds/_share-buttons"
+							alignment=""
+							title="Watch '{title}' at"
+							hashtag="{series:collection_hashtag}"
+							share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+						}
+
+						{!-- Media Downloads --}
+						<h3>Download</h3>
+						<ul>
+							{if entry_audio}
+								<li><a href="{entry_audio}" class="link--arrow collection-color flush"download>Audio</a></li>
+							{/if}
+							{if entry_video_low}
+								<li><a href="{entry_video_low}" class="link--arrow collection-color flush"download>Video (low)</a></li>
+							{/if}
+							{if entry_video_medium}
+								<li><a href="{entry_video_medium}" class="link--arrow collection-color flush"download>Video (med)</a></li>
+							{/if}
+							{if entry_video_high}
+								<li><a href="{entry_video_high}" class="link--arrow collection-color flush"download>Video (high)</a></li>
+							{/if}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{exp:playa:parents site="{embed:site}" channel="groups_study" var_prefix="study"}{if study:total_results > 0}
+		<section class="section--collection handheld-centered">
+			<div class="shell">
+				<div class="grid floating floating--left">
+					<div class="grid__item floating__item five-twelfths handheld-one-whole">
+						{!-- Study Image --}
+						<a href="{path='/groups/studies/{study:url_title}'}"><div class="ratio--landscape background--fill flush" style="background-image: url({series:collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image});"><div class="ratio__item"></div></div></a>
+					</div><div class="grid__item floating__item seven-twelfths handheld-one-whole">
+						{!-- Study Title, Description & Link --}
+						<h2>Group Study</h2>
+						{study:collection_description}
+						<a href="{path='/groups/studies/{study:url_title}'}" class="btn">Start the Study</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		{/if}{/exp:playa:parents}
+
+		{!-- Related Sermons Section --}
+		{embed="newspring:_embeds/_related-sermons"
+			site="{embed:site}"
+			collection_channel="{embed:collection_channel}"
+			collection_entry_channel="{embed:collection_entry_channel}"
+			entry_id="{entry_id}"
+		}
+
+		{embed="newspring:_embeds/_discover"
+			type="related"
+			site="{embed:site}"
+			channel="{channel_short_name}"
+			entry_id="{entry_id}"
+		}
+
+	{/exp:playa:children}
+
+	{if no_results}
+		{redirect="404"}
+	{/if}
+	
+{/exp:channel:entries}
+{/exp:ce_cache:it}

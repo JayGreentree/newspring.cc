@@ -1,0 +1,126 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="KidSpring Series | Resources for Churches" 
+		body_id="resources" 
+		body_class="subnav" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+	{embed="includes/_trinav" navtitle="footernav"}
+
+{exp:channel:entries channel="series_kidspring" dynamic="on" url_title="{segment_4}"}
+<div class="resource g_12 clearfix">
+	<div class="single description g_9 g_a center">
+			<div class="description g_9 g_a center">
+			{if trailer}
+			<a href="#" class="play_button ooyala-embed border" data-embed="{trailer}">
+				<span class="icon"></span>
+				<span class="text">Watch Video</span>
+			</a>
+			{/if}
+			{exp:ce_img:single src="{series_hero}" width="940" height="400" alt="{title} Image" class="border"}
+			</div>
+		<h2>{title}<span> {categories}({category_name}){/categories}</span></h2>
+		<!-- <p>{exp:eehive_hacksaw chars = "280" append = "&hellip;"}{series_description}{/exp:eehive_hacksaw}</p> -->
+	</div>
+	<div class="g_6 g_a">
+		<div class="resource-container">
+			<h4>Series Description</h4>
+			{series_description}
+			<div class="callout">
+				{if outlines_training}
+				<p><strong>Outlines &amp; Notes</strong>
+					<a class="download" href="{outlines_training}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'Outlines &amp; Training']);">Download</a><br>
+					<em>{if outlines_training_description}{outlines_training_description}{if:else}Includes outlines, training, lists and graphics{/if}</em>
+				</p>
+				{/if}
+				{if music_lyrics_motions}	
+				<p><strong>Music</strong>
+					<a class="download" href="{music_lyrics_motions}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'Lyrics &amp; Motions']);">Download</a><br>
+					<em>{if music_lyrics_motions_description}{music_lyrics_motions_description}{if:else}Includes song lyrics and links to music used{/if}</em>
+				</p>
+				{/if}
+				{if weekly_media}
+	            <p><strong>Series Media</strong>
+					<a class="download" href="{weekly_media}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'Weekly Media']);">Download</a><br>
+					<em>{if weekly_media_description}{weekly_media_description}{if:else}Includes media used with each weekly resource{/if}</em>
+				</p>
+				{/if}
+				{if promo_video}
+				<p><strong>Promo Video</strong>
+					<a class="download" href="{promo_video}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'Promo Video']);">Download</a><br>
+					<em>{if promo_video_description}{promo_video_description}{if:else}Includes Generic Promo Video{/if}</em>
+				</p>
+				{/if}
+			</div>
+		</div>
+	</div>
+	<div class="g_6 g_o">
+		<div class="resource-container">
+			<h4>Weekly Resources</h4>
+			{exp:playa:parents orderby="start_date" sort="asc" var_prefix="resource" show_future_entries="yes"}
+			<div class="weekly-resource">
+				<p class="week"><strong>Week {resource:episode_week}</strong></p>
+				{resource:if episode_notes}
+					<p class="callout">{resource:episode_notes}</p>
+				{/if}
+				<ul>
+					{resource:if sg_docs}
+					<li>Small Group Documents <a class="download" href="{resource:sg_docs}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'ES Week {resource:episode_week} Small Group Documents']);"><span>Download</span> ({resource:sg_docs:size})</a></li>
+					{/if}
+					{resource:if lg_docs}
+					<li>Large Group Documents <a class="download" href="{resource:lg_docs}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'ES Week {resource:episode_week} Large Group Documents']);"><span>Download</span> ({resource:lg_docs:size})</a></li>
+					{/if}
+					{resource:if ks_media}
+					<li>Media <a class="download" href="{resource:ks_media}" onclick="_gaq.push(['_trackEvent','KidSpring Resources', '{title}', 'ES Week {resource:episode_week} Media Files']);"><span>Download</span> ({resource:ks_media:size})</a></li>
+					{/if}
+				</ul>
+			</div>
+			{/exp:playa:parents}
+		</div>
+	</div>
+</div>
+{paginate}
+<div class="paginate g_12 clearfix">
+	<ul>
+		<li class="pagination clearfix">{pagination_links}</li>
+	<ul>
+</div>
+{/paginate}
+{/exp:channel:entries}
+<div class="blackened wide clearfix">
+	<a href="mailto:hello@unleash.cc?subject=KidSpring Resource Question" title="Email us your questions about this curriculum"><em>Questions about KidSpring resources?</em>Send us an email!</a>
+</div>
+</div>
+<div class="c_12 clearfix  background">
+	  {ooyala_video}
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$('a.more.loggedIn').click(function(){
+			var txt = $(this).is('.expanded') ? 'Get Resources' : 'Close';
+			var resource = $(this).parents(".resource").children(".resource-details");
+			resource.slideToggle('fast');
+			$(this).toggleClass('expanded').text(txt);
+			return false;
+		});
+	});
+</script>
+
+</div>
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

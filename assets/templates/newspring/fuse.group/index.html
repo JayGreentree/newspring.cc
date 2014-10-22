@@ -1,0 +1,199 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Fuse Student Ministry' 
+		body_id='fuse' 
+		body_class="subnav" 
+		page_class="page-border"
+		style="fancybox"
+		group_style="{segment_1}" 
+		group_script="{segment_1}"
+		fb_title="Fuse Student Ministry" 
+		fb_url="{path={segment_1}}" 
+		meta_description='Fuse is the weekly gathering of the NewSpring Student Ministry. We’re dedicated to providing a place for students (6th -12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ.' 
+		fb_describe="{exp:eehive_hacksaw}Fuse is the weekly gathering of the NewSpring Student Ministry. We’re dedicated to providing a place for students (6th -12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ.{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+<script src="/assets/backup/old_js/jquery.jcarousel.min.js"></script>
+
+{embed="includes/_subnav" navtitle="mainnav"}
+
+<div id="subnav_page" class="c_12 clearfix page-border">
+
+	<div id="body" class="clearfix theme-default">
+		<div class="flex-container g_12">
+			<div class="flexslider">		
+				<ul class="flex-slides" id="heroes">
+					{exp:ce_cache:escape}
+						{exp:low_reorder:entries set="fuse_heroes" disable='categories|member_data|pagination|trackbacks'}
+							{if hero_repeatschedule}
+								{!-- If this hero is scheduled for today... --}
+								{if '{current_time format="%w"}' == '{hero_repeatschedule}{hero_day}{/hero_repeatschedule}'}
+									{!-- If this hero is scheduled for right now... --}
+									{if '{current_time format="%H%i"}' >= '{hero_repeatschedule}{hero_starttime}{/hero_repeatschedule}' AND '{current_time format="%H%i"}' < '{hero_repeatschedule}{hero_endtime}{/hero_repeatschedule}'}
+										<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero', '{hero_link}']);">{/if}{exp:ce_img:single src="{hero_images search:image_type='=Large'}{image}{/hero_images}" width="940" height="400" crop="yes" attributes='alt="{hero_image_alt}" title="{hero_link_title}"'}{if hero_link}</a>{/if}</li>
+									{/if}
+								{/if}
+							{if:else}
+								<li>{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero', '{hero_link}']);">{/if}
+										{exp:ce_img:single src="{hero_images search:image_type='=Large'}{image}{/hero_images}" width="940" height="400" crop="yes" attributes='alt="{hero_image_alt}" title="{hero_link_title}"'}
+									{if hero_link}
+									</a>{/if}
+								</li>
+							{/if}
+						{/exp:low_reorder:entries}
+					{/exp:ce_cache:escape}
+				</ul>
+				<ul class="flex-control-nav">
+					<i id="tippy" class="hide"></i>
+					{exp:ce_cache:escape}
+						{exp:low_reorder:entries set="fuse_heroes" disable='categories|member_data|pagination|trackbacks' orderby='sticky'}
+							{if hero_repeatschedule}
+								{!-- If this hero is scheduled for today... --}
+								{if '{current_time format="%w"}' == '{hero_repeatschedule}{hero_day}{/hero_repeatschedule}'}
+									{!-- If this hero is scheduled for right now... --}
+									{if '{current_time format="%H%i"}' >= '{hero_repeatschedule}{hero_starttime}{/hero_repeatschedule}' AND '{current_time format="%H%i"}' < '{hero_repeatschedule}{hero_endtime}{/hero_repeatschedule}'}
+										<li><a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero Nav', '{hero_link}']);">{hero_link_title}</a></li>
+									{/if}
+								{/if}
+							{if:else}
+								<li><a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero Nav', '{hero_link}']);">{hero_link_title}</a></li>
+							{/if}
+						{/exp:low_reorder:entries}
+					{/exp:ce_cache:escape}
+				</ul>			
+			</div>
+		</div>
+
+		<div class="g_12 section">
+			<div class="g_7 g_a">
+				<div class="column-wrapper">
+					<h2>What is Fuse?</h2>
+					<p>Fuse is the weekly gathering of the NewSpring Student Ministry. We’re dedicated to providing a place for students (6th -12th grade) to connect with God, with other students, and with older committed leaders that are dedicated to seeing students grow closer to Christ.</p>
+					<h2>Who Can Attend Fuse?</h2>
+					<p>Any students in grades 6–12 may attend Fuse.</p>
+					<div class="small-groups">
+						<h2>Join a Fuse Group</h2>
+						<p>At NewSpring Church, we believe that you can't do life alone. At Fuse, we believe the same. We want to pair you with a group of guys or girls your same age/grade so that you can have people to talk with, pray with and simply "do life" with.</p>
+						<p>If you are a part of Fuse and are interested in joining a small group, it is as easy as <a href="https://newspring.wufoo.com/forms/k7p8w3/">filling out this form</a> and someone will contact you very soon to get you all set up.</p>
+					</div>
+					<h2>Stay in the Loop</h2>
+					<h3>Fuse Announcements &amp; Details</h3>
+					<ul>
+						<li><a href="/fuse/blog">Visit</a> our Fuse Blog</li>
+						<li><a href="http://twitter.com/bcoop">Follow</a> Pastor Brad Cooper on Twitter</li>
+					</ul>
+					<h3>Watch &amp; Listen to Fuse Sermons</h3>
+					<ul>
+						<li><a href="/fuse/watch">Watch</a> previous Fuse sermons and series</li>
+						<li><a href="https://itunes.apple.com/us/podcast/newspring-student-ministry/id427665513?mt=2">Subscribe</a> to the Fuse iTunes Podcast</li>
+					</ul>
+					<p>For any other questions, please <a href="mailto:fuse@newspring.cc">e-mail us</a>! We look forward to answering any questions you may have.</p>
+				</div>
+			</div>
+			<div class="g_5 g_o">
+				<div class="column-wrapper">
+					<h2>Fuse Locations</h2>
+					<div id="locations">
+						{exp:channel:entries channel="campuses" orderby="title" sort="asc" category="not 156"}
+							{exp:playa:parents channel="services" var_prefix="serv"}
+								{serv:services_times search:campuses="{title}" search:type="Fuse"}
+									{if total_rows != "0"}
+										<h3>{title}<div class="arrow"></div></h3>
+										<div>
+											<p><span class="service-label">{serv:title}s at {serv:time:label}</span><br>
+											{serv:doors_times search:campus="{title}" var_prefix="door"}
+											(Doors open at {door:time:label})
+											{/serv:doors_times}
+											</p>
+											{campus_addresses search:type="Fuse Location|Service Location|Campus Location" limit="1" sort="desc"}
+												<p>{if type == "Campus Location"}<span class="service-label">NewSpring {title}</span><br>{/if}{if name}<span class="service-label">{name}</span><br>{/if}{street1}{street2}<br>{city}, {state} {zip} <br><a href="{directions}" class="btn" target="_blank">Get Directions</a></p>
+											{/campus_addresses}
+											{embed="fuse/_fuse-director-link" campus="{title}"}
+										</div>
+									{/if}
+								{/serv:services_times}
+							{/exp:playa:parents}
+
+
+								{!-- {fuse_times}
+									<p><span class="service-label">{fuseservice_label}</span><br>{fuseservice_day}s at {fuseservice_starttime}<br>(Doors open at {fuseservice_doorstime})</p>
+									{if fuseservice_campuslocation == 'y' && row_count == total_rows}
+										{locations limit="1"}
+											<p>{if location_venue}{location_venue}<br>{/if}{street1}{street2}<br>{city}, {state} {zip}</p>
+											<a href="{directions}" class="btn" target="_blank">Get Directions</a>
+										{/locations}
+									{/if}
+									{if fuseservice_campuslocation == '' && row_count == total_rows}
+										<p>{fuseservice_alternateaddress}</p>
+										<a href="{fuseservice_alternatedirections}" class="btn" target="_blank">Get Directions</a>
+									{/if}
+								{/fuse_times} --}
+
+						{/exp:channel:entries}
+					</div>
+					<div>
+						<br>
+						<h2>Live Stream</h2>
+						<p>Can't make it to a campus? <a href="/fuse/live">Watch Live</a> on Wednesdays at 6:45pm EST.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="fuse-tweets g_12 section">
+			<div class="arrow-wrapper right"><div class="left-arrow"></div></div>
+			<div class="arrow-wrapper left"><div class="right-arrow"></div></div>
+			<h2>Recent Tweets</h2><br>
+			<ul class="items">		
+			{exp:ce_cache:escape}		
+			{exp:ce_tweet:search q="from:bcoop+OR+from:andfuse+OR+from:chsfuse+OR+from:colfuse+OR+from:flofuse+OR+from:gvlfuse+OR+from:spafuse" count="30" link="m|h|u" parse="inward" seconds="360"}
+			    {statuses}
+				<li class="tweet g_3">
+					<a href="http://twitter.com/{user_screen_name}" target="_blank"><img src="{user_profile_image_url}" alt="" class="user-avatar" /></a>
+					<a class="ce_tweet_username" href="http://twitter.com/{user_screen_name}" target="_blank">@{user_screen_name}</a><br>
+				    <p class="tweet-text">{text}</p><br />
+				    {if no_tweets}Nothing to display!{/if}
+				</li>
+				{/statuses}
+			{/exp:ce_tweet:search}
+			{/exp:ce_cache:escape}
+			</ul>
+		</div>
+
+		<div class="blog-posts g_12">
+			<h2>Recent Blog Posts</h2><br>
+			{exp:channel:entries channel="fuse_blog" limit="3"}
+			<a class="g_4 {switch='g_a||g_o'} tricolumn-link sidekick" href="blog/{url_title}">
+					<span class="image" style="background-size: 300px 128px;">
+					<span class="title">{title}</span>
+				</span>
+			</a>
+			{/exp:channel:entries}
+		</div>
+	</div>
+</div>
+
+<div id="video" class="unseen" style="display:none;">
+	<script src="http://player.ooyala.com/player.js?
+		width=620
+		&callback=NSCallback
+		&embedCode=tqdGhuMjq6SFhS5lAedoS3RlOgKMJynb
+		&height=348
+		&playerId=ooplayer">
+	</script>
+</div>
+
+<div id="tranny" style="display: none;"></div>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

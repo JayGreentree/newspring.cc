@@ -1,0 +1,37 @@
+{preload_replace:title="Reading Guides"}
+{preload_replace:channel="reading_guide"}
+{preload_replace:entry_limit="9"}
+{preload_replace:paginate="y"}
+{preload_replace:masonry="n"}
+{preload_replace:base_column_width="one-third"}
+{preload_replace:show_related_entries="y"}
+
+{if segment_2}
+	{exp:md_detect_page_type url_segment="{segment_2}"}
+		{if pagination_page}
+			{embed="_embeds/_editorial-list"
+				title="{title}"
+				channel="{channel}"
+				masonry="{masonry}"
+				base_column_width="{base_column_width}"
+				entry_limit="{entry_limit}"
+				paginate="{paginate}"
+			}
+		{if:else}
+			{embed="_embeds/_editorial-entry"
+				title="{title}"
+				channel="{channel}"
+				show_related_entries="{show_related_entries}"
+			}
+		{/if}
+	{/exp:md_detect_page_type}
+{if:else}
+	{embed="_embeds/_editorial-list"
+		title="{title}"
+		channel="{channel}"
+		masonry="{masonry}"
+		base_column_width="{base_column_width}"
+		entry_limit="{entry_limit}"
+		paginate="{paginate}"
+	}
+{/if}

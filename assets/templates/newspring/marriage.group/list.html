@@ -1,0 +1,45 @@
+<script src="/scripts/NewSpring.Player/" type="text/javascript" charset="utf-8"></script>
+
+{exp:channel:entries channel='series' disable='member_data|trackbacks'}
+<h1 class="g_12">{title}</h1>
+{preload_replace:series_url="{segment_2}"}
+{parents status="open" orderby="episode_date" sort="asc" }
+<div class="g_12 episode clearfix">	
+	<div class="g_2 video-play g_a episode_select">
+			<li><a class="video-image ooyala-embed" href="#" data-embed="{parents:embed_code}">
+				<img src="{parents:thumbnail}" />
+			</a>
+			</li>
+	</div><!-- end g_2 -->
+    <div class="g_6" id="episode-copy">
+    	<p class="episode-title">{parents:title}</p>
+    		<div class="episode-description">
+    		{parents:episode_description}		
+    		</div> <!-- end episode-description -->
+    	</div> <!-- end episode-copy -->
+    	
+    	<div class="g_3 sh_1">
+    		<p class="marriage-audio"><a href="{parents:mp3}">Listen to the Audio</a></p>
+    		<ul id="bullet-list">
+    			{if study_guide}
+    			<li><a href="{parents:study_guide}">Study Guide</a></li>
+    			{/if}
+    			
+    			{if home_group_guide}
+    			<li><a href="{home_group_guide}">Home Group Guide</a></li>
+    			{/if}
+    			
+    			{if sermon_text}
+    			<li><a href="{parents:sermon_text}">Sermon Text</a></li>
+    			{/if}
+    		</ul>
+    	</div>
+</div>
+{/parents}
+<!-- EPISODE DIVIDER -->
+<div class="hr alt list">
+<hr>
+</div>
+<!-- END EPISODE DIVIDER -->
+{/exp:channel:entries}
+{ooyala_video}

@@ -1,0 +1,144 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+{exp:channel:entries channel="campuses" url_title="{segment_2}" status="Open|Coming Soon"}
+
+{exp:ce_cache:escape}
+
+	{layout:set name="meta"}{/layout:set}
+	{layout:set name="title"}{title} | Locations{/layout:set}
+	{layout:set name="image"}{campus_image}{campus_image_2x1}{/campus_image}{/layout:set}
+	{layout:set name="description"}NewSpring is one church in many locations. We'd love to see you at our {title} campus this weekend.{/layout:set}
+
+{/exp:ce_cache:escape}
+
+{embed="newspring:_embeds/_hero"
+	title="{title}"
+	summary="We&rsquo;re on a mission to reach 100,000 people in South Carolina, so we have multiple campuses across the state. We&rsquo;d love to see you at a service this weekend."
+	image_url="{campus_image}{campus_image_2x1}{/campus_image}"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-third portable-one-half handheld-one-whole handheld-centered">
+				<div class="visuallyhidden--anchored visuallyhidden--portable">
+					<a href="{campus_addresses search:type='Campus Location
+|Service Location'}{directions}{/campus_addresses}" class="btn">Get Directions</a><br><br><br>
+				</div>
+
+				{campus_addresses}
+				<h3>{type}</h3>
+
+				<p>{if name}<b>{name}</b><br>{/if}{if street1}{street1}{/if}{if street2}{street2}{/if}<br>{city}, {state} {zip}
+				{if directions}
+				<br><a href="{directions}">Get Directions</a></p>
+				{if:else}
+				</p>
+				{/if}
+				{/campus_addresses}
+				<h3>Service Times</h3>
+				{if status == "Coming Soon" AND campus_launch_date}
+				<h4>Launching {campus_launch_date format="%M %d%S, %Y"}</h4>
+				{/if}
+				{!-- <p>{embed="locations/_service-times" entry_ids='{exp:playa:parent_ids field_id="628" col="2"}' campus="{title}" type="NewSpring"}</p> --}
+				<p>{embed="_embeds/_service-times" type="NewSpring" campus="{url_title}"}</p>
+
+				{if "{campus_phones:total_rows search:description='Phone'}" > "0" OR campus_email}
+				<h3>Contact</h3>
+				<ul>
+				{campus_phones}
+					{if description == 'Phone'}
+					<li><a href="tel:{number}">{number}</a></li>
+					{/if}
+				{/campus_phones}
+					<li><a href="mailto:{campus_email}">{campus_email}</a></li>
+				</ul>
+				<ul>
+					{if campus_coffee == 'y'}<li><span class="fa fw fa-coffee" style="width: 30px; text-align: center;"></span> Free Coffee</li>{/if}
+					{if campus_wifi == 'y'}<li><span class="fa fw fa-rss" style="width: 30px; text-align: center;"></span> Free Wifi</li>{/if}
+				</ul>
+				{/if}
+			</div><div class="grid__item two-thirds portable-one-half handheld-one-whole handheld-centered">
+				<h2>What can I expect?</h2>
+				<hr class="quarter hidden">
+				<div class="grid">
+					<div class="grid__item one-half portable-one-whole handheld-one-whole">
+						<h3>Casual &amp; Relaxed</h3>
+						<p>Sunday services are exciting, casual, and relaxed. Come as you are and expect to feel welcomed as our guest.</p>
+					</div><div class="grid__item one-half portable-one-whole handheld-one-whole">
+						<h3>Music &amp; Message</h3>
+						<p>Each week experience modern music and a relevant, engaging message from our Senior Pastor Perry Noble or other speakers.</p>
+					</div><div class="grid__item one-whole">
+						<h3>Just for Kids</h3>
+						<p>KidSpring is a children's ministry uniquely designed with your child in mind! Every Sunday all children (babies through 5th grade) experience safe, age-appropriate environments where the Bible is taught in a creative and relevant way. We are so passionate about kids learning about Jesus in a way they can understand that we do not allow them into the service designed for adults and students (6th grade and older).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{campus_addresses search:type="Campus Location|Service Location" status="Open|Coming Soon" search:latitude="not IS_EMPTY" search:longitude="not IS_EMPTY"}
+<section class="map-wrapper">
+	<div class="shell hard">
+		<a href="{directions}" target="_blank" class="directions">Get Directions</a>
+		<ul class="zoom-controls">
+			<li data-geolocation-zoom-in="{url_title}"><span class="fa fw fa-plus"></span></li>
+			<li  data-geolocation-zoom-out="{url_title}"><span class="fa fw fa-minus"></span></li>
+		</ul>
+		<div class="map-canvas" data-geolocation='{url_title}, {title}, {embed="newspring:_objects/locations"}'></div>
+
+	</div>
+</section>
+{/campus_addresses}
+
+{exp:playa:parents site="newspring" channel="members" search:mbr_staff_title="=Campus Pastor|Associate Campus Pastor|Fuse Director|KidSpring Director|Next Steps Director|Guest Services Director|Service Producer|Worship Leader" limit="1" var_prefix="parentCheck"}
+	{embed="newspring:locations/_campus-staff" campus="{url_title}" titles="Campus Pastor|Associate Campus Pastor|Fuse Director|KidSpring Director|Next Steps Director|Guest Services Director|Service Producer|Worship Leader" jobs="on"}
+	{if no_parents}{/if}
+{/exp:playa:parents}
+
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered handheld-flush">
+				<h2 class="light">Other Locations</h2>
+				<a href='{path='{segment_1}'}' class='link--arrow reverse flush'>View All Locations</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{if no_results}
+	{redirect="404"}
+{/if}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

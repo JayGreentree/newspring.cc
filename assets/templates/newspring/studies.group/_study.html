@@ -1,0 +1,97 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries site="newspring" channel="{embed:collection_channel}" url_title="{segment_2}" status="Open|Featured" show_future_entries="yes" dynamic="off"}
+
+{exp:playa:parents site="newspring" channel="{embed:entries_channel}" url_title="{segment_3}" sort="asc" var_prefix="session" show_future_entries="yes"}
+
+	{exp:ce_cache:escape}
+		{layout:set name="title"}{session:title} | {title} | Studies{/layout:set}
+		{layout:set name="description"}{exp:eehive_hacksaw}{collection_description}{/exp:eehive_hacksaw}{/layout:set}
+		{layout:set name="image"}{collection_image}{collection_image_2x1}{/collection_image}{/layout:set}
+	{/exp:ce_cache:escape}
+{/exp:playa:parents}
+
+	{embed="newspring:_embeds/_hero"
+	    title=""
+	    summary=""
+	    image_url="{if '{collection_image}{collection_image_2x1}{/collection_image}' != ''}{collection_image}{collection_image_2x1}{/collection_image}{if:else}{exp:playa:children site='newspring' dynamic='off' var_prefix='series'}{series:collection_image}{collection_image_2x1}{/series:collection_image}{/exp:playa:children}{/if}"
+	    {if collection_video}
+		video="{url_title},{collection_video}"
+		{/if}
+	}
+
+<section class="section--dark">
+	<div class="shell hard--sides">
+		<div class="slider--multiple" data-slider='{url_title}-top, {exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" dynamic="off" var_prefix="sessionindex"}{if "{sessionindex:url_title}" == "{segment_3}"}{sessionindex:count}{/if}{/exp:playa:parents}, { "responsive": true}'>
+			{exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" dynamic="off" var_prefix="session"  show_future_entries="yes"}
+			<div class="centered">
+				<a href="{path='{segment_1}/{segment_2}/{session:url_title}#{segment_1}'}" class="link--invisible">
+					<h3 class="soft-half--sides palm-soft-quarter--sides">{session:title}</h3>
+					<span class="link--arrow">Session {session:count}</span>
+				</a>
+			</div>
+			{/exp:playa:parents}
+		</div>
+	</div>
+</section>
+
+{exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" show_future_entries="yes" var_prefix="session"}
+	{if '{session:url_title}' == '{segment_3}'}
+		{embed="newspring:studies/_studies-session" entry_id="{entry_id}" count="{session:count}"}
+	{/if}
+{/exp:playa:parents}
+
+<section class="section--dark">
+	<div class="shell hard--sides">
+		<div class="slider--multiple" data-slider='{url_title}, {exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" dynamic="off" var_prefix="sessionindex"}{if "{sessionindex:url_title}" == "{segment_3}"}{sessionindex:count}{/if}{/exp:playa:parents}, { "responsive": true}'>
+			{exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" dynamic="off" show_future_entries="yes" var_prefix="session"}
+			<div class="centered">
+				<a href="{path='{segment_1}/{segment_2}/{session:url_title}#{segment_1}'}" class="link--invisible">
+					<h3 class="soft-half--sides palm-soft-quarter--sides">{session:title}</h3>
+					<span class="link--arrow">Session {session:count}</span>
+				</a>
+			</div>
+			{/exp:playa:parents}
+		</div>
+	</div>
+</section>
+
+{embed="newspring:_embeds/_discover"
+	type="related"
+	site="newspring"
+	channel="{channel_short_name}"
+	entry_id="{entry_id}"
+}
+{/exp:channel:entries}
+{/exp:ce_cache:it}

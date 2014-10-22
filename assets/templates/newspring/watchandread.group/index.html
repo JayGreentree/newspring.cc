@@ -1,0 +1,247 @@
+{layout="_layouts/master"
+	title="Watch &amp; Read"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+
+
+{embed='_embeds/_non-hero'
+	section='section--texture section--pattern'
+	overlay='overlay--light'
+	title='Watch &amp; Read'
+	image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+	image_classes=""
+}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item two-thirds handheld-one-whole border--inset align--bottom flush">
+				<h2 class="flush"><a href="/articles">Read</a></h2>
+			</div><div class="grid__item one-third handheld-one-whole right handheld-left border--inset align--bottom flush">
+				<a href="/articles" class="link--arrow flush">View More Articles</a>
+			</div>
+			<div class="grid__item one-whole">
+				<div class="grid__item one-whole hard"><!--
+				-->{exp:channel:entries
+						channel="articles"
+						limit="5"
+						dynamic="off"
+					}{if count == '1'}<div class="grid__item three-fifths portable-one-whole handheld-one-whole hard flush">{/if}{if count == '1' OR count == '4'}<div class="grid__item two-thirds handheld-one-whole hard flush">
+					<a href="articles/{url_title}">
+						<div class="ratio ratio--landscape flush">
+								<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image});">
+									<div class="floating__item overlay__item soft-quarter--sides">
+										<h5 class="flush">{title}</h5>
+									</div>
+								</div>
+						</div>
+					</a>
+				</div>{if:elseif count == '5'}<div class="grid__item two-fifths portable-one-whole handheld-one-whole hard flush">
+					<a href="articles/{url_title}">
+						<div class="ratio ratio--square flush">
+								<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+									<div class="floating__item overlay__item soft-quarter--sides">
+										<h5 class="flush">{title}</h5>
+									</div>
+								</div>
+
+						</div>
+					</a>
+				</div>{if:else}<div class="grid__item one-third handheld-one-whole hard flush">
+					<a href="articles/{url_title}">
+						<div class="ratio ratio--square flush">
+								<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+									<div class="floating__item overlay__item soft-quarter--sides">
+										<h5 class="flush">{title}</h5>
+									</div>
+								</div>
+						</div>
+					</a></div>{/if}{if count == '4'}</div>{/if}{/exp:channel:entries}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+
+	{exp:channel:entries
+		channel="series_newspring"
+		limit="1"
+
+	}<div class="shell overlay overlay--light overlay--solid-dark background--fill"  style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1700' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1700' crop='yes' url_only='yes'}{/collection_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1700' crop='yes' url_only='yes'}{/if});">
+		<div class="grid flush hard">
+			<div class="grid__item one-whole hard">
+				<div class="ratio ratio--landscape handheld-ratio--portrait flush">
+					<div class="ratio__item floating floating--center floating--left">
+						<div class="grid__item one-half portable-one-whole handheld-one-whole flush overlay__item floating__item hard">
+							<p class="colfax outlined outlined--tag light"><b>Current Series</b></p>
+							<h2><a href="/sermons/{url_title}" title="Watch the Race Day series">{title}</a></h2>
+							<p>{exp:eehive_hacksaw chars = "170" append = "&hellip;"}{collection_description}{/exp:eehive_hacksaw}</p>
+							<a href="/sermons/{url_title}" class="link--arrow light">Watch Series</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>{/exp:channel:entries}
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid flush soft--bottom">
+			{exp:ce_cache:it id='latest-devos'}
+				<div class="grid__item two-thirds handheld-one-whole hard align--bottom border--inset flush hard">
+					<h2 class="flush"><a href="/devotionals">Daily Devotionals</a></h2>
+				</div><div class="grid__item one-third handheld-one-whole hard right handheld-left align--bottom border--inset hard flush">
+					<a href="/devotionals" class="flush link--arrow">View More Devotionals</a>
+				</div><!--
+				-->{exp:channel:entries
+						channel="devotionals"
+						orderby='entry_date'
+						status='open'
+						limit="3"
+						site="newspring"
+					}<div class="grid__item one-third portable-one-half handheld-one-whole flush hard">
+						<a href="/devotionals/{url_title}">
+							<div class="ratio ratio--square flush">
+								<div class="ratio__item overlay overlay--light floating clickable border--inset background--fill" style="background-image: url({exp:ce_img:single src='{images-global}/newspring/editorial/devotionals/hero.devotional.jpg' width='500' crop='yes' url_only='yes'})">
+									<div class="floating__item overlay__item soft-quarter--sides">
+										<p class="colfax outlined outlined--tag light"><b>{entry_date format="%D"}</b></p>
+										<h5 class="flush">{title}</h5>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>{/exp:channel:entries}{/exp:ce_cache:it}
+		</div>
+	</div>
+</section>
+
+
+
+<section class="section--pattern">
+	<div class="shell background--fill" style="background-image: url({images-global}/newspring/editorial/default/cedar.1to1.jpg);">
+		<div class="grid flush soft--bottom">
+			{exp:ce_cache:it id='latest-news'}
+				<div class="grid__item two-thirds handheld-one-whole hard align--bottom flush hard">
+					<h2 class="flush light">Church News</h2>
+				</div><div class="grid__item one-third handheld-one-whole right handheld-left align--bottom hard flush">
+					<a href="/news" class="link--arrow flush light">View More News</a>
+				</div>
+				<hr class="quarter">
+					{exp:channel:entries
+						channel="news"
+						orderby='entry_date'
+						status='open'
+						limit="3"
+						site="newspring"
+					}<div class="grid__item one-third portable-one-half handheld-one-whole hard overlay">
+							<div class="overlay--light overlay__item soft-half--right left">
+								<h3><a href="/news/{url_title}">{title}</a></h3>
+								<a href="/news/{url_title}" class="link--arrow light">Read More</a>
+							</div>
+				</div>{/exp:channel:entries}	{/exp:ce_cache:it}
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="shell">
+		<div class="grid flush soft--bottom">
+			{exp:ce_cache:it id='latest-studies'}
+				<div class="grid__item two-thirds handheld-one-whole align--bottom flush hard border--inset">
+					<h2 class="flush"><a href="/studies">Studies</a></h2>
+				</div><div class="grid__item one-third handheld-one-whole right handheld-left align--bottom hard flush border--inset">
+					<a href="/studies" class="flush link--arrow">View More Studies</a>
+				</div><!--
+				-->{exp:channel:entries
+						channel="studies"
+						orderby='entry_date'
+						status='open'
+						limit="4"
+						site="newspring"
+					}<div class="grid__item one-quarter portable-one-half handheld-one-whole flush hard">
+						<a href="{if collection_downloads AND '{exp:playa:total_parents}' > 0}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/studies/{url_title}'}{/exp:playa:parents}{if:elseif collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/studies/{url_title}'}{/exp:playa:parents}{/if}">
+
+							<div class="ratio ratio--square clickable handheld-ratio--square flush background--fill" style="background-image: url({exp:ce_img:single src='{collection_image}{collection_image_1x1}{/collection_image}' width='1000' crop='yes' url_only='yes'});">
+								<div class="ratio__item floating border--inset">
+									<div class="overlay  overlay--light floating__item">
+										<div class=" overlay__item soft-quarter--sides">
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>{/exp:channel:entries}
+			{/exp:ce_cache:it}
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell hard">
+		<div class="grid flush centered">
+				{exp:channel:entries
+					channel="stories"
+					orderby='random'
+					status='Featured'
+					limit="4"
+					site="newspring"
+				}<div class="grid__item one-half handheld-one-whole hard flush">
+
+				<a href="/stories/{url_title}" class="ratio ratio--landscape floating flush overlay overlay--light overlay--solid background--fill clickable" style="background-image:url({entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image})" data-lazy-load="{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}">
+
+					<div class="ratio__item floating__item overlay__item ">
+						<div class="text--padded">
+						<p class="colfax outlined outlined--tag light"><b>{if entry_video}Watch{if:else}Read{/if}</b></p>
+						<h4 class="flush">{title}</h4>
+						</div>
+					</div>
+				</a>
+
+
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+<section class="section--primary">
+	<div class="shell soft--top">
+		<div class="grid flush centered">
+			<div class="grid__item one-whole flush hard">
+				<div class="text--constrained">
+					<a class="btn flush" href="https://feedpress.it/e/mailverify?feed_id=newspring-blog" target="_blank">Subscribe by e-mail</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{embed="newspring:_embeds/_discover"
+	type="promoted"
+}

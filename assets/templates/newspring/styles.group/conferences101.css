@@ -1,0 +1,45 @@
+/* ----------------------------------------------------------------------------
+  CONFERENCES 101
+---------------------------------------------------------------------------- */
+#p_conferences101 h1 {
+	background: url(//images.newspring.cc/site/conferences101/header.png) 0 0 no-repeat;
+	height: 67px;
+	margin-bottom: 40px;
+	margin-top: 10px;
+}
+#p_conferences101 abbr { border: none; }
+#p_conferences101 h2 {
+	font-size: 18px;
+	line-height: 1;
+	padding: 18px 0 12px;
+}
+#p_conferences101 h2,
+#p_conferences101 h3 { color: #333; }
+#p_conferences101 h3 {
+	font-size: 12px;
+	line-height: 18px;
+}
+#p_conferences101 h3 a { text-decoration: none; }
+#p_conferences101 ul { margin: 0; }
+#p_conferences101 .col_1 { padding-bottom: 80px; }
+#p_conferences101 .col_2 { padding-bottom: 20px; }
+#p_conferences101 .col_1 p,
+#p_conferences101 .col_2 p,
+#p_conferences101 .col_2 li { margin-bottom: 18px; }
+#p_conferences101 .col_2 ul { margin-bottom: 30px; }
+#p_conferences101 .hotel {
+	border-top: 1px solid #DDD;
+	font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	padding: 15px 0;
+}
+#p_conferences101 .hotel p { margin-bottom: 0; }
+#p_conferences101 .hotel .contact {
+	font-weight: bold;
+	float: left;
+	width: 220px;
+}
+#p_conferences101 .hotel .amenities {
+	color: #BBB;
+	float: right;
+	width: 300px;
+}

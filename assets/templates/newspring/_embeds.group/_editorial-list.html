@@ -1,0 +1,197 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="{embed:section_style}"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="title"}{embed:title}{/layout:set}
+
+{exp:channel:entries site="{embed:site}" channel="{embed:channel}" limit="1" dynamic="off"}
+{layout:set name="image"}
+	{if "{embed:section_hero}" != ""}
+		{embed:section_hero}
+	{if:else}
+		{if editorial_image}
+			{editorial_image}
+				{editorial_image_2x1}
+			{/editorial_image}
+		{if:elseif entry_image}
+			{entry_image}
+				{entry_image_2x1}
+			{/entry_image}
+		{/if}
+	{/if}
+{/layout:set}
+{/exp:channel:entries}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries site="{embed:site}" channel="{embed:channel}"{if embed:category} category="{embed:category}"{/if} limit="1" dynamic="off"}
+{embed="newspring:_embeds/_non-hero"
+		overlay='overlay--light overlay--gradient'
+		title='{embed:title}'
+		image_url='{if "{embed:section_hero}" != ""}{embed:section_hero}{if:else}{editorial_image}{editorial_image_2x1}{/editorial_image}{entry_image}{entry_image_2x1}{/entry_image}{/if}'
+}
+
+{/exp:channel:entries}
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+		{exp:channel:entries site="{embed:site}" channel="{embed:channel}" limit="{embed:entry_limit}" status="{embed:status}" {exp:ce_cache:escape}{if embed:paginate == 'y'}paginate="bottom"{/if}{/exp:ce_cache:escape} dynamic="off"{if embed:category} category="{embed:category}"{/if}}{!--
+		 --}<div class="grid__item
+			{exp:ce_cache:escape}
+			{if embed:masonry == 'y'}
+				{if count % 5 == 0}
+					two-thirds
+				{if:else}
+					one-third
+				{/if}
+			{if:else}
+				{if embed:base_column_width}
+					{embed:base_column_width}
+				{if:else}
+					one-third
+				{/if}
+			{/if}
+			{/exp:ce_cache:escape}
+			lap-wide-one-third lap-one-half palm-wide-one-half palm-one-whole">
+
+				{!-- Editorial Image --}
+				{if editorial_image OR entry_image OR collection_image OR segment_1 == 'devotionals' OR channel_short_name == 'groups_study_entry' OR '{categories limit="1"}{category_name}{/categories}' != ''}
+				<a href="{path='{embed:url_prefix}/{url_title}'}" class="{exp:ce_cache:escape}{if count % 5 == 0 AND embed:masonry == 'y'}anchored-ratio--thin portable-ratio--hero handheld-ratio--hero {if:else}ratio--landscape {/if}{/exp:ce_cache:escape}background--fill clickable flush" style="background-image: url(
+				{if editorial_image}
+					{editorial_image}
+						{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}
+					{/editorial_image}
+				{if:else}
+					{categories limit='1'}{exp:ce_img:single src='{category_image_2x1}' width='1000' crop='yes' url_only='yes'}{/categories}
+				{/if}
+
+				{collection_image}
+					{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}
+				{/collection_image}
+
+				{entry_image}
+					{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}
+				{/entry_image}
+
+				{if segment_1 == 'devotionals'}
+					{exp:ce_img:single src='{images-global-origin}/newspring/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}
+				{/if}
+
+				);">
+
+				{if segment_1 == 'devotionals' OR segment_1 == 'articles' OR segment_1 == 'blog'}
+					<div class="ratio__item floating">
+						<div class="floating__item overlay--light flush">
+							{if segment_1 == 'devotionals'}
+								<p class="colfax flush"><span class="outlined outlined--tag light flush">{entry_date format="%l"}</span></p>
+							{if:elseif segment_1 == 'blog' OR segment_1 == 'articles'}
+								{categories limit="1" show_group="45"}
+									<p class="colfax flush"><span class="outlined outlined--tag light flush">{category_name}</span></p>
+								{/categories}
+							{/if}
+						</div>
+					</div>
+				{/if}
+
+				</a>
+				{/if}
+				
+				<div class="card left">
+
+					{!-- Title --}
+					<h3><a href="{if channel_short_name == 'groups_study_entry'}{path='groups/studies/{exp:playa:children channel='groups_study' var_prefix='rstudy'}{rstudy:url_title}{/exp:playa:children}/{url_title}'}{if:else}{path='{embed:url_prefix}/{url_title}'}{/if}" class="dark">{if segment_1 == 'stories'}{entry_subtitle}{if:else}{if channel_short_name == 'groups_study_entry'}"{if '{exp:playa:total_children channel="sermons"}'}{exp:playa:children channel="sermons" var_prefix="sermon"}{sermon:title}{/exp:playa:children}{if:else}{title}{/if}" Group Study{if:else}{title}{/if}{/if}</a></h3>
+
+					{!-- Date --}
+					{if segment_1 != 'stories'}
+						{!-- Anchored/Portable Date Format --}
+						<h6 class="visuallyhidden--palm"><b>{entry_date:relative stop="+8 day" units="days" format="%F %j%S, %Y"}</b></h6>
+						{!-- Handheld Date Format --}
+						<h6 class="dark visuallyhidden--anchored visuallyhidden--portable"><b>{entry_date format="%n/%j/%y"}</b></h6>
+					{/if}
+
+					{!-- Summary --}
+					{if editorial_legacy_body OR collection_description OR entry_description}
+					<p>{exp:eehive_hacksaw chars = "140"}{if segment_1 == 'stories'}{entry_description}{if:else}{editorial_legacy_body}{/if}{collection_description}{/exp:eehive_hacksaw}&hellip;</p>
+					{/if}
+
+
+					{!-- Link --}
+					{exp:ce_cache:escape}
+					{if embed:channel == 'reading_guide' AND collection_downloads:total_rows > 0}
+						<a href="{collection_downloads}{file}{/collection_downloads}" class="link--arrow">Download Guide</a>
+					{if:elseif segment_1 == 'stories'}
+						{if entry_video}
+							<a href="{path='{embed:url_prefix}/{url_title}'}" class="link--cta link--arrow">Watch Story</a>
+						{if:else}
+							<a href="{path='{embed:url_prefix}/{url_title}'}" class="link--cta link--arrow">Read Story</a>
+						{/if}
+					{if:elseif channel_short_name == 'groups_study_entry'}
+						<a href="{path='groups/studies/{exp:playa:children channel='groups_study' var_prefix='sstudy'}{sstudy:url_title}{/exp:playa:children}/{url_title}'}" class="link--cta link--arrow">View Group Study</a>
+					{if:else}
+						<a href="{path='/{embed:url_prefix}/{url_title}'}" class="link--cta link--arrow">Read More</a>
+					{/if}
+					{/exp:ce_cache:escape}
+				</div>
+			</div>{!--
+		 --}{paginate}{pagination_links page_padding="1"}{!--
+		 --}<div class="grid__item one-whole">
+				<div class="pagination">
+				  {previous_page}<a href="{pagination_url}" class="pagination__item page-previous"></a>{/previous_page}
+				  {page}<a href="{pagination_url}" class="pagination__item page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>{/page}
+				  {next_page}<a href="{pagination_url}" class="pagination__item page-next"></a>{/next_page}
+				</div>
+			</div>{!--
+		 --}{/pagination_links}{/paginate}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+{if segment_1 == 'groups' AND segment_2 == 'leaders'}
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Get Notifications</h2>
+				<p>Subscribe to the <b>Groups Leaders</b> blog feed to be notified of new posts.</p>
+				<a href="https://feedpress.it/e/mailverify?feed_id=newspring-groups" class="btn" target="_blank">Subscribe Now</a>
+			</div>
+		</div>
+	</div>
+</section>
+{/if}
+
+{embed="newspring:_embeds/_discover"
+	type="promoted"
+	channel="{embed:title}"
+	entry_id="{entry_id}"
+}
+
+{/exp:ce_cache:it}

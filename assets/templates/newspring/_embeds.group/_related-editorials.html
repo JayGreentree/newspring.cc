@@ -1,0 +1,15 @@
+{exp:tag:related_entries 
+	channel="{embed:channel}" 
+	entry_id="{embed:entry_id}" 
+	tag_group_id="5"
+	limit="{embed:limit}"
+	rank_method="clicks|total_entries"
+}
+<a href="{path='/{embed:channel}/{url_title}'}" class="link--invisible">
+	<div class="ratio--landscape background--fill" style="background-image:url({if '{embed:channel}' == 'devotionals'}{exp:ce_img:single src='{images-global}/newspring/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{if:else}{editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{/if})" data-lazy-load="{if '{embed:channel}' == 'devotionals'}{exp:ce_img:single src='{images-global}/newspring/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{if:else}{editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{/if}"></div>
+</a>
+<h3>{title}</h3>
+<p>{exp:eehive_hacksaw chars = "140"}{editorial_legacy_body}{/exp:eehive_hacksaw}&hellip;</p>
+<a href="{path='/{embed:channel}/{url_title}'}" class="link--arrow capitalize">Related {embed:channel}</a>
+
+{/exp:tag:related_entries}

@@ -1,0 +1,77 @@
+<div  id="sidr" class="mobile-nav-container sidr">
+    <div>
+        <div class="mobile-nav hard">
+            <ul id="mainnav">
+            {exp:navee:custom id="christmasmobilenav" nav_title="newspring-main" wrap_type="none" selected_class="active" class="clearfix" selected_class_on_parents="true"}
+                <li {if class}class="{class}"{/if}><a href="{link}"  onclick="ga('send', 'event', 'Nav', 'Mobile: {text}');">{text}</a></li>
+            {/exp:navee:custom}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<header>
+	<div class="grid">{!--
+	 --}<div class="grid__item one-half">
+			<a class="js--modal--trigger" href="/">
+				<h1>
+					NewSpring Church
+				</h1>
+			</a>
+		</div>{!--
+	 --}<div class="grid__item one-half">
+			{!-- <div class="js-site-nav text--right" >
+				<h1 class="menu visuallyhidden--handheld"> Menu</h1>
+
+			</div> --}
+		</div>{!--
+--}</div>
+</header>
+
+<div class="icon icon--mobile-nav"></div>
+
+<nav class="nav--secondary full-height visuallyhidden--handheld visuallyhidden--lap">
+	<ul class="nav__items">
+		<li class="trailer active">
+			<a href="#trailer" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.intro.jpg')">
+				<span>trailer</span>
+			</a>
+		</li>
+		<li class="zac">
+			<a href="#zac" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.zac.jpg')">
+				<span>Zac</span>
+			</a>
+		</li>
+		<li class="mandy">
+			<a href="#mandy" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.mandy.jpg')">
+				<span>Mandy</span>
+			</a>
+		</li>
+		<li class="lizzy">
+			<a href="#lizzy" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.lizzy.jpg')">
+				<span>Lizzy</span>
+			</a>
+		</li>
+		<li class="jake">
+			<a href="#jake" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.jake.jpg')">
+				<span>Jake</span>
+			</a>
+		</li>
+		<li class="luke">
+			<a href="#luke" style="background-image:url('{images-global}/newspring/editorial/content/newspring.easter.icon.luke.jpg')">
+				<span>Luke</span>
+			</a>
+		</li>
+		{!-- <li class="zacandmandy">
+			<a href="#zacandmandy" style="background-image:url('https://s3.amazonaws.com/uifaces/faces/twitter/soyjavi/128.jpg')">
+				<span>Zac &amp; Mandy</span>
+			</a>
+		</li> --}
+		{!-- <li class="live">
+			<a href="#live" style="background-image:url('https://s3.amazonaws.com/uifaces/faces/twitter/soyjavi/128.jpg')">
+				<span>Watch Live</span>
+			</a>
+		</li> --}
+	</ul>
+</nav>

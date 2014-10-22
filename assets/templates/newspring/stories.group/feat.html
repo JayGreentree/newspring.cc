@@ -1,0 +1,123 @@
+{layout="_layouts/master"
+	title="Stories"
+	description="Every number has a name, every name has a story, every story matters to God."
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id="contents"}
+
+<section>
+	<div class="shell hard">
+		<div class="grid flush">
+			{exp:channel:entries channel="stories" limit="6" status="Featured"}{exp:stash:set name="total_results_less_three"}{exp:math formula='{total_results} - 3' absolute='yes'}{/exp:stash:set}<div class="grid__item 
+			{if count == 1}
+				one-whole
+			{if:else}
+				{if total_results < 3}
+					one-whole
+				{if:else}
+					{if total_results % 2 != 0}
+						one-half handheld-one-whole
+					{if:else}
+						{if count > {exp:stash:get name='total_results_less_three'}}
+							{if count != total_results}
+								one-third portable-one-half handheld-one-whole
+							{if:else}
+								one-third portable-one-whole handheld-one-whole
+							{/if}
+						{if:else}
+							one-half handheld-one-whole
+						{/if}
+					{/if}
+				{/if}
+			{/if}
+			hard flush">
+				<a href="{path='/stories/{url_title}'}" class="link--invisible">
+					<div class="ratio--landscape background--fill flush" style="background-image:url({entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image})" data-lazy-load="{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}">
+						<div class="ratio__item floating overlay overlay--solid">
+							<div class="floating__item overlay__item overlay--light text--padded-sides">
+								<p class="colfax outlined outlined--tag light"><b>{if entry_video}Watch{if:else}Read{/if}</b></p>
+								<h3 class="flush">{entry_subtitle}</h3>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+
+{!-- <section>
+	<div class="shell hard">
+		<div class="grid flush">
+			{exp:channel:entries channel="stories" limit="12" status="featured"}
+				
+
+			<div class="grid__item hard flush 
+				{if count == 1}one-whole
+				{if:else}
+					{if total_results == 2}
+						one-whole
+					{if:else}
+						{if total_results % 2 == 0}
+						{if:else}
+						{/if}
+					{/if}
+				{/if}">
+					<a href="{path='/stories/{url_title}'}" class="link--invisible">
+						<div class="ratio--landscape background--fill flush" style="background-image:url({entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image})" data-lazy-load="{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}">
+							<div class="ratio__item floating overlay overlay--solid">
+								<div class="floating__item overlay__item overlay--light text--padded-sides">
+									<p class="colfax outlined outlined--tag"><b>{if entry_video}Watch{if:else}Read{/if}</b></p>
+									<h4 class="flush">{entry_subtitle}</h4>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>{/exp:channel:entries}
+			</div>		
+		</div>
+	</div>
+</section> --}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<h2>Every Story Matters To God</h2>
+					<p>Watch a short video from Pastor Perry Noble to get tips on how to tell your story for God's glory! Then take a few minutes to share what Jesus has done in your life.</p>
+					<a href="/stories/share" class="btn">Share Your Story</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{/exp:ce_cache:it} 

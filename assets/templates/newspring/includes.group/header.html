@@ -1,0 +1,33 @@
+{exp:ce_cache:it id="{site_short_name}-header"}
+{exp:ce_cache:escape}
+	{embed="includes/header_prefix" body_id="{embed:body_id}" body_class="{embed:body_class}" title="{embed:title}" script="{embed:script}" group_script="{embed:group_script}" group_style="{embed:group_style}" style="{embed:style}" page_class="{embed:page_class}" meta_title='{embed:meta_title}' meta_description='{embed:meta_description}' javascript ="{embed:javascript}" facebook_thumbnail='{embed:facebook_thumbnail}' fb_url="{embed:fb_url}" fb_title="{embed:fb_title}" fb_video="{embed:fb_video}" fb_describe="{embed:fb_describe}" fb_image="{embed:fb_image}" speaker="{embed:speaker}"}
+{/exp:ce_cache:escape}
+		
+		<div id="masthead" class="g_12 clearfix">
+			<p id="logo" class="g_3 g_a"><a href="{site_url}" title="NewSpring Church homepage" class="ir">NewSpring Church</a></p>
+		
+			<div class="hr"><hr></div>
+			
+			<p class="g_3 p_3 locations-service-times"><a href="/newhere/locations" title="View our locations and service times">Locations &amp; Service Times</a></p>
+		
+			<div class="hr"><hr></div>		
+
+			<div class="g_3 g_o">
+				<gcse:searchbox-only autoCompleteMaxCompletions="3" resultsUrl="/search"></gcse:searchbox-only>
+				<div class="skeleton"></div>
+				<span class='pictos looking-glass'>s</span>
+			</div>
+
+			<div class="hr"><hr></div>
+			{exp:navee:custom nav_title="mainnav" wrap_type="ul" selected_class="active" class="g_a g_o g_8 p_4 clearfix" selected_class_on_parents="true"}
+				<li {if class}class="{class}"{/if}><a href="{link}">{text}</a></li>
+			{/exp:navee:custom}
+
+		</div><!-- end #masthead -->
+		
+		<div class="hr{if embed:use_alt != ''} alt{/if}"><hr></div>
+		
+		
+<div class="gcse-searchresults" data-enableOrderBy="relevance"></div>
+
+{/exp:ce_cache:it}

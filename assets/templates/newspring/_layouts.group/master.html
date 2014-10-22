@@ -1,0 +1,43 @@
+{layout="newspring:_layouts/global"
+	title="{layout:title}"
+	description="{layout:description}"
+	image="{layout:image}"
+	page_type="{layout:page_type}"
+	article_section="{layout:article_section}"
+	tags="{layout:tags}"
+	publish_time="{layout:publish_time}"
+
+	google_author="{layout:google_author}"
+	google_page_profile="{layout:google_page_profile}"
+
+	twitter_publisher="{layout:twitter_publisher}"
+	twitter_author="{layout:twitter_author}"
+
+	facebook_profile="{layout:facebook_profile}"
+	facebook_app="{layout:facebook_app}"
+
+	section_style="{if layout:section_style != ''}{layout:section_style}{/if}"
+	section_script="{if layout:section_script != ''}{layout:section_script}{/if}"
+
+	typekit="{layout:typekit}"
+
+	meta="{layout:meta}"
+	footer="{layout:footer}"
+}
+
+{embed="_embeds/_masthead"
+  fixed_masthead="n"
+}
+
+{layout:set name="meta"}
+<meta name="application-name" content="NewSpring" />
+<meta name="msapplication-square70x70logo" content="{images-global}/newspring/icons/live-tile.square.small.png" />
+<meta name="msapplication-square150x150logo" content="{images-global}/newspring/icons/live-tile.square.medium.png" />
+<meta name="msapplication-wide310x150logo" content="{images-global}/newspring/icons/live-tile.wide.png" />
+<meta name="msapplication-square310x310logo" content="{images-global}/newspring/icons/live-tile.square.large.png" />
+<meta name="msapplication-notification" content="frequency=30; polling-uri=/feeds/notifications-1; polling-uri2=/feeds/notifications-2; polling-uri3=/feeds/notifications-3" />
+{/layout:set}
+
+{layout:contents}
+
+{embed="_embeds/_footer"}

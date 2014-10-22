@@ -1,0 +1,70 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:channel:entries channel="guest_services" url_title="{segment_2}"}
+
+{layout:set name="title"}{gs_campus}{title}{/gs_campus} | Guest Services{/layout:set}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+<section class="section--dark section--condensed">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole handheld-centered">
+				<br>
+				<h2>{gs_campus}{title}{/gs_campus}</h2>
+				<a href="/{segment_1}" class="link--arrow reverse light">Back to the Campus List</a>
+			</div>{gs_links}{if disabled != 'y'}<a href='{url}' class="link--invisible"><div class="grid__item one-third portable-one-half handheld-one-whole">
+					<div class="card flush">
+							<small class="colfax brand flush"><b>{green_text}</b></small>
+							<h3 class="dark">{text}</h3>
+					</div>
+				</div></a>{/if}{/gs_links}
+			{if no_results} {redirect="guestservices"} {/if}
+		</div>
+	</div>
+</section>
+
+{/exp:channel:entries}
+
+{!--
+
+USE FOR FUSE GUEST SERVICES TEMPLATE
+
+{exp:channel:entries channel="guest_services" orderby="title" sort="asc" status="open" search:gs_ministry="Fuse"}
+	<li class="blackened wide small">
+			{gs_campus}
+				<a href="{path=guestservices/{url_title}-fuse}" title="{title} Campus Fuse Page">
+				{title} Fuse
+			{/gs_campus}
+		</a>
+	</li>
+{/exp:channel:entries} 
+
+--}

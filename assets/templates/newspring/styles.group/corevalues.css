@@ -1,0 +1,239 @@
+/* ----------------------------------------------------------------------------
+  CORE VALUES - MAIN PAGE
+---------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Copse';
+    src: url('//assets.newspring.cc/fonts/copse/Copse-Regular-webfont.eot');
+    src: url('//assets.newspring.cc/fonts/copse/Copse-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//assets.newspring.cc/fonts/copse/Copse-Regular-webfont.woff') format('woff'),
+         url('//assets.newspring.cc/fonts/copse/Copse-Regular-webfont.ttf') format('truetype'),
+         url('//assets.newspring.cc/fonts/copse/Copse-Regular-webfont.svg#CopseRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#p_cv #main-hero{ margin-bottom: 20px; }
+.ie #p_cv #main-hero{ margin-bottom: 10px; }
+
+
+/*Important for slider, images are 940 and slider is responsive grid makes this 960 which puts a 20px margin between each slide */
+#p_cv .flex-container, #p_cv .flexslider, #p_cv #slide_nav{ width: 940px !important; }
+
+/*Flex container IE specfics, Death to IE, Spacing between .flex-container and #outbound*/
+#p_cv .flex-container{ margin-bottom: -30px; }
+.ie7 #p_cv .flex-container { margin-bottom: 15px; }
+.ie8 #p_cv .flex-container{ margin-bottom: -30px; }
+
+/*Making sure theres enough space on IE7 above the breadcrumb*/
+.ie7 #p_cv #outbound{ margin-bottom: 10px; }
+
+/*Making sure theres enough space above the breadcrumb*/
+#p_cv #breadcrumb{ margin-top: 10px; }
+.ie7 #p_cv #breadcrumb{ margin-top: 20px; }
+
+/*Needs to be relative for the slides not to appear */
+.ie #p_cv #slide_nav, .ie #p_cv .flexslider{ position: relative; }
+
+#p_cv #heroes {
+	margin-top: 46px; /* +/- this changes the spacing between #slide_nav and #heros*/
+	padding-bottom: 20px;
+	margin-bottom: 21px;
+	display: inline-block;
+	position: relative;
+	padding-right: 10px;
+	float: left;
+}
+
+#p_cv #heroes li img{
+	-khtml-bottom-left-border-radius: 7px;
+	-khtml-bottom-right-border-radius: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-webkit-bottom-left-border-radius: 7px;
+	-webkit-bottom-right-border-radius: 7px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.ie #p_cv #heroes {
+	margin-top: 10px;
+}
+
+#p_cv .flexslider{
+	margin-left: 10px;
+}
+
+.gecko #p_cv .flexslider{
+	margin-left: 10px !important;
+	margin-right: 10px;
+}
+
+#p_cv #heroes,
+#p_cv #heroes li,
+#p_cv #heroes a {
+	display: inline-block;
+	height: 402px;
+}
+
+#p_cv #heroes li.featured { z-index: 100; }
+
+#p_cv #page { position: relative; }
+
+#p_cv #slide_nav {
+  -khtml-top-left-border-radius: 7px;
+  -khtml-top-right-border-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  -webkit-top-left-border-radius: 7px;
+  -webkit-top-right-border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
+  background: #222;
+  font-size: 13px;
+  left: 20px;
+  line-height: 37px;
+  padding: 5px 0 5px;
+  margin: 0px 0 10px;
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+}
+
+.ie #p_cv #slide_nav{
+	position: relative;
+	margin: 60px 0 -50px -20px;
+	bottom: 40px;
+	height: 40px;
+}
+
+.chrome #p_cv #slide_nav{
+	 margin: 0px 0 10px !important;
+}
+
+#p_cv #slide_nav li { display: inline; padding-bottom: 18px; }
+#p_cv #slide_nav a {
+  color: #777;
+  padding: 0 20px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #000;
+}
+#p_cv #slide_nav a:hover,
+#p_cv #slide_nav a.active { color: #FFF; }
+
+#p_cv #slide_nav #tippy {
+  background: url(//images.newspring.cc/site/slide_nav_indicator_top.png) 0 0 no-repeat;
+  display: block;
+  height: 17px;
+  position: absolute;
+  width: 32px;
+  top: 45px;
+}
+
+/* ----------------------------------------------------------------------------
+  CORE VALUES - ARTICLE PAGE
+---------------------------------------------------------------------------- */
+
+
+#p_cv div.body div.hr{
+	margin-bottom: 20px;
+}
+
+#p_cv div.body div.hr{
+	border-top: 1px solid #dedcdc;
+}
+
+#p_cv .article{
+	margin-top: 40px;
+	padding-left: 50px;
+}
+
+#p_cv .article p{
+	padding-bottom: 10px;
+	color: #595959;
+	font: 18px/26px "Palatino, Georgia, 'Times New Roman', serif";
+}
+
+#p_cv .article em{
+	font-style: italic;
+}
+
+#p_cv .article strong{ font-weight: bold; }
+
+#p_cv .article ul{
+	list-style: disc;
+	position: relative;
+	left: 40px;
+	font: 18px/26px "Palatino, Georgia, 'Times New Roman', serif";
+	padding-bottom: 10px;
+}
+
+#p_cv .article ol{
+	list-style: decimal;
+	position: relative;
+	left: 40px;
+	font: 18px/26px "Palatino, Georgia, 'Times New Roman', serif";
+	padding-bottom: 10px;
+}
+
+#p_cv .article .pullquote{
+	float: left;
+	color: #666;
+	background-color: #efefef;
+	width: 260px;
+	font-size: 24px;
+	line-height: 33px;
+	font-family: 'Copse', Lucida, serif !important;
+	padding: 25px 30px 30px 35px;
+	margin: 10px 30px 10px -50px;
+}
+
+#p_cv .sidebar{
+	margin-top: 45px;
+}
+
+#p_cv .sidebar .social{
+	margin-bottom: 15px;
+	margin-left: 10px;
+}
+
+#p_cv .sidebar .tags{
+	margin-left: 10px;
+}
+
+#p_cv .sidebar .tags ul, #p_cv .grow .sidebar .tags li {
+	display: inline-block;
+}
+
+#p_cv .sidebar .tags li{
+	background-color: #f0eeee;
+	margin-right: 4px;
+	margin-top: 8px;
+	padding: 2px 9px;
+	-khtml-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	color: #595959;
+}
+
+#p_cv .related-reading{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	border-top: 1px solid #dddddd;
+}
+
+#p_cv .related-reading li{
+	display: inline-block;
+}
+
+#p_cv .related-reading li img{
+	width: 100%;
+	-khtml-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+

@@ -1,0 +1,33 @@
+{if segment_3}
+
+	{if segment_3 == "category"} 
+
+		{!-- Display main category list --}
+		{embed="{segment_1}/_kids-home" page_channel="{page_channel}"}
+
+	{if:else}
+
+		{exp:md_detect_page_type url_segment="{segment_3}"}
+
+			{if pagination_page}
+
+				{!-- Show home page with pagination --}
+		 		{embed="{segment_1}/_kids-home" page_channel="{page_channel}"}
+
+		 	{if:else}
+
+				{!-- Display a section entry page --}
+				{embed="{segment_1}/_kids-entry" page_channel="{page_channel}"}
+
+			{/if}
+
+		{/exp:md_detect_page_type}
+
+	{/if}
+
+{if:else}
+
+	{!-- Display the Blog Home page --}
+	{embed="{segment_1}/_kids-home" page_channel="{page_channel}"}
+
+{/if}

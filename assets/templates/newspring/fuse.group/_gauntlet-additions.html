@@ -1,0 +1,53 @@
+<style>
+
+	h2 {
+		font-size: 32px;
+		color: #444;
+	}
+
+	ul.schedule-list {
+		font-size: 18px;
+	}
+
+	ul.schedule-list li:first-child {
+		font-weight: bold;
+		color: #222;
+	}
+
+</style>
+
+{exp:channel:entries channel="gauntlet_sessions"}
+	{if current_time >= start_time AND current_time < end_time OR FUSE_LIVE_OVERRIDE == 'on'}
+			{FUSE_LIVESTREAM_FEEDS}
+	{if:else}
+		{if count == total_results}
+			<div class="g_12" style="text-align: center; padding: 40px 0;">
+				<h2>Gauntlet Livestream Schedule</h2>
+			</div>
+			<div class="g_4" style="text-align: center;">
+				<ul class="schedule-list">
+					<li>Monday </li>
+					<li>7:45pm - 10pm</li>
+				</ul>
+			</div>
+			<div class="g_4" style="text-align: center;">
+				<ul class="schedule-list">
+					<li>Tuesday - Wednesday</li> 
+					<li>8:45am - 10:30am</li>
+					<li>6:45pm - 8:45pm</li>
+				</ul>
+			</div>
+			<div class="g_4" style="text-align: center; margin-bottom: 30px;">
+				<ul class="schedule-list">
+					<li>Thursday </li>
+					<li>7:30am (Baptism)</li>
+					<li>9:30am - 10:45am</li>
+					<li>7:15pm - 9:30pm</li>
+				</ul>
+			</div>
+			<div class="g_12">
+				<p style="font-size: 16px; text-align: center; margin-bottom: 20px;">Follow along on Twitter: <a href="https://twitter.com/search?q=%23gauntlet14" target="_blank">#Gauntlet14</a></p>
+			</div>
+		{/if}
+	{/if}
+{/exp:channel:entries}

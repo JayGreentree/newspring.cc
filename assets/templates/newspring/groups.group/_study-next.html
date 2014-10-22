@@ -1,0 +1,13 @@
+<span class="next_entries">
+	{!--	Next/Prev Entry Btns
+			Have to use an embed using the {exp:playa:coparent_ids} to limit which entries this tag looks at.  
+			The {exp:playa:coparent_ids} tag limits next/prev entries to those that share the same Study.  i.e., Evangelism
+	--}
+	{exp:channel:next_entry channel='groups_study_entry' url_title="{segment_4}" entry_id="{embed:coparent_ids}"}
+		<a href="{path='{segment_1}/{segment_2}/{segment_3}'}" class="btn entries next">Next<span class="arrow">></span></a>
+	{/exp:channel:next_entry}
+
+	{exp:channel:prev_entry channel='groups_study_entry' url_title="{segment_4}" entry_id="{embed:coparent_ids}"}
+		<a href="{path='{segment_1}/{segment_2}/{segment_3}'}" class="btn entries prev"><span class="arrow"><</span>Prev</a>
+	{/exp:channel:prev_entry}
+</span>

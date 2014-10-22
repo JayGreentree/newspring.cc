@@ -1,0 +1,93 @@
+{if logged_in}
+
+	{if segment_3}
+
+		{if segment_3 == 'training'}
+		{embed="{segment_1}/_volunteers-training"}
+		{/if}
+
+		{if segment_3 == 'resources'}
+		{embed="{segment_1}/_volunteers-resources"}
+		{/if}
+		
+		{if segment_3 == 'archives'}
+		{embed="{segment_1}/_volunteers-archives"}
+		{/if}
+
+	{if:else}
+
+		{!-- Homepage / Vision --}
+		{embed="{segment_1}/_volunteers-home"}
+		
+	{/if}
+
+{if:else} 
+
+	{embed='includes/header' 
+		title='Fuse Student Ministry' 
+		body_id='fuse' 
+		body_class="subnav" 
+		page_class="page-border"
+		style="fancybox"
+		group_style="{segment_1}" 
+		group_script="{segment_1}"
+		fb_title="Fuse Student Ministry" 
+		fb_url="{path={segment_1}}" 
+		meta_description='Fuse is the weekly gathering of the NewSpring Student Ministry. We’re dedicated to providing a place for students (6th -12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ.' 
+		fb_describe="{exp:eehive_hacksaw}Fuse is the weekly gathering of the NewSpring Student Ministry. We’re dedicated to providing a place for students (6th -12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ.{/exp:eehive_hacksaw}"
+	}
+
+<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+<script src="/assets/backup/old_js/jquery.jcarousel.min.js"></script>
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="mainnav"}
+
+<div id="subnav_page" class="c_12 clearfix page-border">
+
+	<div id="body" class="clearfix theme-default">
+
+		<div id="hero" class="g_12">
+			<img src="//images.newspring.cc/site/fuse/fuse.volunteer.hero.jpg" class="border" width="940" alt="Volunteer at Fuse">
+		</div>
+
+		<div class="g_12">
+			<div class="g_7 g_a">
+				<div class="column-wrapper">
+					<h2>What to Expect as a Volunteer</h2>
+					<p>At Fuse, we believe that every volunteer we have is a leader! Every NewSpring owner who serves at Fuse is a leader. Students will look to us for relationship, guidance, discipline, and fun. We will lead by the example of how we follow Jesus.</p>
+					<p>This will be a serious commitment of dedication and time, but there is no greater reward than seeing that the Lord has used you to lead a student closer to Him. We do ask that if you want to be a leader, you be prepared to attend a Fuse service every week.</p>
+					<p>If you are interested in becoming a leader, there are a few steps you will need to go through:</p>
+					<ol>
+						<li>First Look: this is where you can simply come check out a Fuse service.</li>
+						<li>Basics: we want to provide you with training you will need to lead well.</li>
+						<li>Next Steps Conversation: we are all about next steps at NewSpring Church, and we want to help you see if Fuse is yours.</li>
+						<li>Background Check: all leaders must be cleared to be able to be around students.</li>
+					</ol>
+					<p>For campus specific details on when you can attend any of these, please <a href="/newhere/locations">contact your campus</a>.</p><br>
+				</div>
+			</div>
+			<div class="g_5 g_o">
+				<div class="column-wrapper">
+					<h2>Why Volunteer?</h2>
+					<p>We volunteer in order to see CHANGE in the lives of students. The 3 ways we believe this happens is by:</p>
+					<ol>
+						<li>Putting Jesus on Their Level</li>
+						<li>Creating Enjoyable Environments</li>
+						<li>Building Relationships</li>
+					</ol>
+					<p>If all of these are accomplished, Fuse is a win!</p> 
+					<p><b>We want to see students' lives CHANGE.</b></p>
+					<a href="https://newspring.wufoo.com/forms/zg3n9yl1t97u00/" class="large-btn">Sign Up to Volunteer</a>
+					<a href="{path='login/{segment_1}/{segment_2}'}" class="large-btn">Current Volunteers</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{embed='includes/footer'}
+
+{/if}

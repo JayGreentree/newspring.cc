@@ -1,0 +1,98 @@
+{layout="_layouts/master"
+	title="Ownership"
+	description="We believe every Christian should belong to a local church and take ownership of that church. Ownership at NewSpring includes serving, giving, and participating in biblical community."
+	image="http:{images-global}/{site_short_name}/ownership/ownership.2to1.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{embed="newspring:_embeds/_hero"
+	title="Ownership"
+	summary="We believe every Christian should belong to a local church and take ownership of that church. This includes serving, giving, and participating in biblical community."
+	image_url="{images-global}/{site_short_name}/ownership/ownership.2to1.jpg"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole centered">
+				<h2 class="flush">Why Ownership?</h2>
+			</div><div class="grid__item one-whole">
+				<div class="text--constrained centered">
+					<div class="left">
+						<p><strong>Members have rights, Owners have responsibilities.</strong> We offer monthly Ownership classes where you'll learn the vision and values of NewSpring. We’ll explain the five core values our church lives by: Found People Find People, Saved People Serve People, Growing People Change, You Can’t Do Life Alone, and You Can’t Outgive God.</p>
+						<p>Ownership Class is designed for 6th grade (12 years-old) and up. Sign up at your campus on Sunday or by using one of the links below. This class is a requirement for Ownership. At the end of the class you’ll have an opportunity to become an owner of NewSpring Church.</p>
+						<p>At NewSpring Church, we’re working to reach 100,000 people in South Carolina with the gospel of Jesus. We’d love for you to join us!</p>
+					</div>
+					<hr class="half">
+					<div class="centered sof-half--top">
+						<h6 class="caps "><strong class="primary">Sign Up for Ownership</strong></h6>
+						<a href="#classes" data-scroll class="icon--arrow-down"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="classes" class="section--texture section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+			{exp:channel:entries channel="campuses" category="not 156" orderby="title" status="Open|Coming Soon" sort="asc"}{if {exp:playa:total_parents field_id="85" category="303" show_future_entries="yes"}}{!--
+			--}<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+				<div class="card flush">
+					<h3 class="dark">{title}</h3>
+					<a href="#" data-modal-open="/ownership/choosecampus/{url_title}, floating" class="link--arrow">View Classes</a>
+				</div>
+			</div>{!--
+			--}{/if}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+{!-- <section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole portable-one-whole handheld-one-whole">
+				<div class="grid floating">
+					<div class="grid__item floating__item one-quarter portable-one-half palm-wide-one-whole palm-three-quarters flush">
+						<div class="image image--round ratio--square" style="background-image: url(https://pbs.twimg.com/profile_images/450315608048304128/dDnmzdxy.jpeg);"></div>
+					</div><div class="grid__item floating__item three-quarters portable-one-whole handheld-one-whole left">
+						<blockquote class="blockquote--story flush">
+							<p>Jesus used Ownership at NewSpring to change the whole direction of my life. Maybe becoming an Owner is your next step, too?</p>
+							<footer><a href="#">Lindsay Kleinknecht</a></footer>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> --}
+
+
+{/exp:ce_cache:it}

@@ -1,0 +1,16 @@
+{!--
+	
+	This embed will return the next service time in the current week, for a given service type, for a given campus.
+
+	{embed="newspring:_embeds/_next-service-time" type="{type}" campus="{campus}"}
+
+--}
+
+{exp:channel:entries channel="services_new"}
+	{services search:service_type="={embed:type}" search:service_campuses="{embed:campus}" var_prefix="service"  search:service_day=">={current_time format='%w'}" search:service_starttime=">={current_time format='%H%i'}" limit="1"}
+		{service:service_day:label} at {service:service_starttime:label}{if "{embed:campus}" == "Online"} EST{/if}
+	{/services}
+	{if {services:total_rows search:service_type="={embed:type}" search:service_campuses="{embed:campus}" search:service_day=">={current_time format='%w'}" search:service_starttime=">={current_time format='%H%i'}"} == "0"} 
+		{embed="_embeds/_first-service-of-the-week" type="{embed:type}" campus="{embed:campus}"}
+	{/if}
+{/exp:channel:entries}

@@ -1,0 +1,60 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+ Title : NewSpring Custom Wufoo
+ Author : Jon Horton
+ URL : http://newspring.cc
+
+ Last Updated : 11.01.2012
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+
+
+/* Logo */
+#logo a {background-image:url('https://s3.amazonaws.com/media.newspring.cc/img/wufoo.logo/wufoo.black.green.png'); min-height:0; height:109px}
+* html #logo a {/* IE6 png Support */
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://s3.amazonaws.com/media.newspring.cc/img/wufoo.logo/wufoo.black.green.png", sizingMethod="crop");
+}
+
+/* Backgrounds */
+html{background-image:none;background-color:#fff;font-family: "Bitter", sans-serif;}
+#logo{background: #fff;}
+#container{background:#FFFFFF; -moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius: 7px;}
+.wufoo {font-family: "Bitter","Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;}
+.wufoo input.text, .wufoo textarea.textarea{
+	width: 278px;
+	height: 25px;
+	background: #f2f2f2;
+	border: 1px solid #ccc;
+	margin: 0 0 20px 0;
+	padding: 0 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	transition: all .2s linear;
+}
+.wufoo .focused, .wufoo li.focused{background:#8cc63f}
+.wufoo .instruct{background-color:#F5F5F5}
+
+/* Borders */
+#container{border:0 solid #cccccc}
+.wufoo .info{border-bottom:1px dotted #CCCCCC}
+.wufoo .instruct{border:1px solid #e6e6e6}
+
+/* Typography */
+.wufoo .info h2{font-size:160%;font-family:inherit;color:#000000}
+.wufoo .info div{font-size:95%;font-family:inherit;color:#444444}
+.wufoo .section h3{font-size:110%;font-family:inherit;background:#FFFFFF;color:#000000}
+.wufoo .section div{font-size:85%;font-family:inherit;color:#444444}
+.wufoo label.desc, .wufoo legend.desc{font-size:95%;font-family:inherit;color:#444444}
+.wufoo li div, .wufoo li div label, .wufoo li span label{font-family:inherit;color:#444444}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo select.select, .wufoo label.choice{font-size:100%;font-family:inherit;color:#333333}
+.wufoo label.choice{color:#444444}
+.wufoo .instruct{font-size:80%;font-family:inherit;color:#444444
+}
+
+/* Drop Shadows */
+#bottom{visibility:visible}

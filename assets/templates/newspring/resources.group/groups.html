@@ -1,0 +1,13 @@
+{if segment_4 != ""}
+	{!-- If segment4, display a specific Group Entry --}
+	{embed="{segment_1}/_groups-entry"}
+{if:else}
+	{if segment_3 == ""}
+		{!-- If segment3 is empty, show the Groups Home page --}
+		{embed="{segment_1}/_groups-home"}
+	{if:else}
+		{!-- If segment3, show that Groups Overview --}
+		{embed="{segment_1}/_groups-overview"}
+	{/if}
+{/if}
+

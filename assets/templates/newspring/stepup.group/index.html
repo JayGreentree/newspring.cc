@@ -1,0 +1,350 @@
+{layout="_layouts/master"
+	title="Step Up"
+	description="In 2013 we began a new giving campaign as a part of our mission to reach 100,000 people. Step Up exists to put permanent facilities all over South Carolina and create campuses in more cities so that thousands of people will have a place to hear about Jesus!"
+	image="{images-global}/all/heroes/{site_short_name}/stepup/hero.stepup_2x1.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="stepup"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+{embed="newspring:_embeds/_hero"
+	title="Step Up"
+	summary=""
+	image_url="{exp:ce_img:single src='{images-global}/{site_short_name}/stepup/hero.stepup_arrow_2x1.jpg' width='1700' crop='yes' url_only='yes'}"
+	content="<a href='http://give.newspring.cc/' class='btn palm-one-whole'>Give Now</a>"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid text--constrained">
+			<div class="grid__item one-whole hard">
+				<h2 class="centered">What is Step Up?</h2>
+				<p>In 2013 we began a new giving campaign as a part of our mission to reach 100,000 people. Step Up exists to put permanent facilities all over South Carolina and create campuses in more cities so that thousands of people will have a place to hear about Jesus!</p>
+				<p>Look below to see what we’ve already been able to do this year as a result of NewSpring stepping up!</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+{!-- Check for entries in low, if entries display content --}
+{if '{exp:low_reorder:total_entries set="step_up"}' > '0'}
+<section class="section--dark section--condensed">
+	<div class="shell">
+		<div class="grid grid--enclosed">
+			{exp:low_reorder:entries set="step_up" limit="7"}{if count != '7'}{!--
+			--}<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+				<div class="ratio ratio--hero flush">
+					<div class="ratio__item background--fill" style="background-image: url({if editorial_image}{editorial_image}{if editorial_image_2x1}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global}/{site_short_name}/stepup/hero.stepup_arrow_default_2x1.jpg' width='1000' crop='yes' url_only='yes'}{/if}{/editorial_image}{if:else}{exp:ce_img:single src='{images-global}/{site_short_name}/stepup/hero.stepup_arrow_default_2x1.jpg' width='1000' crop='yes' url_only='yes'}{/if});"></div>
+				</div>
+				<div class="card">
+					<h3>{title}</h3>
+					{editorial_legacy_body}
+					{if editorial_link}{editorial_link}
+					<a href="{editorial_link_url}" class="link--arrow">{editorial_link_text}</a>
+					{/editorial_link}{/if}
+				</div>
+			</div>{if:elseif count == '7'}<div class="grid__item one-whole">
+				<div class="ratio ratio--thin portable-ratio--hero handheld-ratio--squaret">
+					<div class="ratio__item overlay overlay--solid background--fill background--bottom floating floating--middle floating--center" style="background-image: url({if editorial_image}{editorial_image}{if editorial_image_2x1}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global}/{site_short_name}/stepup/hero.stepup_arrow_default_2x1.jpg' width='1000' crop='yes' url_only='yes'}{/if}{/editorial_image}{if:else}{exp:ce_img:single src='{images-global}/{site_short_name}/stepup/hero.stepup_arrow_default_2x1.jpg' width='1000' crop='yes' url_only='yes'}{/if});"><div class="floating__item overlay__item "><h2 class="light">{title}</h2><h3 class="light">{editorial_legacy_body text_only="yes"}</h3></div></div>
+				</div>
+			</div>{/if}{/exp:low_reorder:entries}
+		</div>
+	</div>
+</section>
+{/if}
+
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<h2>Is Giving To Step Up Your Next Step?</h2>
+			</div>{!--
+			--}<div class="grid__item one-half portable-one-third handheld-one-whole">
+				<p>Do you want to be a part of reaching 100,000 people with the Gospel? Pledge your commitment to give to Step Up from now until December 31, 2015!</p>
+				<a href="https://newspring.wufoo.com/forms/step-up-pledge/" class="btn">Pledge to Step Up</a>
+			</div>{!--
+			--}<div class="grid__item one-half portable-two-thirds handheld-one-whole">
+				<p>Enter the amount you'd like to pledge to Step Up:</p>
+
+				<form id="stepup-calc" onsubmit="return toSubmit();" class="hard" action="#" data-parsley-validate>
+					<p>
+					<label for="contribution">Step Up Contribution Amount</label>
+					<input id="contribution" type="text" placeholder="4000.00" class="text" />
+					<label for="stepup-time" type="text" class="text">Time Period</label>
+						<input id="stepup-time-weekly" type="radio" name="stepup-time" value="weekly">Weekly</input>
+						<input id="stepup-time-biweekly" type="radio" name="stepup-time" value="biweekly">Bi-Weekly</input>
+						<input id="stepup-time-monthly" type="radio" name="stepup-time" value="monthly" checked>Monthly</input>
+					</p>
+					<button id="submit" type="submit" class="ready submit">Calculate Contribution</button>
+				</form>
+				<form id="stepup-give" class="hard visuallyhidden"  action="https://newspring.wufoo.com/forms/step-up-pledge/" >
+					<p>
+					<label for="stepup">Step Up Contribution Amount</label>
+					<input id="stepup" type="text" onfocus="return onReset();" class="text" />
+					<label for="stepup-time" type="text" class="text">Time Period</label>
+						<input id="stepup-time-weekly2" type="radio" name="stepup-time" value="weekly" onclick="toSubmit();">Weekly</input>
+						<input id="stepup-time-biweekly2" type="radio" name="stepup-time" value="biweekly" onclick="toSubmit();">Bi-Weekly</input>
+						<input id="stepup-time-monthly2" type="radio" name="stepup-time" value="monthly" onclick="toSubmit();">Monthly</input>
+					</p>
+					<button id="stepup-amount" class="ready submit" type="submit" onclick="pledgeButton();">Pledge Now</button>
+				</form>
+
+				<script>
+
+					function pledgeButton(){
+						var contribution = $('#contribution').val();
+						document.getElementById('stepup-give').action = "https://newspring.wufoo.com/forms/step-up-pledge/def/Field17=" + contribution;
+					}
+
+					function toSubmit(){
+						var contribution = $('#contribution').val().replace(/,/g, '');
+						var today = new Date();
+						var endDate = new Date(2015,11,31);	// This is actually December. 0 based months...why?
+						var stepup = 0;
+						if($('#stepup-time-weekly').is(':checked')) {
+							$('#stepup-time-weekly').prop('checked', false);
+							$('#stepup-time-weekly2').prop('checked', true);
+						}
+						if($('#stepup-time-biweekly').is(':checked')) {
+							$('#stepup-time-biweekly').prop('checked', false);
+							$('#stepup-time-biweekly2').prop('checked', true);
+						}
+						if($('#stepup-time-monthly').is(':checked')) {
+							$('#stepup-time-monthly').prop('checked', false);
+							$('#stepup-time-monthly2').prop('checked', true);
+						}
+						if($('#stepup-time-weekly2').is(':checked')) {
+							stepup = calcWeeklyAmount(contribution, today, endDate);
+						} else if($('#stepup-time-biweekly2').is(':checked')) {
+							stepup = calcBiWeeklyAmount(contribution, today, endDate);
+						} else if($('#stepup-time-monthly2').is(':checked')) {
+							stepup = calcMonthlyAmount(contribution, today, endDate);
+						}
+						var isGood = !isNaN(parseInt(stepup)) && isFinite(stepup);
+						if(isGood == false || stepup < 0) {
+							onReset();
+						}
+						else {
+							$('#stepup-calc').addClass('visuallyhidden');
+							$('#stepup-give').removeClass('visuallyhidden');
+							$('#stepup').val(stepup);
+							$('#stepup-amount').text('Pledge $' + contribution + ' Now');
+						}
+						return false;
+					}
+
+					function onReset() {
+						$('#contribution').val('');
+						$('#stepup-calc').removeClass('visuallyhidden');
+						$('#stepup-give').addClass('visuallyhidden');
+						$('#contribution').focus();
+						$('#stepup-time-monthly').prop('checked', true);
+						return false;
+					}
+
+					function calcWeeklyAmount(contribution, d1, d2) {
+						var weeks = weeksLeft(d1, d2);
+						var amount = (contribution/weeks).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+						return amount;
+					}
+
+					function calcBiWeeklyAmount(contribution, d1, d2) {
+						var biweeks = biweeksLeft(d1, d2);
+						var amount = (contribution/biweeks).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+						return amount;
+					}
+
+					function calcMonthlyAmount(contribution, d1, d2) {
+						var months = monthsLeft(d1, d2);
+						var amount = (contribution/months).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+						return amount;
+					}
+
+					function weeksLeft(d1, d2) {
+						var weeks;
+						weeks = Math.floor((d2-d1)/(1000*60*60*24*7));
+						return weeks <= 0 ? 0 : weeks;
+					}
+
+					function biweeksLeft(d1, d2) {
+						var biweeks;
+						biweeks = Math.floor((weeksLeft(d1, d2)/2));
+						return biweeks <= 0 ? 0 : biweeks;
+					}
+
+					function monthsLeft(d1, d2) {
+						var months;
+						months = (d2.getFullYear() - d1.getFullYear()) * 12;
+						months -= d1.getMonth();
+						months += d2.getMonth() + 1;
+						return months <= 0 ? 0 : months;
+					}
+
+				</script>
+			</div>
+		</div>
+	</div>
+</section>
+
+{!--
+<!-- Step Up Calculator -->
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole centered">
+				<h2>What Would My Contribution Be?</h2>
+			</div>
+			<div class="grid__item anchored-one-half one-whole left">
+				<div class="text--constrained">
+
+						<p>Enter the amount you'd like to pledge to Step Up:</p>
+
+						<form id="stepup-calc" onsubmit="return toSubmit();" class="hard" action="#" data-parsley-validate>
+							<p>
+							<label for="contribution">Step Up Contribution Amount</label>
+							<input id="contribution" type="text" placeholder="4000.00" class="text" />
+							<label for="stepup-time" type="text" class="text">Time Period</label>
+								<input id="stepup-time-weekly" type="radio" name="stepup-time" value="weekly">Weekly</input>
+								<input id="stepup-time-biweekly" type="radio" name="stepup-time" value="biweekly">Bi-Weekly</input>
+								<input id="stepup-time-monthly" type="radio" name="stepup-time" value="monthly" checked>Monthly</input>
+							</p>
+							<button id="submit" type="submit" class="ready submit">Calculate Contribution</button>
+						</form>
+						<form id="stepup-give" class="hard visuallyhidden"  action="https://newspring.wufoo.com/forms/step-up-pledge/" >
+							<p>
+							<label for="stepup">Step Up Contribution Amount</label>
+							<input id="stepup" type="text" onfocus="return onReset();" class="text" />
+							<label for="stepup-time" type="text" class="text">Time Period</label>
+								<input id="stepup-time-weekly2" type="radio" name="stepup-time" value="weekly" onclick="toSubmit();">Weekly</input>
+								<input id="stepup-time-biweekly2" type="radio" name="stepup-time" value="biweekly" onclick="toSubmit();">Bi-Weekly</input>
+								<input id="stepup-time-monthly2" type="radio" name="stepup-time" value="monthly" onclick="toSubmit();">Monthly</input>
+							</p>
+							<button id="stepup-amount" class="ready submit" type="submit" onclick="pledgeButton();">Pledge Now</button>
+						</form>
+
+						<script>
+
+							function pledgeButton(){
+								var contribution = $('#contribution').val();
+								document.getElementById('stepup-give').action = "https://newspring.wufoo.com/forms/step-up-pledge/def/Field17=" + contribution;
+							}
+
+							function toSubmit(){
+								var contribution = $('#contribution').val().replace(/,/g, '');
+								var today = new Date();
+								var endDate = new Date(2015,11,31);	// This is actually December. 0 based months...why?
+								var stepup = 0;
+								if($('#stepup-time-weekly').is(':checked')) {
+									$('#stepup-time-weekly').prop('checked', false);
+									$('#stepup-time-weekly2').prop('checked', true);
+								}
+								if($('#stepup-time-biweekly').is(':checked')) {
+									$('#stepup-time-biweekly').prop('checked', false);
+									$('#stepup-time-biweekly2').prop('checked', true);
+								}
+								if($('#stepup-time-monthly').is(':checked')) {
+									$('#stepup-time-monthly').prop('checked', false);
+									$('#stepup-time-monthly2').prop('checked', true);
+								}
+								if($('#stepup-time-weekly2').is(':checked')) {
+									stepup = calcWeeklyAmount(contribution, today, endDate);
+								} else if($('#stepup-time-biweekly2').is(':checked')) {
+									stepup = calcBiWeeklyAmount(contribution, today, endDate);
+								} else if($('#stepup-time-monthly2').is(':checked')) {
+									stepup = calcMonthlyAmount(contribution, today, endDate);
+								}
+								var isGood = !isNaN(parseInt(stepup)) && isFinite(stepup);
+								if(isGood == false || stepup < 0) {
+									onReset();
+								}
+								else {
+									$('#stepup-calc').addClass('visuallyhidden');
+									$('#stepup-give').removeClass('visuallyhidden');
+									$('#stepup').val(stepup);
+									$('#stepup-amount').text('Pledge $' + contribution + ' Now');
+								}
+								return false;
+							}
+
+							function onReset() {
+								$('#contribution').val('');
+								$('#stepup-calc').removeClass('visuallyhidden');
+								$('#stepup-give').addClass('visuallyhidden');
+								$('#contribution').focus();
+								$('#stepup-time-monthly').prop('checked', true);
+								return false;
+							}
+
+							function calcWeeklyAmount(contribution, d1, d2) {
+								var weeks = weeksLeft(d1, d2);
+								var amount = (contribution/weeks).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+								return amount;
+							}
+
+							function calcBiWeeklyAmount(contribution, d1, d2) {
+								var biweeks = biweeksLeft(d1, d2);
+								var amount = (contribution/biweeks).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+								return amount;
+							}
+
+							function calcMonthlyAmount(contribution, d1, d2) {
+								var months = monthsLeft(d1, d2);
+								var amount = (contribution/months).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "");
+								return amount;
+							}
+
+							function weeksLeft(d1, d2) {
+								var weeks;
+								weeks = Math.floor((d2-d1)/(1000*60*60*24*7));
+								return weeks <= 0 ? 0 : weeks;
+							}
+
+							function biweeksLeft(d1, d2) {
+								var biweeks;
+								biweeks = Math.floor((weeksLeft(d1, d2)/2));
+								return biweeks <= 0 ? 0 : biweeks;
+							}
+
+							function monthsLeft(d1, d2) {
+								var months;
+								months = (d2.getFullYear() - d1.getFullYear()) * 12;
+								months -= d1.getMonth();
+								months += d2.getMonth() + 1;
+								return months <= 0 ? 0 : months;
+							}
+
+						</script>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+--}
+
+{/exp:ce_cache:it}

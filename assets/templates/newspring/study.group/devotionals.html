@@ -1,0 +1,98 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_channel="devotionals"}
+
+{embed='includes/header' body_id='blog' style='study-devotional' body_class='blog {page_channel}' title='Sermon Series Daily Devotionals' page_class='no-shadow' fb_url="{url_title_path=study/devotionals}" fb_title="{title}" }
+
+<div id="entries">
+	<h1 id="series-devo-h1"><a href="/{segment_1}/{segment_2}" id="devo-home">Sermon Series Daily Devotionals</a><a href="http://feeds.feedburner.com/NewspringChurchDailyDevotionals" id="devo-rss" title="Subscribe to the blog RSS">Subscribe to the blog <em>(<abbr title="Really Simple Syndication">RSS</abbr>)</em></a></h1>
+
+	{exp:channel:entries channel='{page_channel}' limit='1' orderby='date' sort='desc' disable='member_data|trackbacks' {if segment_3 == 'categories'}category='{segment_4_category_id}'{/if} {if segment_5 != ''}url_title='{segment_5}'{/if}}
+
+	
+	<div class="entry s_2 p_2 devo-blog">
+		<h2 id="devo-series">365 Day Reading Plan: {categories}<a href="/{segment_1}/{segment_2}/categories/{category_url_title}">{category_name}</a>{/categories}</h2>
+		<h3 id="devo-devo"><a href="/{segment_1}/{segment_2}/{url_title}" title="Permalink for {title}">{title}</a></h3>
+		<div class="body">
+            <?php $verses = ''; ?>
+			{editorial_scripture}
+			{if passage}
+			<?php
+			$passage = explode('-', '{passage}');
+			$url = 'http://www.youversion.com/bible/niv/{book:label}/'.str_replace(':', '/', $passage[0]).'/';
+			$verses .= '<a href="'.$url.'" title="Read {book} {passage} on YouVersion" rel="external">{book} {passage}</a> & ';
+			?>
+			{/if}
+			{/editorial_scripture}
+            <p id="devo-verse">Read: <?php echo substr($verses, 0, -2); ?></p>
+			{editorial_legacy_body}
+         
+			<div class="posted">
+				<span>POSTED {entry_date format='%m.%d.%y'} {categories}IN {category_name}{/categories} </span>
+				<a href="https://twitter.com/share?via=newspring" class="twitter-share-button" data-url="{url_title_path=study/devotionals}" data-text="{title}" data-related="newspring:NewSpring Church" data-hashtags="ReadYourBible" data-lang="en" data-count="horizontal">Tweet</a>
+		 		<div class="fb-like" data-href="{url_title_path=study/devotionals}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div></div>
+		</div>
+	</div>
+	{/exp:channel:entries}
+	
+    {exp:channel:next_entry channel='{page_channel}'}
+		<a href="{path='{segment_1}/{segment_2}'}" id="btn-devo-next">Next Devotional</a>
+	{/exp:channel:next_entry}
+	
+	{exp:channel:prev_entry channel='{page_channel}'}
+		<a href="{path='{segment_1}/{segment_2}'}" id="btn-devo-prev">Previous Devotional</a>
+	{/exp:channel:prev_entry}
+
+	{if segment_3 == ''}
+		{exp:channel:entries channel='{page_channel}' limit='1' offset='1' orderby='date' sort='desc' disable='member_data|trackbacks'}
+			<a href="/{segment_1}/{segment_2}/{url_title}" id="btn-devo-prev">Previous Devotional</a>
+		{/exp:channel:entries}
+	{/if}
+	
+	{if segment_3 == 'categories'}
+	{exp:channel:entries channel='{page_channel}' category='{segment_4_category_id}' dynamic="off" orderby="date" sort="desc"}
+	<?php
+	  $entries['{url_title}'] = '{page_uri}'; 
+	?>
+	{/exp:channel:entries}
+	<?php
+	  $current = '{segment_5}';
+	  $keys = array_keys($entries);
+	  $offset = array_search($current, $keys);
+	  $prev_key = @$keys[$offset + 1];
+	  $next_key = @$keys[$offset - 1];
+	  $prev = ($prev_key) ? '<a href="/{segment_1}/{segment_2}/categories/{segment_4}/' . $prev_key . '" id="btn-devo-prev">Previous Devotional</a>' : "";
+	  $next = ($next_key) ? '<a href="/{segment_1}/{segment_2}/categories/{segment_4}/' . $next_key . '" id="btn-devo-next">Next Devotional</a>' : "";
+	?>
+	<? echo $prev; echo $next; ?>
+	{/if}
+	
+	<div id="sermon_series_categories">
+		<p>
+		 <h3>Just joining us? <a href="http://media.newspring.cc/doc/reading.plan.365.pdf">Download the 365 day reading plan</a>, jump in today, or start at the beginning!</h3>
+		</p>
+		<br />
+    	<h3>Other Sermon Series Devotionals:</h3>
+	    {exp:channel:category_archive channel='{page_channel}' show_empty='no' style='linear' backspace='2'}
+			{categories}<a href="/{segment_1}/{segment_2}/categories/{category_url_title}/"{if segment_4 == category_url_title} class="current"{/if}>{category_name}</a> / {/categories}
+        {/exp:channel:category_archive}
+    </div>
+</div>
+
+{exp:channel:entries channel='{page_channel}' limit='1' orderby='date' sort='desc' disable='member_data|trackbacks' {if segment_3 == 'categories'}category='{segment_4_category_id}'{/if} {if segment_5 != ''}url_title='{segment_5}'{/if}}
+	{embed='includes/breadcrumb' links='<li><a href="/study/" title="">Study</a></li><li><a href="/study/{page_channel}/" title="">Devotionals</a></li><li class="last">{title}</li>'}
+{/exp:channel:entries}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=167012243402263";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+{embed='includes/footer'}
+
+{/exp:ce_cache:it}

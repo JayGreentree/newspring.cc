@@ -1,0 +1,41 @@
+{!--
+
+This Partial is looped through on the bottom of the collection partial, and returns the parents of the entry based on the channels/entry id that are passed to it.
+
+--}
+
+{exp:channel:entries {if embed:site}site="{embed:site}"{/if} channel="{embed:collection_channel}" entry_id="{embed:entry_id}"}
+	{exp:playa:parents {if embed:site}site="{embed:site}"{/if} channel="{embed:collection_entry_channel}" var_prefix="collection_entry" sort="{embed:sort}"}<div class="grid__item one-whole {if '{collection_entry:count}' == '{collection_entry:total_results}'}flush{/if}"><div class="grid"><div class="grid__item one-third portable-one-whole handheld-one-whole flush centered">
+			{!-- Collection Image --}
+			<a href="{path='/{segment_1}/{url_title}/{collection_entry:url_title}'}"><div class="ratio--landscape background--fill" style="background-image: url({collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image});"><div class="ratio__item"><h2 class="number-overlay flush"><span class="number">{collection_entry:episode_week}</span></h2></div></div></a>
+			<p><a href="{path='/{segment_1}/{url_title}/{collection_entry:url_title}'}" class="link--arrow visuallyhidden--portable visuallyhidden--handheld collection-color">Watch Sermon</a></p>
+
+		</div><div class="grid__item two-thirds portable-one-whole handheld-one-whole">
+			{!-- Title & Description --}
+			<h3><a href="{path='/{segment_1}/{url_title}/{collection_entry:url_title}'}" class="collection-color">{collection_entry:title}</a></h3>
+			<p class="colfax dark"><b>
+				{!-- Tablet/Desktop Date Format --}
+				<span class="visuallyhidden--palm">{if '{embed:current_series}' == 'y'}{collection_entry:entry_actualdate:relative units="weeks|days"}{if:else}{collection_entry:entry_actualdate format="%F %j%S, %Y"}{/if} &middot;</span>
+				{!-- Mobile Date Format --}
+				<span class="visuallyhidden--anchored visuallyhidden--portable visuallyhidden--palm-wide">{collection_entry:entry_actualdate format="%n/%j/%y"} &middot;</span>
+			<span class="capitalize dark">
+				{!-- Speaker Tags --}
+				{exp:tag:tags entry_id="{collection_entry:entry_id}" site="{embed:site}" tag_group_id="4" backspace="2" orderby="total_entries" sort="asc"}{collection_entry:tag}, {/exp:tag:tags}
+			</span>
+			</b></p>
+			<p>{collection_entry:entry_description}</p>
+
+			{!-- Tag List --}
+			{exp:tag:tags
+				entry_id="{collection_entry:entry_id}"
+				tag_group_id="5"
+				orderby="clicks"
+				sort="asc"
+			}{if tag_total_results > 0}{if tag_count == 1}<ul class="inline">{/if}
+				<li class="tag"><span data-modal-open="search-modal, search-modal, true"  data-google-search-link="search-modal">{collection_entry:tag}</span></li>
+			{/if}{if tag_total_results == tag_count}</ul>{/if}{/exp:tag:tags}
+
+		</div></div>
+		{if collection_entry:count != total_results}<hr>{/if}
+	</div>{/exp:playa:parents}
+{/exp:channel:entries}

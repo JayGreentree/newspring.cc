@@ -1,0 +1,130 @@
+{if logged_in AND group_id != "20"}
+	{exp:channel:entries 
+		channel="articles|devotionals|resources|episode|stories" 
+		disable="member_data" 
+		limit="1" 
+		orderby="channel|date"
+		sort="desc|asc" 
+		dynamic="off"
+		entry_id="{segment_3}"
+		status="open|Featured|hidden|closed"
+		show_future_entries="yes"
+		show_expired="yes"
+	}
+
+	
+		{embed="includes/header"
+			body_id="blog" 
+			body_class="subnav" 
+			page_class="page-border" 
+			group_style="blog"
+			
+			use_alt=""
+			title="{title} | {channel} | Blog"
+		}
+
+		</div><!-- //page - wraps header on pages with subnav-->
+
+		{embed="{segment_1}/_subnav" page_template="blog"}
+
+		<div id="main_content" class="c_12 clearfix page-border">
+
+			<div class="g_12 section body grow {channel_short_name}">
+
+				{!-- Hero lives here --}
+		<div class="hero{if editorial_video} video-title{/if}">
+			{if editorial_video}
+				<a href="#" class="play_button ooyala-embed" data-embed="{editorial_video}">Play</a>
+	      		{ooyala_video}			
+        	{/if}
+
+			{if channel_short_name == "devotionals"}	
+				<span id="day"{if editorial_background:total_rows != 0} class="image" style="background: url('{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="940" height="400" crop="yes" url_only="yes"}') no-repeat; background-size: 940px 400px;"{if:else} class="image"{/if}>
+					<span class="week clearfix">
+						<span class="day">{entry_date format="%l"}</span>
+						<span class="title-overlay">{title}</span>
+						<span class="date">{entry_date format="%m.%d.%Y"}</span>
+					</span>
+				</span>
+
+				{embed="{segment_1}/_next"}
+			{/if}
+
+			{if channel_short_name == "articles"}
+				<div class="image" style="background: url('{editorial_background}{file}{/editorial_background}') no-repeat; background-size: 940px 400px;">
+					<h3 class="title">{title}</h3>
+				</div>
+			{/if}
+			{if channel_short_name == "stories"}
+				{if editorial_subtitle}
+					<span class="stories title-overlay">{editorial_subtitle}</span>
+				{/if}
+				{if editorial_background:total_rows == 0}
+					<img src="" alt="Video Player/Image" width="940" height="400"/>
+				{if:else}
+					{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="940" attributes='alt="{title} Image"'}
+				{/if}
+			{/if}
+		</div>
+		<div class="g_8 p_2 s_2 g_a g_o section">
+			<strong>Live URL: </strong> <span class="note">(Use when scheduling tweets or facebook posts!)</span>
+			<input type="text" class="entry_url" value="{path={segment_1}/{channel_short_name}/{url_title}}/">
+			<a href="#" class="copy_url" title="Copy this link to your clipboard!">n</a>
+		</div>
+
+				{!-- Begin Main Body Content --}
+				<div class="article g_9 g_a">
+					{if channel_short_name == "devotionals" OR channel_short_name == "stories"}<h2>{title}</h2>{/if}
+					{if cv_quote}
+						<blockquote class="pullquote">
+							<span class="quotation-open">&ldquo;</span>
+							{cv_quote}
+							<span class="quotation-close">&rdquo;</span>
+						</blockquote>
+					{/if}
+					
+					{editorial_legacy_body}
+					{episode_description}
+
+					{if channel_short_name == "stories"}
+						<p><em>How has Jesus transformed your life or the life of someone you know at NewSpring? <br>Share your story with us. <a href="http://newspring.cc/mystory">http://newspring.cc/mystory</a></em></p>
+					{/if}
+				</div>
+				
+				{!-- Social Share + Categories --}
+				<div class="sidebar g_2 g_o">
+					<h6>{entry_date format="%m.%d.%Y %g:%s%a"}</h6>
+
+					<div class="tags">
+						<h6>Categories</h6>
+						<ul>
+							{categories}
+								<li><a href="{path={segment_1}}">{category_name}</a></li>
+							{/categories}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function()
+				{
+					$(".entry_url").click(function() {
+					   $(this).select();
+					});
+
+					 $('a.copy_url').zclip({
+				        path:'/assets/backup/old_js/ZeroClipboard.swf',
+				        copy:function(){return $(this).prev().val();},
+				        afterCopy:function(){$(this).text("3").addClass("complete");}
+				    });
+				    //Copies the text of the previous element which is always the input box with URL
+				});
+			</script>
+			{embed="{segment_1}/_ads-resources" channel="articles|devotionals|resources|episode|stories" category_ids="{categories backspace="1"}{category_id}|{/categories}"}
+
+			{embed='includes/footer'}
+
+	{/exp:channel:entries}
+{if:else}
+	{redirect="{segment_1}"}
+{/if}

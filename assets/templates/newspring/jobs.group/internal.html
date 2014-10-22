@@ -1,0 +1,95 @@
+{!-- Displays the single job entry page --}
+{preload_replace:page_channel="jobs"}
+{preload_replace:sibling_channel="department"}
+
+{if logged_in}
+	{exp:user:stats dynamic="off"}
+		{if user_access == "staff"}
+	
+			{exp:channel:entries 
+				channel='{page_channel}' 
+				disable='categories|member_data|pagination|trackbacks' 
+				status='open' 
+				orderby="title" 
+				sort="asc" 
+				limit="1"
+				url_title="{segment_3}"
+				category="184"
+			}
+				{preload_replace:full_url='{url_title_path="stories/index"}'}
+				
+				{embed='includes/header' 
+					body_id='jobs' 
+					body_class="subnav" 
+					title='{title} | Internal Jobs' 
+					page_class="page-border" 
+					group_style="{segment_1}" 
+					fb_title="{title}" 
+					fb_url="{url_title_path='jobs}" 
+					meta_description='{exp:trunchtml ending="..." chars="250"}{job_description}{/exp:trunchtml}' 
+					fb_describe="{exp:eehive_hacksaw}{job_description}{/exp:eehive_hacksaw}"
+				}
+
+				</div><!-- //page - wraps header -->
+
+				{embed="includes/_subnav" navtitle="footernav"}
+
+				<div class="c_12 clearfix page-border">
+
+				<div id="main_content">
+						<div class="top-row clearfix">
+							<div class="g_9"><h3 class="job-department">{exp:playa:children field="job_department"}{title}{/exp:playa:children}</h3></div>
+							<div class="g_3">
+								<span class="button internal">Internal Job</span>
+							</div>
+						</div>
+						<div class="g_12">
+							<div class="jobs-total clearfix">
+								<h2 class="g_9 g_a">{title}</h2>
+								<div class="g_3 g_o job-campus">{exp:playa:children field="job_campus" status='Open|Coming Soon|Hidden'}{title}{/exp:playa:children}</div>
+							</div>
+						</div>
+					
+					<div class="g_9">
+						{job_description}
+					</div>
+					<div class="g_3" id="job-requirements">
+						<h4>Requirements</h4>
+						<ul>
+						{job_requirements}
+							<li>{job_requirement}</li>
+						{/job_requirements}
+						</ul>
+						
+						<h4>Apply</h4>
+						<p>Since you're on staff, you can email the hiring manager directly to apply for this job.</p>
+						<p>
+							{job_contact}<a href="mailto:{email}?subject={title} Position" class="button email" title="Contact {name} about this position">Email {name} <b class="caret caret-right"></b></a>{/job_contact}
+						</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				{embed='jobs/_ads'}
+				
+				<div class="g_12 hr alt"><hr></div>
+		    	
+		    	{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li class="last"><a href="/{segment_1}/{segment_2}" title="">{title}</a></li>'}
+
+				{embed='includes/footer'}
+
+				{if no_results}
+					{redirect="jobs/department"}
+				{/if}
+
+			{/exp:channel:entries}
+
+		{if:else}
+			{!-- if user doesn't have staff access, redirect to jobs --}
+			{redirect="jobs/department"}
+		{/if}
+	{/exp:user:stats}
+{if:else}
+	{!-- if not logged in, redirect to jobs --}
+	{redirect="jobs/department"}
+{/if}

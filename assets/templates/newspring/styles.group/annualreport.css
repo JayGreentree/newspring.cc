@@ -1,0 +1,138 @@
+/* ----------------------------------------------------------------------------
+  ANNUAL REPORT
+---------------------------------------------------------------------------- */
+#p_ar #page { padding-bottom: 60px; }
+
+#p_ar .box_generic { padding: 0 30px 45px; }
+#p_ar #page_nav {
+        padding-left: 16px;
+	margin: 10px auto;
+        width: 592px;
+}
+#p_ar #page_nav a,
+#p_ar #page_nav li { float: left; }
+
+#p_ar #page_nav a {
+	background: url(//images.newspring.cc/site/report/2009/dots.png) 0 0 no-repeat;
+	display: block;
+	height: 20px;
+	margin-right: 15px !important;
+	margin-right: 7px;
+	overflow: hidden;
+	text-indent: -10000em;
+	width: 17px;
+}
+#p_ar #page_nav a:hover { background-position: 0 100%; }
+#p_ar #page_nav .current a {
+	background-position: 0 50%;
+	cursor: default;
+}
+#p_ar #page_nav a.last {
+	height: 20px !important;
+	height: 0; /* IE 6 */
+	margin-right: 0;
+}
+#p_ar #pages {
+	height: 953px;
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+	width: 633;
+}
+#p_ar #pages li {
+	background: url(//images.newspring.cc/site/report/2010/drop.png) 0 0 no-repeat;
+	padding: 7px 6px;
+	position: absolute;
+	top: 0;
+}
+#p_ar #page_1 { left: 0; }
+#p_ar #page_2 { left: 634px; }
+#p_ar #page_3 { left: 1268px; }
+#p_ar #page_4 { left: 1902px; }
+#p_ar #page_5 { left: 2536px; }
+#p_ar #page_6 { left: 3170px; }
+#p_ar #page_7 { left: 3804px; }
+#p_ar #page_8 { left: 4438px; }
+#p_ar #page_9 { left: 5072px; }
+#p_ar #page_10 { left: 5706px; }
+#p_ar #page_11 { left: 6340px; }
+#p_ar #page_12 { left: 6974px; }
+#p_ar #pages li.current {
+	left: 0 !important;
+	z-index: 100;
+}
+#p_ar #prev_next {
+	left: 0;
+	margin-top: 40px;
+	position: absolute;
+	top: 0 !important;
+	top: 10px; /* IE 6 */
+	width: 634px;
+	z-index: 200;
+}
+#p_ar #prev_next a,
+#p_ar #prev_next li { float: left; /* IE 6 and 7 */ }
+#p_ar #prev_next a {
+	/*
+		For all you kids out there, this is how the web used to be built: spacer gifs and tables.
+		Now, in the year 2010, we need to do the same thing for the IEs and their lovely hasLayout attribute.
+	*/
+	background: url(//images.newspring.cc/site/transparent.gif) 0 0 repeat;
+	display: block;
+	height: 864px;
+	width: 317px;
+}
+#p_ar #prev_next span {
+	display: none;
+	height: 76px;
+	overflow: hidden;
+	position: absolute;
+	text-indent: -10000em;
+	top: 395px;
+	width: 76px;
+}
+#p_ar #prev a:hover span,
+#p_ar #next a:hover span { display: block; }
+#p_ar #prev span {
+	background: url(//images.newspring.cc/site/report/2009/prev.png) 0 0 no-repeat;
+	left: 45px;
+}
+#p_ar #prev span:hover { background-position: 0 50%; }
+#p_ar #prev span:active { background-position: 0 100%; }
+#p_ar #next span {
+	background: url(//images.newspring.cc/site/report/2009/next.png) 0 0 no-repeat;
+	right: 48px;
+}
+#p_ar #next span:hover { background-position: 0 50%; }
+#p_ar #next span:active { background-position: 0 100%; }
+#p_ar #to_the_left {
+	float: left;
+	margin-left: 60px !important;
+	margin-left: 30px; /* IE 6 */
+	position: relative;
+	width: 634px;
+}
+#p_ar #to_the_right {
+	float: right;
+	margin-right: 26px !important;
+	margin-right: 13px; /* IE 6 */
+	margin-top: 43px;
+	width: 210px;
+}
+#p_ar #to_the_right a {
+	color: #999;
+	display: block;
+	font-size: 10px;
+	height: 39px;
+	margin: 40px -1px 0;
+	padding: 132px 0 0;
+	text-align: center;
+	text-decoration: none;
+	width: 202px;
+}
+#p_ar #to_the_right a:hover { color: #666; }
+#p_ar #to_the_right p {
+	color: #8CC63F;
+	font: bold 13px/21px "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+}
+#p_ar #to_the_right strong { color: #5C8727; }

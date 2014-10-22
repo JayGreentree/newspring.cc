@@ -1,0 +1,124 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header"
+		body_id="{segment_1}" 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}"
+		use_alt=""
+		title="Free Defender Download | Music"
+		fb_title="Free Defender Download | Music" 
+		fb_url="{path={segment_1}/{segment_2}}" 
+		fb_image="http://images.newspring.cc/section/music/newspring.hero.defender.jpg"
+		fb_describe="For a limited time, listen to the song Defender from the album and download it for free. Then tweet, Facebook, Instagram and share it with all your friends and family to help us spread the news about Salvation Rise!"
+	}
+{/exp:ce_cache:escape}
+
+<div class="hr alt"><hr></div>
+
+<div id="defender">
+	<div id="hero" class="g_12">
+		<a href="http://media.newspring.cc/audio/music/defender.mp3.zip">{exp:ce_img:single src="//images.newspring.cc/section/music/newspring.hero.defender.jpg" width="940" height="400" crop="yes"}</a>
+	</div>
+
+	<div class="p_1 g_5">
+		<p>Our new NewSpring Worship album Salvation Rise release April 27 and we want you to be a part of it! </p><p>For a limited time, listen to the song 'Defender' from the album and download it for free. Then tweet, Facebook, Instagram and share it with all your friends and family to help us spread the news about Salvation Rise!</p>
+	</div>
+
+	<div class="g_5 s_1">
+		<div class="actions">
+	    	<div class="content">
+	    		<div class="jp-audio" id="defender_audio" rel="http://media.newspring.cc/audio/music/defender.mp3">
+				{!--<a href="#" class="" data-embed="{media_audio:url}">Play Audio</a>--}
+				<div class="jp-type-single">
+		          <div class='jp-interface'>
+		            <a class="jp-play" onclick="_gaq.push(['_trackEvent','Music', 'Playing', 'Defender']);">9</a>
+		              <a href="javascript:;" class="jp-pause" style="display:none;">~</a>
+		              <div class="status">
+			              <div class="jp-progress progress">
+			                  <div class="jp-seek-bar">
+			                      <div class="jp-play-bar"></div>
+			                  </div>
+			              </div>
+			              <ul class="jp-time-holder clearfix">
+							<li class="jp-current-time"></li>
+							<li class="jp-duration"></li>
+		              </ul>	
+		              </div>
+		              
+		          </div>  
+		        </div>
+		        <div id="defender_player" preload="metadata"></div>
+			</div>
+ 			<p class="music-btn"><a href="http://media.newspring.cc/audio/music/defender.mp3.zip">Download Now</a></p>
+	    	<p class="alert">(Please download the track to a desktop computer. Mobile downloads are currently not supported.)</p>
+	    		<div class="social_buttons">
+				{embed="includes/_share_links" 
+						layout="box"
+						fb-url="{path={segment_1}/{segment_2}}"
+						twitter-text="Ready to change, but not sure where to start? Check this out!" 
+						twitter-url="{path={segment_1}/{segment_2}}" 
+						twitter-hashtag=""
+						twitter-via="newspring"
+				}
+	    	</div>
+	    	</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		
+	<script src="/assets/backup/old_js/jplayer.js"></script>
+	<script>
+	$(document).ready(function() {
+
+		$('.jp-play').on('click', function(){
+			$("#defender_player").jPlayer("play")
+		})
+
+		var mp3 = "http://media.newspring.cc/audio/music/defender.mp3";
+
+		$("#defender_player").jPlayer({
+			ready: function(event) {
+				$(this).jPlayer("setMedia", {
+					mp3: mp3
+				});
+			},
+			play: function() {
+				$(this).jPlayer('pauseOthers');
+			},
+			swfPath: "http://newspring.cc//images.newspring.cc/uploads",
+			supplied: "mp3",
+			solution: "html, flash",
+			// wmode: "window"
+			//errorAlerts: true,
+			//warningAlerts: true,
+			cssSelectorAncestor: "#defender_audio"
+		});
+
+	    $.jPlayer.timeFormat.showHour = true;
+	    $.jPlayer.timeFormat.sepHour = ":";
+		$.jPlayer.timeFormat.sepMin = ":";
+	    
+	    //$(this).parent().find('.jp-current-time').hide();
+	});
+
+	</script>
+	</div>
+</div>
+
+<div class="hr alt"><hr></div>
+
+<ul class="giving-links clearfix">
+  <li class="blackened"><a href="{path=music}" title="Listen Now"><em>Listen Now:</em> NewSpring Music<br> Listen Now</a></li>
+  <li class="blackened"><a href="mailto:justin.land@newspring.cc" title="Use Our Music" ><em>NewSpring Music:</em> Use Our<br/> Music</a></li>
+  <li class="blackened"><a href="{path=watch}" title="Watch The Change Series"><em>Watch:</em>Watch<br>Now</a></li>
+</ul>
+
+{exp:ce_cache:escape}
+  {embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

@@ -1,0 +1,43 @@
+{exp:ce_cache:it seconds="86400"}
+	{exp:rss:feed channel='sermons_fuse'}
+	<?xml version="1.0" encoding="UTF-8"?>
+	<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+	<channel>
+	<itunes:new-feed-url>http://feeds.feedburner.com/newspringfusepodcast</itunes:new-feed-url>
+	<ttl>120</ttl>
+	<title>NewSpring Student Ministry</title>
+	<link>http://www.newspring.cc/fuse/</link>
+	<language>en-us</language>
+	<copyright>Free to distribute. Do not sell.</copyright>
+	<itunes:subtitle>Connecting students with God, other students and leaders</itunes:subtitle>
+	<itunes:author>Brad Cooper</itunes:author>
+	<itunes:summary>Fuse is the weekly gathering of the NewSpring Student Ministry. We&#39;re dedicated to providing a place for students (6th&#8211;12th grade) to connect with God, with other students, and with older leaders that are dedicated to seeing students grow closer to Christ. We want to engage and reach youth culture, so no matter what campus you&#39;re near, NewSpring has an environment each week for students to meet Christ and grow closer to Him. </itunes:summary>
+	<itunes:owner>
+	<itunes:name>NewSpring Student Ministry</itunes:name>
+	<itunes:email>fuse@newspring.cc</itunes:email>
+	</itunes:owner>
+	<itunes:image href="http://media.newspring.cc/etc/fuse.podcast.jpg" />
+	<itunes:category text="Religion &amp; Spirituality">
+	</itunes:category>
+
+	{exp:channel:entries channel='sermons_fuse' status='open' orderby='entry_actualdate' disable='member_data|pagination|trackbacks' search:hide_from_podcast="IS_EMPTY" limit="100"}
+	{if entry_audio}
+		<item>
+		<title>{title}</title>
+		<itunes:author>{speaker}</itunes:author>
+		<itunes:subtitle>{entry_subtitle}</itunes:subtitle>
+		<itunes:summary>{exp:eehive_hacksaw}{entry_description}{/exp:eehive_hacksaw}</itunes:summary>
+		{entry_audio}
+		<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/mpeg" /> 
+		<guid>{url}</guid>
+		{/entry_audio}
+		<pubDate>{entry_actualdate format="%D, %j %M %Y %H:%i:%s %T"}</pubDate>
+		<itunes:keywords>fuse, newspring church, sin, bcoop, brad cooper, perry noble, youth, relevant, god, jesus, anderson</itunes:keywords>
+		</item>
+	{/if}
+	{/exp:channel:entries}
+
+	</channel>
+	</rss>
+	{/exp:rss:feed}
+{/exp:ce_cache:it}

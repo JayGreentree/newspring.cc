@@ -1,0 +1,13 @@
+<?php header('content-type: application/json; charset=utf-8'); ?>
+
+{exp:channel:entries channel="heroes" disable="categories|category_fields|member_data|pagination|trackbacks" search:hero_link_title="=Current Series" limit="1"}
+<?php
+	$data = array(
+			"series" => '{title}',
+			"image" => '{hero_images search:image_type="=Large"}{image}{/hero_images}',
+			"link" => '{hero_link}'
+		);
+	sleep(1);
+	echo $_GET['callback'] . '('.json_encode($data).')';
+?>
+{/exp:channel:entries}

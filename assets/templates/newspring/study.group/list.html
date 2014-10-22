@@ -1,0 +1,11 @@
+{exp:ce_cache:it}
+
+{embed='study/header' body_id='main'}
+
+<ul class="clearfix">
+{exp:channel:entries channel='study' status='open' disable='categories|member_data|pagination|trackbacks'}
+	<li><a href="/study/{url_title}/" title="Start the {title} study" id="{url_title}" class="ir">Start the {title} study</a></li>
+{/exp:channel:entries}
+</ul>
+
+{/exp:ce_cache:it}

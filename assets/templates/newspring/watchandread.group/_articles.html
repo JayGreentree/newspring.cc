@@ -1,0 +1,84 @@
+
+{exp:channel:entries
+		entry_id='{embed:entry_id}'
+		site='newspring|newspringnetwork'
+	}{if embed:total_results == '5'}{if embed:count == '1'}<div class="grid__item three-fifths portable-one-whole handheld-one-whole hard flush">{/if}{if embed:count == '1' OR embed:count == '4'}<div class="grid__item two-thirds handheld-one-whole hard flush">
+		<a href="articles/{url_title}">
+			<div class="ratio ratio--landscape flush">
+					<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image});">
+						<div class="floating__item overlay__item soft-quarter--sides">
+							<h5 class="flush">{title}</h5>
+						</div>
+					</div>
+			</div>
+		</a>
+	</div>{if:elseif embed:count == '5'}<div class="grid__item two-fifths portable-one-whole handheld-one-whole hard flush">
+		<a href="articles/{url_title}">
+			<div class="ratio ratio--square flush">
+					<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+						<div class="floating__item overlay__item soft-quarter--sides">
+							<h5 class="flush">{title}</h5>
+						</div>
+					</div>
+
+			</div>
+		</a>
+	</div>{if:else}<div class="grid__item one-third handheld-one-whole hard flush">
+		<a href="articles/{url_title}">
+			<div class="ratio ratio--square flush">
+					<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+						<div class="floating__item overlay__item soft-quarter--sides">
+							<h5 class="flush">{title}</h5>
+						</div>
+					</div>
+			</div>
+		</a></div>{/if}{if embed:count == '4'}</div>{/if}{if:elseif embed:total_results == '4'}<div class="grid__item one-half portable-one-whole handheld-one-whole hard flush">
+			<a href="articles/{url_title}">
+				<div class="ratio ratio--landscape flush">
+						<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+							<div class="floating__item overlay__item soft-quarter--sides">
+								<h5 class="flush">{title}</h5>
+							</div>
+					</div>
+				</div>
+			</a>
+		</div>{if:elseif embed:total_results == '3'}{if embed:count == '1'}<div class="grid__item one-half portable-one-whole handheld-one-whole hard flush">
+			<a href="articles/{url_title}">
+				<div class="ratio ratio--square flush">
+						<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+							<div class="floating__item overlay__item soft-quarter--sides">
+								<h5 class="flush">{title}</h5>
+							</div>
+						</div>
+				</div>
+			</a></div><div class="grid__item one-half portable-one-whole handheld-one-whole hard flush">{if:else}<div class="grid__item  one-whole hard flush">
+			<a href="articles/{url_title}">
+				<div class="ratio ratio--landscape flush">
+						<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+							<div class="floating__item overlay__item soft-quarter--sides">
+								<h5 class="flush">{title}</h5>
+							</div>
+					</div>
+				</div>
+			</a>
+		</div>{/if}{if embed:count == embed:total_results}</div>{/if}{if:elseif embed:total_results == '2'}<div class="grid__item one-half handheld-one-whole hard flush">
+			<a href="articles/{url_title}">
+				<div class="ratio ratio--landscape flush">
+						<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+							<div class="floating__item overlay__item soft-quarter--sides">
+								<h5 class="flush">{title}</h5>
+							</div>
+					</div>
+				</div>
+			</a>
+		</div>{if:elseif embed:total_results == '1'}<div class="grid__item one-whole hard flush">
+			<a href="articles/{url_title}">
+				<div class="ratio ratio--landscape flush">
+						<div class="ratio__item clickable floating overlay overlay--solid overlay--light border--inset background--fill" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if segment_1 == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">
+							<div class="floating__item overlay__item soft-quarter--sides">
+								<h5 class="flush">{title}</h5>
+							</div>
+					</div>
+				</div>
+			</a>
+		</div>{/if}{/exp:channel:entries}

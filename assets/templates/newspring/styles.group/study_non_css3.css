@@ -1,0 +1,53 @@
+#footer {
+	padding-left: 10px;
+	padding-right: 0;
+	width: 968px;
+}
+#footer p { margin: 0 10px; }
+
+#masthead {
+	background: #333 url(//images.newspring.cc/site/study/header.top.png) 0 0 no-repeat;
+	position: relative;
+}
+#masthead_cap {
+	background: url(//images.newspring.cc/site/study/header.bottom.png) 0 100% no-repeat;
+	bottom: 0;
+	height: 7px;
+	left: 0;
+	position: absolute;
+	width: 980px;
+	z-index: 10;
+}
+
+#page {
+	background: url(//images.newspring.cc/site/study/page.middle.png) 50% 0 repeat-y;
+	border: 0;
+	position: relative;
+	width: 982px;
+}
+
+#page_cap_bottom,
+#page_cap_top {
+	left: 0;
+	height: 7px;
+	position: absolute;
+	width: 982px;
+	z-index: 10;
+}
+#page_cap_bottom {
+	background: url(//images.newspring.cc/site/study/page.bottom.png) 50% 100% no-repeat;
+	bottom: 0;
+}
+#page_cap_top {
+	background: url(//images.newspring.cc/site/study/page.top.png) 50% 0 no-repeat;
+	top: 0;
+}
+
+.editorial_scripture h2 a { background: #66952E url(//images.newspring.cc/site/study/day.top.png) 50% 0 no-repeat; }
+.editorial_scripture ul {
+	background: #8CC63F url(//images.newspring.cc/site/study/verses.bottom.png) 50% 100% no-repeat;
+	padding-bottom: 15px;
+}
+
+#p_search .editorial_scripture h3 a { background: #DDD url(//images.newspring.cc/site/study/search.day.top.png) 50% 0 no-repeat; }
+#p_search .editorial_scripture ul { background: #EEE url(//images.newspring.cc/site/study/search.verses.bottom.png) 50% 100% no-repeat; }

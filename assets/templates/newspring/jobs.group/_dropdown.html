@@ -1,0 +1,12 @@
+<ul class="nav nav-pills">
+	<li class="dropdown">
+		<a class="dropdown-toggle button" data-toggle="dropdown">{embed:page_channel}<b class="caret caret-down"></b></a>
+		<ul class="dropdown-menu left">
+			{exp:channel:entries channel='{embed:page_channel}' status='open|Coming Soon|Hidden' order_by="title" sort="asc" dynamic='off'}
+				{if {exp:playa:total_parents channel="jobs" category="not 184"}}
+					<li><a href="{url_title_path=jobs/{segment_2}}">{title}</a></li>
+				{/if}
+			{/exp:channel:entries}
+		</ul>
+	</li>
+</ul>

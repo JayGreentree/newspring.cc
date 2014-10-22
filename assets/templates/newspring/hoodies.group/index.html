@@ -1,0 +1,175 @@
+{preload_replace:page_channel="hoodies"}
+
+{embed="includes/header" 
+	title="Hoodies" 
+	body_id="hoodies" 
+	body_class="subnav" 
+	page_class="page-border" 
+	script="" 
+	group_style="{segment_1}" 
+	use_alt='y' 
+	fb_url="{site_url}hoodies" 
+	fb_title="NewSpring Hoodies" {if page_search_excerpt}fb_describe="{page_search_excerpt}"{/if} {if fb_page_image}fb_image="{fb_page_image}"{/if}}
+
+{!-- if left_column != ""}
+<div id="hero" class="g_12{if page_hero_class != 'default'} {page_hero_class}{/if}"></div><!-- end #hero -->
+
+<div id="sub_content" class="g_3">
+{left_column}
+</div>
+
+<div id="main_content" class="g_7 p_1 s_1">
+{/if --}
+
+<script src="{path={segment_1}/simpleCart.min}"></script>
+<script>
+    simpleCart({
+		// array representing the format and columns of the cart,
+		// see the cart columns documentation
+		cartColumns: [
+			{ attr: "name", label: "Name"},
+			{ view: "currency", attr: "price", label: "Price"},
+			{ view: "decrement", label: false},
+			{ attr: "quantity", label: "Qty"},
+			{ view: "increment", label: false},
+			{ view: "currency", attr: "total", label: "SubTotal" },
+			{ view: "remove", text: "Remove", label: false},
+			{ attr: "L_PAYMENTREQUEST_n_DESCm", label: "Name"}
+		],
+
+		// "div" or "table" - builds the cart as a 
+		// table or collection of divs
+		cartStyle: "div", 
+
+		// how simpleCart should checkout, see the 
+		// checkout reference for more info 
+		checkout: { 
+			type: "PayPal" , 
+			email: "paypal+hoodies@newspring.cc" ,
+			sandbox: false
+		},
+
+		// set the currency, see the currency 
+		// reference for more info
+		currency: "USD",
+
+		// collection of arbitrary data you may want to store 
+		// with the cart, such as customer info
+		data: {},
+
+		// set the cart langauge 
+		// (may be used for checkout)
+		language: "english-us",
+
+		// array of item fields that will not be 
+		// sent to checkout
+		excludeFromCheckout: [],
+
+		// custom function to add shipping cost
+		shippingCustom: null,
+
+		// flat rate shipping option
+		shippingFlatRate: 0,
+
+		// added shipping based on this value 
+		// multiplied by the cart quantity
+		shippingQuantityRate: 0,
+
+		// added shipping based on this value 
+		// multiplied by the cart subtotal
+		shippingTotalRate: 0,
+
+		// tax rate applied to cart subtotal
+		taxRate: 0,
+
+		// true if tax should be applied to shipping
+		taxShipping: false,
+
+		// event callbacks 
+		beforeAdd			: null,
+		afterAdd			: null,
+		load				: null,
+		beforeSave			: null,
+		afterSave			: null,
+		update				: null,
+		ready				: null,
+		checkoutSuccess		: null,
+		checkoutFail		: null,
+		beforeCheckout		: null,
+        beforeRemove        : null
+	});
+
+</script>
+
+<script type="text/javascript" src="{path={segment_1}/fun}"></script>
+
+<div id="body" class="clearfix">
+
+	<div id="cart" class="cartInfo">
+		<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+		<a href="javascript:;" class="animate gray simpleCart_checkout"><span class="simpleCart_quantity"></span> Items – <span class="simpleCart_total"></span></a>
+	</div>
+	<div class="clearfix"></div>
+
+	<div class="hoodies">
+		<div class="olive simpleCart_shelfItem">
+			<img src="/images/site/hoodies/olive.jpeg" alt="Olive Scripture Hoodie" />
+			<h2 class="item_name L_PAYMENTREQUEST_n_DESCm">Olive Scripture Zip-Up Hoodie</h2>
+			<p>This olive colored American Apparel zip-up hoodie is lightweight and has a custom design of <a href="http://www.biblegateway.com/passage/?search=1%20cor%2013:4-7&version=NIV" target="_blank">1 Corinthians 13:4-7</a> on the front.</p>
+			<p class="album clearfix"><img src="/images/uploads/worship/album-ourgodislove.jpg" /><span>Get a FREE copy of the NewSpring Worship Our God is Love CD with every order!</span></p>
+			<p>Price includes Free domestic U.S. shipping. Your order will ship within 1&ndash;2 weeks.</p>
+
+			<div class="size">
+				<select class="item_size" name="oliveSizeSelect" id="oliveSizeSelect">
+					<option value="">Select an Item:</option>
+					<option value="XS">Extra Small</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">Extra Large</option>
+					<option value="XXL">Extra Extra Large</option>
+				</select>
+			</div>
+
+			<h3 class="button"><a class="item_add">Buy <span class="for">for</span> <span class="item_price">$20</span></a> <span class="paypal">with PayPal</span></h3>
+		
+		</div>
+		<div class="black simpleCart_shelfItem">
+			<img src="/images/site/hoodies/black.jpg" alt="Black Scripture Hoodie" />
+			<h2 class="item_name">Black Scripture Zip-Up Hoodie</h2>
+			<p>This black American Apparel zip-up hoodie is lightweight and has a custom design of <a href="http://www.biblegateway.com/passage/?search=Acts+20%3A24&version=NIV" target="_blank">Acts 20:24</a> on the front.</p>
+
+			<p class="album clearfix"><img src="/images/uploads/worship/album-ourgodislove.jpg" /><span>Get a FREE copy of the NewSpring Worship Our God is Love CD with every order!</span></p>
+			
+			<p>Price includes Free domestic U.S. shipping. Your order will ship within 1&ndash;2 weeks.</p>
+
+			<div class="size">
+				<select class="item_size" name="blackSizeSelect" id="blackSizeSelect">
+					<option value="">Select an Item:</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">Extra Large</option>
+					<option value="XXL">Extra Extra Large</option>
+				</select>
+			</div>
+			
+			<h3 class="button"><a class="item_add">Buy <span class="for">for</span> <span class="item_price">$20</span></a> <span class="paypal">with PayPal</span></h3>
+		</div>
+	</div>
+</div>
+
+{!-- if left_column != ""}
+</div>
+{/if --}
+
+{if breadcrumb != ""}
+{embed='includes/breadcrumb' links='{breadcrumb}'}
+{/if}
+
+{embed="includes/footer"}
+
+{!-- if no_results}
+	{redirect="/"}
+{/if}
+{/exp:channel:entries --}

@@ -1,0 +1,8 @@
+{exp:ce_cache:it seconds="86400"}
+  {if segment_3 == 'newspring'}
+	  {embed='feeds/media' title='Sermon Video' channel='sermons' series_fieldid="17"}
+  {/if}
+  {if segment_3 == 'fuse'}
+    {embed='feeds/media' title='Fuse Video' channel='sermons_fuse' series_fieldid="485"}
+  {/if}
+{/exp:ce_cache:it}

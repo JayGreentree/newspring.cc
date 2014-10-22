@@ -1,0 +1,58 @@
+<div id="stories" class="page">
+
+	<!-- Begin page content -->
+    <div class="container">
+		<p class="lead green2">We love numbers because we believe</p>
+		<h1 class="whiteout">Every Number Has a Name<br />Every Name Has a Story<br />And Every Story Matters to God</h1>
+	
+		<p class="lead green2">Here are a few of those stories...</p>
+	
+		<div class="row">
+			{exp:channel:entries 
+				channel="stories"  
+				limit="3" 
+				orderby="date" 
+				sort="desc" 
+				dynamic="off"
+				disable="member_data|pagination|categories|category_fields"
+				status="open|featured"
+				search:entry_video="not IS_EMPTY"
+			}
+
+				<div class="span4">
+					<a href="{url_title_path=blog/stories}" {if editorial_video}class="ooyala-embed" data-embed="{entry_video}"{/if}>
+						{exp:ce_img:single src="{entry_image}{entry_image_2x1}{/entry_image}" width="370" attributes='class="placeholder" alt="{title} Image"'}
+					</a>
+					<em>{title}</em>
+				</div>
+			{/exp:channel:entries}
+		</div>
+
+		<div class="row more-stories">
+			{exp:channel:entries 
+				channel="stories"  
+				limit="6" 
+				offset="3"
+				orderby="date" 
+				sort="desc" 
+				dynamic="off"
+				disable="member_data|pagination|categories"
+				status="open|featured"
+				search:editorial_video="not IS_EMPTY"
+			}
+				<div class="span2">
+					<a href="{url_title_path=blog/stories}" class="small-stories ooyala-embed" data-embed="{entry_video}">
+						{exp:ce_img:single src="{entry_image}{entry_image_2x1}{/entry_image}" width="370" attributes='class="placeholder" alt="{title} Image"'}
+					</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+
+		<div class="row">
+			<span class="offset2 span8">
+				<a id="storiesrecap" class="bigbutton" href="/stories">Watch More Stories</a>
+			</span>
+		</div>
+		
+    </div>
+</div>

@@ -1,0 +1,98 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries site="newspring" channel="{embed:collection_channel}" url_title="{segment_2}" status="Open|Featured" show_future_entries="yes" dynamic="off"}
+
+{exp:ce_cache:escape}
+	{layout:set name="title"}{title} | Studies{/layout:set}
+	{layout:set name="description"}{exp:eehive_hacksaw}{collection_description}{/exp:eehive_hacksaw}{/layout:set}
+	{layout:set name="image"}{collection_image}{collection_image_2x1}{/collection_image}{/layout:set}
+{/exp:ce_cache:escape}
+
+<section class="section--grey" id="{segment_1}">
+	<div class="shell">
+		<div class="grid push--top">
+			<div class="grid__item one-half handheld-one-whole">
+				<div class="ratio ratio--square flush--bottom"{if collection_video} data-video="{url_title},{collection_video}"{/if}>
+					<div class="ratio__item background--fill{if collection_video} clickable{/if}" style="background-image: url('{if '{collection_image}{collection_image_1x1}{/collection_image}' != ''}{collection_image}{exp:ce_img:single src='{collection_image_1x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{if:else}{exp:playa:children site='newspring' var_prefix='series'}{series:collection_image}{exp:ce_img:single src='{collection_image_1x1}' width='1000' crop='yes' url_only='yes'}{/series:collection_image}{/exp:playa:children}{/if}')">
+						{if collection_video}<div class="fa fa-icon fa-icon--play fa-icon--light"></div>{/if}
+					</div>
+				</div>
+			</div>{!--
+			--}<div class="grid__item one-half handheld-one-whole" data-share="{title}">
+				<h2>{title}</h2>
+				<p>{collection_description}</p>
+				<div class="grid__item one-whole hard push-half--bottom">
+					<h3 class="inline soft-quarter--right">Share</h3>
+					{embed="newspring:_embeds/_share-buttons"
+						display="inline"
+						alignment=""
+						flush="y"
+						title="{title}"
+						hashtag="{exp:playa:children site='newspring' entry_id='{entry_id}' field='collection_series' var_prefix='series'}{series:collection_hashtag}{/exp:playa:children}"
+						share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+					}</div>{!--
+					--}<div class="grid__item onewhole hard">
+						<a href="{!-- If there's downloads AND related enties return online study session --}{if collection_downloads AND {exp:playa:total_parents site="newspring" channel='study_entries|studies_entries_fuse'} > 0}{exp:playa:parents site="newspring" channel="study_entries|studies_entries_fuse" sort="asc" dynamic="off" var_prefix="session"  show_future_entries="yes" limit='1'}/{segment_1}/{segment_2}/{session:url_title}#{segment_1}{/exp:playa:parents}{!-- If there's only a download return link to download --}{if:elseif collection_downloads}{collection_downloads}{file}{/collection_downloads}{!-- If else return online study session --}{if:else}{exp:playa:parents site="newspring" channel="study_entries|studies_entries_fuse" var_prefix="session" limit="1" sort="asc"}/{segment_1}/{segment_2}/{session:url_title}#{segment_1}{/exp:playa:parents}{/if}" class="btn">{if collection_downloads AND {exp:playa:total_parents channel='study_entries'} > 0}View{if:elseif collection_downloads}Download{if:else}Start the{/if} Study</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{if '{exp:playa:total_parents site="newspring" channel="study_entries|studies_entries_fuse"}' > '0'}
+<section class="section--dark">
+	<div class="shell hard--sides">
+		<div class="slider--multiple" data-slider='{url_title}, {exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" orderby="session:count" var_prefix="session"}{if '{session:url_title}' == '{segment_3}'}{session:count}{if:else}1{/if}{/exp:playa:parents}, { "responsive": true}'>
+			{exp:playa:parents site="newspring" channel="{embed:entries_channel}" sort="asc" orderby="session:count" dynamic="off" var_prefix="session"  show_future_entries="yes"}
+			<div class="centered">
+				<a href="{path='{segment_1}/{segment_2}/{session:url_title}#{segment_1}'}" class="link--invisible">
+					<h3 class="soft-half--sides palm-soft-quarter--sides">{session:title}</h3>
+					<span class="link--arrow">Session {session:count}</span>
+				</a>
+			</div>
+			{/exp:playa:parents}
+		</div>
+	</div>
+</section>
+{/if}
+
+{embed="newspring:_embeds/_discover"
+	type="related"
+	site="newspring"
+	channel="{channel_short_name}"
+	entry_id="{entry_id}"
+}
+{/exp:channel:entries}
+{/exp:ce_cache:it}

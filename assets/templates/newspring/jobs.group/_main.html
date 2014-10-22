@@ -1,0 +1,83 @@
+{layout="_layouts/master"
+    title="Jobs"
+    description="We're on a mission to reach 100,000 people across the state of South Carolina. Will you join us?"
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{embed="newspring:_embeds/_hero"
+	title="Help Us Reach 100,000"
+	summary="Find your calling to fulltime ministry. See where you fit in at NewSpring."
+    image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+    image_classes=""
+}
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole centered">
+				<h2>Available Positions</h2>
+				<hr>
+				<h2 class="dark">By Campus</h2>
+			</div>
+			{exp:channel:entries channel='campuses' disable='categories|member_data|pagination|trackbacks' status='open|Coming Soon' orderby="title" sort="asc"}{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"}}<div class="grid__item one-third portable-one-half palm-wide-one-half palm-one-whole centered">
+				<p class="colfax outlined outlined--tag"><b>{campus_abbr}</b></p>
+				<h3>{title}</h3>
+				<p>We have <b>{exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"}</b> open position{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"} > 1}s{/if} at our <b>{title}</b> location.</p>
+				<a href="{path='/{segment_1}/{url_title}'}" class="link--arrow">View Position{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"} > 1}s{/if}</a>
+			</div>{/if}{/exp:channel:entries}<div class="grid__item one-whole centered">
+				<hr>
+				<h2 class="dark">By Department</h2>
+			</div>
+			{exp:channel:entries channel='department' disable='categories|member_data|pagination|trackbacks' status='' orderby="title" sort="asc"}{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"}}<div class="grid__item one-third portable-one-half palm-wide-one-half palm-one-whole centered">
+				<h3>{title}</h3>
+				<p>We have <b>{exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"}</b> open position{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"} > 1}s{/if} available.</p>
+				<a href="{path='/{segment_1}/{url_title}'}" class="link--arrow">View Position{if {exp:playa:total_parents channel='jobs' category="not 184" var_prefix="jobs"} > 1}s{/if}</a>
+			</div>{/if}{/exp:channel:entries}<div class="grid__item one-whole centered">
+        <hr>
+        <h2 class="dark">Interested In Interning?</h2>
+      </div><div class="grid__item one-whole">
+        <a href="/jobs/internships" class="btn">Get More Information</a>
+      </div>
+		</div>
+	</div>
+</section>
+
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Get Notifications</h2>
+				<p>Subscribe to the jobs feed to be notified of new openings.</p>
+				<a href="https://feedpress.it/e/mailverify?feed_id=newspring-jobs" class="btn" title="Subscribe to our jobs">Subscribe Now</a>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

@@ -1,0 +1,36 @@
+{preload_replace:full_url="{segment_2}/{if segment_3}{segment_3}/{/if}{if segment_4}{segment_4}/{/if}{if segment_5}{segment_5}/{/if}{if segment_6}{segment_6}/{/if}{if segment_7}{segment_7}{/if}"}
+
+{if logged_in}
+	{if group_id == "1" OR group_id == "36"}
+
+		<strong>Supported Caching Methods</strong>
+		<p>File-based caching {if {exp:ce_cache:is_supported driver="file"} }is{if:else}is not{/if} supported.</p>
+
+		<!-- 'db' should always be supported -->
+		<p>Database caching {if {exp:ce_cache:is_supported driver="db"} }is{if:else}is not{/if} supported.</p>
+
+		<!-- 'dummy' should always be supported -->
+		<p>Dummy caching {if {exp:ce_cache:is_supported driver="dummy"} }is{if:else}is not{/if} supported.</p>
+
+		<!-- 'static', 'apc', 'redis', 'memcache', and/or 'memcached' have to be installed and configured on your server in order for their respective drivers to work -->
+		<p>APC {if {exp:ce_cache:is_supported driver="apc"} }is{if:else}is not{/if} supported.</p>
+		<p>Redis {if {exp:ce_cache:is_supported driver="redis"} }is{if:else}is not{/if} supported.</p>
+		<p>Memcache {if {exp:ce_cache:is_supported driver="memcache"} }is{if:else}is not{/if} supported.</p>
+		<p>Memcached {if {exp:ce_cache:is_supported driver="memcached"} }is{if:else}is not{/if} supported.</p>
+		<p>Static {if {exp:ce_cache:is_supported driver="static"} }is{if:else}is not{/if} supported.</p>
+
+		{!-- 
+			If Super Admin, clears out the page, header, header_prefix, and footer cached sections 
+		--}
+		{!--
+			Want to build an easy input field to clear a page.  Probably not necessary now that I've had time to think about it!
+
+		<form return="/cache/clear/">
+			<input value="" />
+			<button type="submit" value="Clear Cache">
+		</form>
+		--}
+	{/if}
+{if:else}
+	{redirect="/"}
+{/if}

@@ -1,0 +1,86 @@
+{if segment_3 == "source"}
+	{redirect="live/source"}
+{if:else}
+
+	{exp:channel:entries channel='series_fuse' disable='member_data|trackbacks' dynamic='off' show_future_entries="yes" limit="1" search:current_series="y"}
+
+	{if no_results}{redirect="404"}{/if}
+	{if logged_out && status == 'hidden'}
+		{redirect="watch"}
+	{/if}
+
+	{embed='includes/header'
+		body_id='sermons_fuse'
+		body_class='{url_title} subnav{if series_light_switch == "dark"} dark{if:else} light{/if}'
+		page_class='page-border'
+		style="fancybox"
+		group_style='watch'
+		script='countdown'
+		title='Live | Watch{if segment_1 == "fuse"} | Fuse{/if}'
+		fb_title='Live | Watch{if segment_1 == "fuse"} | Fuse{/if}'
+		fb_url='{path=fuse/live}'
+		fb_image='{exp:ce_img:single src="{series_hero}" url_only="y" width="1800"}'
+		fb_describe='{exp:eehive_hacksaw}{series_description}{/exp:eehive_hacksaw}'
+	}
+
+	<style>
+		html {
+			background: #{series_bg_color};
+		}
+	</style>
+
+	{preload_replace:WEDNESDAY_START='1845'}
+	{preload_replace:WEDNESDAY_END='2100'}
+
+	</div><!-- //page - wraps header -->
+	{embed="{segment_1}/_subnav"}
+	<div id="subnav_page" class="fuse-live c_12 clearfix page-border">
+
+	{if '{current_time format='%l'}' == 'Wednesday' AND '{current_time format='%H%i'}' >= '{WEDNESDAY_START}' AND '{current_time format='%H%i'}' <= '{WEDNESDAY_END}' OR '{LIVE_PAGE_OVERRIDE}' == 'on'}
+		<div id="hero" class="g_12">
+			<h1>Welcome to NewSpring Live</h1>
+			{exp:ce_img:single src="{series_hero}" width="940" height="400" crop="yes" attributes='alt="" title="" class="border-top"'}
+			<a href="#" class="play_button_new ooyala-embed border" data-embed="{ PUBLIC_EMBED_CODE}">
+					<span class="icon"></span>
+				</a>
+			<p class="episode-title border-bottom">Watch Live Now</p>
+		</div>
+	{if:else}
+		<div id="hero" class="g_12">
+			<h1>Welcome to NewSpring Live</h1>
+			{exp:ce_img:single src="{series_hero}" width="940" height="400" crop="yes" attributes='alt="" title="" class="border-top"'}
+			<p class="episode-title border-bottom">Watch Live{if '{current_time format='%l'}' != 'Wednesday'} - Wednesday{if:else} - Tonight{/if} at 6:45PM EST</p>
+		</div>
+	{/if}
+
+		<div class="g_4 g_a">
+			<p class="blackened">
+				<a href="{path='fuse'}" title="Click to Give Now" onclick="_gaq.push(['_trackEvent','Fuse Live', 'Click', 'Come To Fuse']);"><em>Locations &amp; Service Times</em>  Come To Fuse</a>
+			</p>
+		</div>
+		<div class="g_4">
+			{embed="includes/_share_links"
+				layout=""
+				fb-url="{path={segment_1}/{segment_2}}/"
+				twitter-text="Watch a Fuse service live every Wednesday at 6:45pm Eastern."
+				twitter-url="{path={segment_1}/{segment_2}}"
+				twitter-hashtag=""
+				twitter-via="newspring"
+			}
+		</div>
+		<div class="g_4 g_o">
+		<!-- <p class="blackened">
+				<a href="{path='fuse/watch'}" title="Watch Fuse Videos" onclick="_gaq.push(['_trackEvent','Fuse Live', 'Click', 'Watch Videos']);"><em>Miss something?</em>Watch Videos</a>
+			</p> -->
+			<p class="blackened">
+				<a href="https://newspring.wufoo.com/forms/k7p8w3/" title="Sign up for a Fuse Group"><em>Sign Up for a</em>Fuse Group</a>
+			</p>
+		</div>
+
+	{ooyala_video}
+
+	{/exp:channel:entries}
+
+	{embed="includes/footer"}
+
+{/if}

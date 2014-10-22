@@ -1,0 +1,48 @@
+			{if channel_short_name == "Devotionals"}
+				<a class="sidekick" href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					<span id="day">
+						<span class="week">
+							<span class="today">{exp:trunchtml chars="2"}{entry_date format="%D"}{/exp:trunchtml}</span>
+							<span class="title-overlay">{title}</span>
+						</span>
+					</span>
+				</a>
+			{/if}
+
+			{if channel_short_name == "episode"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="{title} &middot; {entry_date format='%m.%d.%Y'}">
+					<span class="episode title">Week {episode_week}: {title}</span>
+					{series}
+						{!-- This can be removed once all of the series have new hero imagery --}
+						{if series_hero}
+							{exp:ce_img:single src="{series:series_hero}" width="300" attributes='class="placeholder image" alt="{series:title} Image"'}
+						{if:else}
+							<img src="{series:thumbnail}" alt="Video Player/Image" width="300" height="128" class="placeholder image"/>
+						{/if}
+					{/series}
+				</a>
+			{/if}
+					
+			{if channel_short_name == "core_values"}
+				<a class="sidekick" href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					<span class="image" style="background: url('{editorial_background}{file}{/editorial_background}') no-repeat;">
+						<span class="title">{title}</span>
+					</span>
+				</a>
+			{/if}
+
+			{if channel_short_name == "stories"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					{if editorial_background:total_rows == 0}
+						<img src="" alt="Video Player/Image" width="300" height="128" class="placeholder image"/>
+					{if:else}
+						{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="300" attributes='class="placeholder image" alt="{title} Image"'}
+					{/if}
+				</a>
+			{/if}
+
+			{if channel_short_name == "resources"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="300" attributes='class="placeholder image" alt="{title} Image"'}
+				</a>
+			{/if}

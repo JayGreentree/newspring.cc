@@ -1,0 +1,108 @@
+{layout="_layouts/master"
+    title="Jobs"
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries channel="department|campuses" url_title="{segment_2}"}
+
+{exp:ce_cache:escape}
+	{layout:set name="title"}{title} | Jobs{/layout:set}
+
+	{layout:set name="meta"}
+	    {!-- Add additional meta tags here --}
+	{/layout:set}
+{/exp:ce_cache:escape}
+
+{embed="newspring:_embeds/_non-hero"
+	section="section--dark"
+	overlay="overlay--solid overlay--gradient overlay--light"
+	title="{title}"
+	image_url="{campus_image}{campus_image_2x1}{/campus_image}"
+	link="{path='/{segment_1}'}"
+	link_text="View All Jobs"
+}
+
+{if channel_short_name == 'department' AND department_vision}
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<h2>{title} Vision</h2>
+					{department_vision}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{/if}
+
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Open Positions</h2>
+			</div>{exp:playa:parents field="job_campus|job_department" category="not 184" var_prefix="job"}<div class="grid__item one-third portable-one-half handheld-one-whole {if job:total_results <= 3}flush {/if}">
+				<h3>{job:title}</h3>
+				<a href="{path='{all_segments}/{job:url_title}'}" class="link--arrow flush">Position Details</a>
+				<hr class="hidden">
+			</div>{/exp:playa:parents}
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2>Get Notifications</h2>
+				<p>Subscribe to the <b>{title}</b> jobs feed to be notified of new openings.</p>
+
+				{!-- Subscribe Link --}
+				<a href="https://feedpress.it/e/mailverify?feed_id=jobs-{url_title}" class="btn" target="_blank">Subscribe Now</a>
+
+				{!-- Link to Subscribe Modal, Need to Figure out AJAX Submissions --}
+				{!-- <a href="#" class="btn" data-modal-open="jobs-subscribe" data-modal-content='{"url_title":"{url_title}","title":"{title}"}'>Subscribe Now</a> --}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+
+		core.modal['jobs-subscribe'].events
+			.on('open', function () {
+				core.modal['jobs-subscribe']._properties.modal
+					.getElementsByTagName('input')[0].focus()
+
+			})
+	});
+</script>
+
+{/exp:channel:entries}
+{/exp:ce_cache:it}

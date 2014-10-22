@@ -1,0 +1,6 @@
+{exp:channel:entries channel="fuse_volunteers" search:editorial_campus="{embed:campus}" limit="1"}
+	{if no_results}
+		<a href="#" class="btn disabled">{embed:campus} Fuse</a>
+	{/if}
+		<a href="#{editorial_campus}{entry_id}{/editorial_campus}" class="btn modal">{embed:campus} Fuse</a>
+{/exp:channel:entries}

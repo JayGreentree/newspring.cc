@@ -1,0 +1,37 @@
+
+{"nav" : [{exp:navee:custom nav_title="{site_short_name}-main" wrap_type="none"}
+  {
+    "text": "{text}",
+    "name": "{name}",
+    "rel": "{rel}",
+    "class": {if class}"{class} {if:else}"{/if}{if has_kids}accordion__item has_kids"{if:else}"{/if},
+    {if has_kids}"childClass": "accordion__item--trigger",
+    "trigger": "data-accordion-trigger",{/if}
+    "link": "{link}"{if has_kids},{/if}
+    {if has_kids}"children": [{kids}]{/if}
+  }{if is_last_item_on_level}{if:else},{/if}{/exp:navee:custom}{if embed:usernav},{exp:navee:custom nav_title="{site_short_name}-usernav" wrap_type="none"}
+  {
+    "text": "{text}",
+    "name": "{name}",
+    "rel": "{rel}",
+    "class": {if class}"{class} {if:else}"{/if}{if has_kids}accordion__item has_kids"{if:else}"{/if},
+    {if has_kids}"childClass": "accordion__item--trigger",
+    "trigger": "data-accordion-trigger",{/if}
+    "link": "{link}"{if has_kids},{/if}
+    {if has_kids}"children": [{kids}]{/if}
+  }{if is_last_item_on_level}{if:else},{/if}
+{/exp:navee:custom}{if:else}{if site_short_name=="newspringnetwork"}{if logged_in}{if:else},{
+    "text": "Sign In",
+    "class": "",
+    "link": "#",
+    "data": {
+      "attr": "modal-open",
+      "val" : [
+        {"val" : "/_forms/mobile-login"},
+        {"val" : "modal--centered"},
+        {"val" : "true"}
+      ]
+    }
+  }{/if}{/if}{/if}
+]
+}

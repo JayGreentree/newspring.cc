@@ -1,0 +1,32 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries channel='speaking_request' disable='categories|member_data|pagination|trackbacks' limit='1' status='open'}{embed='includes/header' body_id='request' body_class='{url_title}' title='Speaking Request | {sr_first_name} {sr_last_name}'}
+
+	<div id="hero" class="g_12"></div><!-- end #hero -->
+	
+  <div class="wufoo-embed" id="wufoo-{sr_wufoo_form}">
+    Fill out my <a href="http://newspring.wufoo.com/forms/{sr_wufoo_form}">online form</a>.
+</div>
+<script type="text/javascript">var z7p3w5;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'newspring', 
+'formHash':'{sr_wufoo_form}', 
+'autoResize':true,
+'height':'4788',
+'async':true,
+'header':'show', 
+'ssl':true};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { z7p3w5 = new WufooForm();z7p3w5.initialize(options);z7p3w5.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

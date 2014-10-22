@@ -1,0 +1,121 @@
+	{embed="includes/header"
+		body_id="blog"
+		body_class="subnav"
+		page_class="page-border"
+		group_style="blog"
+		use_alt=""
+		title="Admin | Blog"
+		fb_title="Blog"
+		fb_url=""
+  }
+
+
+	</div><!-- //page - wraps header on pages with subnav-->
+
+	{embed="{segment_1}/_subnav" page_template="blog"}
+
+	<div id="main_content" class="c_12 clearfix page-border admin">
+
+		{if logged_in AND group_id != "20"}
+
+			<div class="g_12 clearfix section category">
+				<h2>Upcoming Blog Schedule</h2>
+			</div>
+			{exp:channel:entries
+				channel="articles|devotionals|stories"
+				disable="member_data"
+				orderby="date"
+        		limit="10"
+				sort="desc"
+				dynamic="off"
+				status="open|Featured|hidden"
+				show_future_entries="yes"
+				show_expired="yes"
+        		paginate="bottom"
+			}
+
+				<div class="g_12 section">
+					<div class="g_2 g_a">
+						<a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="View the {title} entry">
+							{if channel_short_name == "devotionals"}
+								{if editorial_background:total_rows == 0}
+									{exp:ce_img:single src="//images.newspring.cc/site/blog/day.jpg" width="140" height="80" attributes='alt="{title} Image" class="thumb"'}
+								{if:else}
+									{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="140" height="80" attributes='alt="{title} Image" class="thumb"'}
+								{/if}
+							{/if}
+
+							{if channel_short_name == "articles"}
+								{if editorial_background:total_rows == 0}
+									<img src=""class="thumb" />
+								{if:else}
+									{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="140" height="80" attributes='alt="{title} Image" class="thumb"'}
+								{/if}
+							{/if}
+
+							{if channel_short_name == "stories"}
+								{if editorial_background:total_rows == 0}
+									<img src="" class="thumb" />
+								{if:else}
+									{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="140" height="80" crop="yes" attributes='alt="{title} Image" class="thumb"'}
+								{/if}
+							{/if}
+						</a>
+					</div>
+					<div class="metadata g_8 g_a">
+						<strong><a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="View the {title} entry">{title}</a></strong><br>
+						<input type="text" class="entry_url" value="{path={segment_1}/{channel_short_name}/{url_title}}" disabled>
+						<a href="#" class="copy_url" title="Copy this link to your clipboard!">n</a>
+					</div>
+					<div class="g_2">
+						<h6>{entry_date format="%m.%d.%Y <br>%g:%s%a"}</h6>
+						<ul class="tags">
+							<li><a href="{path={segment_1}/{channel_short_name}}" title="View the {channel} section">{channel}</a></li>
+						</ul>
+					</div>
+				</div>
+				{paginate}
+				<div class="g_12 clearfix pagination">
+				  <div class="pagination-outer">
+				    <div class="pagination-inner clearfix">
+				      {pagination_links}
+				    </div>
+				  </div>
+				</div>
+				{/paginate}
+			{/exp:channel:entries}
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$(".entry_url").click(function() {
+					   $(this).select();
+					});
+
+				    $('a.copy_url').zclip({
+				        path:'/assets/backup/old_js/ZeroClipboard.swf',
+				        copy:function(){return $(this).prev().val();},
+				        afterCopy:function(){$(this).text("3").addClass("complete");}
+				    });
+				    //Copies the text of the previous element which is always the input box with URL
+				  // $('.facebook').each(function(){
+		    //         var that = $(this);
+		    //         html2canvas($(this), {
+		    //             proxy: "/proxy.php",
+		    //             onrendered: function(canvas) {
+		    //                 $('<a>', {
+		    //                   text: "Facebook Image",
+		    //                   class: "facebook-download",
+		    //                   download: that.find('.filename').text()+"-social.png",
+		    //                   href: canvas.toDataURL("image/png")
+		    //                 }).appendTo(that.parent());
+		    //             }
+		    //         });
+		    //       });
+		        });
+			</script>
+
+		{if:else}
+			{redirect="login/blog/admin"}
+		{/if}
+
+	{embed='includes/footer'}

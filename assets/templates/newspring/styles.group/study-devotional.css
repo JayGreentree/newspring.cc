@@ -1,0 +1,174 @@
+/* Devotionals ------------------------------------------------------------------- */
+
+
+html { background: #222; }
+
+.blog #page { background: #fff; }
+
+.blog #page.no-shadow { 
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.devo-blog { font-family: 'Helvetica Neue', 'Helvetica', Arial, sans !important; margin: 0 0 50px 0 !important; }
+
+.devo-blog .body { font-family: 'Lucida Grande', sans; }
+
+#series-devo-h1 {
+     position: relative;
+     width: 940px;
+     height: 61px;
+     margin: 132px 36px 35px 10px;
+     color: #ccc;
+     text-indent: -9999px;
+     text-align: center;
+     background: url(//images.newspring.cc/site/devotionals/sermon-series-devo-h1.gif) no-repeat top left;
+}
+
+#devo-home {
+     position: absolute;
+     height: 61px;
+     width: 630px;
+     top: 0;
+     left: 80px;
+     text-indent: -9999px;
+}
+
+#devo-rss {
+     position: absolute;
+     top: 18px;
+     right: 120px;
+     display: block;
+     width: 20px;
+     height: 20px;
+     text-indent: -9999px;
+}
+
+#devo-series {
+     color: #e3e3e3;
+     font-size: 30px;
+     font-weight: normal;    
+     line-height: 24px;
+     margin:  0;
+}
+
+#devo-series a,
+#devo-series a:visited { 
+     color: #e3e3e3;
+     font-family: 'Helvetica Neue', 'Helvetica', Arial, sans;
+     font-size: 30px;
+     font-weight: normal;
+}
+
+#devo-series a:hover { color: #999; }
+
+#devo-devo {
+     font-size: 30px;
+     font-weight: bold;
+     color: #8cc63f;
+     margin: 0 0 7px 10px;
+}
+
+#devo-devo a,
+#devo-devo a:visited { text-decoration: none; }
+
+#devo-devo a:hover { color: #333; }
+
+#devo-series,
+#devo-devo,
+#sermon_series_categories {
+     letter-spacing: -1px;
+     text-shadow: rgba(255, 255, 255, .01) 0px -1px 1px;
+     -webkit-font-smoothing: antialiased;
+     text-rendering: optimizeLegibility;
+}
+
+.posted {
+     padding: 13px 0 0 0;  
+     text-transform: uppercase;
+     color: #ccc;
+     font-size: 11px !important;
+     border-top: 1px solid #e5e5e5;
+}
+
+#devo-verse {
+     text-transform: uppercase;
+     color: #666;
+     font-size: 11px;
+}
+
+#devo-verse a,
+#devo-verse a:visited {
+     border-bottom: 1px solid #999;
+     color: #666;
+     font-size: 11px;
+     text-transform: uppercase;
+     text-decoration: none;
+     padding: 0 0 1px 0;
+}
+
+#devo-verse a:hover {
+     border-bottom: 1px solid #333;
+     color: #000;
+     font-size: 11px;
+     text-transform: uppercase;
+     text-decoration: none;
+     padding: 0 0 1px 0;
+}
+
+#sermon_series_categories {
+     border-top: 1px solid #ddd;
+     font-family: 'Helvetica Neue', 'Helvetica', Arial, sans;
+     margin: 0 -10px;
+     padding: 45px 180px;
+     color: #777;
+     font-size: 24px;
+}
+
+#sermon_series_categories h3 {
+     color: #aaa;
+     font-size: 24px;
+     margin: 0;
+}
+
+#sermon_series_categories a,
+#sermon_series_categories a:visited {
+     text-decoration: none;
+     color: #777;
+     font-weight: bold;
+     padding: 0 0 1px 0;
+}
+
+#sermon_series_categories a:hover {
+     border-bottom: 1px solid #DDD;
+     text-decoration: none;
+     color: #8cc63f;
+     font-weight: bold;
+     padding: 0 0 1px 0;
+}
+
+#btn-devo-next {
+     position: absolute;
+     top: 225px;
+     right: -1px;
+     display: block;
+     width: 65px;
+     height: 63px;
+     text-indent: -9999px;
+     background: url(//images.newspring.cc/site/devotionals/btn-devo-next.png) no-repeat;
+}
+
+#btn-devo-prev {
+     position: absolute;
+     top: 225px;
+     left: -1px;
+     display: block;
+     width: 65px;
+     height: 63px;
+     text-indent: -9999px;
+     background: url(//images.newspring.cc/site/devotionals/btn-devo-prev.png) no-repeat;
+}
+
+#btn-devo-next:hover, #btn-devo-prev:hover { background-position: 0px -63px; }
+#btn-devo-next:active, #btn-devo-prev:active { background-position: bottom left; }

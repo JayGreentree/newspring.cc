@@ -1,0 +1,200 @@
+html{
+	background: #000000;
+}
+#p_mirrormirror #masthead #logo a{
+	background: url(//images.newspring.cc/site/logos/white.png) 0 0 no-repeat;
+}
+
+#p_mirrormirror #masthead form input{
+	background: #434343 url(//images.newspring.cc/site/allin/magnifying.glass.png) 194px 10px no-repeat;
+    color: #FFF;
+}
+
+
+
+#p_mirrormirror #body p { color: #D6D6D6; margin-bottom: 1em; text-align: justify; }
+
+#p_mirrormirror #body .social-media .social-title{
+	font-family: 'StandardCT-Bold', sans-serif;
+    font-size: 20px;
+	text-align: center; 
+    font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+
+#p_mirrormirror #body h4 {
+	color: #fff;
+	font-family: 'StandardCT-Regular', sans-serif;
+    font-size: 36px;
+	margin-bottom: 8px;
+}
+
+#p_mirrormirror .teeveecampusname { 
+	color: #ffffff;
+	font-family: 'StandardCT-Medium', sans-serif;
+        font-size: 24px; 
+        font-weight: bold; 
+}
+
+#p_mirrormirror .teeveecolumns { padding: 0; }
+
+#p_mirrormirror #body a.directme ,
+#p_mirrormirror #body a:visited.directme { 
+ 	display: block;
+    -khmtl-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #8cc63f;
+	color: #fff;
+	margin: 6px auto 0;
+	text-decoration: none;
+    text-transform: uppercase;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 3px 4px 3px 5px;
+	width: 100px;             
+}
+#p_mirrormirror #body a:hover.directme  { 	
+    -khmtl-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #fff;
+	color: #8cc63f;
+	margin: 6px auto 0;
+	text-decoration: none;
+    text-transform: uppercase;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 3px 4px 3px 5px;
+	width: 100px;                           
+}
+
+#p_mirrormirror #body a,
+#p_mirrormirror #body a:visited { color: #111; font-weight: bold; text-decoration: underline; }
+#p_mirrormirror #body a:hover { color: #fff; font-weight: bold; text-decoration: underline; }
+
+#p_mirrormirror #hero {
+	background: url(//images.newspring.cc/site/mirrormirror/mirrormirror.png) -30px 0 no-repeat;
+	height: 270px;
+	left: -10px;
+	margin-bottom: 60px;
+	padding: 0 0 0 170px;
+	position: relative;
+	width: 840px;
+}
+
+#p_mirrormirror .dates {
+	color: #115c80;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+#p_mirrormirror .campuses, #p_mirrormirror #invitation, #p_mirrormirror .banner{
+	border-top: 1px solid #A0A0A0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#p_mirrormirror .campuses div{
+	margin-top: 30px;
+}
+
+#p_mirrormirror .banner{
+	border-bottom: 1px solid #A0A0A0;
+	margin-bottom: 20px;
+}
+
+#p_mirrormirror .banner img{
+	width: 940px;
+}
+
+#p_mirrormirror .social-media{
+	background: #707070;
+	padding: 20px;
+    -khmtl-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	margin-left: 50px;
+	height: 125px;
+}
+
+#p_mirrormirror .social-media #facebook-share{
+	float: left;
+	margin-left: 31px;
+}
+
+#p_mirrormirror .social-media #twitter-share{
+	
+}
+
+#p_mirrormirror .social-media .social-title{
+	font-family: 'StandardCT-Medium', sans-serif;
+    font-size: 24px; 
+    font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: -8px;
+}
+
+#p_mirrormirror .social-media #found{
+	margin-top: 40px;
+}
+
+#p_mirrormirror .social-media #found span img{
+	height: 40px;
+	float: left;
+	margin-right: 15px;
+}
+
+#p_mirrormirror #teeveetimes { 
+    margin: 30px 0 0 0;
+    letter-spacing: 5px;
+    text-transform: uppercase; 
+    text-align: center; 
+}
+
+#p_mirrormirror .teeveecampuses { 
+	width: 960px; 
+}
+
+#p_mirrormirror .teeveecampuses li { 
+	color: #D6D6D6;
+    display: block; 
+	float: left; 
+	margin: 10px 20px 14px 0;
+	text-align: center;
+	width: 176px; 
+}
+
+#p_mirrormirror .teeveecampuses li.last { margin: 10px 0 14px 0; }
+
+#p_mirrormirror .play_button {
+	margin: auto;
+	position: absolute;
+	top: 75px;
+	left: 409px;
+}
+
+#p_mirrormirror .unseen {
+	width: 640px;
+	height: 358px;
+}
+
+#p_mirrormirror #page #hero, #p_mirrormirror #page {
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+#p_mirrormirror #footer{
+	width: 945px;
+	margin-left: 18px;
+}
+

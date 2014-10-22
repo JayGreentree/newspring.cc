@@ -1,0 +1,223 @@
+{!--
+	This partial is shared between the NewSpring + Fuse Watch pages, hence the multiple {embed:} variables.  Please be careful when making changes to make sure you don't break something on the other template!
+--}
+
+{exp:channel:entries channel='{embed:series_channel}' disable='member_data|trackbacks' status='open|hidden' url_title='{embed:series_url}' dynamic='on' require_entry="yes"}
+
+{if no_results}{redirect="404"}{/if}
+{if logged_out && status == 'hidden'}
+	{redirect="watch"}
+{/if}
+
+{embed='includes/header'
+	body_id='{embed:sermon_channel}'
+	body_class='{url_title}{if series_css} bespoken{/if}{if "{embed:subnav}" == "y" } subnav{/if}'
+	page_class='{if "{embed:subnav}" == "y" }page-border{/if}'
+	group_style="watch"
+	title='{title} | Watch'
+	meta_title='{title}'
+	meta_description='{exp:trunchtml ending="&hellip;" wrapper="" chars="200" break_words="yes"}{series_description}{/exp:trunchtml}'
+	fb_title="{title}"
+	fb_url="{path=series/{segment_2}}"
+	fb_image="{if series_hero}{exp:imgsizer:size src='{series_hero}' width='400'}{path={sized}}{/exp:imgsizer:size}{if:else}{/if}"
+  fb_describe="{exp:eehive_hacksaw}{series_description}{/exp:eehive_hacksaw}"
+}
+
+{if series_css}
+<style type="text/css">
+{series_css}
+</style>
+{/if}
+
+{if "{embed:subnav}" == "y" }
+	</div><!-- //page - wraps header -->
+
+	{embed="{segment_1}/_subnav"}
+
+	<div id="subnav_page" class="c_12 clearfix page-border">
+{/if}
+
+{if last_segment == '{embed:series_url}'}
+		<!-- VIDEO AREA -->
+		<div id="video" class="g_8 p_2 s_2">
+			<div id="loading"><img src="//images.newspring.cc/site/loading.gif" alt="Loading"> Loading</div>
+			<div id="container">
+				{if current_series == "y"}
+					{reverse_related_entries status='open|hidden' orderby='episode_date' sort="desc" limit='1'}
+					  <div id='ooyalaplayer' class="sermon-embed" style='width:620px;height:348px' data-embed="{embed_code}"></div>
+			        {/reverse_related_entries}
+				{if:elseif trailer AND current_series == ''}
+					<div id='ooyalaplayer' class="sermon-embed" style='width:620px;height:348px' data-embed="{trailer}"></div>
+					{exp:stash:set name="series_trailer"}{trailer}{/exp:stash:set}
+				{if:else}
+					{reverse_related_entries status='open|hidden' orderby='episode_date' sort="asc" limit='1'}
+					  <div id='ooyalaplayer' class="sermon-embed" style='width:620px;height:348px' data-embed="{embed_code}"></div>
+			        {/reverse_related_entries}
+        		{/if}
+
+		  		<script src='http://player.ooyala.com/v3/ZmJmNTVlNDk1NjcwYTVkMzAzODkyMjg0'></script>
+			</div>
+		</div>
+
+
+<!-- SERIES DETAILS -->
+<div id="series-episode-detail" class="g_12 clearfix">
+	<div id="episodes" class="g_5 g_a">
+		<h6>Sermons
+			{reverse_related_entries status='open|hidden' orderby='episode_date'}
+			{if count > 2 && count == total_results}
+					<a href="#hidden-entries" class="revelation button" data-alt="Hide All">View All</a>
+			{/if}
+			{/reverse_related_entries}
+			</h6>
+		{if current_series == "y"}
+			<div id="episode-list">
+				{reverse_related_entries status='open|hidden' orderby='episode_date' sort="desc"}
+					{if no_reverse_related_entries}
+	                        <div class="empty-series">
+								<h2>Series Begins {!-- need to add: use stash instead of php --}<?= date('F jS', $series_date) ?></h2>
+								<p>Checkout <a href='{path=newhere/locations/}'>Locations &amp; Service Times</a> at a Campus Near You!</p>
+							</div>
+	                {/if}
+
+					{if count == 3 }
+					<div id="hidden-entries" style="display:none;">
+					{/if}
+					{!-- Had to put count check to add first class to avoid using pseudo classes that are affected by the javascript --}
+					<div class="episode-entry {if count == 1}first{/if}">
+						<span class="episode-date">{episode_date format='%M %d, %Y'}</span>
+						<div class="clearfix">
+							<h3><a href="{url_title}">Week {episode_week} - {title}</a></h3>
+							<span>{episode_description}</span>
+						</div>
+					</div>
+					{if count > 2 && count == total_results}
+						</div>
+					{/if}
+				{/reverse_related_entries}
+			</div>
+		{if:else}
+			<div id="episode-list">
+				{reverse_related_entries status='open|hidden' orderby='episode_date' sort="asc"}
+					{if no_reverse_related_entries}
+	                        <div class="empty-series">
+								<h2>Series Begins</h2>
+								<p>Checkout <a href='{path=newhere/locations}'>Locations &amp; Service Times</a> at a Campus Near You!</p>
+							</div>
+	                {/if}
+
+					{if count == 3 }
+					<div id="hidden-entries" style="display:none;">
+					{/if}
+					{!-- Had to put count check to add first class to avoid using pseudo classes that are affected by the javascript --}
+					<div class="episode-entry {if count == 1}first{/if}">
+						<span class="episode-date">{episode_date format='%M %d, %Y'}</span>
+						<div class="clearfix">
+							<h3><a href="{url_title}">Week {episode_week} - {title}</a></h3>
+							<span>{episode_description}</span>
+						</div>
+					</div>
+					{if count > 2 && count == total_results}
+						</div>
+					{/if}
+				{/reverse_related_entries}
+			</div>
+		{/if}
+	</div>
+
+	<div id="description" class="g_5">
+		<div class="description">
+		<h6>Series Description</h6>
+			{series_description}
+		</div>
+	</div>
+	<div id="share" class="g_2 g_o">
+		<ul class="share">
+		<h6>Share</h6>
+			<li id="facebook-share" class="share-buttons">
+				<div class="fb-like" data-href="{path=watch/{embed:series_url}}" data-send="true" data-layout="box_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+			</li>
+			<li id="twitter-share" class="share-buttons">
+				<a href="https://twitter.com/share" data-text ="{title}" class="twitter-share-button" data-via="newspring" data-count="vertical" data-hashtags="{exp:uri_prettify}{segment_2}{/exp:uri_prettify}" data-related="perrynoble, bcoop">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</li>
+		</ul>
+		<div class="itunes resources">
+			<h6>iTunes</h6>
+			<ul>
+				<li><a class="media" href="http://itunes.apple.com/us/podcast/newspring-church-sermon-video/id297461509" onclick="_gaq.push(['_trackEvent','Video', 'iTunes', 'Video']);">Video (M4V)</a></li>
+				<li><a class="media" href="http://itunes.apple.com/us/podcast/newspring-church-sermon-audio/id128344835" onclick="_gaq.push(['_trackEvent','Audio', 'iTunes', 'Audio']);">Audio (MP3)</a></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+{/exp:channel:entries}
+{if:else}
+
+
+
+
+
+
+
+
+
+
+{exp:channel:entries channel='{embed:sermon_channel}' disable='member_data|trackbacks' status='open' url_title='{embed:sermon_url}' dynamic='off'}
+<!-- VIDEO AREA -->
+<div id="video" class="g_8 p_2 s_2">
+	<div id="loading"><img src="//images.newspring.cc/site/loading.gif" alt="Loading"> Loading</div>
+	<div id="container">
+    <div id='ooyalaplayer' class="sermon-embed" style='width:620px;height:348px' data-embed="{embed_code}"></div>
+    <script src='http://player.ooyala.com/v3/ZmJmNTVlNDk1NjcwYTVkMzAzODkyMjg0'></script>
+  </div>
+</div>
+
+<!-- EPISODE DETAILS -->
+<div id="series-episode-detail" class="g_12 clearfix">
+	<div class="g_6 g_a">
+		<h6>Sermon Details</h6>
+		<h3 class="episode-title">{title}</h3>
+		<p class="episode-subtitle">Week {episode_week} - {episode_date format='%m/%d/%y'} - {speaker}</p>
+		<p>{episode_description}</p>
+	</div>
+
+	<div class="g_2 resources">
+	<h6>Download</h6>
+		<ul>
+			{if mp4}<li><a class="media" href="{mp4}" onclick="_gaq.push(['_trackEvent','M4V', 'Download', '<?=$episode_series?> - {title}']);">Video (MP4)</a></li>{/if}
+			{if mp3}<li><a class="media" href="{mp3}" onclick="_gaq.push(['_trackEvent','MP3', 'Download', '<?=$episode_series?> - {title}']);">Audio (MP3)</a></li>{/if}
+		</ul>
+		{if mp4 == '' && mp3 == ''}
+			<p>No Downloads Available</p>
+		{/if}
+	</div>
+	<div class="g_2 resources">
+		<h6>Read</h6>
+		<ul>
+		{if sermon_text}<li><a href="{sermon_text}" onclick="_gaq.push(['_trackEvent','Sermon Text', 'Read', '<?=$episode_series?> - {title}']);">Transcript</a></li>{/if}
+		{if group_guide}<li><a href="{group_guide}" onclick="_gaq.push(['_trackEvent','Group Guide', 'Read', '<?=$episode_series?> - {title}']);">Group Guide</a></li>{/if}
+		{if study_guide}<li><a href="{study_guide}" onclick="_gaq.push(['_trackEvent','Study Guide', 'Read', '<?=$episode_series?> - {title}']);">Study Guide</a></li>{/if}
+		</ul>
+		{if study_guide == '' && group_guide == '' && sermon_text == ''}
+			<p>No Additional Material</p>
+		{/if}
+	</div>
+	<div id="share" class="g_2 g_o">
+		<ul class="share">
+		<h6>Share</h6>
+			<li id="facebook-share" class="share-buttons">
+				<div class="fb-like" data-href="{path=series/{segment_2}/{url_title}}" data-send="true" data-layout="box_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+			</li>
+			<li id="twitter-share" class="share-buttons">
+				<a href="https://twitter.com/share" data-text ='{title}' class="twitter-share-button" data-via="newspring" data-count="vertical" data-hashtags="{exp:uri_prettify}{segment_2}{/exp:uri_prettify}" data-related="perrynoble, bcoop">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</li>
+		</ul>
+	</div>
+</div>
+
+{/exp:channel:entries}
+{/if}

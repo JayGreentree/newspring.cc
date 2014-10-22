@@ -1,0 +1,7 @@
+<ul class="{if embed:alignment == 'vertical'}vertical {/if}{if embed:flush == 'y'}flush {/if}social-icons{if embed:display == 'inline'} inline{/if}">
+    <li class="{if embed:alignment != 'vertical'}flush--bottom {/if}"><a href="https://www.facebook.com/sharer/sharer.php?u={embed:share_url}" class="fa fa-facebook facebook" target="_blank"></a></li>
+    <li class="{if embed:alignment != 'vertical'}flush--bottom {/if}"><a href="https://twitter.com/share?url={embed:share_url}&via={twitter_author}&text={embed:title}&hashtags={embed:hashtag}" class="fa fa-twitter twitter" target="_blank"></a></li>
+    <li class="{if embed:alignment != 'vertical'}flush--bottom {/if}"><a href="https://plus.google.com/share?url={embed:share_url}" class="fa fa-google-plus google" target="_blank"></a></li>
+</ul>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

@@ -1,0 +1,83 @@
+{exp:ce_cache:it seconds="5400"}{preload_replace:master_channel_name='articles|devotionals|sermons|stories'}
+{exp:rss:feed channel='{master_channel_name}' status='open' }
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:admin="http://webns.net/mvcb/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:media="http://search.yahoo.com/mrss/">
+
+	<channel>
+
+	<title>Watch &amp; Read | {site_name}</title>
+	<link>{path="watchandread"}</link>
+	<description>Watch &amp; Read articles, daily devotionals, stories and sermons to help you follow Jesus step by step.</description>
+	<dc:language>en</dc:language>
+	<dc:creator>web@newspring.cc</dc:creator>
+	<dc:rights>Copyright {current_time format="%Y"}</dc:rights>
+	<dc:date>{current_time format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+	<admin:generatorAgent rdf:resource="http://expressionengine.com/" />
+
+	{exp:channel:entries channel='{master_channel_name}' limit='20' rdf='off' dynamic_start='on' disable='member_data|trackbacks' status="open|featured"}
+	<item>
+		<title>{exp:xml_encode protect_entities='yes'}{categories show_group="45"}{category_name}: {/categories}{title}{/exp:xml_encode}</title>
+		<link>{exp:shorteen:process service='bitly' url='{path={channel_short_name}/{url_title}}'}</link>
+		<guid>{path={channel_short_name}/{url_title}}</guid>
+
+		<enclosure url="http:{meta_image}" length="222" type="image/jpg" />
+
+		{if channel_short_name == "sermons"}
+			{if entry_video_high OR entry_video_medium OR entry_video_low}
+			<media:content url="{if entry_video_high}{entry_video_high}{url}{/entry_video_high}{if:elseif entry_video_medium}{entry_video_medium}{url}{/entry_video_medium}{if:elseif entry_video_low}{entry_video_low}{url}{/entry_video_low}{/if}" type="video/mp4">
+			{series_newspring}
+				{collection_image}
+					<media:thumbnail url="{collection_image_2x1}" width="940" height="400" />
+				{/collection_image}
+			{/series_newspring}
+			</media:content>
+			{/if}
+		{/if}
+		<description><![CDATA[{exp:scripturizer}
+			{if channel_short_name == 'devotionals'}
+				<p>Read {editorial_scripture backspace="2"}{book} {passage}, {/editorial_scripture}</p>
+			{/if}
+			{editorial_legacy_body}{entry_description}
+			{if editorial_video OR entry_video}
+				<p>&nbsp;</p>
+				<p>This entry contains a video! <a href="{path={channel_short_name}/{url_title}}">View the original entry</a> to watch it.</a>
+			{/if}
+			{/exp:scripturizer}]]></description>
+		<dc:subject>{exp:xml_encode}{categories backspace='2'}{category_name}, {/categories}{/exp:xml_encode}</dc:subject>
+		<dc:date>{gmt_entry_date format='%Y-%m-%dT%H:%i:%s%Q'}</dc:date>
+	</item>
+	
+
+	{if no_results}
+		<item>
+			<title></title>
+		</item>
+	{/if}
+	
+	{/exp:channel:entries}
+
+	</channel>
+</rss>
+
+{if empty_feed}
+        <?xml version="1.0" encoding="{charset}"?>
+        <rss version="2.0">
+                <channel>
+                        <title>{site_name}</title>
+                        <link>{site_url}</link>
+                        <description>{site_name}</description>
+                        <item>
+                                <title>Feed Error</title>
+                                <description>{if "{master_channel_name}" == "jobs"}There are currently no job openings.{if:else}There are no entries available at this time.{/if}</description>
+                        </item>
+                </channel>
+        </rss>
+{/if}
+{/exp:rss:feed}
+{/exp:ce_cache:it}

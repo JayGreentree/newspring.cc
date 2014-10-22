@@ -1,0 +1,112 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_channel="groups-host"}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Groups" 
+		body_id="groups" 
+		body_class="groups subnav ministries" 
+		page_class="page-border" 
+		script="" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		fb_url="{path=groups}" 
+		fb_title="NewSpring Groups" 
+		{if page_search_excerpt}fb_describe="{page_search_excerpt}"{/if} 
+		{if fb_page_image}fb_image="{fb_page_image}"{/if}
+	}
+{/exp:ce_cache:escape}
+</div><!-- //page -->
+
+{embed='includes/_subnav' navtitle="mainnav"}
+
+<div class="c_12 clearfix page-border">
+{!-- if left_column != ""}
+<div id="hero" class="g_12{if page_hero_class != 'default'} {page_hero_class}{/if}"></div><!-- end #hero -->
+
+<div id="sub_content" class="g_3">
+{left_column}
+</div>
+
+<div id="main_content" class="g_7 p_1 s_1">
+{/if --}
+
+<div id="body" class="clearfix">
+
+<!-- <div id="play_video" class="play_button"><a href="#"><img src="//images.newspring.cc/site/groups/groups_play.png" /></a></div>-->
+
+  <div id="hero" class="g_12">
+    <img src="//images.newspring.cc/site/groups/1733.groups.hero.png" class="border" width="940" alt="NewSpring Groups &mdash; Found People Find People" />
+  </div>
+  <div class="g_12 info clearfix">
+
+    <div class="g_a g_6 p_1">
+      
+		<p>We believe you can't do life alone, and one of the best ways to get connected at NewSpring is to join a group that meets in your area. Groups are small gatherings where people meet to learn about God, pray together and do life together. Some are weekly, some meet on different schedules, but there’s a NewSpring group that’s a great fit for you.</p>
+
+		<p>Take the next step toward getting in a group near you. Simply use the button below to register your information. After you sign up, a leader will contact you to say hello, get to know you and fill you in on the details of their group.</p>
+      
+    </div>
+    <div class="g_o g_4 s_1">
+		<h2>Why Groups?</h2>
+ 		<ul>
+			<li><span>Jesus modeled it</span></li>
+			<li><span>Grow in your faith with others</span></li>
+			<li><span>Serve together</span></li>
+			<li><span>Authentic friendships</span></li>
+			<li><span>Experience life change with others</span></li>
+		</ul>
+    </div>
+    
+	<div class="g_8 p_2 s_2 clearfix">
+		<p><a href="http://newspring.cc/groupsearch" class="btn cta">Sign up for a Group</a></p>
+		<p>If you have any questions or need more help finding a group, please email us at <a href="mailto:groups@newspring.cc">groups@newspring.cc</a></p>
+	</div>
+
+</div>
+
+<div class="hr alt"><hr></div>
+
+<div class="groups_faq info g_8 p_2 s_2 clearfix">
+
+	<h2>Frequently Asked Questions</h2>
+	<p><strong>What are groups? Why should I join one?</strong><br/>
+	Groups are a great way for you to share the highs and lows of life with a close group of friends. You will also have the opportunity to study the Bible together, talk about weekly sermons, and serve in the community together. If you want to grow in your relationship with Jesus, you have to have intentional friendships with people that have the same goal. </p>
+
+	{!--
+	<p><strong>When and where do groups meet?</strong><br>
+	The good news is that every group is different. You can select a group based on the time they meet and what fits best with your schedule. Also, as part of the sign up process you can put in your zip code and find a group that meets close to your home.</p>
+	--}
+
+	<p><strong>What will we talk about?</strong><br>
+	Again, every group is different. Most of our groups discuss the current sermon series, a NewSpring specific small group study, or an outside study that everyone has decided on. One thing is for sure: every week you will be able to hang out with friends and talk about life together.</p>
+</div>
+ 
+</div>
+
+<script>
+    $(document).ready(function() {
+		$('#host-btn, #reception-btn').click(function() {
+            $('#more-info').slideToggle();
+        });
+    });
+</script>
+{!-- if left_column != ""}
+</div>
+{/if --}
+
+{if breadcrumb != ""}
+{embed='includes/breadcrumb' links='{breadcrumb}'}
+{/if}
+
+{exp:ce_cache:escape}
+{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}
+
+{!-- if no_results}
+	{redirect="/"}
+{/if}
+{/exp:channel:entries --}

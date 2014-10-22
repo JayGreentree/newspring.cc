@@ -1,0 +1,28 @@
+{embed='includes/header' body_id='search' title='NewSpring | Search'}
+	
+	<form id="search" method="post" action="/search/results" charset="utf-8">
+		<gcse:searchbox-only enableAutoComplete="false" resultsUrl="/search"></gcse:searchbox-only>
+	</form>
+	
+
+	<div id="search-results" class="g_12">
+		<h2>Search Results</h2>
+		<gcse:searchresults-only linkTarget="_parent" noResultsString="We're sorry, we couldn't find what you searched for. Try searching for a different, or more general keyword."></gcse:searchresults-only>
+	</div>
+
+	
+{!-- 	<div class="hr"><hr></div>
+	
+	<div class="g_4">
+		<h2>Watch &amp; Listen</h2>
+		<ul>
+			{exp:channel:entries channel='advertisements' cache='yes' refresh='60' dynamic='off' search:ad_location='footer' orderby='random' status='open' disable='categories|category_fields|member_data|pagination|trackbacks' limit='3'}
+			<li><a href="{ad_url}" title="Learn more about {title}"><img src="{ad_image}" alt="{title}"></a></li>
+			{/exp:channel:entries}
+		</ul>
+	</div> --}
+
+	
+
+
+{embed="includes/footer"}

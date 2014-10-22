@@ -1,0 +1,415 @@
+{embed="embeds/_header" page_title="Locations"}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script>
+
+function initialize() {
+  var mapOptions = {
+  	disableDefaultUI: true,
+  	scrollwheel: false,
+    zoom: 16,
+    center: new google.maps.LatLng(34.595549, -82.628310),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+  var nsAndersonParking;
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                mapOptions);
+
+  // Parking Lot 1
+  var nsAndersonPL1Coords = [
+    new google.maps.LatLng(34.596396,-82.624923),
+    new google.maps.LatLng(34.596457,-82.622426),
+    new google.maps.LatLng(34.59604,-82.622453),
+    new google.maps.LatLng(34.596016,-82.623064),
+    new google.maps.LatLng(34.59506,-82.623051),
+    new google.maps.LatLng(34.595035,-82.624443)
+  ];
+
+  nsAndersonPL1 = new google.maps.Polygon({
+    paths: nsAndersonPL1Coords,
+    strokeColor: '#75CCD0',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#75CCD0',
+    fillOpacity: 0.35
+  });
+
+  nsAndersonPL1.setMap(map);
+
+  // Parking Lot 2
+  var nsAndersonPL2Coords = [
+  	new google.maps.LatLng(34.596457, -82.622426),
+    new google.maps.LatLng(34.59761, -82.622407),
+    new google.maps.LatLng(34.597647,-82.621785),
+    new google.maps.LatLng(34.59646, -82.621766),
+    new google.maps.LatLng(34.596475, -82.621039),
+    new google.maps.LatLng(34.596195, -82.620004),
+    new google.maps.LatLng(34.594874, -82.619931),
+    new google.maps.LatLng(34.594581, -82.619998),
+    new google.maps.LatLng(34.594333, -82.620264),
+    new google.maps.LatLng(34.594243, -82.620725),
+    new google.maps.LatLng(34.594212, -82.621318),
+    new google.maps.LatLng(34.594877, -82.621348),
+    new google.maps.LatLng(34.594905, -82.620559),
+    new google.maps.LatLng(34.596062, -82.620562),
+    new google.maps.LatLng(34.59604, -82.622453)
+  ];
+
+  nsAndersonPL2 = new google.maps.Polygon({
+    paths: nsAndersonPL2Coords,
+    strokeColor: '#EC8E4E',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#EC8E4E',
+    fillOpacity: 0.35
+  });
+
+  nsAndersonPL2.setMap(map);
+
+  // Parking Lot 3
+  var nsAndersonPL3Coords = [
+  	new google.maps.LatLng(34.595035, -82.624443),
+    new google.maps.LatLng(34.59506, -82.623051),
+    new google.maps.LatLng(34.594894, -82.623024),
+    new google.maps.LatLng(34.594888, -82.622748),
+    new google.maps.LatLng(34.594923, -82.622528),
+    new google.maps.LatLng(34.594801, -82.62242),
+    new google.maps.LatLng(34.594795, -82.622257),
+    new google.maps.LatLng(34.59485, -82.622176),
+    new google.maps.LatLng(34.594877, -82.621348),
+    new google.maps.LatLng(34.594212, -82.621318),
+    new google.maps.LatLng(34.594234, -82.622648),
+    new google.maps.LatLng(34.594263, -82.623593),
+    new google.maps.LatLng(34.594333, -82.623746),
+    new google.maps.LatLng(34.594669, -82.623949),
+    new google.maps.LatLng(34.5947, -82.624285)
+  ];
+
+  nsAndersonPL3 = new google.maps.Polygon({
+    paths: nsAndersonPL3Coords,
+    strokeColor: '#81BE41',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#81BE41',
+    fillOpacity: 0.35
+  });
+
+  nsAndersonPL3.setMap(map);
+
+  setMarkers(map, nsCampuses);
+}
+
+/**
+ * Data for the markers consisting of a name, a LatLng and a zIndex for
+ * the order in which these markers should display on top of each
+ * other.
+ */
+var nsCampuses = [
+  ['NewSpring Anderson Campus', 34.595400, -82.622300, 1],
+  ['NewSpring Columbia Campus', 34.030558, -81.098481, 2],
+];
+
+function setMarkers(map, locations) {
+  // Add markers to the map
+
+  // Marker sizes are expressed as a Size of X,Y
+  // where the origin of the image (0,0) is located
+  // in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker
+  // increase in the X direction to the right and in
+  // the Y direction down.
+  var image = {
+    url: 'http://images.newspring.cc/v4test/ns-marker1.png',
+    // This marker is 20 pixels wide by 32 pixels tall.
+    size: new google.maps.Size(72, 99),
+    // The origin for this image is 0,0.
+    origin: new google.maps.Point(0,0),
+    // The anchor for this image is the base of the flagpole at 0,32.
+    anchor: new google.maps.Point(0, 45)
+  };
+
+  // Shapes define the clickable region of the icon.
+  // The type defines an HTML &lt;area&gt; element 'poly' which
+  // traces out a polygon as a series of X,Y points. The final
+  // coordinate closes the poly by connecting to the first
+  // coordinate.
+  var shape = {
+      coord: [1, 1, 1, 20, 18, 20, 18 , 1],
+      type: 'poly'
+  };
+
+  for (var i = 0; i < locations.length; i++) {
+    var nsCampus = locations[i];
+    var myLatLng = new google.maps.LatLng(nsCampus[1], nsCampus[2]);
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: image,
+        shape: shape,
+        title: nsCampus[0],
+        zIndex: nsCampus[3]
+    });
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+{embed="embeds/_header_postfix"}
+
+{embed="embeds/_mainnav"}
+
+<section id="pre-header">
+	<div class="flexslider">
+		<ul class="slides inner" data-0="margin-top: 0px;" data-600="margin-top: 250px;">
+			<li class="left" style="background: url(http://images.newspring.cc/v4test/columbia_campus.jpg) no-repeat; background-size: cover;">
+        <div class="shell">
+  				<div class="wrapper">
+  					<h2>Columbia, SC</h2>
+  					<p class="address">657 Bush River Road</p>
+  				</div>
+        </div>
+			</li>
+		</ul>
+	</div>
+</section>
+
+{!-- {embed="embeds/_subnav" page_title="Columbia Campus" sticky="y"} --}
+
+<div class="page-wrap">
+  <div class="shell">
+  	<section class="columns location-details">
+  		<div class="grid"><!--
+  			--><div class="grid__item seven-twelfths palm-one-whole">
+  				<div class="wrapper ">
+  					<h2>What can I expect?</h2>
+  					<p>Sunday services at NewSpring are exciting, casual and relaxed. Come as you are, and you can expect to feel welcomed, experience good music, and an engaging message from our Senior Pastor Perry Noble or other guest speakers.</p>
+  					<h2>Where can I park?</h2>
+  					<p>The Columbia Campus has two parking lots, on either side of the campus. Family parking is close to our Children's Ministry check-in, to get you an your family settled in quickly before the service.</p>
+  					<a href="#" class="btn_new">Plan Your Visit</a>
+  				</div>
+  			</div><!--
+  			--><div class="grid__item five-twelfths palm-one-whole">
+          <div class="wrapper ">
+    				<h3>Sunday Service Times</h3>
+    				<ul class="service-times clearfix">
+    					<li>8:30am</li>
+    					<li>10am</li>
+    					<li>11:30am</li>
+    					<li>5pm</li>
+    					<li>6:30pm</li>
+    				</ul>
+            <h3 style="display: inline-block; margin-bottom: 20px;"><span class="pictos" style="position: relative; top: -2px; margin-right: 5px;">'</span> Free Wi-Fi</h3>
+            <h3 class="coffee" style="display: inline-block; margin: 0 0 20px 35px;"><span class="pictos" style="position: relative; top: -2px; margin-right: 5px;">i</span> Free Coffee</h3>
+            <div style="width: 100%; border-top: 1px solid #ddd; margin-bottom: 25px;"></div>
+            <div class="grid"><!--
+              --><div class="grid__item one-half palm-one-whole">
+                
+                <h3>Service Location</h3>
+                <p>657 Bush River Road<br>Columbia, SC 29210<br><a href="#">Get Directions</a></p>
+              </div><!--
+              --><div class="grid__item one-half palm-one-whole">
+                <h3>Contact Info</h3>
+                <p>(803) 726-4361<br><a href="mailto:columbia@newspring.cc">columbia@newspring.cc</a></p>
+              </div><!--
+            --></div><br>
+            <div class="wrapper ">
+    				<h3>Follow the Columbia Campus</h3>
+    				<a class="btn_new facebook">Facebook</a>
+    				<a class="btn_new twitter">Twitter</a>
+    				<a class="btn_new google">Google+</a>
+            </div>
+          </div>
+  			</div><!--
+  		--></div>
+  	</section>
+    <section class="columns centered">
+      <div class="grid"><!--
+        --><div class="grid__item one-third portable-one-whole">
+         <h2>Something for Everyone</h2>
+         <p>We have ministries and services for everyone in the family. <a href="#">Find Out More</a></p> 
+        </div><!--
+        --><div class="grid__item one-third portable-one-whole">
+         <h2>We're Here for You</h2>
+         <p>Whatever your needs are, we want to help. Please let us know. <a href="#">Contact Us</a></p>
+        </div><!--
+        --><div class="grid__item one-third portable-one-whole">
+         <h2>Invite a Friend</h2>
+         <p>We'd love to host and serve your friends and family on a Sunday. <a href="#">Invite Someone</a></p> 
+        </div><!--
+      --></div>
+    </section>
+  </div>
+
+  <div class="map-wrapper">
+    <div class="map-overlay">
+      <div class="grid"><!--
+        --><div class="grid__item one-half palm-one-whole">
+          <h2>Get Directions</h2>
+          <form action="#">
+            <input type="text" placeholder="Enter Your Address"><br>
+          </form><br>
+          <h3>Columbia Campus</h3>
+          <p>657 Bush River Road<br>Columbia, SC 29210</p>
+        </div><!--
+        --><div class="grid__item one-half palm-one-whole">
+          <h2>Parking</h2>
+          <ul>
+            <li class="first"><span></span> Northeast Lot
+              <p>Entrance Walker Way</p>
+              <p>Exit Concord Road</p>
+            </li>
+            <li class="second"><span></span> Northwest Lot
+              <p>Entrance Concord Road</p>
+              <p>Exit McGee Road</p>
+            </li>
+            <li class="third"><span></span> Southwest Lot 
+              <p>Entrance McGee Road</p>
+              <p>Exit Walker Way</p>
+            </li>
+          </ul>
+        </div><!--
+      --></div>
+    </div>
+    <section id="map-canvas" class="map">
+    </section>
+  </div>
+
+  <div class="shell">
+    <section class="columns centered">
+        <div class="shell">
+            <h2 class="vision_statement"><strong>Columbia Campus Staff</strong></h2>
+          </div>
+      <div class="grid"><!--
+
+        {!-- {exp:channel:entries channel="articles" limit="8"}
+        -->{!-- <div class="grid__item {if total_results % 3 == 0}one-third{/if}{if total_results % 4 == 0}one-quarter{/if} palm-one-whole">
+
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.1.jpg" add_dims="no"}</span>
+            <h2>Staff Name</h2>
+            <p>Staff Title</p>
+          </div> 
+        </div> --}<!--
+        {/exp:channel:entries} --}
+
+        --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.1.jpg" add_dims="no"}</span>
+            <h2>Alden Ellis</h2>
+            <p class="staff_title">Campus Pastor</p>
+            <a class="staff_email" href="#">alden.ellis@newspring.cc</a>
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.2.jpg" add_dims="no"}</span>
+            <h2>Stephen Dickey</h2>
+            <p class="staff_title">Associate Campus Pastor</p>
+            <a class="staff_email" href="#">stephen.dickey@newspring.cc</a>
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.3.jpg" add_dims="no"}</span>
+            <h2>Greg De Mare</h2>
+            <p class="staff_title">Fuse Director</p>
+            <a class="staff_email" href="#">greg.demare@newspring.cc</a>            
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.4.jpg" add_dims="no"}</span>
+            <h2>Brett Weaver</h2>
+            <p class="staff_title">KidSpring Director</p>
+            <a class="staff_email" href="#">brett.weaver@newspring.cc</a>            
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.5.jpg" add_dims="no"}</span>
+            <h2>Aaron Chovan</h2>
+            <p class="staff_title">Guest Services Director</p>
+            <a class="staff_email" href="#">aaron.chovan@newspring.cc</a>            
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.6.jpg" add_dims="no"}</span>
+            <h2>Kenny Mills</h2>
+            <p class="staff_title">Next Steps Pastor</p>
+            <a class="staff_email" href="#">kenny.mills@newspring.cc</a>
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.beyonce.jpg" add_dims="no"}</span>
+            <h2>Stephen Cope</h2>
+            <p class="staff_title">Worship Leader</p>
+            <a class="staff_email" href="#">stephen.cope@newspring.cc</a>            
+          </div> 
+        </div><!--
+      --><div class="grid__item one-quarter palm-one-whole">
+          <div class="wrapper">
+            <span class="column-image">{exp:ce_img:single src="http://images.newspring.cc.s3.amazonaws.com/v4test/headshot.male.7.jpg" add_dims="no"}</span>
+            <h2>TBD</h2>
+            <p class="staff_title">Service Producer</p>
+            <a class="staff_email" href="#">Apply For This Job</a>            
+          </div> 
+        </div><!--
+      -->
+
+      </div>
+    </section>
+  </div>
+
+	{embed="embeds/_search"}
+
+</div>
+{!-- #page-wrap end --}
+
+{embed="embeds/_footer"}
+
+{!-- Google +1 Button Asynchronous Script --}
+	<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script>
+  var setSearch = function() {
+    $('.skeleton').hide();
+    util.toggleInputText({
+        selector: '#masthead input.gsc-input',
+        text: 'Search',
+        onload: true
+       });
+
+      // $('#masthead input.gsc-input[val]').fadeIn(200);
+    $('.looking-glass').fadeIn(200);
+    
+  };
+
+  window.__gcse = {
+    callback: setSearch
+  };
+
+  (function() {
+    var cx = '008512432210388260844:3scn19cslty';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+</body>
+</html>

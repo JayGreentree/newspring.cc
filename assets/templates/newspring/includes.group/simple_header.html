@@ -1,0 +1,31 @@
+{exp:ce_cache:it id="{site_short_name}-simple_header"}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{if embed:title != ""}{embed:title} | {/if}NewSpring Church</title>
+
+	<!-- Styles -->
+	{if embed:style != ""}
+	<link rel="stylesheet" href="/styles/{embed:style}/?{CSS_VERSION}/" type="text/css" media="screen" charset="utf-8">
+	{/if}
+	
+	<!-- Icons -->
+	<link rel="shortcut icon" href="//images.newspring.cc/site/icons/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="//images.newspring.cc/site/icons/apple.touch.png" type="image/x-icon">
+
+	<!-- Scripts -->
+	<script src="/scripts/jquery/?{JS_VERSION}/" type="text/javascript" charset="utf-8"></script>
+	{if embed:script != ""}
+	<script src="/scripts/{embed:script}/?{JS_VERSION}/" type="text/javascript" charset="utf-8"></script>
+	{/if}
+	
+	{if embed:meta_title AND embed:meta_description}
+	<meta name="title" content="{embed:meta_title}">
+	<meta name="description" content="{embed:meta_description}">
+	{/if}
+</head>
+
+<body {if embed:body_id != ""}id="p_{embed:body_id}"{/if} class="{embed:body_class} <?php $agent = $_SERVER['HTTP_USER_AGENT']; if(substr_count($agent, 'MSIE') > 0) echo 'ie'; if(substr_count($agent, 'MSIE 6.0') > 0) echo '6'; elseif(substr_count($agent, 'MSIE 7.0')) echo '7'; ?>">
+{/exp:ce_cache:it}

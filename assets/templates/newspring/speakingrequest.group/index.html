@@ -1,0 +1,54 @@
+{layout="_layouts/master"
+    title="Speaking Requests"
+    description="Lorem ipsum Qui laborum adipisicing Excepteur cillum nisi qui ut aliquip in laboris Excepteur ullamco voluptate do dolore sunt occaecat laborum ad."
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+<section class="section--dark">
+    <div class="shell background--fill overlay overlay--solid-dark" style="background-image: url({campus_image}{campus_image_2x1}{/campus_image});">
+        <div class="grid centered overlay__item">
+            <div class="grid__item one-whole">
+                <h2 class="no_hero">Speaking Requests</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="shell">
+        <div class="grid">
+            {exp:channel:entries channel="members" limit="16" status="Staff-id16" dynamic="off" search:mbr_speaking_request="not IS_EMPTY"}<div class="grid__item one-third">
+                <h2>{mbr_first_name}</h2>
+            </div>{/exp:channel:entries}
+        </div>
+    </div>
+</section>
+
+{/exp:ce_cache:it}

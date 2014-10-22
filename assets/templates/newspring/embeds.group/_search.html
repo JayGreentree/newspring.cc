@@ -1,0 +1,152 @@
+{!-- <section class="search visuallyhidden--palm">
+	<div class="shell">
+		<div class="grid"><!--
+			--><div class="grid__item one-quarter"></div><!--
+			--><div class="grid__item one-half">
+				<form>
+					<span class="search_icon">s</span>
+					<input name="search" placeholder="Search newspring.cc">
+				</form>
+			</div><!--
+			--><div class="grid__item one-quarter"></div>
+		</div>
+	</div>
+</section> --}
+
+<section class="search">
+	<div class="shell">
+		<div class="form-wrapper">
+			<h2>What Can We Help You Find?</h2>
+			<form action="#">
+				<input type="text">
+				{!-- <span class="pictos erase">D</span> --}
+				<span class="pictos glass">s</span>
+			</form>
+			<p class="suggestions">May we suggest... <a href="#">Christmas</a>, <a href="#">Bible Reading Plans</a>, or <a href="#">Israel Trips</a></p>
+		</div>
+		<div class="results">
+			<div class="grid"><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper first">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/home/heroes/homepage.hero.christmasatnewspring12_940_400_c1.png" alt="">
+						<div class="result-meta">
+							<h2>Christmas at NewSpring</h2>
+							<p>We’re so excited about Christmas At NewSpring that we can’t hold it in anymore.</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper second">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/articles/Screen_Shot_2013-12-07_at_6.30.48_PM_940_398.png" alt="">
+						<div class="result-meta">
+							<h2>How to Have the Best Christmas Ever</h2>
+							<p>Close your eyes and picture the perfect Christmas. The smell of fresh-baked goods filling the...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper third">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/articles/Tweet_recap_940_400_90.jpg" alt="">
+						<div class="result-meta">
+							<h2>"Peace?" Christmas Sermon Recap</h2>
+							<p>Recap from the "Peace?" sermon in 140 characters or less: Peace is not found in...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper fourth">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/series/newspring/fullyalive.series.hero_940_400_90_c1.jpg" alt="">
+						<div class="result-meta">
+							<h2>Peace? - Christmas 2012</h2>
+							<p>Do you ever feel like you're just going through the motions? Maybe nothing is exactly...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper fifth">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/series/fuse/whychristmas-01_940_400_90_c1.jpg" alt="">
+						<div class="result-meta">
+							<h2>Why Christmas?</h2>
+							<p>Have you ever wondered why we decorate a tree with lights, marshmallows, paper cut...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper sixth">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/series/newspring/party_940_400_c1.png" alt="">
+						<div class="result-meta">
+							<h2>Party</h2>
+							<p>Everyone loves a good party and what better reason to celebrate than Jesus! We' re...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper seventh">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/series/newspring/homeforxmas_940_400_c1.png" alt="">
+						<div class="result-meta">
+							<h2>Home For Christmas</h2>
+							<p>It doesn't matter if you've never known a good home. It doesn't matter how far away...</p>
+						</div>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter portable-one-whole">
+					<div class="wrapper eighth">
+						<img src="http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/series/newspring/christmasparty_940_400_c1.png" alt="">
+						<div class="result-meta">
+							<h2>Christmas Party</h2>
+							<p>You're invited to our biggest party of the year. We couldn't fit it all into one week, so join...</p>
+						</div>
+					</div>
+				</div><!--
+			--></div>
+		</div>
+		<script>
+			$('.clear').live('click',function(){
+				$('.form-wrapper input').blur();
+				$('.form-wrapper input').val('');
+				$('.results .wrapper').fadeOut();
+				$('.results').slideUp();
+				$(this).html('s').removeClass('clear');
+			});
+
+			$('.form-wrapper input').focus(function(){
+				$('.glass').html('D').addClass('clear');
+			});
+			$('.form-wrapper input').blur(function(){
+				if($(this).val() != '') {
+				} else {
+					$('.glass').html('s').removeClass('clear');
+				};
+			});
+			$(".form-wrapper form").submit(function(e){
+				e.preventDefault();
+				$('.results').fadeIn();
+		        $('.results .grid__item .wrapper.first').delay(500).fadeIn();
+				$('.results .grid__item .wrapper.second').delay(700).fadeIn();
+				$('.results .grid__item .wrapper.third').delay(900).fadeIn();
+				$('.results .grid__item .wrapper.fourth').delay(1100).fadeIn();
+				$('.results .grid__item .wrapper.fifth').delay(1300).fadeIn();
+				$('.results .grid__item .wrapper.sixth').delay(1500).fadeIn();
+				$('.results .grid__item .wrapper.seventh').delay(1700).fadeIn();
+				$('.results .grid__item .wrapper.eighth').delay(1900).fadeIn();
+				$(this).find('input').blur();
+			});
+			$('.suggestions a').click(function(){
+				var query = $(this).html();
+				$('.form-wrapper input').val(query);
+				$('.results').fadeIn();
+		        $('.results .grid__item .wrapper.first').delay(500).fadeIn();
+				$('.results .grid__item .wrapper.second').delay(700).fadeIn();
+				$('.results .grid__item .wrapper.third').delay(900).fadeIn();
+				$('.results .grid__item .wrapper.fourth').delay(1100).fadeIn();
+				$('.results .grid__item .wrapper.fifth').delay(1300).fadeIn();
+				$('.results .grid__item .wrapper.sixth').delay(1500).fadeIn();
+				$('.results .grid__item .wrapper.seventh').delay(1700).fadeIn();
+				$('.results .grid__item .wrapper.eighth').delay(1900).fadeIn();
+				$('.glass').html('D').addClass('clear');
+				$(this).find('input').blur();
+				return false;
+			});
+		</script>
+	</div>
+</section>

@@ -1,0 +1,26 @@
+<section {if embed:section}class="{embed:section}"{/if}>
+
+	<div class="shell non-hero background--fill {if embed:image_classes}{embed:image_classes}{/if}" style="background-image:url({exp:ce_img:single src='{embed:image_url}' width='1700' crop='yes' url_only='yes'})" {if embed:video}{if:else}{if embed:image_url}data-lazy-load="{exp:ce_img:single src='{embed:image_url}' width='1700' crop='yes' url_only='yes'}"{/if}{/if}>
+		{if embed:video}
+		<div class="video greyscale"
+			data-background-video="{embed:video}">
+		</div>
+		{/if}
+		<div class="overlay {if embed:overlay}{embed:overlay}{/if}">
+			<div class="overlay__item centered">
+				<div class="text--constrained">
+					<h2 class="no_hero">{embed:title}</h2>
+					{if embed:subtitle}
+					<h5 class="editorial_subtitle">{embed:subtitle}</h5>
+					{/if}
+					{if embed:summary}
+					<p>{embed:summary}</p>
+					{/if}
+					{if embed:link}
+					<a href="{embed:link}" class="link--arrow reverse">{embed:link_text}</a>
+					{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,167 @@
+{embed='includes/header' 
+	title='User Settings' 
+	body_id='user' 
+	body_class='user' 
+	page_class="page-border"
+	group_script='' 
+	group_style="{segment_1}" 
+	use_alt="y"
+}
+
+	{if logged_in}
+		{if group_id != "25" OR group_id != "33"}
+			<script src="/assets/backup/old_js/give/chosen.jquery.js"></script>
+
+				<div class="g_8 p_2 s_2 clearfix login">
+
+					{if segment_2 == "success"}
+		            	<div id="user_success">You've successfully updated your account!</div>
+					{/if}
+
+					<h2>User Settings</h2>
+
+					{exp:user:edit form:id="user_profile" return="{segment_1}/success" error_page="resources/error_template" screen_name_password_required="no"}
+	      				<fieldset>
+	      				  <legend>Your Info</legend>
+							
+							<p class="column">
+		      			  		<label for="screen_name" class="req">First Name: </label>
+								<input type="text" name="first_name" id="first_name" class="textfield" value="{first_name}"  />
+							</p>
+							<p class="column">
+								<label for="email" class="req">Last Name:</label>
+								<input type="text" name="last_name" id="last_name" value="{last_name}"  class="textfield" />
+								<input type="hidden" name="full_name" id="full_name" value="{full_name}"  class="textfield" />
+							</p>
+							
+							{if group_id == "20"}{!--Only show to users of the Resource Member Group --}
+								<p class="column">
+									<label for="email" class="req">Email Address:</label>
+									<input type="text" name="username" id="username" value="{email}"  class="textfield" />
+									<input type="hidden" name="screen_name" id="screen_name" class="textfield" value="{email}"  />
+								</p>
+								<p class="column">
+									<label>Church Name / Organization</label>
+									<input type="text" name="organization" id="organization" value="{organization}"/>
+								</p>
+
+								<script type="text/javascript">
+									$(document).ready(function()
+									{
+										// Defaults the screen name to the email address
+										$("#user_profile").submit(function (){
+											var value = $("#username").val();
+											$("#screen_name").val(value);
+										})
+									});
+								</script>
+							{if:else}
+								<p class="column">
+									<label for="email" class="req">Email Address:</label>
+									<input type="text" name="email" id="email" value="{email}"  class="textfield" />
+								</p>
+								<p class="column">
+									<label for="email" class="req">Username:</label>
+									<input type="text" name="username" id="username" value="{username}"  class="textfield" />
+								</p>
+								<p class="column">
+			      			  		<label for="screen_name" class="req">Your Screen Name: </label>
+									<input type="text" name="screen_name" id="screen_name" class="textfield" value="{screen_name}"  />
+								</p>
+							{/if}
+							<div class="clearfix"></div>
+	        			</fieldset>
+	        			
+	        			{if group_id != "20"}
+	        			<hr>
+
+	        			<fieldset>
+	      				  <legend>Your Campus</legend>
+							<p class="column">
+		      			  		<label for="user_campus" class="req hidden">Campus Location: </label>
+								<select id="user_campus" name="user_campus" class="chosen-select" data-placeholder="Choose your campus">
+									<option></option>
+									{exp:channel:entries channel="campuses" orderby="title" sort="asc" dynamic="off" status="Open" disable="categories|category_fields|member_data|pagination|trackbacks"}
+									<option value="{url_title}"{if user_campus == url_title } selected{/if}>{title}</option>
+									{/exp:channel:entries}
+								</select>
+							</p>
+							<div class="clearfix"></div>
+	        			</fieldset>
+
+	        			<fieldset>
+	      				  <legend>Your Ministry</legend>
+							<p class="column">
+		      			  		<label for="user_ministry" class="req hidden">Ministry Area: </label>
+								<select id="user_ministry" name="user_ministry" class="chosen-select" data-placeholder="Choose your ministry">
+									<option></option>
+									{exp:channel:entries channel="department" orderby="title" sort="asc" dynamic="off" status="Open" disable="categories|category_fields|member_data|pagination|trackbacks"}
+									<option value="{url_title}"{if user_ministry == url_title } selected{/if}>{title}</option>
+									{/exp:channel:entries}
+								</select>
+							</p>
+							<div class="clearfix"></div>
+	        			</fieldset>
+	        			{/if}
+	        			
+	        			<hr>
+
+	        			<fieldset>
+	      				  <legend>Change Your Password</legend>
+
+							<p class="column">
+								<label for="password" class="req">New Password:</label>
+								<input type="password" name="password" id="password"  class="textfield" />
+							</p>
+							<p class="column">
+								<label for="confirm_password" class="req">Confirm New Password:</label>
+								<input type="password" name="password_confirm" id="password_confirm" class="textfield" />
+							</p>
+
+							<hr>
+		      				  
+							<p class="column">
+								<label for="current_password" class="req">Current Password:</label>
+								<input type="password" name="current_password" id="current_password" class="textfield" />
+							</p>
+							<p class="column">
+								<br><em>To change your password, you'll have to submit the current password.</em>
+							</p>
+	        			</fieldset>
+
+	        			<p class="column two">
+							<input type="submit" name="submit" class="submit" value="Save Your Settings" />
+						</p>
+
+		          	{/exp:user:edit}
+
+				</div>
+			
+			<script type="text/javascript">
+				$(document).ready(function()
+				{
+					//Activate Chosen
+					$(".chosen-select").chosen();
+
+					// Creates the full name from first + last
+					$("#user_profile").submit(function (){
+						var first = $("#first_name").val();
+						var last = $("#last_name").val();
+						$("#full_name").val(first + " " + last);
+					})
+				});
+			</script>
+		{if:else}
+				
+			{!-- if user doesn't have access, redirect --}
+			{redirect="/"}
+
+		{/if}
+
+	{if:else}
+
+		{redirect="login/user"}	
+
+	{/if}
+
+{embed='includes/footer'}

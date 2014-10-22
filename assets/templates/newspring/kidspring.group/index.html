@@ -1,0 +1,164 @@
+{layout="newspring:_layouts/master"
+    title="KidSpring"
+    description="KidSpring is the children’s ministry at NewSpring Church uniquely designed with your child in mind!"
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{if segment_2}
+    {redirect='kidspring' status_code="301"}
+{/if}
+
+{exp:ce_cache:it id="contents" seconds="0"}
+
+{embed="newspring:_embeds/_hero"
+    image_url="{images-global}/{site_short_name}/kidspring/hero.kidspring.png"
+}
+
+
+<section>
+    <div class="shell" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.iggy.png' width='500' crop='yes' url_only='yes'}); background-repeat: no-repeat; background-position: bottom center; padding-bottom: 180px;">
+        <div class="grid text--constrained">
+            <div class="grid__item one-whole hard centered">
+                <h2>What Is KidSpring?</h2>
+            </div><div class="grid__item one-whole hard centered">
+                <p>KidSpring is a children’s ministry uniquely designed with your child in mind! Every Sunday all children (babies through 5th grade) experience safe, age-appropriate environments where the Bible is taught in a creative and relevant way. We are so passionate about kids learning about Jesus in a way they can understand that we do not allow them into the service designed for adults and students (6th grade and older).</p>
+                <p>We would love to see you and your family visit KidSpring at a NewSpring campus this Sunday. Join the fun and experience a world where kids meet Jesus on their level!</p>
+
+                <hr class="quarter">
+
+                <p>See what happens each week in KidSpring by following us on social media.</p>
+                {embed="newspring:_embeds/_social-buttons"
+                    facebook_link="https://www.facebook.com/kidspring"
+                    twitter_link="https://twitter.com/kidspring"
+                    instagram_link="http://instagram.com/kidspring"
+                    youtube_link="https://www.youtube.com/playlist?list=PLDxMgoqL20qnzde1v3kWaBGN7TwvtAY-F"
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section--kidspring">
+    <div class="shell background--fill" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.pattern.png' width='1700' crop='yes' url_only='yes'}); background-attachment: fixed; background-position: center;">
+        <div class="grid">
+            <div class="grid__item one-whole centered">
+                <h2>What To Expect</h2>
+            </div><div class="grid__item five-twelfths lap-one-whole handheld-one-whole">
+                <div class="background--fill ratio--square lap-ratio--landscape handheld-ratio--landscape" style="background-image: url({images-global}/{site_short_name}/kidspring/kidspring.firsttime.jpg);"></div>
+                <div class="background--fill ratio--square lap-wide-ratio--square visuallyhidden--lap visuallyhidden--handheld" style="background-image: url({images-global}/{site_short_name}/kidspring/kidspring.smallgroup.jpg);"></div>
+            </div><div class="grid__item seven-twelfths lap-one-whole handheld-one-whole left">
+                <h3>First Time Here?</h3>
+                <p>Look for the area designated for first-time families. We will meet your family, check your child into our database system, and one of our volunteers will lead your child to their age-appropriate room.</p>
+
+                <p>We will ask for the following personal information: family members' names, children’s names and birthdates, address, phone number, and any special instructions (allergies, special needs) for your child.</p>
+                
+                <h3>How Does Check-In Work?</h3>
+                <p>Start Stations open 20 minutes prior to each service. After finding your child’s name in the database, you and your child will be given matching identification tags that are exclusive to your family and your visit. Your child will need to wear the name tag portion while you keep the matching tag. After the service, you will return to your child’s room and show your tag in order for your child to be released back to you.</p>
+                
+                <p>In the event that we need to contact you during the service, your child’s last name and identification code will appear on the screen in the auditorium. We ask that you exit the auditorium immediately and look for a staff member or volunteer who will direct you to your child’s room.</p>
+            </div>
+
+            <div class="grid__item one-whole centered">
+            </div><div class="grid__item five-twelfths lap-one-whole handheld-one-whole">
+                <div class="background--fill ratio--square" style="background-image: url({images-global}/{site_short_name}/kidspring/kidspring.startstation.jpg);"></div>
+            </div><div class="grid__item seven-twelfths lap-one-whole handheld-one-whole left">
+                <h3>After KidSpring</h3>
+                <p>On your way home, be sure to ask your child questions like, <em>“Did you have fun?”</em> and <em>“What did you learn today?”</em></p>
+                <h3>Still Have Questions?</h3>
+                <p>Please be sure to ask any of our volunteers or staff if you have questions, or you can email <a href="mailto:kidspring@newspring.cc"> kidspring@newspring.cc.</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="springzone">
+    <div class="shell">
+        <div class="grid">
+            <div class="grid__item one-whole centered">
+                <h2>Special Environments</h2>
+            </div><div class="grid__item one-half portable-one-whole handheld-one-whole">
+                <h3>Mom's Viewing Room</h3>
+                <p>A mom's viewing room is available at every campus for moms with babies 12 weeks old and under. This is a "Moms Only" room for women with newborn babies to view the service in a more private and quiet environment.</p>
+            </div><div class="grid__item one-half portable-one-whole handheld-one-whole">
+                <h3>Spring Zone</h3>
+                <p>Through the ministry of Spring Zone, we are able to engage children with special needs. Trained volunteers lovingly serve these children and do whatever it takes to help them learn  about Jesus on their level. Every child matters to us.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section--kidspring">
+    <div class="shell background--fill" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.pattern.png' width='1700' crop='yes' url_only='yes'}); background-attachment: fixed; background-position: center;">
+        <div class="grid centered">
+            <div class="grid__item one-whole">
+                <hr class="quarter hidden">
+                <h2>What We Value</h2>
+                <hr class="quarter hidden">
+            </div><div class="grid__item one-third portable-one-half handheld-one-whole">
+                <div class="image image--square small--square ratio--square" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.relationships.1x1.jpg' width='700' crop='yes' url_only='yes'});"></div>
+                <h3>Relationships</h3>
+                <p>We value children’s relationships within the small group setting as they relate to their leader and other kids in the group. As families commit to attending the same service each week, children are placed in a group of familiar faces where relationships can grow.</p>
+            </div><div class="grid__item one-third portable-one-half handheld-one-whole">
+                <div class="image image--square small--square ratio--square" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.ageappropriateness.1x1.jpg' width='700' crop='yes' url_only='yes'});"></div>
+                <h3>Age-Appropriateness</h3>
+                <p>Our environments and lesson materials are created in a way your child will understand. We are so passionate about kids learning this way that we do not allow them into the service designed for adults and students 6th grade and older.</p>
+            </div><div class="grid__item one-third portable-one-half handheld-one-whole">
+                <div class="image image--square small--square ratio--square" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.safety.1x1.jpg' width='700' crop='yes' url_only='yes'});"></div>
+                <h3>Safety</h3>
+                <p>Every child’s name tag is matched to a parent-identification number, every volunteer is screened with an interview and federal background check, and every hallway is monitored by security personnel.</p>
+           </div><div class="grid__item one-third portable-one-half handheld-one-whole">
+                <div class="image image--square small--square ratio--square" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.creativebibleteaching.1x1.jpg' width='700' crop='yes' url_only='yes'});"></div>
+                <h3>Creative Bible Teaching</h3>
+                <p>The Bible is the most amazing book ever written! We strive to bring its stories to life through activities and discussions that keep children engaged. We want all children to love God’s word and understand the value of applying it to their lives.</p>
+            </div><div class="grid__item one-third portable-one-half handheld-one-whole">
+                <div class="image image--square small--square ratio--square" style="background-image: url({exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.fun.1x1.jpg' width='700' crop='yes' url_only='yes'});"></div>
+                <h3>Fun!</h3>       
+                <p>Kids love fun! We realize that when children have fun at church, they can’t wait to come back. We value creating fun ways for children to learn about Jesus, including games, activities, singing, and live acting.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="shell"> 
+        <div class="grid floating floating--left">
+            {exp:channel:entries channel="albums" entry_id="20287"}
+        <div class="grid__item floating__item one-half handheld-one-whole">
+                <img src="{exp:ce_img:single src='{album_image}' width='1000' url_only='yes'}" alt="{title}">
+            </div><div class="grid__item floating__item one-half handheld-one-whole handheld-centered">
+                <h3>Music on Their Level</h3>       
+                <p>Check out the newest album from KidSpring! It’s full of catchy, creative, and fun songs that teach children about Jesus on their level.</p>
+                {album_links search:album_links_type="iTunes"}
+                <a href="{album_links_url}" target="_blank" class="btn">Listen On iTunes</a>
+                {/album_links}
+            </div>
+             {/exp:channel:entries}
+         </div>
+    </div>        
+</section>
+{/exp:ce_cache:it}

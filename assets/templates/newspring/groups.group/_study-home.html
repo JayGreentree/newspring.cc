@@ -1,0 +1,175 @@
+{exp:ce_cache:it}
+
+	{exp:ce_cache:escape}
+		{embed='includes/header' 
+			title='Studies | Groups' 
+			body_id='groups' 
+			body_class="subnav" 
+			page_class="page-border" 
+			group_style="{segment_1}" 
+			fb_title="Studies" 
+			fb_url="{path={segment_1}/{segment_2}}" 
+			meta_description='{exp:trunchtml ending="..." chars="250"}At Newspring we believe you can’t do life alone and that growing people change. Groups are where these values meet. We want to help your group grow together and closer to Jesus. These studies will help you understand what the Bible says and how to apply it to your life. Each Group Study includes sermon clips and group discussion questions to encourage and challenge your group to grow and take their next steps.{/exp:trunchtml}' 
+			fb_describe="{exp:eehive_hacksaw}At Newspring we believe you can’t do life alone and that growing people change. Groups are where these values meet. We want to help your group grow together and closer to Jesus. These studies will help you understand what the Bible says and how to apply it to your life. Each Group Study includes sermon clips and group discussion questions to encourage and challenge your group to grow and take their next steps.{/exp:eehive_hacksaw}"
+		}
+	{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+	{embed='includes/_subnav' navtitle="mainnav"}
+	
+	{!-- <div class="c_12 clearfix page-border step-up"> --}
+		
+{!-- 		<div id="body" class="studies clearfix">
+			<div id="hero" class="g_12 clearfix border">
+				<a href="#" class="play_button ooyala-embed" data-embed="Q0YWk1ZDrlQKezwCPvJQUjsL3QVk4rT-">Play Promo</a>
+			</div>
+			<div id="intro" class="g_12 clearfix section">
+				<div class="wrapper">
+					<div class="share clearfix">
+						<div id="facebook-share">
+							<div class="fb-like" data-href="{path={segment_1}/{segment_2}}" data-send="true" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+						</div>
+						<div id="twitter-share">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out '{title}' on NewSpring Church’s 30-Day Bible Study: {day_short_url}" data-via="newspring" data-related="perrynoble" data-hashtags="eveadam">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+					</div>
+					{groups_study_description}
+					{if groups_study_pdf}
+						<a class="btn" href="{groups_study_pdf}" title="Download a PDF of this individual session.">Download PDF</a>
+					{/if}
+				</div>
+			</div>
+			<div id="session-list" class="g_12 clearfix">
+				<ul>
+					{exp:playa:parents channel="groups_study_entry" sort="asc" var_prefix="session"}
+					<li class="clearfix">
+						<div class="num">{session:count}</div>
+						<h2>{session:title}</h2>
+						<a href="{session:url_title_path={segment_1}/{segment_2}/{url_title}/{segment_3}}" class="btn">View Session</a>
+					</li>
+					{/exp:playa:parents}
+				</ul>
+				{ooyala_video}
+			</div>
+		</div>
+		{/exp:channel:entries} --}
+
+		
+		
+{!-- 		OLD STUDIES LAYOUT (Hidden for Step Up) --}
+		
+		<div class="c_12 clearfix page-border">
+
+		<div class="g_12 clearfix" id="hero">
+			<h2>Group Studies</h2>
+			{embed="includes/_share_links" 
+				layout="box"
+				position="center"
+				fb-url="{path={segment_1}/{segment_2}}"
+				twitter-text="Checkout NewSpring Groups!" 
+				twitter-url="{path={segment_1}/{segment_2}}" 
+				twitter-hashtag="NewSpringGroups" 
+				twitter-via="newspring"
+			}
+
+			<div class="g_a g_8 p_2 s_2 g_o">
+				<p>At NewSpring we believe You Can’t Do Life Alone! NewSpring Groups are your opportunity to connect with other people in our church and take next steps.</br></br> 
+
+				These studies will help you understand what the Bible says and how to apply it to your life. Each Group Study includes video, group discussion questions, and practical next steps.</p>
+			</div>
+			
+		</div>
+
+		<div class="g_12 home clearfix" id="main_content">
+			{exp:channel:entries 
+				channel="groups_study" 
+				disable="member_data|pagination"
+				search:featured_study="not IS_EMPTY"
+				limit="1"
+			}
+					<div  class="g_12 clearfix featured g_a">
+						<a href="{url_title_path={segment_1}/{segment_2}}" title="View the {title} Groups Study">
+							{if new_study }
+								<span class="new_study">New!</span>
+							{/if}
+							<div class="hero_image">
+								{if groups_study_related_series }
+									{exp:playa:children field="groups_study_related_series" }
+										{exp:ce_img:single src="{series_hero}" width="940" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+									{/exp:playa:children}
+
+								{if:else}
+									{exp:ce_img:single src="{groups_study_hero}" width="940" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+								{/if}
+							</div>
+							<span class="large_cta">View Study</span>
+							
+
+						</a>
+					</div>
+			{/exp:channel:entries}	
+					
+
+			{exp:channel:entries 
+				channel="groups_study" 
+				disable="member_data|pagination"
+				search:featured_study="IS_EMPTY"
+				show_future_entries="yes"
+			}
+				<div class="g_4 {switch="g_a||g_o"} study">
+					{if '{entry_date format="%U"}' >= '{current_time format="%U"}'}
+	
+							<div class="hero_image coming_soon">
+								{if groups_study_related_series }
+									{exp:playa:children field="groups_study_related_series" }
+										{exp:ce_img:single src="{series_hero}" width="300" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+									{/exp:playa:children}
+
+								{if:else}
+									{exp:ce_img:single src="{groups_study_hero}" width="300" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+								{/if}
+							</div>
+												
+							<span class=" coming_soon_cta ">Coming Soon</span>
+							
+						{!-- </a> --}
+					{if:else}
+						<a href="{url_title_path={segment_1}/{segment_2}}" title="View the {title} Groups Study">
+							{if new_study }
+								<span class="new_study">New!</span>
+							{/if}
+	{!-- 
+							{if new_study}
+								<span class="new_study">New Study</span>
+							{/if} --}
+							<div class="hero_image">
+								{if groups_study_related_series }
+									{exp:playa:children field="groups_study_related_series" }
+										{exp:ce_img:single src="{series_hero}" width="300" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+									{/exp:playa:children}
+
+								{if:else}
+									{exp:ce_img:single src="{groups_study_hero}" width="300" attributes='alt="{title} Image" title="View the {title} Groups Study"'}
+								{/if}
+							</div>
+
+						
+	{!-- 						{if current_study }
+								<span class="current_study">Current Study</span> --}
+												
+								<span class="cta">View Study</span>
+							
+						</a>
+					{/if}
+					
+				</div>
+			{/exp:channel:entries}
+		</div> <!-- //main_content -->
+
+	{exp:ce_cache:escape}
+		{embed='includes/footer'}
+	{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

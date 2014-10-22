@@ -1,0 +1,76 @@
+{layout="_layouts/master"
+    title=""
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+{exp:channel:entries channel="members" dynamic="off" url_title="{segment_2}"}
+{exp:ce_cache:escape}
+    {layout:set name="title"}{mbr_first_name} {mbr_last_name} | Speaking Requests{/layout:set}
+{/exp:ce_cache:escape}
+
+<section class="section--dark">
+    <div class="shell background--fill overlay overlay--solid-dark" style="background-image: url({exp:ce_img:single src='{images-global}/newspring/_fpo/fpo.Auditorium.Wide.jpg' crop='yes' url_only='yes'});">
+        <div class="grid centered overlay__item">
+            <div class="grid__item one-whole">
+                <h2 class="no_hero">{mbr_first_name} {mbr_last_name}</h2>
+                <br>
+                <a href="{path='{segment_1}'}" class="link--arrow reverse light">All Speaking Requests</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="shell">
+        <div class="grid centered">
+            <div class="grid__item one-whole">
+                <div id="wufoo-{mbr_speaking_request}" class="text--constrained"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">var z1ovdvub1u4mim9;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'newspring',
+'formHash':'{mbr_speaking_request}',
+'autoResize':true,
+'height':'4750',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':true};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { z1ovdvub1u4mim9 = new WufooForm();z1ovdvub1u4mim9.initialize(options);z1ovdvub1u4mim9.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

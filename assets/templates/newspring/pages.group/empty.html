@@ -1,0 +1,49 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries channel='pages'}
+
+{exp:ce_cache:escape}
+	{embed='includes/header_prefix' 
+		title='{title}' 
+		body_id='{body_id}' 
+		body_class='{body_class}' 
+		style='{extra_style}' 
+		no_page_div='true' 
+		script='{extra_script}'
+	}
+
+	{if logged_out && page_hidden}
+		{redirect="/"}
+	{/if}
+{/exp:ce_cache:escape}
+
+{if page_css}
+<style type="text/css">
+{page_css}
+</style>
+{/if}
+
+{if page_navigation}
+<div id="nav" class="c_12 clearfix">
+	{page_navigation}
+</div>
+{/if}
+
+<div id="page" class="c_12 clearfix">
+	{right_column}
+</div><!-- end #page -->
+
+{if page_footer}
+<div id="footer" class="c_12 clearfix">
+	<div class="hr"><hr></div>
+	{page_footer}
+</div>
+{/if}
+
+{/exp:channel:entries}
+
+{exp:ce_cache:escape}
+	{embed='includes/footer_postfix'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

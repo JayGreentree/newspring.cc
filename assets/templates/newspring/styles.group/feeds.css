@@ -1,0 +1,72 @@
+/* ----------------------------------------------------------------------------
+	FEEDS
+---------------------------------------------------------------------------- */
+
+#p_feeds h1 {
+	background: url("//images.newspring.cc/site/headings/feeds.png") 0 0 no-repeat;
+	height: 63px;
+	margin-bottom: 40px;
+}
+
+#p_feeds h2 {
+	border-bottom: 1px solid #DEDEDE;
+	color: #444;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	margin-bottom: 25px;
+	padding-bottom: 7px;
+}
+#p_feeds h2.bumped { margin-top: 40px; }
+
+#p_feeds #body {
+	clear: both;
+	padding-bottom: 80px;
+	position: relative;
+}
+
+#p_feeds #body li { margin-bottom: 40px; }
+
+#p_feeds #body li a {
+	background: url("//images.newspring.cc/site/buttons/rss.png") 0 0 no-repeat;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	height: 21px;
+	line-height: 21px;
+	padding-left: 44px;
+	text-decoration: none;
+}
+#p_feeds #body li a:hover { background-position: 0 100%; }
+#p_feeds #body li.podcast a { background-image: url("//images.newspring.cc/site/buttons/podcast.png"); }
+#p_feeds #body .twitter li a { background-image: url("//images.newspring.cc/site/buttons/twitter.png"); }
+#p_feeds #body .facebook li a { background-image: url("//images.newspring.cc/site/buttons/facebook.png"); }
+
+#p_feeds #social_networks li,
+#p_feeds #social_networks li a { float: left; }
+
+#p_feeds #social_networks li a {
+	margin-right: 20px;
+	width: 176px; /* 220px - 44px (padding-left) = 176px */
+}
+#p_feeds #social_networks li.last a { margin-right: 0; }
+
+#p_feeds #social_networks {
+	margin-top: 10px;
+	z-index: 1;
+}
+
+#p_feeds #what_how {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 2;
+}
+#p_feeds #what_how a {
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+}
+#p_feeds #what_how a:hover { color: #888; }
+#p_feeds #what_how h2,
+#p_feeds #what_how p { margin-bottom: 20px; }

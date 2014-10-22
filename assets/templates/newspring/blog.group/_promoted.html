@@ -1,0 +1,30 @@
+<!-- Optional Promoted Content -->
+
+  <div class="g_12 clearfix section promoted">
+    {exp:channel:entries channel="articles|devotionals|resources|episode|stories"  category="{PROMOTED_CONTENT}" orderby="random" dynamic="off" disable="member_data" limit='3' status="open|featured"}
+
+  	  {if count == "1"}
+        {categories show="{PROMOTED_CONTENT}"}
+          <div class="g_12 clearfix category">
+            <h2>{category_name}</h2>
+          </div>
+        {/categories}
+      {/if}
+
+      <div class="g_4 {switch='g_a||g_o'}">
+        {!-- Snippet for thumbnail detection --}
+        {blog_sidekicks}
+      </div>
+
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="articles|devotionals|resources|episode|stories" category="{PROMOTED_CONTENT}" orderby="random" dynamic="off" disable="member_data" limit='9' offset='3'}
+
+      <div class="g_4 list {switch='g_a||g_o'}">
+        <a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="{title} &mdash; {channel}"><strong>{title}</strong> <span>{channel}</span></a>
+      </div>
+
+    {/exp:channel:entries}
+    <div class="shadow-left"></div>
+    <div class="shadow-right"></div>
+	</div><!--/promoted content-->

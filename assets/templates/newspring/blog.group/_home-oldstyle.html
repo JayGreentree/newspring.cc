@@ -1,0 +1,100 @@
+{exp:channel:entries 
+	channel="core_values|devotionals|resources|episode|stories"  
+	limit="20" 
+	orderby="channel|date" 
+	sort="desc|asc" 
+	paginate="bottom" 
+	dynamic="off"
+	disable="member_data"
+}
+<!-- Section: Series Episode -->
+	<div class="g_12 clearfix section {channel_short_name}">
+		<div class="g_4 g_a">
+			{if channel_short_name == "Devotionals"}
+				<a class="sidekick" href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					<span id="day">
+						<span class="week">
+							<span class="today">{exp:trunchtml chars="2"}{entry_date format="%D"}{/exp:trunchtml}</span>
+						</span>
+					</span>
+				</a>
+			{/if}
+
+			{if channel_short_name == "episode"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="{title} &middot; {entry_date format='%m.%d.%Y'}">
+					{series}
+						{!-- This can be removed once all of the series have new hero imagery --}
+						{if series_hero}
+							{exp:ce_img:single src="{series:series_hero}" width="300" attributes='class="placeholder image" alt="{series:title} Image"'}
+						{if:else}
+							<img src="{series:thumbnail}" alt="Video Player/Image" width="300" height="128" class="placeholder image"/>
+						{/if}
+					{/series}
+				</a>
+			{/if}
+					
+			{if channel_short_name == "core_values"}
+				<a class="sidekick" href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					<span class="image" style="background: url('{editorial_background}{file}{/editorial_background}') no-repeat;">
+						<span class="title">{title}</span>
+					</span>
+				</a>
+			{/if}
+
+			{if channel_short_name == "stories"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					{if editorial_background:total_rows == 0}
+						<img src="" alt="Video Player/Image" width="300" height="128" class="placeholder image"/>
+					{if:else}
+						{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="300" attributes='class="placeholder image" alt="{title} Image"'}
+					{/if}
+				</a>
+			{/if}
+
+			{if channel_short_name == "resources"}
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}">
+					{exp:ce_img:single src="{editorial_background}{file}{/editorial_background}" width="300" attributes='class="placeholder image" alt="{title} Image"'}
+				</a>
+			{/if}
+		</div>
+		<div class="g_6">
+			<h2><a href="{path={segment_1}/{channel_short_name}/{url_title}}">{title}</a></h2>
+			<p>
+				{exp:eehive_hacksaw append='&hellip;' chars='200'}
+					{editorial_legacy_body}
+					{episode_description}
+				{/exp:eehive_hacksaw}			
+			</p>
+		</div>
+		<div class="g_2 g_o">
+			<p><strong>{entry_date format="%m.%d.%Y"}</strong></p>
+			<p>&nbsp;</p>
+			<ul class="tags">
+				{categories}
+					<li><a href="{path={segment_1}}" title="{category_name}">{category_name}</a></li>
+				{/categories}
+			</ul>
+		</div>
+	</div>
+
+	{paginate}
+		<div class="g_12 clearfix pagination">
+			<div class="pagination-outer">
+				<div class="pagination-inner clearfix">
+					{pagination_links}
+				</div>
+			</div>
+		</div>
+	{/paginate}
+
+{/exp:channel:entries}
+
+	{embed="{segment_1}/_promoted" type=""}
+
+	{embed="{segment_1}/_categories-list"}
+
+	{embed="{segment_1}/_ads-resources"}
+
+{!-- Breadcrumb if needed
+	{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li><a href="{path={segment_1}/{segment_2}}" title="View the {page_channel} page">Campus</a></li><li class="last"><a href="{path={segment_1}/{segment_2}/{segment_3}}" title="View this campus page">{exp:phpstringfun function="ucfirst"}{last_segment}{/exp:phpstringfun}</a></li>'}
+--}

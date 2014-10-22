@@ -1,0 +1,43 @@
+{layout="newspring:_layouts/_footer"}
+
+{!-- Layout Contents --}
+{exp:ce_cache:it id='{site_short_name}-footer' global="yes"}
+
+{exp:navee:custom 
+	nav_title="{site_short_name}-footernav"
+	wrap_type="none"
+}{if level == 1}<div class="grid__item one-quarter portable-one-half palm-wide-one-half palm-one-whole palm-centered left visuallyhidden--palm">
+	<h5>{text}</h5>
+	<ul>
+{/if}
+
+{if level != 1}
+	{if name != 'social-nav'}
+		<li>{if name == 'no-link'}{text}{if:else}<a href="{link}">{text}</a>{/if}{kids}</li>
+	{if:else}
+		<ul class="social-nav">
+			<li>
+				<a href="{social_facebook}" title="Visit the {site_name} Facebook page">
+					<span class="fa fa-facebook icon outlined image--round icon--small"></span>
+					<span class="visuallyhidden">Visit the {site_name} Facebook page</span>
+				</a>
+				<a href="{social_twitter}" title="Visit the {site_name} Twitter page">
+					<span class="fa fa-twitter icon outlined image--round icon--small"></span>
+					<span class="visuallyhidden">Visit the {site_name} Twitter page</span>
+				</a>
+				<a href="{social_instagram}" title="Visit the {site_name} Instagram page">
+					<span class="fa fa-instagram icon outlined image--round icon--small"></span>
+					<span class="visuallyhidden">Visit the {site_name} Instagram page</span>
+				</a>
+			</li>
+		</ul>
+	{/if}
+{/if}
+
+{kids}
+
+{if level == 1}
+	{if is_last_item_on_level == true}</ul>{/if}
+	</div>{/if}{/exp:navee:custom}
+
+{/exp:ce_cache:it}

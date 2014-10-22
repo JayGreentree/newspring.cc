@@ -1,0 +1,52 @@
+{preload_replace:title="News"}
+{preload_replace:site="newspring"}
+{preload_replace:channel="news"}
+{preload_replace:entry_limit="9"}
+{preload_replace:paginate="y"}
+{preload_replace:masonry="n"}
+{preload_replace:base_column_width="one-third"}
+{preload_replace:show_related_entries="n"}
+{preload_replace:url_prefix="{segment_1}"}
+{preload_replace:section_style=""}
+{preload_replace:category="not 480"}
+
+{if segment_2}
+	{exp:md_detect_page_type url_segment="{segment_2}"}
+		{if pagination_page}
+			{embed="newspring:_embeds/_editorial-list"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				masonry="{masonry}"
+				base_column_width="{base_column_width}"
+				entry_limit="{entry_limit}"
+				paginate="{paginate}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+				category="{category}"
+			}
+		{if:else}
+			{embed="newspring:_embeds/_editorial-entry"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				show_related_entries="{show_related_entries}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+			}
+		{/if}
+	{/exp:md_detect_page_type}
+{if:else}
+	{embed="newspring:_embeds/_editorial-list"
+		title="{title}"
+		site="{site}"
+		channel="{channel}"
+		masonry="{masonry}"
+		base_column_width="{base_column_width}"
+		entry_limit="{entry_limit}"
+		paginate="{paginate}"
+		section_style="{section_style}"
+		url_prefix="{url_prefix}"
+		category="{category}"
+	}
+{/if}

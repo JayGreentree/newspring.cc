@@ -1,0 +1,83 @@
+{layout="_layouts/master"
+	title="Family Ministries: For Kids and Students"
+	description="We reach children and students far from God and teach them to follow Jesus step by step through age-appropriate Bible teaching, safe and enjoyable environments, and opportunities to build relationships with children, students, volunteers, and staff."
+	image="http:{images-global}/{site_short_name}/_fpo/fpo.SPASidewalk.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+
+{embed="newspring:_embeds/_non-hero"
+	section='section--texture section--pattern'
+	overlay='overlay--light'
+	title='Family Ministries'
+	image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+	image_classes=""
+}
+
+<section>
+	<div class="shell hard">
+		<div class="grid border--inset flush">
+			<div class="grid__item border--inset one-whole overlay overlay--solid handheld-overlay--solid background--fill flush hard" style="background-image: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/familyministries/kidspring.1to1.jpg' width='1000' crop='yes' url_only='yes'});">
+				<div class="grid flush soft--ends soft-quarter--left handheld-hard">
+					<div class="grid__item two-thirds handheld-one-whole flush soft--ends soft-half--left handheld-hard">
+						<div class="overlay__item overlay--light soft-half flush--left handheld-centered text--constrained">
+							<h2><a href="{path=kidspring}">KidSpring</a></h2>
+							<p><b>For babies–5th grade</b>, KidSpring is a children’s ministry uniquely designed with your child in mind! Kids experience safe, age-appropriate environments where the Bible is taught in a creative and relevant way.</p>
+							<a href="/kidspring" class="btn">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>{!--
+			--}<div class="grid__item border--inset one-whole overlay overlay--solid handheld-overlay--solid background--fill flush hard" style="background-image: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/_fpo/fpo.fusefootball.jpg' width='1000' crop='yes' url_only='yes'});">
+				<div class="grid flush soft--ends soft-quarter--right handheld-hard right">
+					<div class="grid__item two-thirds handheld-one-whole flush soft--ends soft-half--right handheld-hard">
+						<div class="overlay__item overlay--light soft-half right soft--ends flush--right handheld-centered text--constrained">
+							<h2><a href="//fuse.newspring.cc">Fuse</a></h2>
+							<p><b>For students in 6–12th grade</b>, Fuse is dedicated to providing a place for them to connect with God, other students, and older leaders who serve faithfully to see students grow closer to Christ. </p>
+							<a href="//fuse.newspring.cc" class="btn">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid text--constrained">
+			<div class="grid__item one-whole portable-one-whole handheld-one-whole hard centered">
+				<h2>Special Needs</h2>
+				<p>Do you have a newborn? Or a child with special needs? You don’t have to stay home! KidSpring has ministries just for you so your whole family can be at church this Sunday.</p>
+				<a href="/kidspring" class="btn">Visit KidSpring</a>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

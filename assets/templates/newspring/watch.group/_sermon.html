@@ -1,0 +1,104 @@
+{exp:ce_cache:it}
+{!-- 
+	This partial is shared between the NewSpring + Fuse Watch pages, hence the multiple {embed:} variables.  Please be careful when making changes to make sure you don't break something on the other template! 
+--}
+
+{exp:channel:entries channel='{embed:sermon_channel}' disable='member_data|trackbacks' status='open' url_title='{embed:sermon_url}' dynamic='off'}
+
+{if no_results}{redirect="404"}{/if}
+{if logged_out && status == 'hidden'}
+	{redirect="watch"}
+{/if}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='{embed:sermon_channel}' 
+		body_class='{if series_css} bespoken{/if}{if "{embed:subnav}" == "y" } subnav{/if}{exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}{if "{ser:series_light_switch}" == "dark"} dark{if:else} light{/if}{/exp:playa:children}' 
+		page_class='{if "{embed:subnav}" == "y" }page-border{/if}'
+		group_style='watch' 
+		title='{title} | {exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}{ser:title}{/exp:playa:children} | Watch{if segment_1 == "fuse"} | Fuse{/if}' 
+		fb_title='{title} {exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}{ser:title}{/exp:playa:children} | Watch{if segment_1 == "fuse"} | Fuse{/if}'
+		fb_url='{path={embed:url_prefix}/{embed:series_url}/{embed:sermon_url}}'
+		fb_image='{exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}{if ser:series_hero}{exp:ce_img:single src="{ser:series_hero}" url_only="y" width="1800"}{/if}{/exp:playa:children}'
+		fb_describe='{exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}{exp:eehive_hacksaw}{ser:series_description}{/exp:eehive_hacksaw}{/exp:playa:children}'
+		fb_video="{embed_code}"
+		speaker='{speaker}'
+	}
+{/exp:ce_cache:escape}
+
+{exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}
+	{if '{ser:series_bg_color}'}
+	<style>
+		html {
+			background: #{ser:series_bg_color};
+		}
+	</style>
+	{/if}
+{/exp:playa:children}
+
+{if "{embed:subnav}" == "y" }
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div id="subnav_page" class="c_12 clearfix page-border">
+{/if}
+
+<div id="hero" class="g_12">
+	<a href="#" class="play_button_new ooyala-embed border" data-embed="{embed_code}">
+		<span class="icon"></span>
+	</a>
+	<p class="episode-title border-bottom">{title}</p>
+	 {exp:playa:children channel="{embed:series_channel}" limit="1" var_prefix="ser"}
+	 	{exp:ce_img:single src="{ser:series_hero}" width="940" height="400" crop="yes" attributes='alt="" title="" class="border-top"'}
+	 {/exp:playa:children} 
+</div>
+
+<!-- EPISODE DETAILS -->
+<div id="series-episode-detail" class="g_12 clearfix">
+	<div class="g_5 g_a">
+		<h6>Sermon Details</h6>
+		<h3 class="episode-title">{title}</h3>
+		<p class="episode-subtitle">Week {episode_week} - {episode_date format='%m/%d/%y'} - {speaker}</p>
+		<p>{episode_description}</p>
+	</div>
+	
+	<div class="g_2 resources">
+	<h6>Download</h6>
+		<ul>
+			{if mp4}<li><a class="media" href="{mp4}" onclick="_gaq.push(['_trackEvent','M4V', 'Download', '{exp:playa:children channel='{embed:series_channel}' limit='1' var_prefix='ser'}{ser:title}{/exp:playa:children}' - {title}']);">Video (MP4)</a></li>{/if}
+			{if mp3}<li><a class="media" href="{mp3}" onclick="_gaq.push(['_trackEvent','MP3', 'Download', '{exp:playa:children channel='{embed:series_channel}' limit='1' var_prefix='ser'}{ser:title}{/exp:playa:children}' - {title}']);">Audio (MP3)</a></li>{/if}
+		</ul>
+		{if mp4 == '' && mp3 == ''}
+			<p>No Downloads Available</p>
+		{/if}
+	</div>
+	<div class="g_2 resources">
+		<h6>Read</h6>
+		<ul>
+		{if sermon_text}<li><a href="{sermon_text}" onclick="_gaq.push(['_trackEvent','Sermon Text', 'Read', ''{exp:playa:children channel='{embed:series_channel}' limit='1' var_prefix='ser'}{ser:title}{/exp:playa:children}' - {title}']);">Transcript</a></li>{/if}
+		{if group_guide}<li><a href="{group_guide}" onclick="_gaq.push(['_trackEvent','Group Guide', 'Read', ''{exp:playa:children channel='{embed:series_channel}' limit='1' var_prefix='ser'}{ser:title}{/exp:playa:children}' - {title}']);">Group Guide</a></li>{/if}
+		{if study_guide}<li><a href="{study_guide}" onclick="_gaq.push(['_trackEvent','Study Guide', 'Read', ''{exp:playa:children channel='{embed:series_channel}' limit='1' var_prefix='ser'}{ser:title}{/exp:playa:children}' - {title}']);">Study Guide</a></li>{/if}
+		</ul>
+		{if study_guide == '' && group_guide == '' && sermon_text == ''}
+			<p>No Additional Material</p>
+		{/if}
+	</div>
+	<div id="share" class="g_3 g_o">
+		<h6>Share</h6>
+		{embed="includes/_share_links" 
+			layout="box"
+			fb-url="{path={embed:url_prefix}/{embed:series_url}/{url_title}}"
+			twitter-text="{title}" 
+			twitter-url="{path={embed:url_prefix}/{embed:series_url}/{url_title}}" 
+			twitter-hashtag="{exp:uri_prettify}{embed:series_url}{/exp:uri_prettify}" 
+			twitter-via="newspring"
+		}
+	</div>
+</div>
+
+{ooyala_video}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

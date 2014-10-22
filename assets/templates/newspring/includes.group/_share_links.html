@@ -1,0 +1,82 @@
+{!-- 
+	Share Links Include
+
+	Currently support Facebook, Twitter & G+
+	Available variables: layout, position, fb-url, twitter-text, twitter-url, twitter-hashtag
+
+	Layout: box (default: horizontal)
+	Position: center (default: left align)
+--}
+{if embed:style == "new"}
+
+	{!-- Facebook --}
+	<div class="facebook">
+	  <i class="icon">
+		<i class="icon-facebook"></i>
+	  </i>
+	  <div class="slide">
+		<p>Facebook</p>
+	  </div>
+	<div class="fb-like" data-href="{embed:fb-url}" data-send="false" data-layout="{if embed:layout == 'box'}{embed:layout}{if:else}button{/if}_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+	</div>
+
+	{!-- Twitter --}
+	<div class="twitter">
+	  <i class="icon">
+		<i class="icon-twitter"></i>
+	  </i>
+	  <div class="slide">
+		<p>Twitter</p>
+	  </div>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-text="{embed:twitter-text}" data-url="{embed:twitter-url}" {if embed:twitter-counturl}data-counturl="{embed:twitter-counturl}"{/if} {if embed:layout == 'box'}data-count="vertical"{/if} {if embed:twitter-via}data-via="{embed:twitter-via}"{if:else}{/if} data-related="perrynoble, bcoop" data-hashtags="{embed:twitter-hashtag}">Tweet</a>
+	  <script>
+	  !function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+		if(!d.getElementById(id)){
+		  js=d.createElement(s);
+		  js.id=id;
+		  js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	  </script>
+	</div>
+
+	{!-- Google --}
+	<div class="google">
+	  <i class="icon">
+		  <i class="icon-google-plus"></i>
+	  </i>
+	  <div class="slide">
+		<p>Google+</p>
+	  </div>
+	  <!-- Place this tag where you want the +1 button to render. -->
+	  <div class="g-plusone" data-size="medium"></div>
+
+	  <!-- Place this tag after the last +1 button tag. -->
+	  <script type="text/javascript">
+	  (function() {
+		var po = document.createElement('script');
+		po.type = 'text/javascript';
+		po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(po, s);
+	  }
+	  )();
+	  </script>
+	</div>
+
+{if:else}
+
+	<ul class="share {embed:position} {embed:layout} clearfix">
+		<li id="facebook-share" class="share-buttons">
+			<div class="fb-like" data-href="{embed:fb-url}" data-send="false" data-layout="{if embed:layout == 'box'}{embed:layout}{if:else}button{/if}_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+		</li>
+		<li id="twitter-share" class="share-buttons">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-text ="{embed:twitter-text}" data-url="{embed:twitter-url}" {if embed:twitter-counturl}data-counturl="{embed:twitter-counturl}"{/if} {if embed:layout == 'box'}data-count="vertical"{/if} {if embed:twitter-via}data-via="{embed:twitter-via}"{if:else}{/if} data-related="perrynoble, bcoop" data-hashtags="{embed:twitter-hashtag}">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</li>
+		<li id="google-share">
+			<div class="g-plusone" data-annotation="bubble" data-size="{if embed:layout == 'box'}tall{if:else}medium{/if}"></div>
+		</li>
+	</ul>
+
+{/if}

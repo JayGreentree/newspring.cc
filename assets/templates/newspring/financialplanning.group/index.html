@@ -1,0 +1,147 @@
+{layout="_layouts/master"
+	title="Financial Planning"
+	description="God wants to do more than you can ask for or imagine with your money. Is your next step tithing, budgeting, or one-on-one coaching? Let&rsquo;s get started and find out!"
+	image="http:{images-global}/{site_short_name}/editorial/articles/newspring.blog.hero.marriage.movingin.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="0"}
+
+{embed="newspring:_embeds/_hero"
+	title="Financial Planning"
+	summary="God wants to do more than you can ask for or imagine with your money. Is your next step tithing, budgeting, or one-on-one coaching? Let&rsquo;s get started and find out!"
+	image_url="{images-global}/{site_short_name}/_fpo/fpo.overheadcouple.jpg"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid centered">
+			<div class="grid__item one-whole">
+				<h2 class="flush">Get Started Budgeting</h2>
+			</div><div class="grid__item one-third portable-one-whole handheld-one-whole">
+				<h3>Gather Your Paperwork</h3>
+				<p>Stuff like bills, loans, receipts, personal expenses (e.g. cell phones and entertainment), and paycheck stubs.</p>
+			</div><div class="grid__item one-third portable-one-whole handheld-one-whole">
+				<h3>Set a Date</h3>
+				<p>Plan a time with your spouse (if applicable) in a distraction-free environment to tackle your budget together. Bring a calculator!</p>
+			</div><div class="grid__item one-third portable-one-whole handheld-one-whole">
+				<h3>Fill Out the Form</h3>
+				<p>Download a budget form.</p>
+				<ul class="link--list">
+					<li><a href="http://media.newspring.cc/docs/budget/monthly.budget.form.xlsx" target="_blank" class="link--arrow flush">Monthly Budget Form</a></li>
+					<li><a href="http://media.newspring.cc/docs/budget/weekly.budget.form.xls" target="_blank" class="link--arrow flush">Weekly Budget Form</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell background--fill overlay--solid" style="background-image: url({exp:ce_img:single src='{images-global}/newspring/financialplanning/financial.planning.2to1.jpg' width='1700' crop='yes' url_only='yes'});">
+		<div class="grid floating floating--left">
+			<div class="grid__item floating__item five-twelfths lap-wide-and-down-one-whole handheld-centered">
+				<div class="overlay overlay--light">
+					<div class="overlay__item">
+						<h2>Sign Up for<br>One-on-One Help </h2>
+						<p>We offer free, confidential, one-on-one financial coaching. We believe <i>"Plans fail for lack of counsel, but with many advisers they succeed."</i> &mdash;Proverbs 15:22.</p>
+						<p>Our coaches are available to help you take your next steps in becoming a good steward of your personal and/or business finances.</p>
+						<a href="/financialplanning/coaching" class="btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<h2 class="flush">Financial Success Stories</h2>
+			</div>{exp:channel:entries channel="stories" entry_id="2416|20896|19859" limit="3"}<div class="grid__item one-third portable-one-whole handheld-one-whole">
+				<a href="{path='/stories/{url_title}'}" class="link--invisible">
+					<div class="ratio--landscape background--fill" style="background-image:url({entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image})" data-lazy-load="{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}"></div>
+				</a>
+				<h3>{entry_subtitle}</h3>
+				<p>{entry_description}</p>
+				 <a href="{path='/stories/{url_title}'}" class="link--arrow">{if entry_video}Watch{if:else}Read{/if} Story</a>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell overlay overlay--solid background--fill" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/financialplanning/studies.fyfp.cta.2to1.jpg' width='1700' crop='yes' url_only='yes'});">
+		<div class="grid overlay__item">
+			<div class="grid__item five-twelfths lap-wide-and-down-one-whole handheld-centered">
+				<div class="overlay--light overlay__item">
+					<h2>Find Your Financial Path</h2>
+					<p>Fed up with being stressed out about money? You don't have to live that way anymore. God wants to bless you.</p>
+					<a href="http://s3.amazonaws.com/ns.downloads/newspring/collection/studies/financial_28day_reading_guide_42014.pdf" class="btn">Download The Study</a>
+				</div>
+			</div><div class="grid__item seven-twelfths visuallyhidden--portable visuallyhidden--handheld centered">
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<h2 class="flush">Financial Sermons</h2>
+			</div>{exp:channel:entries channel="sermons" entry_id="9234|8725|11203"}<div class="grid__item one-third portable-one-whole handheld-one-whole">
+				<a href="{path='/sermons/{exp:playa:children field='series_newspring' var_prefix='series'}{series:url_title}{/exp:playa:children}/{url_title}'}">
+					<div class="ratio--landscape background--fill" style="background-image:url({exp:playa:children field="entry_series" var_prefix="series"}{exp:ce_img:single src='{series:collection_image}' width='1000' crop='yes' url_only='yes'}
+{/exp:playa:children})" data-lazy-load="{exp:playa:children field="entry_series" var_prefix="series"}{exp:ce_img:single src='{series:collection_image}' width='1700' crop='yes' url_only='yes'}
+{/exp:playa:children}"></div>
+				</a>
+				<h3>{title}</h3>
+				<p>{entry_description}</p>
+				<a href="{path='/sermons/{exp:playa:children field='series_newspring' var_prefix='series'}{series:url_title}{/exp:playa:children}/{url_title}'}" class="link--arrow">Watch this Sermon</a>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+<!-- <section>
+	<div class="shell background--fill overlay--solid" style="background-image: url();">
+		<div class="grid floating floating--left">
+			<div class="grid__item floating__item five-twelfths lap-wide-and-down-one-whole handheld-centered">
+				<div class="overlay overlay--light">
+					<div class="overlay__item">
+						<h2>Take the 90-Day<br>Tithing Challenge</h2>
+						<p>When we bring our first and best back to God, He promises to bless the rest. We can’t outgive God.</p>
+						<a href="/give/challenge" class="btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+{/exp:ce_cache:it}

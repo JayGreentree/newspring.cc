@@ -1,0 +1,90 @@
+{exp:ce_cache:it tags="jobs"}
+
+{preload_replace:page_channel="jobs"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='jobs'
+		body_class="subnav" 
+		title='Jobs' 
+		page_class="page-border" 
+		style="jobs"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+{if segment_3 == ""}
+	<div id="hero" class="g_12">Jesus Is My Hero</div><!-- end #hero -->
+{/if}
+
+<div id="main_content">
+	{if segment_3 == ""}
+		<div class="g_12">
+			<p>Filter by: <a href="{path=jobs/department}">Department</a> | <a href="{path=jobs/campuses}">Campus</a><p>
+		</div>
+	
+		<ul id="job-categories">
+		{exp:channel:entries channel='jobs_department' disable='categories|member_data|pagination|trackbacks' status='open' sort="asc"}
+				<li class="g_3"><a href="/jobs/department/{url_title}/" title="View available jobs in the {title} department">{title}</a></li>
+		{/exp:channel:entries}
+		</ul>
+		
+	{if:else}
+
+		{exp:channel:entries channel='{page_channel}' disable='categories|member_data|pagination|trackbacks' orderby="title" sort="asc" dynamic="off" search:job_department="{segment_3}"}
+			{job_department}
+				<div class="g_10"><h2>{title}</h2></div>
+				<div class="g_2">
+					{embed="jobs/_dropdown" page_channel="jobs_department"}
+				</div>
+				<div class="g_12">
+					<p class="jobs-total">({exp:playa:total_parents}) Open Positions</p>
+				</div>
+			{/job_department}
+			
+			
+			{exp:playa:siblings channel="campuses"}{!-- go through campus list --}
+			
+					{exp:playa:parents channel="jobs" search:job_department="{sibling:entry_id}"}{!-- find and sort jobs by campus in the active department --}
+						{if count == "1"}
+							<div class="g_3">
+								<h3>{child:title}</h3>
+								<ul>
+						{/if}
+								<li><a href="{url_title_path=jobs}" title="View available jobs in the {title} department">{title}</a></li>
+						{if count == total_results}
+								</ul>
+							</div>
+						{/if}
+						
+					{/exp:playa:parents}
+					
+			{/exp:playa:siblings}
+			
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	{/if}
+</div>
+
+{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li class="last"><a href="/{segment_1}/{segment_2}" title="">{exp:phpstringfun function="ucfirst"}{last_segment}{/exp:phpstringfun}</a></li>'}
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{!--<div class="job">
+	{if no_results}
+    	<p>There are currently no job openings. You can stay current on NewSpring job opportunities by subscribing to the <a href="/feeds/jobs/" title="">NewSpring Jobs feed</a>.</p>
+    {/if}
+	{job_description}
+	
+	{job_contact}
+	<p>Please email your resume and any other requested information to <a href="mailto:{email}" title="Email {name}">{name}</a>.</p>
+	{/job_contact}
+</div> --}
+
+{/exp:ce_cache:it}

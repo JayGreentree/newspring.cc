@@ -1,0 +1,14 @@
+<div id="subnav" class="c_12 clearfix">
+	<div  class="g_3">
+		<h1><a href="{path={segment_1}}">Staff</a></h1>
+		{!--<h1><a href="{path={segment_1}}" {if segment_2 == ""}class="active"{/if}>Staff<span></span></a></h1>--}
+	</div>
+	<div class="g_9 right">
+		<a href="{path='{segment_1}'}" {if segment_2 == ""}class="active"{/if}>Hub<span></span></a>
+		<a href="{path='{segment_1}/campuses'}" {if segment_2 == "campuses"}class="active"{/if}>Campuses<span></span></a>
+		{!--<a href="{path=events/login}" {if segment_2 == "events"}class="active"{/if}>Events<span></span></a>--}
+		<a href="{path=staff/orientation}" {if segment_2 == "orientation"}class="active"{/if}>Staff Development<span></span></a>
+		<a href="{path=staff/allstaff/{current_time format='%Y'}}" {if segment_2 == "allstaff"}class="active"{/if}>All Staff<span></span></a>
+		<a href="{path=staff/hr}" {if segment_2 == "hr"}class="active"{/if}>HR<span></span></a>
+	</div>
+</div>

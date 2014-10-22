@@ -1,0 +1,156 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+{embed="includes/header"
+    title="You Asked For It"
+    body_id="ask"
+    body_class="ask"
+    group_style="{segment_1}"
+    group_script="{segment_1}"
+    use_alt=''
+    fb_url="{path={segment_1}}"
+    fb_title="You Asked For It!"
+    fb_describe="Seriously. Nothing is off limits. No question is too weird. What Biblical or cultural questions do you want answered? What do you want to hear Pastor Perry talk about? Just ask it."
+    fb_image="//images.newspring.cc/site/series/youaskedforit/fb.youaskedforit.png"
+}
+{/exp:ce_cache:escape}
+{!-- Typekit Font Embed --}
+<script type="text/javascript" src="//use.typekit.net/jbh5wwt.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<div class="c_12 clearfix ask-content">
+    <div id="section-hero" class="clearfix">
+        <div class="g_6">
+  			<img src="//images.newspring.cc/site/series/youaskedforit/logo.youaskedforit.png" />
+       	</div>
+        <div class="g_6">      
+        	<p>This summer we asked you what you wanted to know about God, life and culture. Nothing was off limits. No question was too weird. So you asked the questions, voted for your favorites and helped plan this sermon series.</p>
+        	<p>Join us at NewSpring Church every Sunday for You Asked For It, the sermon series you wanted!</p>
+        	<a href="#about" class="btn">Learn More About NewSpring Church</a>
+		</div>
+	</div>
+	<div id="topics" class="clearfix">
+		<div class="g_12">
+			<h2>Series Topics</h2>
+			<ul>
+				{exp:channel:entries
+					channel="series"
+					status="Open"
+					show_future_entries="yes"
+					url_title="you-asked-for-it-2013"
+					orderby="series_date"
+					limit="1"
+				}
+				{parents field="series" status="open|closed" orderby="episode_week" sort="asc" show_future_entries="yes"}
+				<li {if parents:count == parents:total_results}class="g_12"{if:else}class="g_4"{/if}>
+					<p><span>{parents:episode_date format="%n/%j"}</span><br>
+					{if parents:count == 1}
+					Is Interracial Dating and Marriage Wrong?
+					{/if}
+					{if parents:count == 2}
+					Can I be a Christian and Continue to Struggle with the Same Sin?
+					{/if}
+					{if parents:count == 3}
+					Are we Living in the End Times?
+					{/if}
+					{if parents:count == 4}
+					Can you Lose your Salvation?
+					{/if}
+					{if parents:count == 5}
+					Can a Christian Smoke, Drink and Watch a Rated R Movie?
+					{/if}
+					{if parents:count == 6}
+					What’s the Big Deal about Homosexuality and Gay Marriage?
+					{/if}
+					{if parents:count == 7}
+					You Asked For It Live - with Perry Noble and Clayton King
+					{/if}
+					</p><br>
+					{if parents:status == "open"}
+					<a href="{path='watch/{url_title}/{parents:url_title}'}" class="btn">Watch Now</a>
+					{if:else}
+					<a href="#" onclick="return false" class="disabled btn">Coming Soon</a>
+					{/if}
+				</li>
+				{/parents}
+			</ul>
+		</div>
+	</div>
+    <div id="summary" class="clearfix">
+        <div class="g_6">
+        	<a href="#" class="play-button ooyala-embed" data-embed="{trailer}">Watch<br>The Trailer <span class="play">9</span></a>
+       	</div>
+       	{/exp:channel:entries}
+        <div class="g_6">  
+  			<div class="share-buttons clearfix">
+  				{embed="includes/_share_links"
+  					layout=""
+  					fb-url="{path={segment_1}}/"
+  					twitter-text=""
+  					twitter-url="{path={segment_1}}/"
+  					twitter-hashtag="YouAskedForIt"
+  					twitter-via="newspring"
+  				}
+            	{!--
+            	<div id="facebook-share">
+              		<div class="fb-like" data-href="http://newspring.cc/ask" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+            	</div>
+            	<div id="twitter-share">
+              		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://newspring.cc/ask" data-via="newspring" data-related="perrynoble" data-hashtags="YouAskedForIt">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>     
+            	</div>
+            	--}
+            	<span class="font-cubano" id="hashtag">#YOUASKEDFORIT</span>
+        	</div>    
+        	<p>Are you excited about You Asked For It? Which one of the series topics are you most looking forward to hearing answered? Share this page on Facebook and Twitter, or use the hashtag #youaskedforit and let us know!</p>
+		</div>
+	</div>
+</div>
+
+{ooyala_video}
+
+	</div><!-- end #page -->
+
+<div id="about">
+	<div class="c_12 clearfix ask-content">	
+		<div class="clearfix">
+			<div class="g_12">
+				<h2>About NewSpring Church</h2>
+			</div>
+			<div class="g_5 g_a">
+				<img src="http://images.newspring.cc/section/yafi/newspring.image.yafi.about1.jpg" alt="" class="border">
+			</div>
+			<div class="g_7 g_o">
+				<p id="why-we-exist">NewSpring Church exists to reach people far from God and teach them to follow Jesus step by step.</p>
+				<p>
+					<a href="http://www.facebook.com/newspring"><span>facebook</span> facebook.com/newspring</a>
+					<a href="http://www.twitter.com/newspring"><span>twitter</span> twitter.com/newspring</a>
+					<a href="http://www.instagram.com/newspring_church"><span>instagram</span> instagram.com/newspring_church</a>
+				</p>
+			</div>
+			<div id="locations" class="g_12">
+				<a href="/locations" class="btn">Find a Location</a>
+				<p>We have 8 campuses across the state of South Carolina.</p>
+			</div>
+			<div id="about-details" class="g_12">
+				<div class="g_4">
+					<h3>What to Expect</h3>
+					<p>Sunday services at NewSpring are exciting, casual and relaxed. Come as you are, and you can expect to feel welcomed, experience good music, and an engaging message from our Senior Pastor Perry Noble or other guest speakers.</p>
+				</div>
+				<div class="g_4">
+					<h3>For Families</h3>
+					<p>KidSpring is a children’s ministry for babies through 5th grade that is uniquely designed with your child in mind! Kids experience safe, age-appropriate environments where the Bible is taught in a creative and relevant way. <a href="/kidspring">Learn more about KidSpring.</a></p>
+				</div>
+				<div class="g_4">
+					<h3>For Students</h3>
+					<p>Fuse is a student ministry for students in grades 6–12 that is dedicated to providing a place for them to connect with God, with other students, and with older committed leaders who serve faithfully to see students grow closer to Christ. <br><a href="/fuse">Learn more about Fuse.</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="footer-container">
+{exp:ce_cache:escape}
+{embed='includes/footer' script="</div>"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

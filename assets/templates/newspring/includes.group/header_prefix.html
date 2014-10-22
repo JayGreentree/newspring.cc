@@ -1,0 +1,154 @@
+{exp:ce_cache:it id="{site_short_name}-header_prefix"}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+ _  ___   ___   ___   ___   ___
+/ |/ _ \ / _ \ / _ \ / _ \ / _ \
+| | | | | | | | | | | | | | | | |
+| | |_| | |_| | |_| | |_| | |_| |
+|_|\___/ \___( )___/ \___/ \___/
+             |/
+-->
+<!--[if lt IE 7 ]> <html class="ie6 no_js"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 no_js"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 no_js"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 no_js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<!--<![endif]-->
+<head preﬁx="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>{if embed:title}{embed:title} | {/if}NewSpring Church</title>
+
+	<!-- Styles -->
+	<link type="text/css" rel="stylesheet" media="screen"  href="{exp:cache_buster file='/assets/css/{site_short_name}/master.css'}">
+
+	{if embed:group_style}
+	  	<!-- Section Styles -->
+		<link type="text/css" rel="stylesheet" media="screen" charset="utf-8" href="{exp:cache_buster file='/assets/css/{site_short_name}/section/{embed:group_style}.css'}">
+	{/if}
+
+	{if embed:style}
+		{!-- These styles are usually used by the pages module and live in the styles template group --}
+		<link rel="stylesheet" href="{stylesheet=styles/{embed:style}}" type="text/css" media="screen" charset="utf-8">
+	{/if}
+
+	<!-- Icons -->
+	<link rel="shortcut icon" href="//images.newspring.cc/site/icons/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="//images.newspring.cc/site/icons/apple.touch.png" type="image/x-icon">
+
+	{embed='includes/header_feeds'}
+
+	{exp:ce_cache:escape}
+
+		{!-- Begin Facebook meta data --}
+	    {if "{embed:fb_video}" != ""}
+			{exp:ooyala:twitter content="{embed:fb_video}" player="ZmJmNTVlNDk1NjcwYTVkMzAzODkyMjg0"}
+			{exp:ooyala:facebook content="{embed:fb_video}" player="ZmJmNTVlNDk1NjcwYTVkMzAzODkyMjg0"}
+	    {/if}
+
+	    {if "{embed:fb_video}" == ""}
+	    	<meta property="og:type" content="website" />
+	    	<meta property="og:title" content="{if embed:fb_title}{embed:fb_title} | NewSpring Church{if:else}{FB_TITLE}{/if}" />
+	    	<meta property="og:image" content="{if embed:fb_image}{embed:fb_image}{if:else}{FB_IMAGE}{/if}" />
+	    	<meta property="og:description" content="{if embed:fb_describe}{embed:fb_describe}{if:else}{FB_DESCRIBE}{/if}"/>
+	    	<meta property="og:url" content="{if embed:fb_url}{embed:fb_url}{if:else}{FB_URL}{/if}" />
+	    {/if}
+
+	    <meta property="og:site_name" content="NewSpring Church" />
+	    <meta property="fb:admins" content="179200359" />
+	    <meta property="fb:app_id" content="167012243402263" />
+	    {!--// end fb --}
+
+		<meta name="description" content="{if embed:fb_describe}{embed:fb_describe}{if:else}{FB_DESCRIBE}{/if}">
+		<meta name="thumbnail" content="{if embed:fb_image}{embed:fb_image}{if:else}{FB_IMAGE}{/if}" />
+		<meta itemprop="name" content="{if embed:speaker}{embed:speaker}{if:else}NewSpring Church{/if}" />
+		<meta name="author" content="{if embed:speaker}{embed:speaker}{if:else}NewSpring Church{/if}" />
+		<meta name="google-site-verification" content="UNk6frcn4tNFIJoQQhjFc2Rx_Pmb1SXXsyYBKUrDgXg" />
+		
+		<!-- Scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+		{!-- The queue feature caches files and then outputs to the footer --}
+		{exp:minimee:js minify="y" queue="core_js"}
+			<script src="/assets/backup/old_js/modernizr.js" type="text/javascript"></script>
+			<script src="/assets/backup/old_js/flexslider.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/jplayer.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/NewSpring.Utilities.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/cross_browser.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/zclip.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/main.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/jquery.plugin.html2canvas.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/assets/backup/old_js/NewSpring.Player.js" type="text/javascript" charset="utf-8"></script>
+		{/exp:minimee:js}
+
+		{if embed:script}
+			{!-- These scripts are usually used by the pages module and live in the scripts template group, queueing up and sending to the footer --}
+			{exp:minimee:js queue="page_js"}
+			<script src="{path=scripts/{embed:script}}" type="text/javascript" charset="utf-8"></script>
+			{/exp:minimee:js}
+		{/if}
+
+	  	{if embed:group_script}
+		  	{!-- These scripts are contained within the template group they are included from --}
+			<script src="{path={embed:group_script}/script}" type="text/javascript" charset="utf-8"></script>
+		{/if}
+
+	{/exp:ce_cache:escape}
+
+  	<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+</head>
+
+<body {if embed:body_id != ""}id="p_{embed:body_id}"{/if} class="{embed:body_class}">
+
+{preload_replace:full_url="{if segment_1}{segment_1}/{/if}{if segment_2}{segment_2}/{/if}{if segment_3}{segment_3}/{/if}{if segment_4}{segment_4}/{/if}{if segment_5}{segment_5}/{/if}{if segment_6}{segment_6}/{/if}{if segment_7}{segment_7}/{/if}{if segment_8}{segment_8}{/if}"}
+
+	{exp:ce_cache:escape}
+		{if logged_in}
+		<div id="topbar">
+			<div id="usernav-container" class="c_12 clearfix">
+				<div id="usernav" class="g_12 hidden">
+				{if group_id == "1" OR group_id == "36"}
+					<a href="{site_url}/cache/clear/{full_url}">Clear Page Cache</a> |
+				{/if}
+				{exp:user:stats dynamic="off"}
+					{exp:navee:custom nav_title="usernav" wrap_type="none"}
+				   		{if text == 'Staff Hub'}
+				   			{if user_access == "staff"}<a href="{link}">{text}</a> | {/if}
+				   		{if:else}
+				   			<a href="{link}">{text}</a>{if count == level_count}{if:else} | {/if}
+				   		{/if}
+					{/exp:navee:custom}
+				{/exp:user:stats}
+				</div>
+				<a href="#" id="username-btn">{screen_name}</a>
+			</div>
+		</div>
+		{/if}
+	{/exp:ce_cache:escape}
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : '167012243402263', // App ID
+		    status     : true, // check login status
+		    cookie     : true, // enable cookies to allow the server to access the session
+		    xfbml      : true  // parse XFBML
+		  });
+		};
+
+		// Load the SDK Asynchronously
+		(function(d){
+		  var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+		  js = d.createElement('script'); js.id = id; js.async = true;
+		  js.src = "//connect.facebook.net/en_US/all.js";
+		  d.getElementsByTagName('head')[0].appendChild(js);
+		}(document));
+	</script>
+
+
+	{if embed:no_page_div != 'true'}
+	<div id="page" class="c_12 clearfix {if embed:page_class != ""}{embed:page_class}{/if}">
+	{/if}
+{/exp:ce_cache:it}

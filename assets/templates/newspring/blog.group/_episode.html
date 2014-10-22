@@ -1,0 +1,13 @@
+{exp:channel:entries channel="episode" url_title='{embed:episode_url_title}' limit='1' disable='member_data|trackbacks' dynamic='off'}
+  {series}
+    {if embed:main_thumbnail == 'yes'}
+        <a href='/series/{series:url_title}/{embed:episode_url_title}/'>
+          	<img src='{embed:episode_thumbnail}' alt="Video Player/Image" width="300" height="128" class="placeholder image" />
+        </a>
+    {if:else}
+        <a href='/series/{series:url_title}/{embed:episode_url_title}/' class="list">
+            {embed:episode_title}
+        </a>
+    {/if}
+  {/series}
+{/exp:channel:entries}

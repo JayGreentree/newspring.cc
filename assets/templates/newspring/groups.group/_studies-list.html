@@ -1,0 +1,73 @@
+{layout="_layouts/master"
+	title="Group Studies | Groups"
+	description=""
+	image="http:{images-global}/{site_short_name}/editorial/articles/laughingfriends.jpg"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+{embed="newspring:_embeds/_hero"
+    title="Group Studies"
+    summary=""
+    image_url="{images-global}/{site_short_name}/editorial/articles/laughingfriends.jpg"
+}
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+		{exp:channel:entries channel="groups_study" limit="9" paginate="bottom" status="Featured|Open"}{!--
+		 --}<div class="grid__item one-third lap-one-half palm-wide-one-half palm-one-whole">
+			
+				{!-- Image --}
+				<a href="{path='/{segment_1}/{segment_2}/{url_title}'}"><div class="ratio--landscape background--fill clickable flush" style="background-image: url({collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image});"></div></a>
+				<div class="card left">
+
+					{!-- Title --}
+					<h3><a href="{path='/{segment_1}/{segment_2}/{url_title}'}" class="dark">{title}</a></h3>
+					
+					{!-- Summary --}
+					{if collection_description}
+					<p class="colfax">{exp:eehive_hacksaw chars = "140"}{collection_description}{/exp:eehive_hacksaw}&hellip;</p>
+					{/if}
+
+					<a href="{path='/{segment_1}/{segment_2}/{url_title}'}" class="link--arrow">View Study</a>
+				</div>
+			</div>{!--
+		 --}{paginate}{pagination_links page_padding="1"}{!--
+		 --}<div class="grid__item one-whole">
+				<div class="pagination">
+				  {previous_page}<a href="{pagination_url}" class="pagination__item page-previous"></a>{/previous_page}
+				  {page}<a href="{pagination_url}" class="pagination__item page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>{/page}
+				  {next_page}<a href="{pagination_url}" class="pagination__item page-next"></a>{/next_page}
+				</div>
+			</div>{!--
+		 --}{/pagination_links}{/paginate}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

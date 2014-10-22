@@ -1,0 +1,73 @@
+{exp:ce_cache:it}
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Fuse Blog' 
+		body_id='fuse' 
+		body_class='subnav' 
+		page_class="page-border"
+		group_style="{segment_1}"
+		fb_title="Blog | Fuse Student Ministry" 
+		fb_url="{path={segment_1}/{segment_2}}" 
+	}
+{/exp:ce_cache:escape}
+{!-- Don't forget to add the category tag to the title var --}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="mainnav"}
+
+<div class="c_12 clearfix page-border">
+	<div class="g_8 p_2 s_2 article">
+		{exp:channel:category_heading channel="{embed:page_channel}"}
+			<h2 class="category">{category_name}</h2>
+		{/exp:channel:category_heading}
+
+		{exp:channel:entries channel="{embed:page_channel}" order="date" sort="desc" limit="10"}
+
+			<div class="g_8 section g_a g_o {if count == total_results}last{/if}">
+				<div class="entry_date">{entry_date format="%m.%d.%Y"}</div>
+				<h2><a href="{url_title_path={segment_1}/{segment_2}}" title="View this entry">{title}</a></h2>
+				{if editorial_video}
+					{exp:antenna url="{editorial_video}" max_width="580"}
+						{!-- Added "video_" to the embed code variable in core antenna file --}
+						{video_embed_code}
+					{/exp:antenna}<br>
+				{/if}
+				{exp:eehive_hacksaw append='&hellip;' chars='150'}
+					{editorial_legacy_body}
+				{/exp:eehive_hacksaw}			
+
+				<div class="clearfix entry-meta">
+					{categories backspace="2"}<a href="{path={segment_1}/{segment_2}}">{category_name}</a>, {/categories}
+				</div>
+
+			</div>				
+			
+			{paginate}
+				<div class="g_8 g_a g_o clearfix pagination">
+					<div class="pagination-outer">
+						<div class="pagination-inner clearfix">
+							{pagination_links}
+						</div>
+					</div>
+				</div>
+			{/paginate}
+
+			{if no_results}
+				<h2>No Results</h2>
+				<p>There are currently no entries available in this category.</p>
+			{/if}
+
+		{/exp:channel:entries}	
+	</div>	
+	{!-- <div class="sidebar-categories g_3">
+		{embed="{segment_1}/_blog-categories"}
+	</div> --}
+</div>
+	{!-- Video Player --}
+	{ooyala_video}	
+  	
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+{/exp:ce_cache:it}

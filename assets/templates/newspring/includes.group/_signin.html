@@ -1,0 +1,54 @@
+	<div class="g_8 p_2 s_2 clearfix login">
+		<h2>Sign In</h2>
+		{exp:member:login_form id="login_form" return="{segment_2}/{segment_3}/{segment_4}/{segment_5}"}
+
+		{if segment_2 == 'fuse' && segment_3 == 'volunteers'}
+			<input type="hidden" name="username" value="fuse.volunteer">
+		{if:else}
+		<p class="column"><label>Email Address / Username</label>
+			<input type="text" name="username" value="" maxlength="64" class="input" size="25" /></p>
+		{/if}
+
+		<p class="column"><label>Password</label>
+			<input type="password" name="password" value="" maxlength="64" class="input" size="25" /></p>
+
+		{if auto_login}
+			<p class="column">
+				<label class="select"><input class='checkbox' type='checkbox' name='auto_login' value='1' /> Auto-login on future visits</label></p>
+		{/if}
+		<p class="column">
+				<a href="#password" id="forgot_password">Forgot Your Password?</a></p>
+		
+		<p class="column"><input type="submit" name="submit" value="Sign In" /></p>
+		
+		<!-- <p class="column"><a href="{path='member/forgot_password'}">Forgot your password?</a></p> -->
+		<div class="clearfix"></div>
+		{/exp:member:login_form}
+	</div>
+
+	<div class="g_8 p_2 s_2 clearfix login" id="password" style="display:none;">
+		<h2>Forgot Your Password?</h2>
+		<p class="column two">To retrieve your password, Enter the email address you registered with and you'll receive an email with instructions for resetting your password.</p>
+
+
+		{exp:user:forgot_password }
+		     
+		    <p class="column">
+				<label for="email">Email Address / Username</label>
+				<input type="text" name="email" id="email"/>
+
+			<p class="column nudge"><input type="submit" name="submit" value="Send  Password  Reset  Instructions" /></p>
+		     
+		{/exp:user:forgot_password}
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#forgot_password').click(function() {
+				var modal = $(this).attr('href');
+	            $(modal).slideToggle('fast');
+				return false;
+		    });
+		});
+	</script>

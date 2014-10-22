@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--
+	1111111        000000000          000000000                 000000000          000000000          000000000
+   1::::::1      00:::::::::00      00:::::::::00             00:::::::::00      00:::::::::00      00:::::::::00
+  1:::::::1    00:::::::::::::00  00:::::::::::::00         00:::::::::::::00  00:::::::::::::00  00:::::::::::::00
+  111:::::1   0:::::::000:::::::00:::::::000:::::::0       0:::::::000:::::::00:::::::000:::::::00:::::::000:::::::0
+	 1::::1   0::::::0   0::::::00::::::0   0::::::0       0::::::0   0::::::00::::::0   0::::::00::::::0   0::::::0
+	 1::::1   0:::::0     0:::::00:::::0     0:::::0       0:::::0     0:::::00:::::0     0:::::00:::::0     0:::::0
+	 1::::1   0:::::0     0:::::00:::::0     0:::::0       0:::::0     0:::::00:::::0     0:::::00:::::0     0:::::0
+	 1::::l   0:::::0 000 0:::::00:::::0 000 0:::::0       0:::::0 000 0:::::00:::::0 000 0:::::00:::::0 000 0:::::0
+	 1::::l   0:::::0 000 0:::::00:::::0 000 0:::::0       0:::::0 000 0:::::00:::::0 000 0:::::00:::::0 000 0:::::0
+	 1::::l   0:::::0     0:::::00:::::0     0:::::0       0:::::0     0:::::00:::::0     0:::::00:::::0     0:::::0
+	 1::::l   0:::::0     0:::::00:::::0     0:::::0       0:::::0     0:::::00:::::0     0:::::00:::::0     0:::::0
+	 1::::l   0::::::0   0::::::00::::::0   0::::::0       0::::::0   0::::::00::::::0   0::::::00::::::0   0::::::0
+  111::::::1110:::::::000:::::::00:::::::000:::::::0 ,,,,,,0:::::::000:::::::00:::::::000:::::::00:::::::000:::::::0
+  1::::::::::1 00:::::::::::::00  00:::::::::::::00  ,::::, 00:::::::::::::00  00:::::::::::::00  00:::::::::::::00
+  1::::::::::1   00:::::::::00      00:::::::::00    ,::::,   00:::::::::00      00:::::::::00      00:::::::::00
+  111111111111     000000000          000000000      ,:::,,     000000000          000000000          000000000
+													,:::,
+													,,,,
+-->
+{!--
+	Global Layout:
+
+		This layout should be included at the top of every section layout across all sites.
+		Use the following layout tag within all section layouts:
+
+			{layout="_layouts/global"
+				title="{layout:title}"
+				site_description="{layout:site_description}"
+				image="{layout:image}"
+				page_type="{layout:page_type}"
+				article_section="{layout:article_section}"
+				article_section_images="{layout:article_section_images}"
+				tags="{layout:tags}"
+				publish_time="{layout:publish_time}"
+
+				google_author="{layout:google_author}"
+				google_page_profile="{layout:google_page_profile}"
+				google_publisher="{layout:google_publisher}"
+
+				twitter_publisher="{layout:twitter_publisher}"
+				twitter_author="{layout:twitter_author}"
+
+				facebook_profile_id="{layout:facebook_profile_id}"
+				facebook_app_id="{layout:facebook_app_id}"
+
+				section_style="{layout:section_style}"
+				section_script="{layout:section_script}"
+				typekit="{layout:typekit}"
+			}
+--}
+<html dir="ltr" lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+		<meta content="width=device-width" name="viewport">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="user-scalable=1, width=device-width, initial-scale=1.0, maximum-scale=2.0" name="viewport">
+
+		{!--
+			Start CSS request as quickly as possible
+		--}
+
+		<link href="{exp:cache_buster file='/assets/css/{site_short_name}/master.css'}" media="screen" rel="stylesheet" type="text/css">
+
+		{if layout:section_style != ""}
+			<link charset="utf-8" href="{exp:cache_buster file='/assets/css/{site_short_name}/section/{segment_1}.css'}" media="screen" rel="stylesheet" type="text/css">
+		{/if}
+
+
+		{!--
+			Site Specific Image Tags
+
+			***************************
+
+			Icon Links for Favicon
+			Apple Touch Icons
+			Android Icons
+		--}
+
+		<link href="{images-global}/{site_short_name}/icons/favicon.ico?v=4" rel="shortcut icon" type="image/x-icon">
+		<link href="{images-global}/{site_short_name}/icons/apple.touch.png" rel="apple-touch-icon" type="image/x-icon">
+		<link href="{images-global}/{site_short_name}/icons/apple.touch.small.png" rel="apple-touch-icon" sizes="72x72" type="image/x-icon">
+		<link href="{images-global}/{site_short_name}/icons/apple.touch.medium.png" rel="apple-touch-icon" sizes="114x114" type="image/x-icon">
+		<link href="{images-global}/{site_short_name}/icons/apple.touch.large.png" rel="apple-touch-icon" sizes="196x196" type="image/x-icon">
+		<link href="{images-global}/{site_short_name}/icons/apple.touch.large.png" rel="shortcut icon" sizes="196x196">
+
+		{!--
+			Data Specific Meta Tags
+
+			********************************************
+
+			Title 				-- 		layout:title
+			Description 		-- 		layout:description
+			Itunes Link
+		--}
+
+		<title>
+			{if layout:title}{layout:title} | {/if}{site_name}
+		</title>
+
+		{if layout:description}
+			<meta content="{layout:description}" name="description">
+			<meta content="{layout:description}" itemprop="description">
+		{/if}
+
+		{if itunes_store_link != null}
+		<meta content="{itunes_store_link}" name="apple-itunes-app">
+		{/if}
+
+		{!--
+			Google Meta Tags
+
+			********************************************************
+
+			Title 				-- 		layout:title
+			Description 		-- 		layout:description
+			Image 				-- 		layout:image
+			Site Verification 	-- 		layout:google_site_verifiction
+			Author Link 		-- 		layout:google_author
+			Page Link 			-- 		layout:google_page_profile
+			Page Publisher  -- 		layout:google_publisher
+		--}
+
+		<meta content="{if layout:title}{layout:title} | {/if}{site_label}" itemprop="name">
+
+		{if layout:image}
+			<meta content="{layout:image}" itemprop="image">
+		{if:elseif site_image != null}
+			<meta content="{site_image}" itemprop="image">
+		{/if}
+
+		<meta content="{google_site_verification}" name="google-site-verification">
+		<meta content="{bing_site_verification}" name="msvalidate.01" />
+
+		{if "{layout:google_author}" != ""}
+			<link href="https://plus.google.com/{layout:google_author}/posts" rel="author">
+		{if:elseif google_author != null}
+			<link href="https://plus.google.com/{google_author}/posts" rel="author">
+		{if:else}
+			<link href="https://plus.google.com/+newspringchurch/posts" rel="author">
+		{/if}
+
+		{if layout:google_publisher != ""}
+		<link rel="publisher" href="https://plus.google.com/{layout:google_publisher}"/>
+		{if:elseif google_publisher != null}
+		<link rel="publisher" href="https://plus.google.com/{google_publisher}"/>
+		{if:else}
+		<link rel="publisher" href="https://plus.google.com/+newspringchurch"/>
+		{/if}
+
+		{if "{layout:google_page_profile}" != ""}
+			<link href="https://plus.google.com/{layout:google_page_profile}" rel="publisher">
+		{if:elseif google_page_profile != null}
+			<link href="https://plus.google.com/{layout:google_page_profile}" rel="publisher">
+		{if:else}
+			<link href="https://plus.google.com/+newspringchurch" rel="publisher">
+		{/if}
+
+		{!--
+			Twitter Meta Tags:
+
+			***************************************************
+
+			Title 				-- 		layout:title
+			Description 			-- 		layout:description
+			Image 			-- 		layout:image
+			@publisher 			-- 		layout:twitter_publisher
+			@author 			-- 		layout:twitter_author
+		--}
+
+		<meta content="{if layout:title}{layout:title} | {/if}{site_label}" name="twitter:title">
+
+		{if layout:description}
+			<meta content="{layout:description}" name="twitter:description">
+		{/if}
+
+		{if layout:image}
+			<meta content="summary_large_image" name="twitter:card">
+			<meta content="{layout:image}" name="twitter:image:src">
+		{if:elseif site_image != 'null'}
+			<meta content="{site_image}" name="twitter:image:src">
+		{/if}
+
+		{if layout:twitter_publisher != ""}
+			<meta content="{layout:twitter_publisher}" name="twitter:site">
+		{if:elseif twitter_publisher != 'null'}
+			<meta content="{twitter_publisher}" name="twitter:site">
+		{if:else}
+			<meta content="@newspring" name="twitter:site">
+		{/if}
+
+		{if layout:twitter_author != ""}
+			<meta content="{layout:twitter_author}" name="twitter:creator">
+		{if:elseif twitter_author != 'null'}
+		<meta content="{twitter_author}" name="twitter:creator">
+		{if:else}
+		<meta content="@newspring" name="twitter:creator">
+		{/if}
+
+		<meta content="{if layout:title}{layout:title} | {/if}{site_label}" property="og:title">
+
+		<meta property="og:site_name" content="NewSpring Church" />
+		{if layout:description}
+			<meta content="{layout:description}" property="og:description">
+		{/if}
+
+		{if layout:image}
+			<meta content="{layout:image}" property="og:image">
+		{if:elseif site_image != 'null'}
+			<meta content="{site_image}" property="og:image">
+		{/if}
+
+		{if layout:page_type}
+			<meta content="{layout:page_type}" property="og:type">
+		{/if}
+
+		{if layout:article_section}
+			<meta content="{layout:article_section}" property="article:section">
+		{/if}
+
+		{if layout:tags}
+			<meta content="{layout:tags}" property="article:tag">
+		{/if}
+
+		<meta content="{current_url}" property="og:url">
+		<meta content="{exp:shorteen:process service='bitly' url='{current_url}'}" property="short_url">
+
+		<meta content="{site_label}" property="og:site_label">
+
+		{if layout:publish_time}
+			<meta content="{layout:publish_time}" property="article:published_time">
+		{/if}
+
+		{if layout:facebook_profile || {site_short_name} == 'newspring'}
+			<meta content="{if layout:facebook_profile_id}{layout:facebook_profile}{if:else}35591842909{/if}" property="fb:admins">
+		{/if}
+
+		{if layout:facebook_app}
+			<meta content="{layout:facebook_app}" property="fb:app_id">
+		{/if}
+		
+		<!-- <meta property="fb:admins" content="179200359" />
+	    <meta property="fb:app_id" content="167012243402263" /> -->
+
+		{!-- Additional meta tags will be parsed here --}
+		{layout:meta}
+
+	</head>
+	<body>
+
+
+		{!--
+			Page Content
+
+			***************************
+
+		--}
+		{layout:contents}
+
+
+		{!--
+			Global Footer Scripts
+
+			***************************
+
+			Site Debug Mode
+			Chartbeat Analytics
+			Google Analytics
+			Section Scripts
+			Additional Footer Scripts
+
+		--}
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="{exp:cache_buster file='/assets/js/{site_short_name}/master.js'}"></script>
+		{if layout:section_script == "y"}
+			<script src="{exp:cache_buster file='/assets/js/{site_short_name}/section/{segment_1}.js'}"></script>
+		{/if}
+
+		<script>
+		  var _sf_startpt=(new Date()).getTime()
+		</script>
+
+		{if "{layout:typekit}" != ""}
+		<script type="text/javascript">
+			window.kitID = '{layout:typekit}'
+		</script>
+		{if:elseif site_typekit != null}
+		<script type="text/javascript">
+			window.kitID = '{site_typekit}'
+		</script>
+		{if:else}
+		<script type="text/javascript">
+			window.kitID = 'ice7qhs'
+		</script>
+		{/if}
+
+		<script type="text/javascript">
+			(function(kitID) {
+				var config = {
+					kitId: kitID
+				};
+				var d = false;
+				var tk = document.createElement('script');
+				tk.src = '//use.typekit.net/' + config.kitId + '.js';
+				tk.type = 'text/javascript';
+				tk.async = 'true';
+				tk.onload = tk.onreadystatechange = function() {
+					var rs = this.readyState;
+					if (d || rs && rs != 'complete' && rs != 'loaded') return;
+					d = true;
+					try { Typekit.load(config); } catch (e) {}
+				};
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(tk, s);
+			})(window.kitID);
+		</script>
+
+
+
+
+
+		{!--
+			Needs to be loaded in through the compliation process
+
+			<script src="/assets/backup/old_js/modernizr.js"></script>
+
+		--}
+		<script>
+			{!-- Chartbeat --}
+			var _sf_async_config = { uid: 36438, domain: '{site_domain}' };
+			(function() {
+			function loadChartbeat() {
+				window._sf_endpt = (new Date()).getTime();
+				var e = document.createElement('script');
+				e.setAttribute('language', 'javascript');
+				e.setAttribute('type', 'text/javascript');
+				e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+				document.body.appendChild(e);
+			};
+			var oldonload = window.onload;
+			window.onload = (typeof window.onload != 'function') ?
+			loadChartbeat : function() { oldonload(); loadChartbeat(); };
+			})();
+		</script>
+
+		<script>
+			{!-- Google Analytics --}
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', '{google_analytics}', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+		{if site_short_name != 'newspringnetwork'}
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-M27944');</script>
+		<!-- End Google Tag Manager -->
+
+		{/if}
+
+		{!-- Crazy Egg Analytics --}
+		<script type="text/javascript">
+			setTimeout(function(){var a=document.createElement("script");
+			var b=document.getElementsByTagName("script")[0];
+			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0023/8238.js?"+Math.floor(new Date().getTime()/3600000);
+			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+		</script>
+
+		{!-- Additional footer scripts/content will be parsed here --}
+		{layout:footer}
+
+	</body>
+</html>

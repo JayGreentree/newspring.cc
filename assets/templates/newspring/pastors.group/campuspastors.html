@@ -1,0 +1,70 @@
+{layout="_layouts/master"
+    title="Campus Pastors"
+    description="NewSpring is one church in many locations, and each location has a Campus Pastor."
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+
+{embed="_embeds/_non-hero"
+    section='section--pattern section--texture'
+    overlay='overlay--light'
+    title='Campus Pastors'
+    image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+    image_classes=""
+}
+
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			{exp:channel:entries channel="campuses" status="Open|Coming Soon" orderby="title" sort="asc" category="not 156"}
+
+			{exp:playa:parents channel="members" status="not Resources-id20|Disabled_LDAP_Users-id39" search:mbr_staff_title="=Campus Pastor" var_prefix="member"}<div class="grid__item one-whole">
+				<div class="grid floating">
+					<div class="grid__item floating__item one-quarter portable-one-third palm-wide-one-half palm-three-quarters flush">
+						<div class="image image--round ratio--square" style="background-image: url({if '{member:mbr_site_image}' != ''}{exp:ce_img:single src='{member:mbr_site_image}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global-origin}/all/member_images/members.nophoto.jpg' width='1000' crop='yes' url_only='yes'}{/if});"></div>
+					</div><div class="grid__item floating__item three-quarters portable-two-thirds handheld-one-whole left">
+						<h3 class="flush">{member:mbr_first_name} {member:mbr_last_name}</h3>
+						<h5>{title} Campus</h5><br>
+						{member:mbr_site_description}
+					</div>
+				</div>
+			</div>{/exp:playa:parents}
+
+			{/exp:channel:entries}
+			<div class="grid__item one-whole centered">
+                <hr>
+                <h3 class="caps">Serving Here is More Than a Job</h3>
+                <p class="text--constrained">Using our talents to serve God and His church is a calling. If you think serving in full-time ministry might be your next step, check out some of our open staff positions.</p>
+                <a href="/jobs" class="btn">See where you fit in</a>
+            </div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

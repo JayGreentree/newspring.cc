@@ -1,0 +1,7 @@
+			<h6>Leader Categories</h6>
+
+			<div class="tags">
+					{exp:channel:categories category_group="23" sort="asc" style="nested"} {!-- 23 is new cat id --}
+							<a href="{path={segment_1}/{segment_2}}" {if segment_5 == category_url_title} class="current"{/if}>{category_name}</a>
+					{/exp:channel:categories}
+			</div>

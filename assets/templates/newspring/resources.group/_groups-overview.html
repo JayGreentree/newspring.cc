@@ -1,0 +1,93 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Resources for Churches" 
+		body_id="resources" 
+		body_class="groups subnav" 
+		script="" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+
+{exp:channel:entries 
+		channel="groups_study" 
+		status='open' 
+		disable="member_data|pagination" 
+		show_future_entries="yes"
+		dynamic="on"
+}
+
+<div class="study_overview clearfix" id="main_content">
+
+	{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">{exp:phpstringfun function="ucfirst"}{segment_1}{/exp:phpstringfun}</a></li><li><a href="{path={segment_1}/{segment_2}}" title="View the {segment_2} page" >{exp:phpstringfun function="ucfirst"}{segment_2}{/exp:phpstringfun}</a></li>{if segment_3}<li><a href="{path={segment_1}/{segment_2}/{segment_3}}" title="">{exp:low_title:category url_title="{segment_3}" category_id="{last_segment_category_id}"}</a></li>{/if}'}
+
+	<div class="g_4 study">
+		{if groups_study_related_series }
+
+			{exp:playa:children field="groups_study_related_series"}
+
+				{exp:ce_img:single src="{series_hero}" width="300" attributes='class="study-cover border" alt="{title} Image" title="View the {title}"'}
+
+			{/exp:playa:children}
+
+
+		{if:else}
+			{exp:ce_img:single src="{groups_study_hero}" width="300" attributes='class="study-cover border" alt="{title} Image" title="View the {title}"'}
+		{/if}
+
+		{if groups_study_pdf}<p><a class="btn pdf border" href="{groups_study_pdf}" title="Download a PDF version of this entire study.">Download PDF <span>I</span></a></p>{/if}
+		
+		{embed="includes/_share_links" 
+			layout="box"
+			position="center"
+			fb-url="{path={segment_1}/{segment_2}/{segment_3}}"
+			twitter-text="{title}" 
+			twitter-url="{path={segment_1}/{segment_2}/{segment_3}}" 
+			twitter-hashtag="" 
+			twitter-via="newspring"
+		}
+	</div>
+
+	<div class="article g_8">
+		
+		<div class="study_description">
+			<h2>{title} Groups Study</h2>
+			{groups_study_description}
+		</div>
+
+		<div class="study_entries">
+			<ol>
+			{exp:playa:parents 
+				channel="groups_study_entry" 
+				sort="asc" 
+				var_prefix="session"
+			}
+				<li><a href="{session:url_title_path={segment_1}/{segment_2}/{segment_3}}">
+					<span class="count">{session:count}</span>
+					<span class="title">{session:title}</span>
+					<span class="btn border">View Session</span>
+				</a></li>
+			{/exp:playa:parents}
+			</ol>
+		</div>
+	
+	</div>
+</div> <!-- //main_content -->
+</div>
+
+{/exp:channel:entries}
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

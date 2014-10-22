@@ -1,0 +1,179 @@
+{embed="embeds/_header"}
+{embed="embeds/_header_postfix"}
+{embed="embeds/_mainnav"}
+<section id="pre-header">
+	<div class="flexslider">
+		<ul class="slides" data-0="top: 0px;" data-650="top: 200px;">
+
+			{!-- <li class="slide story left" style="background: url(http://images.newspring.cc/v4test/bg1.jpg) no-repeat; background-size: cover;">
+				<div class="shell">
+					<div class="wrapper">
+						<p class="subtitle">Story</p>
+						<h2>Dying To Be Perfect</h2>
+						<p>Jan Walker's pursuit of perfection drove her to an eating disorder that was stealing her<br>life away, until God showed her that His...</p>
+						<a href="#" class="btn_new">Read Jan's Story</a>
+					</div>
+				</div>
+			</li> --}
+
+			<li class="slide story left" style="background: url(http://images.newspring.cc/v4test/bg3.jpg) no-repeat; background-size: cover;">
+				<div class="shell">
+					<div class="wrapper">
+						<p class="subtitle">Story</p>
+						<h2>Relationship Is<br>What We Need</h2>
+						<p>Joe and Sherri Vargo worked hard to impress God until they learned to trade religion for relationship with Jesus. Here is their story...</p>
+						<a href="#" class="btn_new">Read Sherrie's Story</a>
+					</div>
+				</div>
+			</li>
+
+			{!-- DEVOTIONAL --}
+			<li class="slide left" style="background: url(http://images.newspring.cc/site/blog/day.jpg) no-repeat; background-size: cover;">
+				<div class="shell">
+					<div class="wrapper">
+						<p class="subtitle">Daily Devotional</p>
+						<h2>Tidings of Comfort and Hope</h2>
+						<p>My sweet Samantha woke from her tonsillectomy in fear and pain,<br>asking for Mommy. As soon as I saw her, I scooped her up in my<br>arms, promising the pain would get better. Her tearful eyes...</p>
+						<a href="#" class="btn_new">Read More</a>
+					</div>
+				</div>
+			</li>
+			
+			{!-- ADAM & EVE --}
+			<li class="slide left" style="background: url('{exp:ce_img:single src='http://images.newspring.cc/images/made/images/remote/http_images.newspring.cc/section/resources/2338.hero_300_128_90.jpg' url_only='y' add_dims='no' filter='gaussian_blur,20'}') no-repeat; background-size: cover;">
+				<div class="shell">
+					<div class="wrapper">
+						<p class="subtitle">Resources</p>
+						<h2>Eve &amp; Adam 30 Day Bible Study</h2>
+						<p>Bad, good, faithful, deceptive, nice, evil, there are all types of women<br>represented in the Bible. We rarely hear about some of them. Over<br>the next 30 days this devotional will look at 30...</p>
+						<a href="#" class="btn_new">Read More</a>
+					</div>
+				</div>
+			</li>
+
+			<li class="slide story left" style="background: url(http://images.newspring.cc/v4test/bg2.jpg) no-repeat; background-size: cover;">
+				<div class="shell">
+					<div class="wrapper">
+						<p class="subtitle">Story</p>
+						<h2>Released From<br>My Prison</h2>
+						<p>Haley Cannon was raised in a volatile home. She masked the pain until Jesus showed her He could take it all away. This is her story in...</p>
+						<a href="#" class="btn_new">Read Haley's Story</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<div class="page-wrap">
+  	<div class="shell no-padding">
+		<section class="heroes">
+			<div class="sidekicks">
+				<div class="grid flush"><!--
+					{exp:channel:entries channel="heroes" limit="3" disable='categories|member_data|pagination|trackbacks' dynamic='off' status='open|Current Series' orderby='title' sort='desc' search:hero_sunday='not y' category="153" entry_id="21460|15540|21570"}
+					--><div class="grid__item one-third lap-one-half palm-one-whole hard">
+						<div class="wrapper">
+							{if hero_link}<a href="{hero_link}" title="{hero_link_title}" onclick="_gaq.push(['_trackEvent','Home', 'Hero', '{hero_link}']);">{/if}
+								{exp:ce_img:single src="{hero_images search:image_type='=Large'}{image}{/hero_images}" add_dims="n" attributes='alt="{hero_image_alt}" title="{hero_link_title}"'}
+							{if hero_link}</a>{/if}
+							{if count == 1}
+								<h2>Current Series</h2>
+							{/if}
+							{if count == 2}
+								<h2>Previous Series</h2>
+							{/if}
+							{if count == 3}
+								<h2>Christmas at NewSpring</h2>
+							{/if}
+						</div>
+					</div><!--
+					{/exp:channel:entries}
+				--></div>
+			</div>
+		</section>
+	</div>
+	<div class="shell">
+		<h2 class="vision_statement">We exist to <strong>reach</strong> people far from God and <strong>teach</strong> them how to follow Jesus step by step.</h2>
+	</div>
+	<div class="shell">
+		<section class="about columns">
+			<div class="grid"><!--
+				--><div class="grid__item one-quarter lap-one-half palm-one-whole">
+					<div class="wrapper centered">
+						<a href="#" class="column-image">{exp:ce_img:single src="http://images.newspring.cc/v4test/v4.test.locations.jpg" add_dims="no"}</a>
+						<h2>Locations</h2>
+						<p>NewSpring is one church in many locations. We currently have eight campuses across the state of South Carolina.</p>
+						<a href="#" class="btn_new">Find a Location</a>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter lap-one-half palm-one-whole">
+					<div class="wrapper centered">
+						<a href="#" class="column-image">{exp:ce_img:single src="http://images.newspring.cc/v4test/v4.test.familyministries.jpg" add_dims="no"}</a>
+						<h2>Children</h2>
+						<p>At KidSpring, babies&ndash;5th grade, experience age-appropriate, safe environments where the Bible is taught on their level.</p>
+						<a href="#" class="btn_new">About KidSpring</a>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter lap-one-half palm-one-whole">
+					<div class="wrapper centered">
+						<a href="#" class="column-image">{exp:ce_img:single src="http://images.newspring.cc/v4test/v4.test.fuse1.jpg" add_dims="no"}</a>
+						<h2>Students</h2>
+						<p>At Fuse, 6&ndash;12th graders connect with God, each other, and older committed leaders dedicated to their spiritual growth.</p>
+						<a href="#" class="btn_new">About Fuse</a>
+					</div>
+				</div><!--
+				--><div class="grid__item one-quarter lap-one-half palm-one-whole">
+					<div class="wrapper centered">
+						<a href="#" class="column-image">{exp:ce_img:single src="http://images.newspring.cc/v4test/v4.test.baptism.jpg" add_dims="no"}</a>
+						<h2>Next Steps</h2>
+						<p>No matter how long we have been following Jesus, every one of us has a next step to take as we learn to follow Jesus.</p>
+						<a href="#" class="btn_new">See Next Steps</a>
+					</div>
+				</div><!--
+			--></div>
+		</section>
+	</div>
+</div>
+{!-- {embed="embeds/_search"} --}
+{embed="embeds/_footer"}
+
+{!-- Google +1 Button Asynchronous Script --}
+	<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script>
+  var setSearch = function() {
+    $('.skeleton').hide();
+    util.toggleInputText({
+        selector: '#masthead input.gsc-input',
+        text: 'Search',
+        onload: true
+       });
+
+      // $('#masthead input.gsc-input[val]').fadeIn(200);
+    $('.looking-glass').fadeIn(200);
+    
+  };
+
+  window.__gcse = {
+    callback: setSearch
+  };
+
+  (function() {
+    var cx = '008512432210388260844:3scn19cslty';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+</body>
+</html>

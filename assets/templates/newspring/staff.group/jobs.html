@@ -1,0 +1,115 @@
+{if segment_3 == ""}
+	{embed="includes/header"
+		body_id="jobs" 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}"
+		script=""
+		use_alt=""
+		title="Jobs | Staff"
+		fb_title="Jobs | Staff" 
+		fb_url="" 
+	}
+
+	</div><!-- //page - wraps header on pages with subnav-->
+
+	{embed="includes/_subnav" navtitle="staffnav"}
+
+	<div class="c_12 clearfix page-border hub">
+
+		{if logged_in}
+			{exp:user:stats dynamic="off"}
+				{if user_access == "staff"}
+
+					{exp:ce_cache:it}
+
+					{!-- Seems silly to have to use a separate channel entries tag for this, but I don't have time to find a more elegant solution! --}
+					{exp:channel:entries channel="jobs" disable="member_data|pagination|category_fields|custom_fields" dynamic="off" status="open|Featured|hidden"category="not 182|183"}
+						{if count == "1"}
+							<div class="g_11 clearfix section category">
+								<h2>Available Jobs <span class="job-total">({total_results})</span></h2>
+							</div>
+						{/if}
+					{/exp:channel:entries}
+
+					{!-- Have to use this method in order to sort by campus since we can't orderby a playa field --}
+					{exp:channel:entries dynamic="no" channel="campuses" status="open|Coming Soon" orderby="title" sort="asc" disable="member_data" }
+
+
+						{exp:playa:parents
+							channel="jobs" 
+							disable="member_data" 
+							orderby="title"
+							sort="asc" 
+							dynamic="off"
+							status="open|Featured|hidden"
+							category="not 182|183"
+						}
+							
+							<div id="main_content" class="g_11 section">
+								<div class="g_4 g_a">
+									<strong><a href="{url_title_path={segment_1}/jobs}" title="View the {title} job">{title}{categories} <span class="internal">{category_name}</span>{/categories}</a></strong>
+									{!--<input type="text" class="entry_url" value="{path={segment_1}/jobs/{url_title}}"> 
+									<a href="#" class="copy_url" title="Copy this link to your clipboard!">n</a>--}
+								</div>
+								
+								<div class="g_2">
+									<span class="job-filter">{exp:playa:children field="job_campus" status="open|Coming Soon"}{title}{/exp:playa:children}</span>
+								</div>
+
+								<div class="g_3">
+									<span class="job-filter">{exp:playa:children field="job_department"}{title}{/exp:playa:children}</span>
+								</div>
+								
+								<div class="g_2 g_o">
+									<span class="job-contact">
+									{job_contact}
+										<a href="mailto:{email}?subject={title} Position" title="Contact {name} about the {title} job!" class="button">{name} <span class="caret right"></span></a>
+									{/job_contact}
+									</span>
+									{!--<p class="entry_date">Posted on: {entry_date format="%m.%d.%Y"}</p>--}
+								</div>
+							</div>
+						{/exp:playa:parents}
+					{/exp:channel:entries}	
+
+					<script type="text/javascript">
+						$(document).ready(function()
+						{
+							$(".entry_url").click(function() {
+							   $(this).select();
+							});
+
+						    $('a.copy_url').zclip({
+						        path:'/assets/backup/old_js/ZeroClipboard.swf',
+						        copy:function(){return $(this).prev().val();},
+						        afterCopy:function(){$(this).text("3").addClass("complete");}
+						    });
+						    //Copies the text of the previous element which is always the input box with URL
+						});
+					</script>
+
+					{/exp:ce_cache:it}
+
+				{if:else}
+					
+					{!-- if user doesn't have access, redirect --}
+					{redirect="/"}
+
+				{/if}
+			{/exp:user:stats}
+
+		{if:else}
+
+			{!-- if not logged in, redirect to login --}
+			{redirect="login/staff/jobs"}
+
+		{/if}
+
+	{embed='includes/footer'}
+
+{if:else}
+
+	{embed="{segment_1}/_job-entry"}
+
+{/if}

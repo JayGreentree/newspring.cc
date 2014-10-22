@@ -1,0 +1,44 @@
+{!--
+	This is an experimental way to delete template cache created with CE Cache
+	
+	Instructions:
+	To clear a specific page, use this format: http://newspring.cc/cache/clear/page/segment/here
+	To clear the home page, visit: http://newspring.cc/cache/clear/
+
+	Requirements: Must be logged in as a Super admin or Super Admin (Give disabled)
+	Limitations: Only clears a single page—doesn't work recursively.
+--}
+{preload_replace:full_url="{segment_3}/{if segment_4}{segment_4}/{/if}{if segment_5}{segment_5}/{/if}{if segment_6}{segment_6}/{/if}{if segment_7}{segment_7}/{/if}{if segment_8}{segment_8}{/if}"}
+
+{if logged_in && group_id == "1" OR group_id == "36"}
+		{!-- 
+			If Super Admin, clears out the page, header, header_prefix, and footer cached sections 
+
+			Need to make this more robust for pages with additional cached partials
+		--}
+		{exp:ce_cache:delete
+			id="page"
+			drivers="memcached|apc|redis|file|database"
+			url_override="{full_url}"
+		}
+		{exp:ce_cache:delete
+			id="header"
+			drivers="memcached|apc|redis|file|database"
+			url_override="{full_url}"
+		}
+		{exp:ce_cache:delete
+			id="header_prefix"
+			drivers="memcached|apc|redis|file|database"
+			url_override="{full_url}"
+		}
+		{exp:ce_cache:delete
+			id="footer"
+			drivers="memcached|apc|redis|file|database"
+			url_override="{full_url}"
+		}
+		<p>Cache has been cleared for <strong>{full_url}</strong></p>
+
+		{redirect="{full_url}"}
+{if:else}
+	{redirect="/"}
+{/if}

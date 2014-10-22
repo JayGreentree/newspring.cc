@@ -1,0 +1,63 @@
+<footer>
+	<section class="section--primary hover--dark">
+		<div class="shell soft-quarter--ends">
+			<div class="grid flush">
+				<div class="grid__item one-whole flush hard">
+					<div class="grid__item ten-twelfths portable-one-whole handheld-one-whole flush hard left portable-centered handheld-centered">
+						{exp:navee:custom
+							nav_title="{site_short_name}-contactnav"
+							wrap_type="none"
+						}{if level == 1}
+							{if is_last_item_on_level == true}</ul>{/if}
+							{/if}
+							{/exp:navee:custom}
+							{exp:navee:custom nav_title="{site_short_name}-contactnav" wrap_type="ul"}
+								{if name != 'social-nav'}<li class="inline soft-quarter--right handheld-hard--right handheld-block"><a href="{link}">{text}</a>{if is_last_item_on_level == true} <span class="light visuallyhidden--portable visuallyhidden--handheld"></span> {/if}</li>{/if}
+						{/exp:navee:custom}
+					</div><div class="grid__item two-twelfths portable-one-whole handheld-one-whole flush hard right portable-centered handheld-centered">
+						<ul>
+							<li class="inline">
+								<a href="{social_facebook}" title="Visit the {site_name} Facebook page">
+									<span class="fa fa-facebook icon icon--small"></span>
+									<span class="visuallyhidden">Visit the {site_name} Facebook page</span>
+								</a>
+								<a href="{social_twitter}" title="Visit the {site_name} Twitter page">
+									<span class="fa fa-twitter icon icon--small"></span>
+									<span class="visuallyhidden">Visit the {site_name} Twitter page</span>
+								</a>
+								<a href="{social_instagram}" title="Visit the {site_name} Instagram page">
+									<span class="fa fa-instagram icon icon--small"></span>
+									<span class="visuallyhidden">Visit the {site_name} Instagram page</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section--dark">
+		<div class="shell">
+			<div class="grid grid--half-gutter {if '{layout:footer_align}' != ''}{layout:footer_align}{if:else}centered{/if}">
+				{layout:contents}
+
+				<div class="grid__item one-whole centered">
+					<a href="#masthead" id="scroll-to-top" data-scroll>
+						<div class="icon" style="display: inline-block;">
+							<div class="newspring--icon fluid"></div>
+						</div><br><br>
+						<p class="colfax uppercase"><b>Scroll to Top</b></p>
+					</a>
+				</div>
+
+			</div>
+			<hr class="flush visuallyhidden--handheld">
+			<div class="grid">
+				<div class="grid__item one-whole flush centered">
+					<small class="light float--left handheld-float--none"><span class="copyright">&copy;</span>{current_time format="%Y"} <span><a href="//newspring.cc">NewSpring Church</a></span> &middot; <a href="//newspring.cc/privacypolicy">Privacy Policy</a> &middot; <a href="//network.newspring.cc">Church Resources</a> </small>
+					<small class="light float--right handheld-float--none">We <span><a href="//newspring.cc/jobs/web">&#10084;</a></span> Our Church &amp; <a href="//newspring.cc/jobs">We Are Hiring</a></small>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>

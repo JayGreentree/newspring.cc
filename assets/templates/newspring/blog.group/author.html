@@ -1,0 +1,93 @@
+{redirect="blog"}
+
+{if segment_3 == ""}
+	{!-- If no author_id exists in the url, redirect to the blog home page --}
+	{redirect="blog"}
+
+{if:else}
+
+{exp:channel:entries 
+	channel="articles"  
+	limit="12" 
+	orderby="channel|date" 
+	sort="desc|asc" 
+	paginate="bottom" 
+	dynamic="off"
+	disable="member_data"
+	status="open|featured"
+	search:article_author="y"
+	author_id="{segment_3}"
+}
+
+	{if count == "1"}
+
+		{embed="includes/header"
+			body_id="blog" 
+			body_class="subnav" 
+			page_class="page-border" 
+			group_style="blog"
+			
+			use_alt=""
+			title="All Entries by {author} | Blog"
+			fb_title="{categories show='{last_segment_category_id}'}Category: {category_name} | {/categories}{channel} | Blog" 
+			fb_url="" 
+			fb_describe="{exp:eehive_hacksaw append='&hellip;' chars='200'}{editorial_legacy_body}{episode_description}{/exp:eehive_hacksaw}"
+      fb_type="article"
+		}
+
+		</div><!-- //page - wraps header on pages with subnav-->
+
+		{embed="{segment_1}/_subnav" page_template="blog"}
+
+		<div id="main_content" class="c_12 clearfix page-border">
+
+		<div class="g_12 clearfix section category">
+			<h2>All Entries by: {author}</h2>
+		</div>
+	{/if}
+
+		<!-- Section: {channel} -->
+		<div class="g_12 clearfix section home {channel_short_name}">
+			<div class="g_4 g_a">
+				{!-- Snippet for thumbnail detection --}
+		        {blog_sidekicks_home}
+			</div>
+			<div class="g_8 g_o">
+				<p class="entry_date">{entry_date format="%m.%d.%Y"}</p>
+				<h2><a href="{path={segment_1}/{channel_short_name}/{url_title}}">{if channel_name == "episode"}Week {episode_week}: {/if}{title}</a></h2>
+				<p class="entry-description">
+					{exp:eehive_hacksaw append='&hellip;' chars='165'}
+						{editorial_legacy_body}
+						{episode_description}
+					{/exp:eehive_hacksaw}			
+				</p>
+				<p class="entry-meta">
+					{categories limit="4" backspace="2"}<a href="{path={segment_1}}" title="View all entries tagged with {category_name}">{category_name}</a>, {/categories}
+				</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+
+	{paginate}
+		<div class="g_12 clearfix pagination">
+			<div class="pagination-outer">
+				<div class="pagination-inner clearfix">
+					{pagination_links}
+				</div>
+			</div>
+		</div>
+	{/paginate}
+
+	{if no_results}
+		{!-- If author has no entries, redirect to blog home page.  This is typically only hit if a user manually types in an incorrect author_id in the url --}
+		{redirect="blog"}
+	{/if}
+
+{/exp:channel:entries}
+
+{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">{exp:phpstringfun function="ucfirst"}{segment_1}{/exp:phpstringfun}</a></li>{if segment_3}<li class="last"><a href="{path={segment_1}/{segment_2}/{segment_3}}" title="You are on this page">All Entries by Author</a></li>{/if}'}
+
+{embed='includes/footer'}
+
+{/if}

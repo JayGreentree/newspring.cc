@@ -1,0 +1,53 @@
+{layout="newspring:_layouts/global"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{embed="_embeds/_masthead"
+	fixed_masthead="n"
+}
+
+{embed="_embeds/_hero"
+	title="404"
+	summary="Don&rsquo;t panic, but we can&rsquo;t seem to find <strong>/{segment_1}/{segment_2}</strong>."
+	image_url="http://blnk.in/beaker.gif"
+	content="<div class='input--icon'>
+		  <div class='btn btn--icon' data-modal-open='search-modal'>
+			Search Again
+			<span class='icon icon--search'></span>
+		  </div>
+		</div>" 
+}
+
+<section class="section--pattern">
+	<div class="shell">
+	  {!-- Can we pull in recent content here? --}
+	</div>
+</section>
+{embed="_embeds/_footer"}

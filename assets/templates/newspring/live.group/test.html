@@ -1,0 +1,47 @@
+{layout="_layouts/master"
+	title="Watch Live Services"
+	description="Join us online every Sunday at 8:30am, 10am, 11:30am, 4:30pm and 6pm."
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{!-- 
+
+Not During a Series (None Scheduled)
+Not During a Series (Between Series)
+During a Series, Not during a service
+During a Series, During a service
+
+ --}
+
+{preload_replace:collection="series_newspring"}
+{preload_replace:type="NewSpring"}
+{preload_replace:campus="Anderson"}
+
+
+{exp:channel:entries channel="{collection}" search:collection_startdate="<={current_time}" search:collection_enddate=">{current_time}" show_future_entries="yes"}
+		{!-- We're in a series --}
+	{if no_results}
+		{!-- We're not in a series. --}
+	{/if}
+{/exp:channel:entries}

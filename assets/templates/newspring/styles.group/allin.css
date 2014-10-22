@@ -1,0 +1,230 @@
+/* @override http://dev.newspring.cc/styles/next/?1.0.0/ */
+
+
+html {
+	/* 0b221c */
+	background: #0b221c url(//images.newspring.cc/site/allin/all-in-bg.png) no-repeat top center;
+ 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 	border-top: 7px solid #8cc63f;
+}
+
+p {
+	color: #FFF;
+}
+
+/* HEADER */
+#masthead #logo a {
+	background: url(//images.newspring.cc/site/logos/white.png) 0 0 no-repeat;
+}
+
+#page #masthead form input {
+	background: rgba(93,130,110, .25) url(//images.newspring.cc/site/allin/magnifying.glass.png) 194px 10px no-repeat;
+	color: #FFF;
+}
+
+.no-rgba #page #masthead form input {
+	background: #2c2328 url(//images.newspring.cc/site/allin/magnifying.glass.png) 194px 10px no-repeat;
+}
+
+.no_rgba #page #masthead form input {
+	background: #2c2328 url(//images.newspring.cc/site/allin/magnifying.glass.png) 194px 10px no-repeat;
+}
+
+#page #masthead li a:link { color: #FFF; }
+#page #masthead li a:visited { color: #FFF; }
+#page #masthead li a:hover { color: #8CC63F; }
+#page #masthead li a:active { color: #FFF; }
+
+#nav, #page {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-radius: 0;
+}
+
+#content {
+	padding-left: 0px;
+}
+
+/* NEXT STEPS */
+#next-steps-divider {
+	margin-top: 485px;
+	margin-left: 14px;
+	margin-bottom: 30px;
+}
+
+#next-steps {
+	margin-bottom: 40px;
+	margin-left: 30px;
+}
+
+#growth {
+	background-color: #8b1f1d;
+	border: #FFF solid 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	padding: 10px; 
+	margin-right: 50px;
+}
+
+#ownership {
+	background-color: #8b1f1d;
+	border: #FFF solid 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+	padding: 10px;
+	margin-right: 50px; 
+}
+
+#equipping {
+	background-color: #8b1f1d;
+	border: #FFF solid 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	padding: 10px;
+	margin-right: 50px;
+}
+
+#budgeting {
+	background-color: #8b1f1d;
+	border: #FFF solid 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+	padding: 10px;
+}
+
+ul.class {
+	display: inline;
+}
+
+.class-title {
+	color: #FFF;
+	font-size: 22px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+ul li.class-type {
+	text-align: center;
+	margin-top: -10px;
+}
+
+.class-type {
+	color: #FFF;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.bullet {
+	width: 20px;
+	height: 20px;
+}
+
+.class-button a:link {
+	background: #4f0000;
+	color: #FFF;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 108px;
+	height: 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	text-decoration: none;
+	display: block;
+	padding: 11px 15px 15px 18px;
+	margin-top: 10px;
+}
+
+.class-button a:visited {
+	background: #4f0000;
+	color: #FFF;
+}
+
+.class-button a:hover {
+	background: #FFF;
+	color: #4f0000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 108px;
+	height: 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	text-decoration: none;
+	display: block;
+	margin: 10px 0 0 0;
+	padding: 11px 15px 15px 18px;
+}
+
+.class-button a:active {
+	background: #4f0000;
+	color: #FFF;
+}
+
+/* RESOURCES */
+#resources-divider {
+	margin: 0 0 30px 45px;
+}
+
+#youversion {
+	margin: 0 97px 0 9px;
+}
+
+#readingplan {
+	margin: 0 102px 0 0;
+}
+
+/*
+#iphoneapp {
+	margin: 0 97px 0 0;
+}
+*/
+
+#thehour {
+	margin: 0 97px 0 0;
+}
+
+.divider {
+	border-top: #FFF solid 1px;
+	width: 900px;
+	margin: 30px 0 30px 20px;
+}
+
+#realmarriage {
+	margin-left: 19px;
+}
+
+/* FOOTER */
+#footer {
+	width: 940px;
+	border-top: 1px solid #FFF;
+	padding: 30px 0 40px;
+	margin-top: 27px;
+}
+
+.no-rgba #footer {
+	width: 940px;
+	border-top: 1px solid #FFF;
+	padding: 30px 0 40px;
+}
+
+#footer p { color: #FFF; }
+#footer p a:link { color: #FFF; }
+#footer p a:visited { color: #FFF; }
+#footer p a:hover { color: #FFF; }
+#footer p a:active { color: #FFF; }
+#footer ul { color: #FFF; }
+#footer ul a:link { color: #FFF; }
+#footer ul a:visited { color: #FFF; }
+#footer ul a:hover { color: #FFF; }
+#footer ul a:active { color: #FFF; }

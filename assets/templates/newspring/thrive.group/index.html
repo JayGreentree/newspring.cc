@@ -1,0 +1,54 @@
+{embed="newspring:_global/pre_head"
+	title="Thrive"
+	description="Jesus didn’t die so we could just survive; He wants to see us thrive. In the Parable of the Sower, one of Jesus’ most famous stories, He explained how we can thrive in our relationship with God.
+	The parable is found in three books of the Bible: Matthew 13, Mark 4 and Luke 8. Follow along in this 4-part video study as Pastor Perry Noble digs into this story!"
+	image="http://ns.images.s3.amazonaws.com/newspring/thrive/newspring.thrive.facebook.jpg"
+	page_type="website"
+	typekit="wbo0cwu"
+	group_style="{segment_1}"
+}
+
+
+{exp:ce_cache:it}
+
+
+</head>
+<body style="background-image: url('http://ns.images.s3.amazonaws.com/newspring/thrive/newspring.thrive.image.background-texture.portriat.png');">
+
+<div  id="drawer" class="mobile-nav-container drawer">
+    <div>
+        <div class="mobile-nav hard">
+            <ul id="mainnav">
+            {exp:navee:custom id="christmasmobilenav" nav_title="mainnav" wrap_type="none" selected_class="active" class="clearfix" selected_class_on_parents="true"}
+                <li {if class}class="{class}"{/if}><a href="{link}"  onclick="ga('send', 'event', 'Nav', 'Mobile: {text}');">{text}</a></li>
+            {/exp:navee:custom}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+{!--{embed="thrive/_teaser"} --}
+
+
+	{embed="thrive/_intro"}
+	{embed="thrive/_lesson-one"}
+	{embed="thrive/_lesson-two"}
+	{embed="thrive/_lesson-three"}
+	{embed="thrive/_lesson-four"}
+
+
+<section id="video_modal" class="modal modal--video full-screen--fixed">
+	<div class="unseen">
+	    <div id="player--video" class='player--video'></div>
+	</div>
+	<div class="btn btn--close js--btn--close"></div>
+</section>
+
+{/exp:ce_cache:it}
+
+{embed="newspring:_global/post_footer"
+	chartbeat="uid: 36438, domain: 'newspring.cc', useCanonical: true"
+	google_analytics="'create', 'UA-7130289-3', 'newspring.cc'"
+	group_script = '{segment_1}'
+}

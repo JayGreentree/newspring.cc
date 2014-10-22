@@ -1,0 +1,94 @@
+{exp:ce_cache:it}
+
+{!-- 
+	This partial is shared between the NewSpring + Fuse Watch pages, hence the multiple {embed:} variables.  Please be careful when making changes to make sure you don't break something on the other template! 
+--}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		body_id="watch" 
+		body_class='{if "{embed:subnav}" == "y" } subnav{/if}'
+		page_class='{if "{embed:subnav}" == "y" }page-border{/if}'
+		group_style="watch" 
+		group_script="watch" 
+		title="Watch &amp; Listen"
+	}
+{/exp:ce_cache:escape}
+
+{if "{embed:subnav}" == "y" }
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div id="subnav_page" class="c_12 clearfix page-border">
+{/if}
+
+<!-- CURRENT SERIES -->
+{exp:channel:entries channel='{embed:series_channel}' dynamic='on' status='open' disable='categories|member_data|pagination|trackbacks' limit='1' orderby='series_date' search:current_series='not IS_EMPTY'}
+<div class="g_12 clearfix current-series">
+	<div class="g_7 g_a">
+		<a href="/{embed:url_prefix}/{url_title}/" title="Watch the Current Series: {title}">
+			{if series_hero}
+				{exp:ce_img:single src="{series_hero}" width="540" height="250" crop="yes" alt="{title} Image" class="border" quality="90"}
+			{if:else}
+				<span alt="{title} Image" class="series image border"/>{title}</span>
+			{/if}
+		</a>
+	</div>
+	{preload_replace:series_title='{url_title}'}
+	<div class="g_5 g_o">
+		<h1>Current Series</h1>
+		{exp:stash:set name="series_url_title"}{url_title}{/exp:stash:set}
+		{exp:stash:set name="series_description"}{exp:eehive_hacksaw chars   = "250" allow="<p><b>"}{series_description}{/exp:eehive_hacksaw}{/exp:stash:set}
+		<h2>{title}</h2>
+		<ul class="sermons">
+			{exp:playa:parents field="{embed:series_channel}" var_prefix="serm" orderby="entry_date" limit="3"}
+				{if no_parents}
+					<li>{exp:stash:get name='series_description'}&hellip;</li>
+				{/if}
+				<li class="{switch='first||last'}">
+					<a href="/{embed:url_prefix}/{exp:stash:get name='series_url_title'}/{serm:url_title}" title="Watch {serm:title}"><h3>{serm:episode_date format="%n/%j"} - {serm:title}</h3></a>
+				</li>
+			{/exp:playa:parents}
+		</ul>
+	</div>
+</div>
+{/exp:channel:entries}
+
+
+<!-- RECENT SERIES -->
+<h1 class="g_12" id="series_list">Recent Series</h1>
+
+{exp:channel:entries channel='{embed:series_channel}' paginate="bottom" disable='member_data|trackbacks' orderby='series_date' status='open' search:series_hidden="IS_EMPTY" search:current_series="IS_EMPTY" limit="10" show_future_entries="no"}
+
+<div class="episode g_12 clearfix">
+	<p class="thumb g_4 g_a"><a href="/{embed:url_prefix}/{url_title}/" title="Watch &amp; Listen: {title}">
+		{if series_hero}
+			{exp:ce_img:single src="{series_hero}" width="300" alt="{title} Image" class="border" quality="70"}
+		{if:else}
+			<span alt="{title} Image" class="series image border"/>{title}</span>
+		{/if}
+	</a></p>
+
+	<h2 class="g_6"><a href="/{embed:url_prefix}/{url_title}/" title="Watch &amp; Listen: {title}">{title}</a></h2>
+
+	<p class="date g_2">{series_date format='%m/%d/%y'} &#151; 
+		{exp:playa:parents field="{embed:series_channel}" var_prefix="serm" orderby="entry_date" limit="1"}
+			{serm:entry_date format="%m/%d/%y"}
+		{/exp:playa:parents}
+	</p>
+
+	<p class="description g_6">{exp:eehive_hacksaw append=' &hellip;' chars='170' break_words='yes'}{series_description}{/exp:eehive_hacksaw}</p>
+
+	<p class="button g_2 g_o"><a href="/{embed:url_prefix}/{url_title}/" title="Watch &amp; Listen: {title}">Watch Now</a></p>
+</div>
+
+{paginate}
+	<ul id="pagination">
+		<li class="pagination clearfix">{pagination_links}</li>
+	<ul>
+{/paginate}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

@@ -1,0 +1,101 @@
+{layout="_layouts/master"
+    title="Jobs"
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style="y"
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{exp:ce_cache:it id='contents'}
+
+{exp:channel:entries channel="department|campuses" url_title="{segment_2}"}
+
+{exp:ce_cache:escape}
+	{layout:set name="title"}{exp:playa:parents field="job_campus|job_department" url_title="{last_segment}" var_prefix="job"}{job:title}{/exp:playa:parents} | {title} | Jobs{/layout:set}
+	{layout:set name="meta"}
+    	{!-- Add additional meta tags here --}
+	{/layout:set}
+{/exp:ce_cache:escape}
+
+
+
+<section class="section--dark">
+	<div class="shell">
+	    <div class="grid centered">
+	    	<div class="grid__item one-whole flush">
+	    		<h2 class="no_hero">{exp:playa:parents field="job_campus|job_department" url_title="{last_segment}" var_prefix="job"}{job:title}{/exp:playa:parents}</h2>
+	    	</div>
+	    </div>
+	</div>
+</section>
+
+	{exp:playa:parents field="job_campus|job_department" url_title="{last_segment}" var_prefix="job"}
+	<section>
+		<div class="shell">
+			<div class="grid" data-share="{title}">
+				<div class="grid__item three-quarters portable-one-whole handheld-one-whole {segment_1}">
+					<a href="{path='/{segment_1}/{segment_2}'}" class="link--arrow reverse">View All {title} Jobs</a>
+					<h3>Job Description</h3>
+					{job:job_description}
+					<p><a href="{if job:job_application}{job:job_application}{if:else}https://newspring.wufoo.com/forms/zt5o53p0b1m3xj/def/field14={job:title}&field35={title}{/if}" target="_blank" class="btn portable-one-whole handheld-one-whole visuallyhidden--lap-and-up centered ">Apply Now</a></p>
+					<h3>Requirements</h3>
+					<ul>
+					{job:job_requirements}
+						<li>{job_requirement}</li>
+					{/job_requirements}
+					</ul>
+				</div><div class="grid__item one-quarter portable-one-whole handheld-one-whole centered">
+					<h3>Tell a Friend</h3>
+					<a href="mailto:?subject={job:title}" class="link--arrow">Send an Email</a>
+					<br><br>
+					<h3>Share This</h3>
+					{embed="newspring:_embeds/_share-buttons"
+                        alignment=""
+                        flush=""
+                        title="{job:title}"
+                        hashtag=""
+                        share_url="{path='{all_segments}'}"
+                    }
+                    {if job:job_disable != 'y'}
+						<a href="{if job:job_application}{job:job_application}{if:else}https://newspring.wufoo.com/forms/zt5o53p0b1m3xj/def/field14={job:title}&field35={title}{/if}" target="_blank" class="btn visuallyhidden--handheld visuallyhidden--handheld">Apply Now</a>
+					{/if}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section--grey">
+		<div class="shell">
+			<div class="grid centered">
+				<div class="grid__item one-whole">
+					<h2>Get Notifications</h2>
+					<p>Subscribe to the <b>{title}</b> jobs feed to be notified of new openings.</p>
+					{!-- Subscribe Link --}
+					<a href="https://feedpress.it/e/mailverify?feed_id=jobs-{segment_2}" class="btn" target="_blank">Subscribe Now</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	{/exp:playa:parents}
+
+{/exp:channel:entries}
+{/exp:ce_cache:it}

@@ -1,0 +1,68 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="Resources for Churches" 
+		body_id="resources" 
+		body_class="subnav" 
+		group_style="{segment_1}" 
+		use_alt='' 
+		page_class="page-border"
+	}
+{/exp:ce_cache:escape}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="footernav"}
+
+<div class="c_12 clearfix page-border">
+
+{exp:channel:entries channel="resources_for_churches" orderby='entry_date' status='open' limit="10" paginate="bottom" category="337"}
+<div class="resource g_12 clearfix">
+	<div class="description g_9 g_a">
+
+		{exp:ce_cache:escape}
+			{if logged_in}
+			<a href="{rfc_files}{rfc_file}{/rfc_files}" onclick="_gaq.push(['_trackEvent','Other Resources', 'Download', '{title}']);">{exp:ce_img:single src="{rfc_hero}" width="300" height="128" crop="yes" alt="{title} Image" class="thumb border"}</a>
+			{if:else}
+			{exp:ce_img:single src="{rfc_hero}" width="300" height="128" crop="yes" alt="{title} Image" class="thumb border"}
+			{/if}
+		{/exp:ce_cache:escape}
+
+		<h2>{title}</h2>
+
+		<p>{exp:eehive_hacksaw chars = "180" append = "&hellip;"}{rfc_files}{rfc_description}{/rfc_files}{/exp:eehive_hacksaw}</p>
+	</div>
+
+	<ul class="clearfix g_3 g_o">
+		<li class="g_3 g_a" align="center">
+			<p class="button">
+
+				{exp:ce_cache:escape}
+					{if logged_out}
+					<a href="{path='resources/login/{segment_2}'}" title="Download Print Resources" class="btn">Sign In to Download</a>
+					{if:else}
+					<a href="{rfc_files}{rfc_file}{/rfc_files}" title="Download {title}" onclick="_gaq.push(['_trackEvent','Other Resources', 'Download', '{title}']);" class="btn">Download This Resource</a>
+					{/if}
+				{/exp:ce_cache:escape}
+
+			</p>
+		</li>
+	</ul>
+</div>
+{paginate}
+<div class="paginate g_12 clearfix">
+	<ul>
+		<li class="pagination clearfix">{pagination_links}</li>
+	<ul>
+</div>
+{/paginate}
+{/exp:channel:entries}
+
+</div>
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

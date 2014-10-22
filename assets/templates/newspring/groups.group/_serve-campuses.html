@@ -1,0 +1,16 @@
+		<h6>Select a Campus</h6>
+
+		<ul class="tags">
+			{exp:channel:entries 
+				channel="campuses" 
+				orderby="title" 
+				sort="asc" 
+				dynamic="off" 
+				status="Open" 
+				category="not 156"
+			}
+				{exp:playa:parents field="groups_serving_campus" var_prefix="serv" limit="1"}
+					<li><a href="{url_title_path={segment_1}/{segment_2}}" {if segment_3 == url_title} class="current"{/if}>{title}</a></li>
+				{/exp:playa:parents}
+			{/exp:channel:entries}
+		</ul>

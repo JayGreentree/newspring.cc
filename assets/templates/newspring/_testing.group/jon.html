@@ -1,0 +1,63 @@
+{layout="_layouts/blog"
+	title="Jon's Test Layout"
+	description="Jon's awesome description"
+	image="http://jon.ee/image/2a1R3N2W0K3a/Image%202014-04-03%20at%204.42.48%20PM.png"
+	page_type=""
+	article_section=""
+	article_section_images=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="{segment_1}"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+
+{exp:channel:entries channel="articles" limit="1" offset="35"}
+
+	{layout:set name="hero"}{editorial_image}{editorial_image_2x1}{/editorial_image}{/layout:set}
+	{layout:set name="title"}{title}{/layout:set}
+
+	{layout:set name="meta"}
+		{editorial_legacy_body images_only="yes"}
+			<meta content="{src}" property="og:image">
+		{/editorial_legacy_body}
+	{/layout:set}
+
+	{!-- Begin Layout Contents --}
+	<h4>Published {entry_date format="%F %j, %Y"}</h4>
+	{embed="includes/_share_links"
+		fb-url="{path={segment_1}/{segment_2}/{segment_3}}"
+		twitter-text="{title}"
+		twitter-url="{path={segment_1}/{segment_2}/{segment_3}}"
+		twitter-hashtag=""
+		twitter-via="newspring"
+	}
+	{exp:scripturizer}
+		{editorial_legacy_body}
+	{/exp:scripturizer}
+
+{/exp:channel:entries}
+
+
+{layout:set name="related-content"}
+	{embed="_testing/related-entries"}
+{/layout:set}
+
+{layout:set name="footer"}
+	{!-- Add additional footer content/scripts here --}
+{/layout:set}

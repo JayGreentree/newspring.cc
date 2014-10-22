@@ -1,0 +1,117 @@
+{layout="_layouts/loggedin-staff"
+	title="Editorial Preview"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+
+{embed="newspring:_embeds/_non-hero"
+		section='section--dark'
+		overlay='overlay--light'
+		title='Editorial Preview'
+}
+
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+		{exp:channel:entries
+			channel="articles|devotionals|stories|news"
+			disable="member_data|trackbacks"
+			orderby="date"
+			limit="12"
+			sort="desc"
+			dynamic="off"
+			status="open|Featured|hidden"
+			show_future_entries="yes"
+			paginate="bottom"
+		}{!--
+		 --}<div class="grid__item one-whole">
+			<div class="grid"><div class="grid__item one-third flush">
+				{!-- Image --}
+				<a href="{path='{channel_short_name}/{url_title}'}">
+					<div class="ratio--landscape background--fill clickable flush" style="background-image: url({editorial_image}{exp:ce_img:single src='{editorial_image_2x1}' width='1000' crop='yes' url_only='yes'}{/editorial_image}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{entry_image}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{/entry_image}{if channel_short_name == 'devotionals'}{exp:ce_img:single src='{images-global-origin}/{site_short_name}/editorial/devotionals/hero.devotional.jpg' width='1000' crop='yes' url_only='yes'}{/if});">{if channel_short_name == 'devotionals'}<div class="ratio__item floating"><div class="floating__item overlay--light"><h3 class="circular {entry_date format='%l'} flush">{entry_date format="%D"}</h3></div></div>{/if}</div></a>
+			</div><div class="grid__item two-thirds">
+				<div class="card flush left">
+
+					{!-- Title --}
+					<h3><a href="{path={channel_short_name}/{url_title}}" title="View the {title} entry" class="dark">{title}</a></h3>
+					{!-- Date --}
+					<p class="colfax uppercase grey">({channel_short_name}) <b>{entry_date format="%m.%d.%Y %g:%s%a"}</b></p>
+					<p>
+						<input type="text" class="entry_url" value="{path={channel_short_name}/{url_title}}" >
+					</p>
+
+					{!-- Summary --}
+					{!-- {if editorial_legacy_body OR collection_description}
+					<p class="colfax">{exp:eehive_hacksaw chars = "140"}{editorial_legacy_body}{collection_description}{/exp:eehive_hacksaw}&hellip;</p>
+					{/if} --}
+
+					<a href="{path='{channel_short_name}/{url_title}'}" class="link--arrow">View Entry</a>
+
+				</div>
+			</div></div>{if count != total_results}<hr>{/if}
+			</div>{!--
+		 --}{paginate}{pagination_links page_padding="1"}{!--
+		 --}<div class="grid__item one-whole">
+		 		<br><br>
+				<div class="pagination">
+				  {previous_page}<a href="{pagination_url}" class="pagination__item page-previous"></a>{/previous_page}
+				  {page}<a href="{pagination_url}" class="pagination__item page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>{/page}
+				  {next_page}<a href="{pagination_url}" class="pagination__item page-next"></a>{/next_page}
+				</div>
+			</div>{!--
+		 --}{/pagination_links}{/paginate}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+
+		var urls = document.querySelectorAll('.entry_url');
+
+		var link, _i, _len;
+
+		for (_i = 0, _len = urls.length; _i < _len; _i++) {
+		  link = urls[_i];
+		  
+		  var select = function(e) {
+		  	target = e.target
+	
+		  	target.setSelectionRange(0, target.value.length)
+		  }
+
+		  link.addEventListener('click', select, false);
+
+		}
+
+
+	    // $('a.copy_url').zclip({
+	    //     path:'/assets/backup/old_js/ZeroClipboard.swf',
+	    //     copy:function(){return $(this).prev().val();},
+	    //     afterCopy:function(){$(this).text("3").addClass("complete");}
+	    // });
+    });
+</script>

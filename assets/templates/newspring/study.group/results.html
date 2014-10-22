@@ -1,0 +1,47 @@
+{exp:ce_cache:it}
+
+{embed='study/header' page_title='Search Results for &ldquo;{exp:search:keywords}&rdquo;' body_id='search'}
+
+	<h1>Your search for &ldquo;{exp:search:keywords}&rdquo; returned {exp:search:total_results}{total_results}{/exp:search:total_results} result{if '{exp:search:total_results}' != 1}s{/if}.</h1>
+	
+	{exp:search:search_results}
+	
+	{if channel_short_name == "day"}
+		{exp:playa:children channel="study" status="open" limit="40" var_prefix="studies"}
+			<?
+				//Generate the url to the study
+				$full_url = "/study/{studies:url_title}/{url_title}";
+			?>
+		{/exp:playa:children}
+	{/if}
+
+	<div class="result clearfix">
+		<div class="details">
+			<h2><a href="<?echo $full_url;?>" title="Permalink for {title}">{title}</a></h2>
+			<p>{exp:trunchtml ending='...' chars='120'}{editorial_legacy_body}{/exp:trunchtml} <a href="<?echo $full_url;?>" title="Continue reading {title}">continue</a></p>
+		</div>
+
+		<div class="editorial_scripture">
+			<h3><a href="<?echo $full_url;?>" title="Permalink for Day {day_count}">{study}{title}{/study}: D<span class="kern_ay">a</span>y {day_count}</a></h3>
+			<ul>
+			{editorial_scripture}<?
+				$passage = explode('-', '{passage}');
+				$passage = explode('&ndash;', $passage[0]);
+				$url = 'http://www.youversion.com/bible/niv/{book:label}.'.str_replace(':', '.', $passage[0]).'/';
+				echo '<li><a href="'.$url.'" title="Read {book} {passage} on YouVersion" rel="external">{book} {passage}</a></li>';
+			?>{/editorial_scripture}
+			</ul>
+		</div>
+	</div>
+	
+	{paginate}
+	<p id="pagination" class="clearfix">{pagination_links}</p>
+	{/paginate}
+	
+	{/exp:search:search_results}
+
+	<div class="clear"></div>
+	
+{embed='study/footer'}
+
+{/exp:ce_cache:it}

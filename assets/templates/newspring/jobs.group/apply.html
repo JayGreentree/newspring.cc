@@ -1,0 +1,131 @@
+{exp:ce_cache:it tags="jobs"}
+
+{preload_replace:page_channel="jobs"}
+
+
+{exp:channel:entries channel='{page_channel}' disable='categories|member_data|pagination|trackbacks' status='open' orderby="title" sort="asc" limit="1"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='jobs' 
+		body_class="subnav" 
+		title='Application for {title} | Jobs' 
+		page_class="page-border" 
+		style="jobs" 
+		fb_title="{title}" 
+		fb_url="{url_title_path='jobs}" 
+		meta_description='{exp:trunchtml ending="..." chars="250"}{job_description}{/exp:trunchtml}' 
+		fb_describe="{exp:eehive_hacksaw}{job_description}{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:escape}
+
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="footernav"}
+
+	<div class="c_12 clearfix page-border">
+		<div class="top-row clearfix">
+			<div class="g_8"><h3 class="job-department">{exp:playa:children field="job_department"}{title}{/exp:playa:children}</h3></div>
+			<div class="g_4">
+				
+			</div>
+		</div>
+			<div class="jobs-total clearfix">
+				<h2 class="g_9">{title}</h2>
+				<div class="g_3 job-campus">{exp:playa:children field="job_campus"}{title} Campus{/exp:playa:children}</div>
+			</div>
+
+		
+		<div class="g_9">
+		{if last_segment == "thanks"}
+			<h3>Thank You!</h3>
+			<p>Thanks for completing our job application.  Our HR department will review your information and follow up shortly!</p>
+		{if:else}
+			{exp:freeform:form 
+				collection="Job Applications"
+				notify='jon.horton@newspring.cc'
+				required='first_name|last_name|email|comments'
+				return='{segment_1}/{segment_2}/{segment_3}/thanks'
+				file_upload='Job Application Attachments'
+				send_attachment='yes'
+				template='jobs'
+				form:id="jobs"
+				form:class="request"
+                send_user_email="yes"
+                user_email_template="thankyou"
+			}
+
+
+				<p class="description">Thank you for your interest in the {title} position at NewSpring Church. Please complete and submit the following application and our HR Director will get in touch with you.  Thanks!</p>
+
+				<fieldset>
+					<legend>Your Contact Information</legend>
+
+					<p class="heading">Name <em>*</em></p>
+					<div class="inline clearfix">
+						<p><label for="first_name">First</label> <input type="text" name="first_name" value="" id="first_name" size="8" class="required"></p>
+						<p><label for="last_name">Last</label> <input type="text" name="last_name" value="" id="last_name" size="14" class="required"></p>
+					</div>
+
+					<p class="heading">Phone Number <em>*</em></p>
+					<div class="inline clearfix">
+						<p><label for="phone_first">###</label> <input type="text" name="phone_first" value="" id="phone_first" maxlength="3" size="3" class="required"> -</p>
+						<p><label for="phone_second">###</label> <input type="text" name="phone_second" value="" id="phone_second"  maxlength="3" size="3" class="required"> -</p>
+						<p><label for="phone_last">####</label> <input type="text" name="phone_last" value="" id="phone_last"  maxlength="4" size="4" class="required"></p>
+						<p class="hidden"><input type="hidden" name="phone" id="phone" value=""></p>
+					</div>
+
+					<p class="heading"><label for="email">Email <em>*</em></label></p>
+					<p><input type="text" name="email" value="" id="email" size="26" class="required"></p>
+
+					<p class="heading"><label for="comments">Comments <em>*</em></label></p>
+					<p><textarea name="comments" id="comments" rows="6" cols="10" class="required"></textarea></p>
+
+					<p class="heading"><label for="request_attachment">Attach your resume if needed:</label></p>
+					<p><input type="file" name="file1" value="" id="file1" size="26"></p>
+
+				</fieldset>
+
+				<p><input type="submit" name="submit" value="Submit Application for {title}"></p>
+
+				<p class="hidden"><input type="hidden" name="subject" value="{title}"></p>
+				<p class="hidden"><input type="hidden" name="department" value="{exp:playa:children field="job_department"}{title}{/exp:playa:children}"></p>
+				<p class="hidden"><input type="hidden" name="campus" value="{exp:playa:children field="job_campus"}{title}{/exp:playa:children}"></p>
+			{/exp:freeform:form}
+			{/if}
+		</div>
+		<div class="g_3" id="job-requirements">
+			<h4>What To Expect</h4>
+			<ul>
+				<li>Content Here</li>
+				<li>Content Here</li>
+				<li>Content Here</li>
+			</ul>
+		</div>
+
+
+	{embed='includes/ads'}
+
+	{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Jobs</a></li><li class="last"><a href="/{segment_1}/{segment_2}" title="">{exp:phpstringfun function="ucfirst"}{last_segment}{/exp:phpstringfun}</a></li>'}
+
+	
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			//Joins all phone fields into one
+			$("#jobs").submit(function (){
+				var phone1 = $("#phone_first").val();
+				var phone2 = $("#phone_second").val();
+				var phone3 = $("#phone_last").val();
+				$("#phone").val("(" + phone1 + ") " + phone2 + "-" + phone3);
+			})
+		});
+	</script>
+	
+	{exp:ce_cache:escape}
+		{embed='includes/footer'}
+	{/exp:ce_cache:escape}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

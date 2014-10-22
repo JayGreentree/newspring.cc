@@ -1,0 +1,153 @@
+{layout="_layouts/master"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="{embed:section_style}"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="2592000"}
+
+{exp:channel:entries site="{embed:site}" channel="{embed:channel}" url_title="{last_segment}" status="Open|Featured" show_future_entries="yes" dynamic="off"}
+
+{exp:ce_cache:escape}
+
+	{layout:set name="title"}{title} | {embed:title}{/layout:set}
+	{layout:set name="meta"}
+		{!-- Add additional meta tags here --}
+	{/layout:set}
+
+	{layout:set name="image"}http:{meta_image}{/layout:set}
+	
+	{layout:set name="description"}{exp:eehive_hacksaw chars="250"}{if segment_1 == 'stories'}{entry_body}{if:else}{editorial_legacy_body}{/if}{/exp:eehive_hacksaw}{/layout:set}
+
+{/exp:ce_cache:escape}
+
+{embed="newspring:_embeds/_hero"
+	h-align="{if segment_1 == 'stories'}center{if:else}left{/if}"
+	v-align=""
+	tag="{if segment_1 == 'articles' OR segment_1 == 'blog'}{categories limit='1' show_group='45'}{category_name}{/categories}{if:elseif segment_1 == 'devotionals'}{entry_date format='%l'}{/if}"
+	title="{if segment_1 == 'stories'}{entry_subtitle}{if:else}{title}{/if}"
+	video_title="{if entry_video AND segment_1 == 'stories'}Watch Story{/if}"
+	video="{if entry_video}{url_title},{entry_video}{/if}"
+	entry_id="{entry_id}" {!-- Needed for Author Tags --}
+	summary="{editorial_summary}"
+	image_url="{if editorial_image}{editorial_image}{editorial_image_2x1}{/editorial_image}{if:elseif entry_image}{entry_image}{entry_image_2x1}{/entry_image}{if:else}{embed:section_hero}{/if}"
+}
+
+<section class="blog-entry">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole flush">
+				<div class="text--constrained" data-share='{title}'>
+					{if channel_short_name == "stories"}<h2 class="centered text-transform--capitalize">{title}</h2>
+					<h3 class="centered">{entry_subtitle}</h3>
+					<hr>
+					{/if}
+
+					{if editorial_video}
+						<div class="centered" data-video="{url_title}, {editorial_video}">
+							<h2>Watch Video</h2>
+							<div class="fa fa-icon fa-icon--play"></div>
+							<br><br><br><br>
+						</div>
+					{/if}
+
+					<div class="editorial-wrapper">
+						{exp:scripturizer}
+							{if segment_1 == 'devotionals'}<p class="text--larger centered">{editorial_scripture}{book} {passage}{/editorial_scripture}</p>{/if}
+							{if segment_1 == 'stories'}
+								{exp:ce_img:bulk width='900' crop='yes'}
+									{entry_body}
+								{/exp:ce_img:bulk}
+							{if:else}
+								{exp:ce_img:bulk width='900' crop='yes'}
+									{editorial_legacy_body}
+								{/exp:ce_img:bulk}
+							{/if}
+							{if segment_2 == 'leaders'}
+								<div class="centered">
+									<br>
+									<a href="{path='{segment_1}/{segment_2}/{segment_3}'}" class="link--arrow reverse dark">Back to the Group Leader's Blog</a>
+								</div>
+							{/if}
+							<div class="centered"><p><a href="{path='{embed:url_prefix}'}" class="link--arrow reverse">View All {embed:title}</a></p></div>
+						{/exp:scripturizer}
+					</div>
+				</div>
+
+			</div><div class="grid__item one-whole flush centered">
+				<hr class="half hidden"/>
+				<div class="portable-centered ">
+					{embed="newspring:_embeds/_share-buttons"
+						alignment="vertical"
+						flush="y"
+						title="{title}"
+						hashtag="{collection_hashtag}"
+						share_url="{exp:shorteen:process service='bitly' url='{current_url}'}"
+					}
+				</div>
+			</div>
+		</div>
+
+		{!--
+		<hr class="half">
+		<div class="centered"><p><a href="{path='{embed:url_prefix}'}" class="link--arrow reverse">View All {embed:title}</a></p></div>  --}
+
+	</div>
+</section>
+
+{if segment_1 == 'stories'}
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<h2>Share Your Story</h2>
+					<p>Watch a short video from Pastor Perry Noble to get tips on how to tell your story for God's glory! Then take a few minutes to share what Jesus has done in your life.</p>
+					<a href="/stories/share" class="btn">Watch Now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{/if}
+
+{exp:ce_cache:escape}
+{if embed:show_related_entries == 'y'}
+	{embed="newspring:_embeds/_editorial-related"
+		channel="{embed:channel}"
+		entry_id="{entry_id}"
+		limit="3"
+		section_hero="{if embed:section_hero}{embed:section_hero}{/if}"
+	}
+{/if}
+{/exp:ce_cache:escape}
+
+{embed="newspring:_embeds/_discover"
+	type="related"
+	channel="{embed:channel}"
+	entry_id="{entry_id}"
+}
+
+{/exp:channel:entries}
+{/exp:ce_cache:it}

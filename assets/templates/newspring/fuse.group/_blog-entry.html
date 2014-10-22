@@ -1,0 +1,74 @@
+{exp:ce_cache:it}
+{exp:channel:entries channel="{embed:page_channel}" order="date" sort="desc" limit="1"}
+
+	{exp:ce_cache:escape}
+		{embed='includes/header' 
+			title='{title} | Fuse Blog' 
+			body_id='fuse' 
+			body_class='subnav' 
+			page_class="page-border"
+			group_style="{segment_1}" 
+			fb_title="{title} | Blog | Fuse Student Ministry" 
+			fb_url="{path={segment_1}/{segment_2}/{segment_3}}" 
+		}
+	{/exp:ce_cache:escape}
+
+	</div><!-- //page -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div class="c_12 clearfix page-border">
+
+		<div class="g_12 section entry">
+
+			<div class="article g_7 s_1 g_a">
+				<h2>{title}</h2>
+				{if editorial_video}
+				{exp:antenna url="{editorial_video}" max_width="580"}
+					{!-- Added "video_" to the embed code variable in core antenna file --}
+					{video_embed_code}
+				{/exp:antenna}
+				{/if}
+				{exp:scripturizer}
+				{editorial_legacy_body}
+				{/exp:scripturizer}
+				<div class="clearfix entry-meta">
+					{categories backspace="2"}<a href="{path={segment_1}/{segment_2}}">{category_name}</a>, {/categories}
+				</div>
+				<div class="clearfix"><a href="{path='{segment_1}/{segment_2}'}" class="back btn">Back to the Blog</a></div>
+			</div>
+			
+			<div class="sidebar-categories g_3 g_o">
+				<div class="column-wrapper">
+					<h6 class="entry-date">{entry_date format="%m.%d.%Y"}</h6>
+					{!-- <div class="tags">
+						<h6>Categories</h6>
+						<ul>
+							{categories}
+								<li><a href="{path={segment_1}/blog}">{category_name}</a></li>
+							{/categories}
+						</ul>
+					</div><br> --}
+					
+					<h6>Share</h6>
+					{embed="includes/_share_links" 
+						layout="box"
+						fb-url="{path={segment_1}/{segment_2}/{segment_3}}"
+						twitter-text="{title}" 
+						twitter-url="{path={segment_1}/{segment_2}/{segment_3}}" 
+						twitter-hashtag=""
+						twitter-via="newspring"
+					}
+				</div>
+			</div>
+		</div>
+
+		{!-- Video Player --}
+	  {ooyala_video}	
+	  
+	{exp:ce_cache:escape}
+		{embed='includes/footer'}
+	{/exp:ce_cache:escape}
+
+{/exp:channel:entries}	
+{/exp:ce_cache:it}

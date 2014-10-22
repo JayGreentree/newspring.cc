@@ -1,0 +1,70 @@
+{exp:ce_cache:it seconds="5400"}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+<channel>
+<title>NewSpring Church: Thrive</title>
+<link>http://www.newspring.cc</link>
+<language>en-us</language>
+<copyright>&#xA9;{current_time format="%Y"} NewSpring Church.  Free to distribue.  Do not sell.</copyright>
+
+<itunes:subtitle>Jesus didn’t die so we could just survive. He wants to see us thrive. In the Parable of the Sower,  one of Jesus’s most famous stories, He explained how we can thrive in our relationship with God. The Parable of the Sower is found in Matthew 13, Mark 4 and Luke 8. Visit <a href="http://www.newspring.cc">www.newspring.cc</a> for more content like this.</itunes:subtitle>
+
+<itunes:author>Senior Pastor Perry Noble</itunes:author>
+
+<itunes:summary></itunes:summary>
+
+<itunes:owner>
+  <itunes:name>{site_name}</itunes:name>
+  <itunes:email>web@newspring.cc</itunes:email>
+</itunes:owner>
+
+<itunes:image href="http://ns.images.s3.amazonaws.com/newspring/thrive/newspring.thrive.itunes.jpg" />
+
+<itunes:category text="Christianity" />
+
+<item>
+  <title>Thrive Part 1: Three Things Every Christian Needs To Understand</title>
+  <itunes:author>Senior Pastor Perry Noble</itunes:author>
+  <itunes:summary>Misunderstanding can lead to embarrassment and even tragedy. The same is true in our spiritual lives. If we hear God’s word but don’t understand it, Satan can snatch away the joy of knowing Jesus. Discover three things every Christian needs to understand if we want to survive and thrive.</itunes:summary>
+  <enclosure url="http://ns.downloads.s3.amazonaws.com/newspring/audio/studies/2014/140421_Thrive_01.mp3" type="audio/mp3" />
+  <guid>http://ns.downloads.s3.amazonaws.com/newspring/thrive/01_3_Concepts_That_Are_Critical_For_Us_to_Understand.mp3</guid>
+  <pubDate>Mon, 21 April 2014 07:00:00 EDT</pubDate>
+  <itunes:duration>00:18:03</itunes:duration>
+</item>
+
+<item>
+  <title>Thrive Part 2: Four Ways To Thrive In Tough Times</title>
+  <itunes:author>Senior Pastor Perry Noble</itunes:author>
+  <itunes:summary>Emotion will not sustain our devotion to Jesus. Many will hear God’s word and receive it with joy, only to turn away when times get tough. If we want to have the kind of relationship that thrives through tough times, it’s going to require deep roots.</itunes:summary>
+  <enclosure url="http://ns.downloads.s3.amazonaws.com/newspring/audio/studies/2014/140428_Thrive_02.mp3" type="audio/mp3" />
+  <guid>https://s3.amazonaws.com/ns.downloads/newspring/thrive/thrive_wk2.mp3</guid>
+  <pubDate>Mon, 28 April 2014 07:00:00 EDT</pubDate>
+  <itunes:duration>00:17:12</itunes:duration>
+</item>
+
+<item>
+  <title>Thrive Part 3: Three Lies That Choke the Life Out of Us</title>
+  <itunes:author>Senior Pastor Perry Noble</itunes:author>
+  <itunes:summary>The No. 1 competitor for our hearts is not Satan. It’s money. Wealth and worry easily distract us from what is really important. Thriving in our relationships with Jesus starts with debunking these three lies about money. </itunes:summary>
+  <enclosure url="http://ns.downloads.s3.amazonaws.com/newspring/audio/studies/2014/140505_Thrive_03.mp3" type="audio/mp3" />
+  <guid>http://ns.downloads.s3.amazonaws.com/newspring/thrive/thrive_wk3.mp3</guid>
+  <pubDate>Mon, 5 May 2014 07:00:00 EDT</pubDate>
+  <itunes:duration>00:15:08</itunes:duration>
+</item>
+
+<item>
+  <title>Thrive Part 4: Four Qualities Of People Who Are Thriving In Life</title>
+  <itunes:author>Senior Pastor Perry Noble</itunes:author>
+  <itunes:summary>Spiritual growth takes time. If we’ll apply God’s word to our lives consistently over time, we’ll find ourselves becoming more like Jesus. And it’s only as we become more like Jesus that we begin to thrive.</itunes:summary>
+  <enclosure url="http://ns.downloads.s3.amazonaws.com/newspring/audio/studies/2014/140512_Thrive_04.mp3" type="audio/mp3" />
+  <guid>http://ns.downloads.s3.amazonaws.com/newspring/audio/studies/2014/140512_Thrive_04.mp3</guid>
+  <pubDate>Mon, 12 May 2014 07:00:00 EDT</pubDate>
+  <itunes:duration>00:15:48</itunes:duration>
+</item>
+
+</channel>
+
+</rss>
+{/exp:ce_cache:it}

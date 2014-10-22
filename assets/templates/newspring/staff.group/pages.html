@@ -1,0 +1,53 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries channel='pages'}
+
+{exp:ce_cache:escape}
+	{embed='includes/header_prefix' 
+		title='{title}' 
+		body_id='{body_id}' 
+		body_class='{body_class}' 
+		script='{extra_script}' 
+		style='{extra_style}' 
+		group_style="{segment_1}" 
+		no_page_div='true'
+	}
+	{if logged_out && page_hidden}
+		{redirect="/"}
+	{/if}
+{/exp:ce_cache:escape}
+
+{if page_css}
+<style type="text/css">
+{page_css}
+</style>
+{/if}
+
+{if page_navigation}
+<div id="nav" class="c_12 clearfix">
+	{page_navigation}
+</div>
+{/if}
+
+<div id="page" class="c_12 clearfix">
+	{right_column}
+	
+	<div class="hr alt g_12"><hr></div>
+
+	{embed="staff/_campus-info"}
+	
+</div><!-- end #page -->
+
+<div id="footer" class="c_12 clearfix">
+	<div class="hr"><hr></div>
+	<p class="g_3 s_3">Staff Hub is &copy;{current_time format='%Y'} <a href="/" title="NewSpring Church homepage">NewSpring Church</a></p>
+	<p class="g_6 g_o">Email <a href="https://mail.google.com/a/newspring.cc/?view=cm&amp;fs=1&amp;tf=1&amp;to=web@newspring.cc&amp;su=Please%20submit%20a%20staff%20hub%20change&amp;body=%0APlease%20type%20a%20detailed%20description%20of%20your%20problem%20here&amp;disablechatbrowsercheck=1&amp;ui=2">web@newspring.cc</a> for changes</p>
+</div>
+
+{/exp:channel:entries}
+
+{exp:ce_cache:escape}
+	{embed='includes/footer_postfix'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

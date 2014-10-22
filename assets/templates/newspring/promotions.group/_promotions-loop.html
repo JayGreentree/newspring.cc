@@ -1,0 +1,31 @@
+{layout="promotions/_layout-{embed:results_count}"}
+
+{!--
+	@INFO
+	This will dynamically load the template corresponding to the {embed:results_count} var.
+--}
+
+{exp:low_reorder:entries set="promotions" 
+	site="newspring" 
+	disable='categories|member_data|pagination|trackbacks'
+}
+	
+	{layout:set name="promotion_title_{count}" value="{title}"}
+	{layout:set name="promotion_url_{count}" value="{promotion_url}"}
+	{layout:set name="promotion_summary_{count}" value="{promotion_summary}"}
+	{layout:set name="promotion_btn_text_{count}" value="{promotion_btn_text}"}
+	
+	{!--
+		@INFO
+
+		We're currently limiting to the first image in the image matrix
+	--}
+	{promotion_image var_prefix="matrix" limit="1"}
+		{layout:set name="promotion_image_description_{count}" value="{matrix:promotion_image_description}"}
+		{layout:set name="promotion_image_2x1_{count}" value="{matrix:promotion_image_2x1:url}"}
+		{layout:set name="promotion_image_1x2_{count}" value="{matrix:promotion_image_1x2:url}"}
+		{layout:set name="promotion_image_1x1_{count}" value="{matrix:promotion_image_1x1:url}"}
+		{layout:set name="promotion_image_background_video_{count}" value="{matrix:promotion_image_background_video:url}"}
+	{/promotion_image}
+
+{/exp:low_reorder:entries}

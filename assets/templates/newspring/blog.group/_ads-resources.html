@@ -1,0 +1,17 @@
+	<!-- Section: Ads - Resources -->
+	<div class="g_12 clearfix section related">
+		{exp:channel:entries 
+			channel="{embed:channel}" 
+			category="{embed:category_ids}" 
+			dynamic="off" 
+			orderby="random" 
+			disable="categories|category_fields|member_data|pagination|trackbacks" 
+			limit="3"
+			status="open|featured" 
+		}
+		
+			<div class="g_4 {switch='g_a||g_o'}">
+				{blog_sidekicks}
+			</div>
+		{/exp:channel:entries}
+	</div>

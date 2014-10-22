@@ -1,0 +1,3 @@
+{exp:ce_cache:it seconds="5400"}
+	{embed='feeds/rss' channel='fuse_blog' description='editorial_legacy_body' path='blog'}
+{/exp:ce_cache:it}

@@ -1,0 +1,37 @@
+{if segment_2}
+	{if segment_3}
+		{embed="watch/_sermon" 
+			series_channel="series" 
+			sermon_channel="episode"
+			url_prefix="watch"
+			series_url="{segment_2}"
+			sermon_url="{segment_3}"
+		}
+	{if:else}
+		{exp:md_detect_page_type url_segment="{segment_2}"}
+			{if pagination_page}
+		 		{embed="watch/_home" 
+					series_channel="series" 
+					sermon_channel="episode"
+					url_prefix="watch"
+				}
+	 		{if:else}
+				{embed="watch/_series" 
+					series_channel="series" 
+					sermon_channel="episode"
+					url_prefix="watch"
+					series_url="{segment_2}"
+					sermon_url="{segment_3}"
+				}
+			{/if}
+		{/exp:md_detect_page_type}
+	{/if}
+{if:else}
+	{embed="watch/_home" 
+		series_channel="series" 
+		sermon_channel="episode"
+		url_prefix="watch"
+	}
+{/if}
+
+{embed="includes/footer"}

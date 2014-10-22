@@ -1,0 +1,137 @@
+{layout="_layouts/global"
+  title="Master Layout Test"
+  description="Master Element Layout Test"
+  image="http://jon.ee/image/2a1R3N2W0K3a/Image%202014-04-03%20at%204.42.48%20PM.png"
+  page_type=""
+  article_section=""
+  tags=""
+  publish_time=""
+
+  google_author=""
+  google_page_profile=""
+
+  twitter_publisher=""
+  twitter_author=""
+
+  facebook_profile=""
+  facebook_app=""
+
+  typekit=""
+
+  section_style="{segment_1}"
+  section_script=""
+
+  meta=""
+  footer=""
+}
+
+{layout:set name="meta"}
+  {!-- Add additional meta tags here --}
+{/layout:set}
+
+	<section class="masthead">
+        <div class="shell">
+            <div class="newspring--icon"></div>
+            <h1>NewSpring</h1>
+            <form action="#">
+                <input type="text" placeholder="Search">
+            </form>
+            <ul class="navigation">
+                <li class="has-kids"><a href="#">About</a></li>
+                <li class="has-kids"><a href="#">Locations</a></li>
+                <li class="has-kids"><a href="#">Next Steps</a></li>
+                <li class="has-kids"><a href="#">Watch &amp; Read</a></li>
+                <li><a href="#">Give</a></li>
+            </ul>
+        </div>
+    </section>
+
+
+{exp:channel:entries channel="betterpagestest"}
+
+	<section class="hero" style="background-image: url('{hero_image}{url}{/hero_image}')">
+		<div class="shell">
+			<div class="grid">
+				<div class="grid__item one-whole hard columns">
+					<h1 class="giga">{title}</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	{hero_copy limit=1}
+		<section class="hero_copy {if background_image}text--white{/if}"{if background_image} style="background-image: url('{url}')"{/if}>
+			<div class="shell">
+				<div class="{if columns==2}grid{if:else}grid--center{/if}">
+					<div class="grid__item {if columns==2}one-whole{if:else}three-quarters{/if} hard columns">
+						
+							<h2>{heading}</h2>
+							<p {if columns==2}class="text-cols--2"{/if}>{copy}</p>
+							{if cta_link}
+							<center>
+								<a href="{cta_link}" class="btn">{cta_text}</a>
+							</center>
+							{/if}
+					</div>
+				</div>
+			</div>
+		</section>
+	{/hero_copy}
+	
+	{!-- Alternate Hero --}
+	<section class="hero">
+		<div class="shell">
+			<div class="grid">
+				{alternate_hero limit="2"}<div class="grid__item {if total_rows==2}one-half{if:else}one-whole{/if} hard columns"><div class="hero {if transparency == 'Yes'}transparency{/if}" style="background-image: url('{background_image}{url}{/background_image}')"><h2>{header}</h2><p>{copy}</p></div></div>{/alternate_hero}
+			</div>
+		</div>
+	</section>
+	{!-- /Alternate Hero --}
+	
+	<section class="image_with_heading_description">
+		<div class="shell">
+			<div class="grid--center">{image_with_heading_description}<div class="grid__item one-quarter columns"><img src="{image}{url}{/image}" class="rounded"><h2>{header}</h2><p>{copy}</p></div>{/image_with_heading_description}
+			</div>
+		</div>
+	</section>
+	
+	{noheader_cta limit=1}
+	<section class="hero_cta{if cta_background} background text--white{/if}"{if cta_background} style="background-image: url('{cta_background}{url}{/cta_background}')"{/if}>
+		<div class="shell">
+			<div class="grid">
+				<div class="grid__item one-half hard columns">
+					<p>{copy}</p>
+				</div>{if cta_link}<!--
+				--><div class="grid__item one-half columns">
+					<a href="{cta_link}" class="btn">{cta_text}</a>
+				</div>
+				{/if}
+			</div>
+		</div>
+	</section>
+	{/noheader_cta}
+	
+	<section class="cta">
+		<div class="shell">
+			<div class="grid">
+				<div class="grid__item one-whole hard columns">
+					{call_to_action}
+						<center>
+							<h2>{cta_header}</h2>
+							<a href="{cta_link}" class="btn">{cta_text_link}</a>
+							<h4>{cta_subheading}</h4>
+						</center>
+					{/call_to_action}
+				</div>
+			</div>
+		</div>
+	</section>
+{/exp:channel:entries}
+    
+{layout:set name="related-content"}
+  {embed="_testing/related-entries"}
+{/layout:set}
+
+{layout:set name="footer"}
+  {!-- Add additional footer content/scripts here --}
+{/layout:set}

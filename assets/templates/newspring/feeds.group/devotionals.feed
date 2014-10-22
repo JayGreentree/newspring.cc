@@ -1,0 +1,81 @@
+{exp:ce_cache:it seconds="5400"}
+
+{preload_replace:template_channel='devotionals'}
+{exp:rss:feed channel='{template_channel}' status='open'}
+
+<?xml version="1.0" encoding="{encoding}"?>
+<rss version="2.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:admin="http://webns.net/mvcb/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+	<channel>
+
+	<title>{exp:xml_encode}Daily Devotionals | {site_name}{/exp:xml_encode}</title>
+	<link>{channel_url}</link>
+	<description>{channel_description}</description>
+	<dc:language>{channel_language}</dc:language>
+	<dc:creator>{email}</dc:creator>
+	<dc:rights>Copyright {gmt_date format="%Y"}</dc:rights>
+	<dc:date>{gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+	<admin:generatorAgent rdf:resource="http://expressionengine.com/" />
+
+	{exp:channel:entries channel='{template_channel}' limit='20' rdf='off' dynamic_start='on' disable='member_data|trackbacks'}
+	<item>
+		<title>{exp:xml_encode protect_entities='yes'}{title}{/exp:xml_encode}</title>
+		<link>{exp:shorteen:process service='bitly' url='{path={channel_short_name}/{url_title}}'}</link>
+		<guid>{path={channel_short_name}/{url_title}/#When:{gmt_entry_date format='%H:%i:%sZ'}}</guid>
+		<description><![CDATA[{exp:eehive_hacksaw words="75" append="..."}{editorial_legacy_body}{/exp:eehive_hacksaw}]]>
+		</description>
+    	<content:encoded>
+    		<![CDATA[
+    		{if editorial_image}
+    			<p><img src="{meta_image}" /></p>
+    		{/if}
+    		<p id="devo-verse" class="summary">Read:
+				 	{editorial_scripture backspace="6"}
+				 		<?
+							preg_match("/(?:1?[0-9]?[0-9]):\\s*\\d{1,3}/ui", '{passage}', $passage);
+							$url = 'http://www.bible.com/bible/niv/{book:label}.'.str_replace(':', '.', '{passage}');
+
+						?>
+				 <a href="<? echo $url ?>" title="Read {book} {passage} on YouVersion" rel="external">{book} {passage}</a> &amp; {/editorial_scripture}</p>
+				 {exp:scripturizer}
+				 	{editorial_legacy_body}
+				 {/exp:scripturizer}
+			]]>
+		</content:encoded>
+		<dc:subject>{exp:xml_encode}{categories backspace='1'}{category_name}, {/categories}{/exp:xml_encode}</dc:subject>
+		<dc:date>{gmt_entry_date format='%Y-%m-%dT%H:%i:%s%Q'}</dc:date>
+    <pubDate>{gmt_entry_date format='%r'}</pubDate>
+	</item>
+
+	{if no_results}
+	<item>
+		<title></title>
+	</item>
+	{/if}
+	{/exp:channel:entries}
+
+	</channel>
+</rss>
+
+{if empty_feed}
+        <?xml version="1.0" encoding="{charset}"?>
+        <rss version="2.0">
+                <channel>
+                        <title>{site_name}</title>
+                        <link>{site_url}</link>
+                        <description>{site_name}</description>
+                        <item>
+                                <title>Feed Error</title>
+                                <description>There are no entries available at this time.</description>
+                        </item>
+                </channel>
+        </rss>
+{/if}
+
+{/exp:rss:feed}
+{/exp:ce_cache:it}

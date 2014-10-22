@@ -1,0 +1,85 @@
+{layout="_layouts/simple"
+	title=""
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="title"}{if site_short_name == 'fuse'}Fuse {/if}Next Steps Dashboards{/layout:set}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+
+<section>
+	<div class="shell">
+	    <div class="grid centered overlay__item">
+	    	<div class="grid__item one-whole flush">
+	    		<div class="text--constrained">
+	    			<h2 class="no_hero flush">{if site_short_name == 'fuse'}Fuse {/if}Next Steps</h2>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+</section>
+
+
+{!-- NEW NEXT STEPS DASHBOARDS! --}
+<section class="section--condensed">
+	<div class="shell">
+		<div class="grid">
+			{exp:channel:entries site="newspring" channel="campuses" status="Open|Coming Soon" category="not 156" orderby="title" sort="asc" {if site_short_name == 'fuse'}category="476"{/if} }{!--
+			
+			 
+
+			Couldn't combine these because of quotation interference with site conditionals within the playa parents loop.
+
+			 
+
+			--}{if site_short_name == 'newspring'}{if '{exp:playa:total_parents field="dashboardlink" col="dashboardlink_campuses"}' != '0'}<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+						<div class="ratio--landscape card flush">
+							<div class="ratio__item floating">
+								<div class="floating__item">
+									<h3 class="dark">{title}</h3>
+									<a href="{path='/{segment_1}/dashboard/{url_title}'}" class="link--arrow">Campus Dashboard</a>								
+								</div>
+							</div>
+						</div>
+					</div>{/if}{/if}{!--
+
+			--}{if site_short_name == 'fuse'}{if '{exp:playa:total_parents field="dashboardlink" col="dashboardlink_campuses_fuse"}' != '0'}<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+						<div class="ratio--landscape card flush">
+							<div class="ratio__item floating">
+								<div class="floating__item">
+									<h3 class="dark">{title}</h3>
+									<a href="{path='/{segment_1}/dashboard/{url_title}'}" class="link--arrow">Campus Dashboard</a>									
+								</div>
+							</div>
+						</div>
+					</div>{/if}{/if}{!--
+
+			--}{/exp:channel:entries}
+		</div>
+	</div>
+</section>

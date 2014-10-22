@@ -1,0 +1,722 @@
+html {
+	background: #252525 url(//images.newspring.cc/site/tenthings/bgnoise.gif);
+ 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#nav, #page {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-radius: 0;
+}
+
+#masthead #logo a {
+	background: url(//images.newspring.cc/site/logos/white.png) 0 0 no-repeat;
+}
+
+.hr.alt {
+	border-bottom: 1px solid rgba(100,100,100, .25);
+}
+
+.no-rgba .hr.alt {
+	border-bottom: 1px solid #333;
+}
+
+#page #masthead form input {
+	background: rgba(100,100,100, .25) url(//images.newspring.cc/site/tenthings/magnifying.glass.png) 194px 10px no-repeat;
+}
+
+.no-rgba #page #masthead form input {
+	background: #333 url(//images.newspring.cc/site/tenthings/magnifying.glass.png) 194px 10px no-repeat;
+}
+
+.no_rgba #page #masthead form input {
+	background: #333 url(//images.newspring.cc/site/tenthings/magnifying.glass.png) 194px 10px no-repeat;
+}
+
+
+#footer {
+	width: 940px;
+	border-top: 1px solid rgba(100, 100, 100, .25);
+	padding: 30px 0 40px;
+}
+
+.no-rgba #footer {
+	width: 940px;
+	border-top: 1px solid #333;
+	padding: 30px 0 40px;
+}
+
+
+#quote {
+	background: -webkit-gradient(radial, 50% 200%, 480, 50% 200%, 0, from(rgba(100,100,100,0)), to(rgba(100,100,100,.25)));
+	background: -moz-radial-gradient(50% 200%,farthest-side, rgba(100,100,100,.25), rgba(100,100,100,0));
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(100,100,100, .25);
+	margin:0 10px;
+	width: 940px;
+}
+
+.no-cssgradients #quote{
+		border-bottom: 1px solid #333;
+}
+
+#perry-quote {
+	color:#8CC63F;
+	font-size:45pt;
+	font-weight:bold;
+	line-height:47pt;
+	padding: 15px 38px 0;
+	text-align:center;
+	text-indent:-68px;
+}
+
+#line1 {
+	letter-spacing: 2.5px;
+}
+#line2 {
+	letter-spacing: .3px;
+}
+#credit {
+	font-size: 12pt;
+	font-weight: bold;
+	color: #fff;
+	text-align: right;
+	float: right;
+	margin: 15px 70px 0 0
+}
+
+#number-nav {
+	text-align: center;
+	width: 900px;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	height: 50px;
+}
+#number-nav ul {
+	display: inline;
+	margin: 0 auto;
+	text-align: left;
+}
+#number-nav ul li {
+	display: inline-block;
+	margin-right: 30px;
+	width: 30px;
+	height: 30px;
+	font-size: 18px;
+}
+#number-nav ul li a.activenum{
+	background: #efefef;
+}
+
+#number-nav ul li a:active {
+	background: #fff;
+}
+
+#number-nav ul li a:hover {
+	background: #8cc63f;
+	box-shadow: 0 4px 4px rgba(0,0,0,.2);
+}
+
+#number-nav ul li a {
+	text-decoration: none;
+	display:inline-block;
+	color:#252525;
+	width: 23px !important;
+	height: 26px !important;
+	background: rgba(100, 100, 100, .6);
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	padding-left: 11px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+	box-shadow: 0 3px 3px rgba(0,0,0,.1);
+}
+
+.no-borderradius #number-nav ul li a.activenum{
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.active.png) no-repeat 1px 2px;
+}	
+
+
+.no-borderradius #number-nav ul li a { 
+	text-decoration: none;
+	display:inline-block;
+	color:#252525;
+	width: 40px;
+	height: 40px;
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.png) no-repeat 1px 2px;
+	padding-left: 11px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+}
+
+.no-borderradius #number-nav ul li a:hover { 
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.hover.png) no-repeat 1px 2px;
+}
+
+.no-borderradius #number-nav ul li a:active { 
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.active.png) no-repeat 1px 2px;
+}
+
+.ie7 #number-nav ul li a{
+	padding: 4px 11px !important;
+	width: 60px;
+	height: 60px;
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.png) no-repeat 6px 2px;
+}
+
+.ie7 #number-nav ul li a:hover{
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.hover.png) no-repeat 6px 2px;
+}
+
+.ie7 #number-nav ul li a:active, .ie7 #number-nav ul li a.activenum{
+	background: url(//images.newspring.cc/site/tenthings/slider.num.bg.active.png) no-repeat 6px 2px;
+}
+
+.ie #number-nav ul li a {
+        line-height: 25px;
+}
+.win .webkit #number-nav ul li a{
+       padding-top: 2px !important;
+       height: 27px !important;
+}
+
+#number-nav #previous div {
+	border-style: solid;
+  	border-color:transparent #252525 transparent transparent;
+  	border-width:8px 12px 8px 0px;
+  	width:0;
+  	height:0;
+	margin: 5px 0 0 -1px;
+}
+#number-nav #next div {
+	border-style: solid;
+  	border-color:transparent transparent transparent #252525;
+  	border-width:8px 0px 8px 12px;
+  	width:0;
+  	height:0;
+	margin: 5px 0 0 2px;
+}
+#number-nav #previous, #number-nav #next {
+	text-indent: -9999em;
+	margin-top: 6px;
+        line-height:2px;
+}
+
+.ie8 #number-nav #previous, .ie8 #number-nav #next {
+	text-indent: -9999em;
+    line-height:2px;
+	position: relative;
+	top: 2px;
+}
+
+#number-nav #btn1, #number-nav #btn7, #number-nav #btn9 {
+	padding-left: 12px;
+	width: 22px;
+	text-indent: 1px;
+}
+#number-nav #btn10 {
+	padding-left: 8px;
+	width: 26px;
+	text-indent: -3px;
+}
+
+#things {
+	width: 960px;
+	height: 500px;
+	margin-top: 20px;
+}
+#things ul li {
+	margin-bottom: 100px;
+}
+
+.number {
+	margin-top: 6px;
+	width: 40px;
+	height: 60px;
+	float: left;
+	background: rgba(100, 100, 100, .6);
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	padding-left: 20px;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 40px;
+	line-height: 67px;
+	color: #252525;
+}
+
+.no-borderradius .number {
+	width: 40px;
+	height: 80px;
+	float: left;
+	background: url(//images.newspring.cc/site/tenthings/slide.num.main.bg.png) no-repeat 0 4px;	
+	font-size: 40px;
+	line-height: 67px;
+	color: #252525;
+}
+
+.win .number {
+        line-height: 57px;
+}
+
+#numberten {
+	width: 51px;
+	padding-left: 8px
+}
+#number5, #number9 {
+	width: 41px;
+	padding-left:18px;
+}
+#number2, #number3, #number6, #number8 {
+	width: 42px;
+	padding-left: 17px;
+}
+#number4 {
+	width:43px;
+	padding-left:16px;
+}
+
+#number7 {
+	width: 40px;
+	padding-left: 19px;
+}
+
+.thing-title {
+	float: right;
+	font-size: 32px;
+	color: #fff;
+	width: 880px;
+	line-height: 40px;
+}
+.references {
+	float: left;
+	margin: 10px 0 50px 80px;
+	width: 100%;
+}
+.references a {
+	float: left;
+	font-size: 14px;
+	color: #8cc63f;
+	text-decoration: none;
+	margin-right: 15px;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+}
+.references a:hover {
+	text-decoration: underline;
+}
+.videos {
+	float: left;
+	margin-left: 80px;
+}
+.videos .sermons {
+	margin-right: 30px;
+	float: left;
+}
+.videos div.box {
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	border-radius: 14px;
+	background: rgba(0,0,0,.4);
+	padding: 10px 10px 8px;
+	margin-bottom: 10px;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+}
+
+.no-borderradius .videos div.box {
+	background: url(//images.newspring.cc/site/tenthings/video.thumb.png) no-repeat;
+	padding: 10px 10px 25px;
+	margin-bottom: 10px;
+}
+
+.box-hover {
+	background: rgba(0,0,0,1) !important;
+}
+.videos .video-image {
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	width: 220px;
+	height: 130px;
+	display: block;
+	opacity: .6;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+	margin-bottom: 8px;
+	text-decoration: none;
+}
+.videos .video-image:hover, .videos .video-image-hover {
+	opacity: 1;
+}
+.videos a.video-image div.play {
+	margin: 41px 84px;
+	text-decoration: none;
+	display: inline-block;
+	color: #252525;
+	width: 34px;
+	height: 37px;
+	background: #252525;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 31px;
+	padding-left: 19px;
+	padding-top: 11px;
+	padding-bottom: 4px;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+}
+
+.no-borderradius .videos a.video-image div.play {
+	margin: 41px 84px;
+	text-decoration: none;
+	display: inline-block;
+	color: #252525;
+	width: 34px;
+	height: 37px;
+	padding-left: 19px;
+	padding-top: 11px;
+	padding-bottom: 4px;
+	background: url(//images.newspring.cc/site/tenthings/video.play.png) no-repeat;
+}
+
+.videos a.video-image div div.triangle {
+	border-style: solid;
+  	border-color:transparent transparent transparent rgba(140,198,63,.6);
+  	border-width:10px 0px 10px 15px;
+  	width:0;
+  	height:0;
+	margin: 5px 0 0 2px;
+	text-indent: -9999em;
+}
+
+.no-borderradius .videos a.video-image div div.triangle{
+	display: none;
+}
+
+.videos .video-title {
+	width: 100%;
+	display: block;
+	color: #fff;
+	font-size: 13px;
+	text-decoration: none;
+}
+.videos .box span.series a {
+	color: #fff;
+	text-decoration: none;
+}
+.videos .box span.series a:hover {
+	text-decoration: underline;
+}
+
+.videos .listen {
+	color: #fff;
+	text-decoration: none;
+	padding: 3px 0 0;
+	float: left;
+	font-size: 14px;
+	letter-spacing: .3px;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+}
+.videos .listen:hover, .videos .listen-hover {
+	color: #8cc63f;
+}
+.videos .audio-btn {
+	margin: 0 10px 0 10px;
+	text-decoration: none;
+	display: inline-block;
+	color: #252525;
+	width: 18px;
+	height: 23px;
+	background: rgba(100, 100, 100, .6);
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	padding-left: 6px;
+	padding-top: 1px;
+	padding-bottom: 0;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+	float: left;
+	text-indent: -9999em;
+}
+.videos .audio-btn:hover, .videos .audio-hover {
+	background: #8cc63f;
+}
+.videos .audio-btn .triangle-sm {
+	border-style: solid;
+  	border-color:transparent transparent transparent #252525;
+  	border-width:6px 0px 6px 10px;
+  	width:0;
+  	height:0;
+	margin: 5px 0 0 2px;
+}
+
+.no-borderradius .videos .audio-btn {
+	margin: -10px 10px 0 5px;
+	text-decoration: none;
+	display: inline-block;
+	color: #252525;
+	width: 18px;
+	height: 23px;
+	background: url(//images.newspring.cc/site/tenthings/video.play.small.png) no-repeat;
+	padding-left: 6px;
+	padding-top: 1px;
+	padding-bottom: 0;
+	float: left;
+	text-indent: -9999em;
+}
+
+.no-borderradius .videos .listen {
+	color: #fff;
+	text-decoration: none;
+	padding: 3px 0 0;
+	float: left;
+	font-size: 14px;
+	letter-spacing: .3px;
+	margin-top: -10px;
+}
+
+.no-borderradius .videos .audio-btn:hover, .no-borderradius .videos .audio-hover {
+	background: url(//images.newspring.cc/site/tenthings/video.play.small.hover.png) no-repeat;
+}
+.no-borderradius .videos .audio-btn .triangle-sm {
+	display: none;
+}
+
+
+/* video images */
+#one-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/one-1.png) no-repeat;
+}
+#one-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/one-2.png) no-repeat;
+}
+#one-3 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/one-3.png) no-repeat;
+}
+#two-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/two-1.png) no-repeat;
+}
+#two-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/two-2.png) no-repeat;
+}
+#three-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/three-1.png) no-repeat;
+}
+#four-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/four-1.png) no-repeat;
+}
+#four-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/four-2.png) no-repeat;
+}
+#four-3 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/four-3.png) no-repeat;
+}
+#five-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/five-1.png) no-repeat;
+}
+#six-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/six-1.png) no-repeat;
+}
+#six-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/six-2.png) no-repeat;
+}
+#six-3 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/six-3.png) no-repeat;
+}
+#seven-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/seven-1.png) no-repeat;
+}
+#seven-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/seven-2.png) no-repeat;
+}
+#eight-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/eight-1.png) no-repeat;
+}
+#eight-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/eight-2.png) no-repeat;
+}
+#nine-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/nine-1.png) no-repeat;
+}
+#nine-2 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/nine-2.png) no-repeat;
+}
+#nine-3 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/nine-3.png) no-repeat;
+}
+#ten-1 {
+	background: url(//images.newspring.cc/site/tenthings/video-images/ten-1.png) no-repeat;
+}
+
+.stdct-reg {
+	font-family: 'StandardCT-Regular';
+	font-weight: normal;
+}
+.stdct-bold {
+	font-family: 'StandardCT-Bold';
+	font-weight: bold;
+}
+.stdct-med {
+	font-family: 'StandardCT-Medium';
+	font-weight: 500;
+}
+.stdct-xtrabold {
+	font-family: 'StandardCT-ExtraBold';
+	font-weight: 800;
+}
+.stdct-xtraboldext {
+	font-family: 'StandardCTExtended-ExtraBold';
+	font-weight: 800;
+}
+.stdct-boldext {
+	font-family: 'StandardCTExtended-Bold';
+	font-weight: bold;
+}
+/*// hashthingsv0.9 by manuel huegel, copyright 2010
+// mgoys.com*/
+
+/*the container*/
+#things{
+	position: relative; /*important for ie bugfix*/
+	overflow: hidden;
+	z-index: 10;
+	}
+
+/*the for and back buttons*/
+#right { /*hides the inline text with textindent*/
+	cursor: pointer;
+	}
+	
+#left {
+	cursor: pointer;
+	}
+
+	
+#things ul { /*the width of the ul and the li will be set automaticly by the javascript!*/
+	position: relative;
+}
+	
+#things ul li { /*the width of the ul and the li will be set automaticly by the javascript!*/
+	float: left;
+	}
+
+
+/*the numbered navigation*/
+#numbers { /*also the width of the number-wrapper will be set automaticly, delete line 33-35 in the js to avoid this*/
+	text-align: center;
+	list-style: none;
+	width: 960px;
+}	
+	
+#numbers li {
+	position: relative;
+}
+
+.ie7 #numbers li{
+	display: inline;
+	list-style: none;
+	width: 30px;
+}
+
+#links {
+	width: 675px;
+	margin: 0 auto 30px;
+}
+#podcast {
+	margin-right: 30px;
+}
+#podcast {
+	width: 375px;
+	float: left;
+}
+#download{
+	width: 260px;
+	float: left;
+}
+#podcast a, #download a {
+	color: rgba(100,100,100,.6);
+	text-decoration: none;
+	float: left;
+	-webkit-transition: linear .2s all;
+	-moz-transition: linear .2s all;
+	-o-transition: linear .2s all;
+}
+
+.no-rgba #podcast a, .no-rgba #download a {
+	color: #7e7e7e;
+	text-decoration: none;
+	float: left;
+}
+
+#podcast #words:hover, .words-hover, #download #download-words:hover, .download-words-hover {
+	color: #8cc63f !important;
+}
+#podcast #words, #download #download-words {
+	margin-top: 2px;
+}
+
+.no-rgba #podcast #words, .no-rgba #download #download-words {
+	margin-top: 2px;
+	font-size: 10pt;
+}
+.icons {
+	width: 26px;
+	height: 29px;
+	margin-right: 10px;
+	text-indent: -9999px;
+	float: left;
+}
+
+#podcast #icon {
+	background: rgba(100,100,100,.6) url(//images.newspring.cc/site/tenthings/pictos-podcast.png) no-repeat;
+}
+#download #download-icon {
+	background: rgba(100,100,100,.6) url(//images.newspring.cc/site/tenthings/download.png) no-repeat;
+	width: 24px;
+	height: 24px;
+}
+
+#podcast #icon:hover, .icon-hover {
+	background: #8cc63f url(//images.newspring.cc/site/tenthings/pictos-podcast.png) no-repeat !important;
+}
+#download #download-icon:hover, .download-icon-hover {
+	background: #8cc63f url(//images.newspring.cc/site/tenthings/download.png) no-repeat !important;
+	width: 24px;
+	height: 24px;
+}
+
+.no-rgba #podcast #icon {
+	background: url(//images.newspring.cc/site/tenthings/podcast.icon.png) no-repeat;
+}
+.no-rgba #download #download-icon {
+	background: url(//images.newspring.cc/site/tenthings/download.icon.png) no-repeat;
+	width: 24px;
+	height: 24px;
+}
+
+.no-rgba #podcast #icon:hover, .no-rgba .icon-hover {
+	background: url(//images.newspring.cc/site/tenthings/podcast.icon.hover.png) no-repeat !important;
+}
+.no-rgba #download #download-icon:hover, .no-rgba .download-icon-hover {
+	background: url(//images.newspring.cc/site/tenthings/download.icon.hover.png) no-repeat !important;
+	width: 24px;
+	height: 24px;
+}

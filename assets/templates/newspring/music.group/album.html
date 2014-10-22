@@ -1,0 +1,100 @@
+{layout="newspring:_layouts/global"
+    title=""
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{embed="_embeds/_masthead"
+    fixed_masthead="n"
+}
+
+{!-- {embed="_embeds/_hero" 
+    title="NewSpring Music" 
+    image_url="https://dl.dropboxusercontent.com/sh/bqm30kxe66q5ng3/AAA0l9TclQ7AUda_bGFHohvRa/V4/COL/JPEGS/NS-COL-cip-0055.jpg?token_hash=AAFyXCPDSjYwgAw4OrxcFkFYSX4EvRz2uCYNcGECUC2hxQ&expiry=1402269025"
+} --}
+
+{exp:channel:entries channel="albums" limit="1" offset="1"}
+{if album_tracks:total_rows > 12}
+<section><br><br><br><br>
+	<div class="shell">
+	    <div class="grid floating">
+    		<div class="grid__item one-half portable-one-whole handheld-one-whole floating__item" data-repeatable="y">
+	            	<img src="{album_image}" alt="">
+	        </div><div class="grid__item one-half portable-one-whole handheld-one-whole floating__item left" data-repeatable="y">
+				<h2>{title}</h2>
+	            <p>{album_description}</p>
+    	        <a href="#" class="btn">Buy the Album</a>
+	        </div>
+		</div>
+	</div>
+</section>
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+	        <div class="grid__item one-whole flush centered">
+	        	<h2>Track List</h2><br><br>
+	        	<hr class="hidden">
+	        </div><div class="grid__item one-half">
+    			<ol class="list--ruled list--small left">
+            		{album_tracks limit="12"}
+            		<li>{album_tracks_title}<span class="right">{album_tracks_duration}</span></li>
+            		{/album_tracks}
+            	</ol>
+    		</div><div class="grid__item one-half">
+    			<ol start="13" class="list--ruled list--small left">
+            		{album_tracks offset="12"}
+            		<li>{album_tracks_title}<span class="right">{album_tracks_duration}</span></li>
+            		{/album_tracks}
+            	</ol>
+    		</div>
+		</div>
+	</div>
+</section>
+{if:else}
+<section><br><br><br><br>
+	<div class="shell">
+	    <div class="grid floating">
+    		<div class="grid__item one-half portable-one-whole handheld-one-whole" data-repeatable="y">
+	            	<img src="{album_image}" alt="">
+	        </div><div class="grid__item one-half portable-one-whole handheld-one-whole left" data-repeatable="y">
+	        	<h2>{title}</h2>
+	        	<p>{album_description}</p>
+            	<ol class="list--ruled list--small left">
+            		{album_tracks}
+            		<li>{album_tracks_title}<span class="right">{album_tracks_duration}</span></li>
+            		{/album_tracks}
+            	</ol>
+            	<a href="#" class="btn">Buy the Album</a>
+	        </div>
+		</div>
+	</div>
+</section>
+{/if}
+{/exp:channel:entries}
+
+{embed="_embeds/_footer"}

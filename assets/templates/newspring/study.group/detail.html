@@ -1,0 +1,58 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries channel='study' status='open' disable='categories|member_data|pagination|trackbacks'}
+
+{exp:playa:parents channel="day" status="open" limit="40" var_prefix="day"}
+
+	{if '{segment_3}' == '{day:url_title}'}
+
+		{embed='study/header' 
+			page_title='{day:title}' 
+			study_title='{title}' 
+			study_styles='{day:study_styles}'
+			body_id='{url_title}'
+			meta_description='{exp:eehive_hacksaw append='&hellip;' chars='250'}{day:day_devotional}{/exp:eehive_hacksaw}'
+			fb_describe="{exp:eehive_hacksaw append='&hellip;' chars='250'}{day:day_devotional}{/exp:eehive_hacksaw}"
+		}
+	
+	{!-- preload_replace:full_url='{embed="study/_url" entry_id="{entry_id}" url_title="{url_title}"}' --}
+	
+	<div id="date-{day:entry_date format='%Y-%m-%d'}" class="day clearfix">
+
+		<div class="day_scripture g_4">
+			<h2><a href="{day:url_title_path=study/{segment_2}}" title="Permalink for Day {day_count}">D<span class="kern_ay">a</span>y {day:day_count}</a></h2>
+			<ul>
+			{day:day_scripture}
+				<li>{day:book} {day:passage}</li>
+			{/day_scripture}
+			</ul>
+		</div>
+
+		<div class="devotional g_8">
+			<h1><a href="{day:url_title_path=study/{segment_2}}" title="Permalink for {title}">{day:title}</a></h1>
+			{day:day_devotional}
+		</div>
+
+		<div class="share clearfix">
+			<div id="facebook-share">
+				<div class="fb-like" data-href="{day:url_title_path=study/{segment_2}}" data-send="true" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="light"></div>
+			</div>
+			<div id="twitter-share">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out '{day:title}' on NewSpring Church’s 30-Day Bible Study: {day:day_short_url}" data-via="newspring" data-related="perrynoble" data-hashtags="eveadam">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+		</div>
+
+		<div class="hr"><hr></div>
+	</div><!-- .devotional -->
+
+{/if}
+{/exp:playa:parents}
+	{if study_styles}
+		<style type="text/css">
+			{study_styles}
+		</style>
+	{/if}
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

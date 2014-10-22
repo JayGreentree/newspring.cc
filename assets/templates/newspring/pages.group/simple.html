@@ -1,0 +1,25 @@
+{exp:ce_cache:it}
+{exp:channel:entries channel='pages'}
+
+{exp:ce_cache:escape}
+	{embed='includes/simple_header' 
+		title='{title}' 
+		body_id='{body_id}' 
+		body_class='{body_class}' 
+		script='{extra_script}' 
+		style='{extra_style}'
+	}
+	{if logged_out && page_hidden}
+		{redirect="/"}
+	{/if}
+{/exp:ce_cache:escape}
+
+{right_column}
+
+{exp:ce_cache:escape}
+	{embed='includes/simple_footer'}
+{/exp:ce_cache:escape}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

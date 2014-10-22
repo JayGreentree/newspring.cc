@@ -1,0 +1,116 @@
+{exp:ce_cache:it}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		body_id='share' 
+		body_class='stories' 
+		title='Share Your Story' 
+		script='NewSpring.Forms'
+	}
+{/exp:ce_cache:escape}
+
+<h1 class="ir">Share Your Story With Us</h1>
+
+<div id="intro">
+	<p>Jesus changes lives, and we want to celebrate that as a church by sharing more video stories on our website and in our services. We're looking for all sorts of stories of how God has been moving in the lives of our members and attenders:</p>
+	<ul>
+		<li>In rescue, such as salvation in Jesus or freedom from a particular sin or healing from a broken situation.</li>
+		<li>In loving care, such as an answered prayer, a divine appointment or an instance of God's special favor.</li>
+		<li>In mission, such as volunteering, serving the community or bringing others closer to Jesus.</li>
+	</ul>
+	<p>We can't promise every story will be told on video, but we will share as many as possible with NewSpring staff and volunteers to encourage them in their ministry!</p>
+</div>
+
+	{exp:freeform:form 
+		notify='stories@newspring.cc'
+		required='stories_campus|stories_membership|stories_facebook'
+		return='site/thanks'
+		template='stories'
+		form:id="share"
+		form:class="request"
+	}
+		<fieldset>
+			<legend>Your Story</legend>
+			
+			<p class="heading"><label for="stories_story">Tell us your story</label></p>
+			<p><textarea name="stories_story" rows="10" cols="10" id="stories_story"></textarea></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Contact Information</legend>
+			
+			<p class="heading">Name</p>
+			<div class="inline clearfix">
+				<p><label for="stories_first_name">First</label> <input type="text" size="8" id="stories_first_name" value="" name="stories_first_name"></p>
+				<p><label for="stories_last_name">Last</label> <input type="text" size="14" id="stories_last_name" value="" name="stories_last_name"></p>
+			</div>
+			
+			<p class="heading"><label for="stories_email">Email Address</label></p>
+			<p><input type="text" name="stories_email" value="" id="stories_email" size="26"></p>
+			
+			<p class="heading"><label for="stories_social_networks">Social Network Accounts (Facebook, Twitter, etc.)</label></p>
+			<p><input type="text" name="stories_social_networks" value="" id="stories_social_networks" size="26"></p>
+
+			<p class="heading">Phone Number</p>
+			<div class="inline clearfix">
+				<p><label for="stories_phone_first">###</label> <input type="text" maxlength="3" size="3" id="stories_phone_first" value="" name="stories_phone_first"> -</p>
+				<p><label for="stories_phone_second">###</label> <input type="text" maxlength="3" size="3" id="stories_phone_second" value="" name="stories_phone_second"> -</p>
+				<p><label for="stories_phone_last">####</label> <input type="text" maxlength="4" size="4" id="stories_phone_last" value="" name="stories_phone_last"></p>
+			</div>
+			
+			<p class="heading"><label for="stories_contact_time">List the best days and times when our storytelling team may reach you by&nbsp;phone</label></p>
+			<p><textarea name="stories_contact_time" rows="6" cols="10" id="stories_contact_time"></textarea></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Attendance Details</legend>
+			
+			<p class="heading"><label for="stories_campus">I attend NewSpring in <em>*</em></label></p>
+			<p>
+				<select name="stories_campus" id="stories_campus" class="required">
+					<option value="">Choose a Campus</option>
+					{embed="includes/_campus-options"}
+					<option>Web</option>
+				</select>
+			</p>
+			
+			<p class="heading"><label for="stories_membership">I am a NewSpring <em>*</em></label></p>
+			<p>
+				<select name="stories_membership" id="stories_membership" class="required">
+					<option value="">Choose Membership Status</option>
+					<option>Attender</option>
+					<option>Owner</option>
+				</select>
+			</p>
+		</fieldset>
+		
+		<fieldset>
+		<legend>Fine Print</legend>			
+
+			<p class="heading"><label for="stories_facebook">My story can be published on NewSpring's Facebook pages. <em>*</em></label></p>
+			<p>
+				<select name="stories_facebook" id="stories_facebook" class="required">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</p>
+		</fieldset>
+
+		<p class="button"><input type="submit" name="submit" value="Submit Your Story"></p>
+	{/exp:freeform:form}
+	
+	<script type="text/javascript" charset="utf-8">
+	// <!--
+		var share = new NewSpring.Forms();
+		share.init({ selector: '#share' });
+		share.start();
+	// -->
+	</script>
+
+</div>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

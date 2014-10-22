@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<categories>
+    <category title="NewSpring Church All Staff" description="Mondays at 9am" sd_img="http://images.newspring.cc.s3.amazonaws.com/roku/live.png"
+hd_img="http://images.newspring.cc.s3.amazonaws.com/roku/live.png">
+		<categoryLeaf title="All Staff" description="Live all staff message from Perry Noble every Monday morning at 9am" feed="http://api.ooyala.com/v2/syndications/2100bf8b69334b0bb2b5412b80703ca8/feed?pcode=E1dWM6UGncxhent7MRATc3hmkzUD"/>
+	</category>
+ </categories>
+

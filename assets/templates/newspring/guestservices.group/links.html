@@ -1,0 +1,25 @@
+{exp:channel:entries channel="guest_services" url_title="{segment_2}"}
+<ul class="clearfix" style="margin: 10px 0 10px -10px;">
+	{gs_links}
+	{if disabled != 'y'}
+	<li class="g_4 blackened">
+		<a href='{url}' rel="external" onclick="_gaq.push(['_trackEvent','Guest Services', '{gs_campus}{title}{/gs_campus}', '{text}']);">
+			<em>{if green_text}
+					{green_text}
+				{if:else}
+					{gs_campus}
+						{title}:
+					{/gs_campus} 
+				{/if}</em>
+			{text}
+		</a>
+	</li>
+	{/if}
+<!--{url}-->
+	{/gs_links}
+
+</ul>
+
+{!-- embed='includes/class_ad' campus='{campus_name}' --}
+{if no_results} {redirect="guestservices"} {/if}
+{/exp:channel:entries}

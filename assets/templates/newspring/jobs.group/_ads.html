@@ -1,0 +1,8 @@
+{!-- <div class="hr alt"><hr></div>
+
+<ul class="ads clearfix g_12">
+	{exp:channel:entries channel="advertisements" dynamic="off" search:ad_location="footer" orderby="random" status="open" disable="categories|category_fields|member_data|pagination|trackbacks" limit="3"}
+	<li><a href="{ad_url}" title="Learn more about {title}" class="g_4 {switch='g_a||g_o'}"><img src="{ad_image}" alt="{title}"></a></li>
+	{/exp:channel:entries}
+</ul>
+--}

@@ -1,0 +1,145 @@
+/*------------------------------------------------------------------------------
+        The New Gauntlet Page/Section
+-------------------------------------------------------------------------------*/
+#page #main_content {
+font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+color: #666;
+line-height: 1.6;
+}
+
+#p_gauntlet #page p {
+margin-bottom: 20px;
+}
+
+#p_gauntlet #page .question {
+color: black;
+margin-bottom: 0;
+}
+
+#p_gauntlet #main_content p.blackened.wide{
+	margin-left: -10px;
+	margin-top: 20px;
+	margin-bottom: -10px;
+}
+
+#p_gauntlet #main_content p.blackened.wide a{
+	width: 450px;
+	padding-top: 25px;
+	height: 25px;
+	padding-bottom: 30px;
+}
+
+#p_volunteer #main_content p.blackened.wide a em {
+	color: #fffeff;
+	text-transform: uppercase;
+	font-size: 35px;
+	line-height: 20px;
+}
+
+#p_gauntlet div.clear{
+	padding: 0 !important;
+	border: none !important;
+}
+
+#video.unseen {
+background: black url(//images.newspring.cc/site/gauntlet/loading.gif) no-repeat 50% 50%;
+border-bottom-left-radius: 7px 7px;
+border-bottom-right-radius: 7px 7px;
+border-top-left-radius: 7px 7px;
+border-top-right-radius: 7px 7px;
+padding: 20px;
+position: fixed;
+margin-left: -180px;
+top: 24%;
+z-index: 101;
+}
+
+#trans {
+background: url(//images.newspring.cc/site/gauntlet/trans_90.png) repeat 0px 0px;
+height: 100%;
+left: 0px;
+position: fixed;
+top: 0px;
+width: 100%;
+z-index: 20;
+}
+
+#p_gauntlet #page #sub_content {
+margin: 0px -10px 0;
+padding: 30px 0 0;
+width: 260px;
+border-top: 1px solid #DDD;
+border-right: 1px solid #DDD;
+border-bottom: 1px solid #DDD;
+-webkit-border-top-right-radius: 7px;
+-moz-border-radius-topright: 7px;
+border-top-right-radius: 7px;
+-webkit-border-bottom-right-radius: 7px;
+-moz-border-radius-bottomright: 7px;
+border-bottom-right-radius: 7px;
+}
+
+#p_gauntlet #page #sub_content ul li a:hover {
+color: #418577;
+}
+#p_gauntlet #page #sub_content ul li a.current {
+background: #418577;
+color: #fff;
+}
+
+#p_gauntlet #page #sub_content ul li a span {
+background: url(//images.newspring.cc/site/gauntlet/2012/green.418577.png) 100% 4px no-repeat;
+}
+
+
+#p_gauntlet #page #sub_content ul li a.current span {
+background-image: url(//images.newspring.cc/site/buttons/arrows/white.png);
+}
+
+#page #hero {
+background: url(//images.newspring.cc/site/gauntlet/2012/header.png) no-repeat;
+height: 420px;
+}
+
+#p_gauntlet #faq h3 {
+color: #29AAE2;
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+#page #main_content h3 {
+font-size: 14px;
+margin: 60px 0 10px;
+}
+
+#page #main_content ul {
+margin-left: 20px;
+}
+
+#p_gauntlet #main_content a {
+    color: #0D6283;
+    font-weight: bold;
+}
+
+#p_gauntlet #main_content h3.firsth3 {
+margin-top: 0px;
+}
+
+#p_gauntlet #page #sub_content ul li a.tertiary span {
+background: url(//images.newspring.cc/site/gauntlet/2011/arrows/blue.25aae1.png) 100% 4px no-repeat;
+padding-left: 30px;
+}
+
+#p_gauntlet #page #sub_content ul li a.current-tertiary {
+color: #fff;
+background: #d3d3d3;
+}
+
+#p_gauntlet #page #sub_content ul li a.current-tertiary span {
+background: url(//images.newspring.cc/site/buttons/arrows/white.png) 100% 4px no-repeat;
+}
+#p_gauntlet #page #sub_content ul li a span.videos {
+background: url(//images.newspring.cc/site/buttons/arrows/white-down.png) 100% 6px no-repeat;
+}

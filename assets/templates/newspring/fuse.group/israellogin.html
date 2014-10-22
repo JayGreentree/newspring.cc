@@ -1,0 +1,37 @@
+{embed='includes/header'
+	title='Fuse Israel Trip Login'
+	body_id='fuse'
+	body_class="subnav"
+	page_class="page-border"
+	group_style="fuse"
+	style="resources"
+	fb_title="Fuse Israel Trip Login"
+	fb_url=""
+	meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}'
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+
+}
+
+</div><!-- //page - wraps header -->
+
+{embed="{segment_1}/_subnav"}
+
+<div id="subnav_page" class="c_12 clearfix page-border login">
+
+		<div class="g_6 p_3 s_3 clearfix">
+			<h2>Enter the password</h2>
+			{exp:member:login_form id="login_form" return="fuse/israelmeeting"}
+
+			<p class="column"><label>Password</label>
+				<input type="hidden" name="username" value="fuse.israel" maxlength="64" class="input" size="25" />
+				<input type="password" name="password" value="" maxlength="64" class="input" size="25" />
+				<input type="submit" name="submit" value="Sign In" />
+			</p>
+
+			<p class="column"></p>
+
+			<div class="clearfix"></div>
+			{/exp:member:login_form}
+		</div>
+
+{embed='includes/footer'}

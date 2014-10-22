@@ -1,0 +1,10 @@
+<div id="subnav" class="c_12 clearfix">
+	<div  class="g_7">
+		<h1><a href="{path=jobs}">Work Here</a></h1>
+	</div>
+	<div class="g_5 right">
+		<a href="{path=jobs}" {if segment_2 != "apprenticeships" AND segment_2 != "internships"}class="active"{/if}>Jobs<span></span></a>
+		<a href="{path=jobs/internships}" {if segment_2 == "internships"}class="active"{/if}>Internships<span></span></a>
+		<a href="{path=jobs/apprenticeships}" {if segment_2 == "apprenticeships"}class="active"{/if}>Apprenticeships<span></span></a>
+	</div>
+</div>

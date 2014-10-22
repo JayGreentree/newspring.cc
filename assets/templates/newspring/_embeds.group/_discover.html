@@ -1,0 +1,62 @@
+{!--
+	{embed="_embeds/_discover"
+		type="related"
+		title="{embed:title}"
+		channel="{embed:channel}"
+		entry_id="{entry_id}"
+		suggestions="<span class='tag' data-modal-open='search-modal' data-google-search-link='search-modal'>Salvation</span>"
+	}
+
+	@NOTE Type can be related OR promoted
+	channel and entry_id aren't required for promoted.
+
+--}
+<section class="section--search">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item centered">
+				<h3 class="caps color--primary">What can we help you find?</h3>
+				{if embed:type == "promoted"}
+
+					<p class="text--larger text--constrained">
+						Are you looking for
+						{exp:low_reorder:entries set="promotions_{site_short_name}"
+							site="newspring"
+							disable='categories|member_data|pagination|trackbacks'
+							status="open"
+						}
+
+							<a {if promotion_url}href="{promotion_url}"{if:else}
+								href=""
+								data-modal-open="search-modal"
+								data-google-search-link="search-modal"{/if}
+								class="dark"><strong>{title}</strong></a>{if total_results != count},{if:else}?{/if}{if total_results != count} or {/if}
+
+						{/exp:low_reorder:entries}
+					</p>
+
+				{if:else}
+
+					 {!-- If an Entry ID is passed, search will suggest tags for that entry from the topics group --}
+						{if embed:entry_id}
+							{exp:tag:tags
+								entry_id="{embed:entry_id}"
+								tag_group_id="5"
+								orderby="clicks"
+								sort="asc"
+							}
+							{if tag_count == 1}<p class="text--larger">Discover more{!--  {if embed:title}<b>{embed:title}</b>{/if} --} about {/if}<span class="dark tag" data-modal-open="search-modal" data-google-search-link="search-modal">{tag}</span>{if tag_count != tag_total_results}, {if:else}.</p>{/if}
+							{/exp:tag:tags}
+						{if:elseif embed:suggestions}
+							{!-- Otherwise it will list the exact terms passed through the embed variable --}
+								<p class="text--larger">Discover more {!-- {if embed:title}<b class='lowercase'>{embed:title}</b>{/if}  --}about {embed:suggestions}.</p>
+						{/if}
+
+				 {/if}
+				<div data-modal-open="search-modal" class="btn btn--icon">
+					Search
+					<span class="icon icon--search"></span>
+				</div>
+		</div>
+	</div>
+</section>

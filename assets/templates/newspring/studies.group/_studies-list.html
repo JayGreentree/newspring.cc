@@ -1,0 +1,91 @@
+{layout="_layouts/master"
+	title="Studies"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+
+{embed="newspring:_embeds/_non-hero"
+		site="newspring"
+		section="{embed:section_classes}"
+		overlay="overlay--light"
+		title="Studies"
+		image_url="{embed:section_image}"
+		image_classes=""
+}
+
+
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+		{exp:channel:entries site="newspring" channel="{embed:collection_channel}" limit="9" paginate="bottom" status="Featured|Open"}{!--
+		 --}<div class="grid__item one-third lap-one-half palm-wide-one-half palm-one-whole">
+
+				{!-- Image --}
+				<a href="{if '{exp:playa:total_parents site="newspring" channel="study_entries|studies_entries_fuse"}' > 0}{exp:playa:parents site="newspring" channel="study_entries|studies_entries_fuse" var_prefix="session" limit="1" sort="asc"}{path='/{segment_1}/{url_title}'}{/exp:playa:parents}{if:else}{collection_downloads}{file}{/collection_downloads}{/if}"><div class="ratio--landscape background--fill clickable flush" style="background-image: url({if '{exp:playa:total_children site="newspring" channel="series_newspring|series_fuse"}' > 0}{exp:playa:children site="newspring" channel="series_newspring|series_fuse"}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{/exp:playa:children}{if:else}{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}{/if});"></div></a>
+				<div class="card left">
+
+					{!-- Title --}
+					<h3><a href="{if collection_downloads AND {exp:playa:total_parents channel='study_entries'} > 0}{path='/{segment_1}/{url_title}'}{if:elseif collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}{exp:playa:parents channel="study_entries" var_prefix="session" limit="1" sort="asc"}{path='/{segment_1}/{url_title}'}{/exp:playa:parents}{/if}" class="dark">{title}</a></h3>
+
+					{!-- Tag List --}
+					{exp:tag:tags
+						site="newspring"
+						entry_id="{entry_id}"
+						tag_group_id="5"
+						orderby="clicks"
+						sort="asc"
+						limit="4"
+					}{if tag_count == 1}<ul class="inline">{/if}<li class="tag"><span data-modal-open="search-modal" data-google-search-link="search-modal">{tag}</span></li>{if tag_count == tag_total_results}</ul>{/if}
+					{/exp:tag:tags}
+
+					{!-- Summary --}
+					{if collection_description}
+					<p class="colfax">{exp:eehive_hacksaw chars = "140"}{collection_description}{/exp:eehive_hacksaw}&hellip;</p>
+					{/if}
+
+					<a href="{if '{exp:playa:total_parents site="newspring" channel="study_entries|studies_entries_fuse"}' > 0}{exp:playa:parents site="newspring" channel="study_entries|studies_entries_fuse" var_prefix="session" limit="1" sort="asc"}{path='/{segment_1}/{url_title}'}{/exp:playa:parents}{if:else}{collection_downloads}{file}{/collection_downloads}{/if}" class="link--arrow">{if collection_downloads AND {exp:playa:total_parents channel='{embed:entries_channel}'} > 0}View{if:elseif collection_downloads}Download{if:else}View{/if} Study</a>
+
+				</div>
+			</div>{!--
+		 --}{paginate}{pagination_links page_padding="1"}{!--
+		 --}<div class="grid__item one-whole">
+				<div class="pagination">
+				  {previous_page}<a href="{pagination_url}" class="pagination__item page-previous"></a>{/previous_page}
+				  {page}<a href="{pagination_url}" class="pagination__item page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>{/page}
+				  {next_page}<a href="{pagination_url}" class="pagination__item page-next"></a>{/next_page}
+				</div>
+			</div>{!--
+		 --}{/pagination_links}{/paginate}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

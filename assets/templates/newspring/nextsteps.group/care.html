@@ -1,0 +1,75 @@
+.
+{exp:ce_cache:it}
+
+{preload_replace:page_template="nextsteps"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Care | Next Steps' 
+		body_id='care' 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}" 
+		group_script="{segment_1}"
+		fb_title="Care | Next Steps"
+		fb_url="{path={page_template}}" 
+		meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}' 
+		fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:escape}
+
+	<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div class="c_12 clearfix page-border">
+		<div class="g_12">
+			<div id="hero">
+				<img src="//images.newspring.cc/section/nextsteps/hero.careandprayer.jpg" width="940" alt="" class="border">
+			</div>
+		</div>
+		<div class="section g_12">
+			<div class="g_7 g_a">
+				<div class="leftCol">
+					<h2>Care &amp; Prayer Information</h2>
+					<p>We believe that everyone can walk in freedom. We would love to be able to talk and pray with you about what is going on in your life and help you discover your next step.</p>
+					<p>We have a Care Team at each campus that would love to talk with you, provide biblical guidance, and pray for or with you. Our Care Team is available after every service on Sunday in our Care and Prayer Room. In addition, you can also request to speak with someone or <a href="https://newspring.wufoo.com/forms/care-request/">ask for prayer here.</a></p>
+				</div>
+			</div>
+			<div class="g_5 g_o">
+				<div class="rightCol">
+					<h2>Care &amp; Prayer Resources</h2>
+					<p>Is there a specific topic that you have questions about? We want to answer your questions! Just select one of these common topics to learn more.</p>
+					<a href="#" class="btn resources-trigger">View Care Resources <span></span></a><br><br>
+					<ul class="care-resources">
+						<li>Abortion<a href="http://media.newspring.cc/docs/nextsteps/care/abortion.pdf" class="btn">Download PDF</a></li>
+						<li>Addiction<a href="http://media.newspring.cc/docs/nextsteps/care/addiction.pdf" class="btn">Download PDF</a></li>
+						<li>Adultery<a href="http://media.newspring.cc/docs/nextsteps/care/adultery.pdf" class="btn">Download PDF</a></li>
+						<li>Anger<a href="http://media.newspring.cc/docs/nextsteps/care/anger.pdf" class="btn">Download PDF</a></li>
+						<li>Anxiety<a href="http://media.newspring.cc/docs/nextsteps/care/anxiety.pdf" class="btn">Download PDF</a></li>
+						<li>Body Image<a href="http://media.newspring.cc/docs/nextsteps/care/bodyimage.pdf" class="btn">Download PDF</a></li>
+						<li>Bullying<a href="http://media.newspring.cc/docs/nextsteps/care/bullying.pdf" class="btn">Download PDF</a></li>
+						<li>Cutting<a href="http://media.newspring.cc/docs/nextsteps/care/cutting.pdf" class="btn">Download PDF</a></li>
+						<li>Dating<a href="http://media.newspring.cc/docs/nextsteps/care/dating.pdf" class="btn">Download PDF</a></li>
+						<li>Depression<a href="http://media.newspring.cc/docs/nextsteps/care/depression.pdf" class="btn">Download PDF</a></li>
+						<li>Divorce<a href="http://media.newspring.cc/docs/nextsteps/care/divorce.pdf" class="btn">Download PDF</a></li>
+						<li>Eating Disorder<a href="http://media.newspring.cc/docs/nextsteps/care/eatingdisorders.pdf" class="btn">Download PDF</a></li>
+						<li>Forgiveness<a href="http://media.newspring.cc/docs/nextsteps/care/forgiveness.pdf" class="btn">Download PDF</a></li>
+						<li>Grief and Loss<a href="http://media.newspring.cc/docs/nextsteps/care/griefandloss.pdf" class="btn">Download PDF</a></li>
+						{!-- <li>Homosexuality<a href="http://media.newspring.cc/docs/nextsteps/care/homosexuality.pdf" class="btn">Download PDF</a></li> --}
+						<li>Living Together Before Marriage<a href="http://media.newspring.cc/docs/nextsteps/care/livingtogether.pdf" class="btn">Download PDF</a></li>
+						<li>Pornography<a href="http://media.newspring.cc/docs/nextsteps/care/pornography.pdf" class="btn">Download PDF</a></li>
+						<li>Salvation<a href="http://media.newspring.cc/docs/nextsteps/care/salvation.pdf" class="btn">Download PDF</a></li>
+						<li>Suicide<a href="http://media.newspring.cc/docs/nextsteps/care/suicide.pdf" class="btn">Download PDF</a></li>
+					</ul>
+					<br>
+				</div>
+			</div>
+		</div>
+{exp:ce_cache:escape}	
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

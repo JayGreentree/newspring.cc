@@ -1,0 +1,201 @@
+<header id="masthead" {if embed:sticky == 'y'}class="sticky"{/if}>
+    <div class="shell">
+        <div class="grid">
+            <div class="grid__item five-twelfths portable-one-whole">
+                <a href="/0v4test" id="logo">NEWSPRING CHURCH</a>
+                <form action="#">
+                    <span class="pictos">s</span>
+                    <input type="text" placeholder="Search">
+                </form>
+            </div><!--
+
+         --><div class="grid__item seven-twelfths visuallyhidden--portable hard"><!--
+             --><div class="grid__item  one-whole">
+                    <ul id="mainnav">
+                        <li class="about">
+                            <a href="/0v4test/newhere" class="nav-link">About Us</a>
+                            <div class="dd-wrapper">
+                                <div class="dd">
+                                    <div class="grid"><!--
+                                     --><div class="grid__item five-twelfths">
+                                        <h2>Why We Exist</h2>
+                                        <p>NewSpring Church exists to reach people far from God and teach them to follow Jesus step by step. We believe that growing people change, that we can't do life alone, that saved people serve people, that we can't outgive God and that found people find people.</p><br>
+                                        <a href="#" class="btn_new">More about NewSpring</a>
+                                     </div><!--
+                                     --><div class="grid__item one-third">
+                                        <h2>About Us</h2>
+                                        <ul class="two-col">
+                                            <li><a href="#">What to Expect</a></li>
+                                            <li><a href="#">Our Story</a></li>
+                                            <li><a href="#">Our Beliefs</a></li>
+                                            <li><a href="#">Our Leaders</a></li>
+                                            <li><a href="#">Babies&ndash;5th Grade</a></li>
+                                            <li><a href="#">6&ndash;12th Grade</a></li>
+                                            <li><a href="#">NewSpring Music</a></li>
+                                            <li><a href="#">Jobs</a></li>
+                                        </ul>
+                                     </div><!--
+                                     --><div class="grid__item one-quarter">
+                                        <h2>Join Us on a Sunday</h2>
+                                        <p>We'd love you to join us on a Sunday at any of our {campus_count} campuses across the state of South Carolina, or <a href="#">live online</a>.</p> 
+                                        <p><a href="#">Find a Campus Near You</a></p>
+                                     </div><!--
+                                 --></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="locations">
+                            <a href="/0v4test/columbia" class="nav-link">Locations</a>
+                            <div class="dd-wrapper">
+                                <div class="dd">
+                                    <div class="grid"><!--
+                                     --><div class="grid__item five-twelfths">
+                                        <h2>Find a Campus Near You</h2>
+                                        <p>We currently have {campus_count} campuses across the state of South Carolina. At each NewSpring campus you’ll find friendly people, practical teaching, excellent worship music and an exciting atmosphere. We'd love for you to visit.</p><br><a href="#" class="btn_new">Find a Campus</a>
+                                        {!-- <form action="#">
+                                            <input type="text" placeholder="Enter Your ZIP">
+                                        </form> --}
+                                     </div><!--
+                                     --><div class="grid__item one-quarter">
+                                        <h2>Campuses</h2>
+                                        <ul class="two-col">
+                                            {exp:channel:entries channel="campuses" limit="8" status="Open" category="not 156" orderby="title" sort="asc" dynamic="off"}
+                                            <li><a href="/0v4test/anderson">{title}</a></li>
+                                            {/exp:channel:entries}
+                                        </ul>
+                                     </div><!--
+                                     --><div class="grid__item one-third">
+                                        <h2>Watch Live Online</h2>
+                                        <p>Every Sunday we stream our services live at 8:30am, 10am, 11:30am, 5pm and 6:30pm Eastern. If you can't make it to a campus, you can still catch the service!</p><br><a href="#">Watch Live Now</a>
+                                     </div><!--
+                                 --></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/0v4test/nextsteps" class="nav-link">Next Steps</a>
+                            <div class="dd-wrapper">
+                                <div class="dd">
+                                    <div class="grid"><!--
+                                     --><div class="grid__item five-twelfths">
+                                        <h2>We Believe Everyone Has a Next Step</h2>
+                                        <p>Thousands of people across South Carolina are taking next steps. People are meeting Jesus, getting baptized, reading their bibles, growing up and reaching others. God is doing exactly what He promised He would do; He is building His church.</p><br>
+                                        <a href="#" class="btn_new">What's Your Next Step?</a>
+                                     </div><!--
+                                     --><div class="grid__item one-quarter">
+                                        <h2>Next Steps</h2>
+                                        <ul class="two-col">
+                                            <li><a href="#">Salvation</a></li>
+                                            <li><a href="#">Baptism</a></li>
+                                            <li><a href="#">Ownership</a></li>
+                                            <li><a href="#">Serving</a></li>
+                                            <li><a href="#">Care</a></li>
+                                            <li><a href="#">Missions</a></li>
+                                            <li><a href="#">Groups</a></li>
+                                            <li><a href="#">Financial Planning</a></li>
+                                            <li><a href="#">90 Day Tithing Challenge</a></li>
+                                        </ul>
+                                     </div><!--
+                                     --><div class="grid__item one-third">
+                                        <h2>Join a Group</h2>
+                                        <p>At NewSpring, we believe you can't do life alone. NewSpring Groups are a great opportunity for you to get connected to our church and take your relationship with God to the next level!</p>
+                                        <p><a href="#">Find a Group Near You</a></p>
+                                     </div><!--
+                                 --></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="watch">
+                            <a href="/0v4test/watch" class="nav-link">Watch &amp; Read</a>
+                            <div class="dd-wrapper">
+                                <div class="dd">
+                                    <div class="grid"><!--
+                                     --><div class="grid__item one-third">
+                                        {exp:channel:entries channel="episode" limit="1"}
+                                        <h2>{title}</h2>
+                                        <a href="#" class="player-wrapper">
+                                            <div class="play_btn">
+                                                <div class="triangle"></div>
+                                            </div>
+                                            {series}
+                                            {exp:ce_img:single src="{series:series_hero}" add_dims="n" attributes='alt="" title=""'}
+                                            {/series}
+                                        </a>
+                                        <p class="sermon-date">{episode_date format='%M %j%S, %Y'}</p>
+                                        <p>{speaker}</p>
+                                        {/exp:channel:entries}
+                                     </div><!--
+                                     --><div class="grid__item one-quarter">
+                                        <div class="grid"><!--
+                                            --><div class="grid__item one-half">
+                                                <h2>Watch</h2>
+                                                <ul>
+                                                    <li><a href="#">Recent Sermons</a></li>
+                                                    <li><a href="#">Topics</a></li>
+                                                    <li><a href="#">Sermon Series</a></li>
+                                                    <li><a href="#">Speakers</a></li>
+                                                </ul>
+                                            </div><!--
+                                            --><div class="grid__item one-half">
+                                                <h2>Read</h2>
+                                                <ul>
+                                                    <li><a href="/0v4test/blog">Articles</a></li>
+                                                    <li><a href="/0v4test/blog">Daily Devotionals</a></li>
+                                                    <li><a href="/0v4test/blog">Stories</a></li>
+                                                    <li><a href="/0v4test/blog">News</a></li>
+                                                    <li><a href="/0v4test/blog">Studies</a></li>
+                                                </ul>
+                                            </div><!--
+                                        --></div>
+                                     </div><!--
+                                     --><div class="grid__item five-twelfths">
+                                        <h2>Latest News</h2>
+                                        {!-- {exp:channel:entries channel="articles" offset="1" limit="2"} --}
+                                        <div style="margin-bottom: 10px;">
+                                            <a href="http://perrynoble.com/blog/thank-you-newspring-we-are-getting-closer">Thank you NewSpring! We are getting closer!</a>
+                                            <p>A "Thank You" from Pastor Perry Noble to each of you who gave so generously this year.</p>
+                                        </div>
+                                        <div>
+                                            <a href="#">Christmas Service Times</a>
+                                            <p>We're so excited about Christmas at NewSpring that we're starting services this Saturday, the 21st at our Anderson Campus and Sunday at our other campuses.</p>
+                                        </div>
+                                        {!-- {/exp:channel:entries} --}
+                                     </div><!--
+                                 --></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/0v4test/give" class="nav-link">Give</a>
+                            <div class="dd-wrapper">
+                                <div class="dd">
+                                    <div class="grid"><!--
+                                     --><div class="grid__item one-half">
+                                        <h2>We Give Because Jesus Gave</h2>
+                                        <p>Jesus is the most generous person who ever lived. He gave his life so that we might live. As Christians, we give our time, talent, and money joyfully in response to Jesus’ generosity and to help more people meet Jesus. </p><br>
+                                        <a href="#" class="btn_new">Give Now</a>
+                                     </div><!--
+                                     --><div class="grid__item one-quarter">
+                                            <h2>Give Online</h2>
+                                            <ul>
+                                                <li><a href="#">Login to Give</a></li>
+                                                <li><a href="#">Give Without an Account</a></li>
+                                                <li><a href="#">90-Day Tithing Challenge</a></li>
+                                                <li><a href="#">Free Financial Planning</a></li>
+                                                <li><a href="#">1-on-1 Coaching</a></li>
+                                            </ul><!--
+                                        --></div><!--
+                                     --><div class="grid__item one-quarter">
+                                        <h2>Step Up</h2>
+                                        <p>Step Up is a campaign that will help us to reach more people for Jesus and teach them how to follow him step by step so the state of South Carolina will be changed forever. <a href="#">Read More</a></p>
+                                     </div><!--
+                                 --></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

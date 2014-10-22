@@ -1,0 +1,19 @@
+{if segment_2 == ''}{redirect="watch/index"}{/if}
+{exp:channel:entries channel="articles|stories" entry_id="{segment_2}"}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{title}</title>
+  <link href="//vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+</head>
+<body style="margin:0; padding:0; background:black;">
+  <div>
+    {exp:ooyala:stream content="{editorial_video}" class="video-js vjs-default-skin"}
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="//vjs.zencdn.net/4.1/video.js"></script>
+</body>
+</html>
+{/exp:channel:entries}

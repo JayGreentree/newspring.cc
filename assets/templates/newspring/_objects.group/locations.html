@@ -1,0 +1,21 @@
+[{exp:channel:entries channel='campuses' status='Open|Coming Soon' category='not 156' sort='asc' orderby='title'}{if '{campus_addresses:total_rows search:type="Campus Location|Service Location" search:latitude="not IS_EMPTY" search:longitude="not IS_EMPTY"}' > '0'}
+	{
+		"_id": "{title}",
+		"campus": "{title} Campus",
+		"email": "{campus_email}",
+		"phones": [{campus_phones}{if description == 'Phone'}"{number}"{/if}{/campus_phones}],
+		"lat": {campus_addresses}{if type == "Campus Location" OR type == "Service Location"}{latitude},
+		"lng": {longitude},
+		"count": {count},
+		"location": {
+			"name": {if name}"{name}"{if:else}false{/if},
+			"street1": {if street1}"{street1}"{if:else}false{/if},
+			"street2": {if street2}"{street2}"{if:else}false{/if},
+			"city": "{city}",
+			"state": "{state}",
+			"zip": "{zip}"
+		},
+		"url": "/locations/{url_title}",
+		"directions": "{directions}"{/if}{/campus_addresses}
+	}{if count != total_results},{/if}
+{/if}{/exp:channel:entries}]

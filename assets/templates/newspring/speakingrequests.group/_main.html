@@ -1,0 +1,60 @@
+{layout="_layouts/master"
+    title="Speaking Requests"
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+<section class="section--dark">
+    <div class="shell background--fill overlay overlay--solid-dark" style="background-image: url({exp:ce_img:single src='{images-global}/newspring/_fpo/fpo.Auditorium.Wide.jpg' crop='yes' url_only='yes'});">
+        <div class="grid centered overlay__item">
+            <div class="grid__item one-whole">
+                <h2 class="no_hero">Speaking Requests</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="shell">
+        <div class="grid centered">
+            {exp:channel:entries channel="members" dynamic="off" search:mbr_speaking_request="not IS_EMPTY"}<div class="grid__item one-third portable-one-half palm-wide-one-half palm-one-whole">
+                <div class="grid">
+                    <div class="grid__item one-whole centered flush">
+                        <div class="text--padded-sides">
+                            <div class="ratio--square background--fill image--round" style="background-image: url({exp:ce_img:single src='{mbr_site_image}' crop='yes' url_only='yes'});"></div>
+                        </div>
+                    </div><div class="grid__item one-whole centered">
+                        <h2>{mbr_first_name}<br>{mbr_last_name}</h2>
+                        <a href="{path='{segment_1}/{url_title}'}" class="btn">Submit Request</a>
+                        <br><br>
+                    </div>
+                </div>
+            </div>{/exp:channel:entries}
+        </div>
+    </div>
+</section>
+
+{/exp:ce_cache:it}

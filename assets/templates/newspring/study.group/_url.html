@@ -1,0 +1,1 @@
+{exp:query sql='SELECT url_title AS ut FROM exp_channel_titles WHERE entry_id = (SELECT rel_child_id FROM exp_relationships WHERE rel_parent_id = "{embed:entry_id}");'}<?= '/study/{ut}/{embed:url_title}/' ?>{/exp:query}

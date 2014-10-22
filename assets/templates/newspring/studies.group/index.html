@@ -1,0 +1,40 @@
+{preload_replace:collection_channel="studies"}
+{preload_replace:entries_channel="study_entries"}
+{preload_replace:section_image="{images-global}/newspring/editorial/default/cedar.2to1.jpg"}
+{preload_replace:section_classes="section--texture section--pattern"}
+
+{if segment_2}
+	{exp:md_detect_page_type url_segment="{segment_2}"}
+		{if pagination_page}
+			{embed="newspring:studies/_studies-list"
+				collection_channel="{collection_channel}"
+				entries_channel="{entries_channel}"
+				section_image="{section_image}"
+				section_classes="{section_classes}"
+			}
+		{if:else}
+			{if segment_3}
+				{embed="newspring:studies/_study"
+					collection_channel="{collection_channel}"
+					entries_channel="{entries_channel}"
+					section_image="{section_image}"
+					section_classes="{section_classes}"
+				}
+			{if:else}
+				{embed="newspring:studies/_study-intro"
+					collection_channel="{collection_channel}"
+					entries_channel="{entries_channel}"
+					section_image="{section_image}"
+					section_classes="{section_classes}"
+				}
+			{/if}
+		{/if}
+	{/exp:md_detect_page_type}
+{if:else}
+	{embed="newspring:studies/_studies-list"
+		collection_channel="{collection_channel}"
+		entries_channel="{entries_channel}"
+		section_image="{section_image}"
+		section_classes="{section_classes}"
+	}
+{/if}

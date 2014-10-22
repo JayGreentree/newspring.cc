@@ -1,0 +1,47 @@
+{layout="newspring:_layouts/_masthead"
+	fixed_masthead="{embed:fixed_masthead}"
+}
+
+{layout:set name='navigation'}
+	{exp:ce_cache:it id="{site_short_name}-masthead-navigation" global="yes"}
+	<ul class="nav nav--primary visuallyhidden--portable visuallyhidden--handheld">
+	{exp:navee:custom
+	    nav_title="{site_short_name}-main"
+	    wrap_type="none"
+	}<li class="{if class}{class} {/if}{if has_kids}has_kids{/if}" ><a href="{link}">{text}</a>{if has_kids}<ul>{kids}</ul>{/if}</li>{/exp:navee:custom}<li><span data-modal-open="search-modal, search-modal, true" class="search icon icon--large fa fw fa-search"></span></li></ul>
+	{/exp:ce_cache:it}
+{/layout:set}
+
+{!-- Layout Contents --}
+{exp:ce_cache:it id="{site_short_name}-masthead-contents" global="yes"}
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+
+		if ( core.getQueryVariable('search').length > 0 ){
+			core.modal['search-modal'].toggleModal()
+		}
+
+
+		core.modal['search-modal'].events
+			.on('open', function () {
+				core.modal['search-modal']._properties.modal
+					.getElementsByTagName('input')[0].focus()
+
+			})
+	});
+</script>
+
+<span itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="{site_url}" class="logo floating">
+    <div class="newspring--icon floating__item"></div>
+    <h1 class="floating__item flush">NewSpring</h1>
+    <span class="visuallyhidden" itemprop="name">{site_name}</span>
+    <img itemprop="logo" src="https://s3.amazonaws.com/ns.images/newspring/icons/newspring-church-logo-black.png" class="visuallyhidden" alt="NewSpring Church Logo">
+</a></span><!--
+
+--><a href="#" class="icon fa fw fa-search visuallyhidden--anchored" data-modal-open="search-modal, search-modal, true">
+</a><!--
+
+--><a href="#" class="icon fa fw fa-bars visuallyhidden--anchored" data-modal-open="mobileNav, modal--dark, true" data-modal-content='{embed="newspring:_objects/_main-nav"}'>
+</a>
+{/exp:ce_cache:it}

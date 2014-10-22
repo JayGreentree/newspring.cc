@@ -1,0 +1,12 @@
+{exp:tag:related_entries 
+	site="{embed:site}"
+	channel="{embed:collection_entry_channel}" 
+	entry_id="{embed:entry_id}" 
+	tag_group_id="5"
+	limit="3"
+	rank_method="clicks|total_entries"
+}{exp:stash:set name="total_results_less_three"}{exp:math formula='{total_results} - 3' absolute='yes'}{/exp:stash:set}{exp:playa:children site="{embed:site}" channel='{embed:collection_channel}' var_prefix='series'}{if count == 1}<section><div class="shell centered hard--bottom"><div class="grid"><div class="grid__item one-whole"><h2 class="collection-color flush">Related Sermons</h2></div>{/if}<div class="grid__item one-third palm-wide-one-half palm-one-whole {if count > {exp:stash:get name='total_results_less_three'}} flush{/if} centered">
+	{!-- Series Image --}
+    <a href="{path='{segment_1}/{series:url_title}/{url_title}'}"><div class="ratio--landscape background--fill" style="background-image: url({series:collection_image}{exp:ce_img:single src='{collection_image_2x1:url}' width='1700' crop='yes' url_only='yes'}{/collection_image});"><div class="ratio__item"></div></div></a>
+    <a href="{path='{segment_1}/{series:url_title}/{url_title}'}" class="link--invisible"><h3>{title}</h3></a>
+</div>{/exp:playa:children}{if count == total_results}</div></div></section>{/if}{/exp:tag:related_entries}

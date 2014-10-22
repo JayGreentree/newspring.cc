@@ -1,0 +1,99 @@
+{embed='includes/header' 
+	title='All Staff Messages | Staff Hub' 
+	body_id='hub' 
+	body_class='subnav' 
+	page_class="page-border"
+	group_script='' 
+	group_style="{segment_1}" 
+}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="staffnav"}
+
+<div class="c_12 clearfix page-border{if logged_in} hub allstaff{/if}">
+
+{if logged_in}
+	{exp:user:stats dynamic="off"}
+		{if user_access == "staff"}
+			
+			{exp:ce_cache:it}
+
+			<div class="session_nav">
+				<ul>
+					{exp:yearlist channel="staff_allstaff"}
+						<li>
+							<a href="{path={segment_1}/{segment_2}/{year}}"{if '{segment_3}' == '{year}'} class="current"{/if}>
+								{year} {if "{segment_3}" == "{year}"}<span class="tippy"></span>{/if}
+							</a>
+						</li>
+					{/exp:yearlist}
+				</ul>
+			</div>
+
+			{exp:channel:entries channel="staff_allstaff" order="date" sort="desc" limit="20" paginate="bottom" dynamic="no" year="{segment_3}"}
+				<div class="entry clearfix">
+					<h2>{title}</h2>
+					<p class="media">
+						<span class="entry_date">{entry_date format="%m.%d.%Y"}</span>
+						{if allstaff_video}
+							<a class="ooyala-embed icon" data-embed="{allstaff_video}" href="#">Watch Video <span>V</span></a>
+						{/if}
+						{if allstaff_audio_upload}
+							<a class="icon" href="{allstaff_audio_upload:url}">Listen to Audio <span>></span></a>
+						{/if}
+					</p>
+					{if allstaff_summary}
+						<div class="summary">
+							{allstaff_summary}
+						</div>
+					{/if}
+				</div>
+
+				{!--{paginate}
+					<div class="pagination clearfix">{pagination_links}</div>
+				{/paginate}--}
+				{paginate}
+					<div class="clearfix pagination">
+						<div class="pagination-outer">
+							<div class="pagination-inner clearfix">
+								{pagination_links}
+							</div>
+						</div>
+					</div>
+				{/paginate}
+
+				{if no_results}
+					<div class="entry clearfix">
+						<h2>No Results!</h2>
+						<div class="clear"></div>
+						<p>There aren't any All Staff message available for this year.</p>
+					</div>
+				{/if}
+			{/exp:channel:entries}
+
+			{!-- Video Player --}
+			{ooyala_video}	
+		  	
+		  	{exp:ce_cache:escape}
+				{embed="{segment_1}/_staff-footer"}
+			{/exp:ce_cache:escape}
+
+			{/exp:ce_cache:it}
+
+		{if:else}
+				
+			{!-- if user doesn't have access, redirect --}
+			{redirect="/"}
+
+		{/if}
+	{/exp:user:stats}
+
+{if:else}
+
+	{!-- if not logged in, display sign in box --}
+	{redirect="login/staff/allstaff"}
+
+{/if}
+
+{embed='includes/footer'}

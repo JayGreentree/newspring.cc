@@ -1,0 +1,68 @@
+html {
+	background: url(//images.newspring.cc/site/pirates/bg.png);
+}
+
+#nav, #page {
+	border: none;
+	box-shadow: none;
+}
+
+#vimeo {
+	margin: 40px 70px;
+}
+
+.left {
+	float: left;
+	padding-left: 70px;
+}
+
+.right {
+	float: right;
+	padding-right: 51px;
+}
+
+.schedule {
+	margin-bottom: 50px;
+}
+
+.schedule h2 {
+	margin-bottom: 15px;
+}
+
+.schedule ul {
+	float: left;
+	margin-right: 15px;
+}
+
+.schedule ul.dates {
+	font-weight: bold;
+}
+
+.schedule ul li span {
+	line-height: 13px;
+}
+
+#footer {
+	width: 940px;
+}
+
+#page h1.extended {
+	font-size: 50px;
+	margin: 9px 0 -20px 67px;
+}
+
+#body {
+	padding-bottom: 50px;
+	background: #fff;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	box-shadow: 0 1px 3px #aaa;
+	-webkit-box-shadow: 0 1px 3px #aaa;
+	-moz-box-shadow: 0 1px 3px #aaa;
+}
+
+.questions {
+	text-align: center;
+	font-size: 18px;
+}

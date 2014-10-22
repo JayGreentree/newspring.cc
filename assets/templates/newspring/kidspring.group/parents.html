@@ -1,0 +1,74 @@
+{layout="newspring:_layouts/master"
+	title="KidSpring Parent Resources"
+	description="KidSpring is the children’s ministry at NewSpring Church uniquely designed with your child in mind!"
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id="contents" seconds="0"}
+
+{embed="newspring:_embeds/_non-hero"
+	image_url="{exp:ce_img:single src='{images-global}/{site_short_name}/kidspring/kidspring.pattern.png' width='1700' crop='yes' url_only='yes'}"
+	section="section--kidspring"
+	title="Parent Resources"
+	subtitle="KidSpring Series"
+}
+
+<section class="section--grey">
+	<div class="shell">
+		<div class="grid">
+			{exp:channel:entries site="newspring" channel="series_kidspring" status="open|closed" disable="pagination"}{exp:playa:parents channel="sermons_kidspring" var_prefix="sermon" status="open|closed" search:entry_parent_resources="not IS_EMPTY" paginate="bottom" limit="10"}{!--
+			--}<div class="grid__item one-half handheld-one-whole">
+				<div class="ratio--landscape flush">
+					<a href="/{segment_1}/{segment_2}/{url_title}" class="ratio__item background--fill clickable" style="background-image: url('{collection_image}{exp:ce_img:single src='{collection_image_2x1}' width='1000' crop='yes' url_only='yes'}{/collection_image}');">
+					</a>
+				</div>
+				<div class="card">
+					<h3><a href="/{segment_1}/{segment_2}/{url_title}" class="link--invisible">{title}</a></h3>
+					{categories}
+						{if category_name}
+							<p class="colfax gray uppercase"><b>{category_name}</b></p>
+						{/if}
+					{/categories}
+					<p>{exp:eehive_hacksaw chars = "170" append = "&hellip;"}{collection_description}{/exp:eehive_hacksaw}</p>
+					<a href="/{segment_1}/{segment_2}/{url_title}" class="link--arrow">View Series</a>
+				</div>
+			</div>{!--
+			--}{sermons:paginate}{pagination_links page_padding="1"}{!--
+		--}<div class="grid__item one-whole">
+				<br><br>
+				<div class="pagination">
+					{previous_page}<a href="{pagination_url}" class="pagination__item page-previous"></a>{/previous_page}
+					{page}<a href="{pagination_url}" class="pagination__item page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>{/page}
+					{next_page}<a href="{pagination_url}" class="pagination__item page-next"></a>{/next_page}
+				</div>
+			</div>{!--
+		--}{/pagination_links}{/sermons:paginate}{/exp:playa:parents}{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

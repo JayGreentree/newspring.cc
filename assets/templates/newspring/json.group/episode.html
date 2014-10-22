@@ -1,0 +1,16 @@
+{exp:channel:entries channel="episode" disable="categories|category_fields|member_data|pagination|trackbacks" url_title="{segment_3}" limit="1"}
+<?php
+	sleep(1);
+	echo '{
+		"description" : '. json_encode('{episode_description}') .',
+		"date" : '. json_encode('{episode_date format="%F %d, %Y"}') .',
+		"embed" : '. json_encode('{vod}') .',
+                "embed_code" : '. json_encode('{embed_code}') .',
+		"m4v_url" : '. json_encode('{m4v}') .',
+		"mp3_url" : '. json_encode('{mp3}') .',
+		"mp4_url" : '. json_encode('{mp4}') .',
+		"speaker" : '. json_encode('{speaker}') .',
+		"title" : '. json_encode('{title}') .'
+	}';
+?>
+{/exp:channel:entries}

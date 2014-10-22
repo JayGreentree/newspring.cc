@@ -1,0 +1,64 @@
+{exp:ce_cache:it}
+
+{if segment_1 == "pages"}
+       {redirect="/"}
+{/if}
+
+{exp:channel:entries channel="pages"}
+
+{exp:ce_cache:escape}
+	{embed="includes/header" 
+		title="{title}" 
+		body_id="{body_id}" 
+		body_class="{body_class}" 
+		style="{extra_style}" 
+		script='{extra_script}' 
+		use_alt='{page_alt_hr}' 
+		fb_url="{path={url_title}}" 
+		fb_title="{title}" 
+		{if page_search_excerpt}fb_describe="{page_search_excerpt}"{/if} 
+		{if fb_page_image}fb_image="{fb_page_image}"{/if}
+	}
+	
+	{if logged_out && page_hidden}
+		{redirect="/"}
+	{/if}
+{/exp:ce_cache:escape}
+
+{if page_css}
+<style type="text/css">
+{page_css}
+</style>
+{/if}
+
+{if left_column != ""}
+<div id="hero" class="g_12{if page_hero_class != 'default'} {page_hero_class}{/if}"></div><!-- end #hero -->
+
+<div id="sub_content" class="g_3">
+{left_column}
+</div>
+
+<div id="main_content" class="g_7 p_1 s_1">
+{/if}
+
+{right_column}
+
+{if left_column != ""}
+</div>
+{/if}
+
+{if breadcrumb != ""}
+{embed='includes/breadcrumb' links='{breadcrumb}'}
+{/if}
+
+{exp:ce_cache:escape}
+	{embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{if no_results}
+	{redirect="/"}
+{/if}
+
+{/exp:channel:entries}
+
+{/exp:ce_cache:it}

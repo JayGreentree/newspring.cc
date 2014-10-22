@@ -1,0 +1,70 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_template="give"}
+
+{exp:ce_cache:escape}
+{embed='includes/header' 
+	title='Step Up' 
+	body_id='give' 
+	body_class="subnav" 
+	page_class="page-border" 
+	group_style="{segment_1}" 
+	fb_title="Give Now" 
+	fb_url="{path={page_template}}" 
+	meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}' 
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+}
+{/exp:ce_cache:escape}
+
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}  
+
+<div id="stepup">
+	<div class="c_12 clearfix page-border">
+	<div id="hero" class="g_12 border">
+      <div class="p_7 g_5">
+      	<p><strong>In 2013 we began</strong> a new giving initiative as a part of our mission to reach 100,000 people. Step Up is paving the way to move every campus into a permanent facility so we can reach more people in more cities in South Carolina. This is one of our next steps as a church. Is it yours, too?</p>
+      	<p><strong>Look below to see</strong> what we&rsquo;ve already been able to do this year as a result of NewSpring stepping up!</p>
+      </div>
+	</div><!-- end #hero -->
+
+
+	<div class="section-1 g_12">
+
+		<div class="g_4 g_a"> 
+			{exp:ce_img:single class="sidekick_img" src="http://images.newspring.cc.s3.amazonaws.com/section/give/stepup.give.wins.sidekick.SPA.jpg"  width="300" crop="yes"}
+			<h3>Spartanburg Campus<br />Permanent Facility</h3>
+			<p class="sidekick">On Sunday, March 23 we had our first services in Spartanburg&rsquo;s new facility. 4,575 people attended the launch, and six people met Jesus!</p>
+		</div>
+		<div class="g_4">
+			{exp:ce_img:single class="sidekick_img" src="http://images.newspring.cc.s3.amazonaws.com/section/give/stepup.give.wins.sidekick.land.jpg"  width="300" crop="yes"}
+			<h3>On Our Way to Permanent<br />Facilities in Three Cities</h3>
+			<p class="sidekick">For our next permanent campuses, we&rsquo;ve already been able to purchase property in Clemson, Greer and Florence. The best is yet to come!</p>
+		</div>
+		<div class="g_4 g_o">
+			{exp:ce_img:single class="sidekick_img" src="http://images.newspring.cc.s3.amazonaws.com/section/give/stepup.give.wins.sidekick.BSP.jpg" width="300" crop="yes"}
+			<h3>Boiling Springs<br />Campus Launch</h3>
+			<p class="sidekick">In January we launched a new campus in Boiling Springs. We&rsquo;re averaging more than 1,000 people a week and dozens have met Jesus!</p>
+		</div>
+
+	</div>
+	<div class=" g_12">
+		<div class="p_2 g_8 s_2">
+			<div class="wrapper">
+				<h2>Give to the Step Up Campaign</h2>
+				<a href="http://give.newspring.cc" class="btn split">Give Now<span class="pictos">4</span></a>
+			</div>
+		</div>
+	</div>
+{embed='{page_template}/_promo'}
+</div>
+</div>
+	
+{ooyala_video}
+		
+{exp:ce_cache:escape}
+{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

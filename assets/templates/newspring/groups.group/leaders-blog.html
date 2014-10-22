@@ -1,0 +1,53 @@
+{preload_replace:title="Group Leader's Blog"}
+{preload_replace:site="newspring"}
+{preload_replace:channel="groups_leaders|groups_study_entry"}
+{preload_replace:entry_limit="9"}
+{preload_replace:paginate="y"}
+{preload_replace:masonry="n"}
+{preload_replace:base_column_width="one-third"}
+{preload_replace:show_related_entries="n"}
+{preload_replace:url_prefix="{segment_1}/{segment_2}/{segment_3}"}
+{preload_replace:section_style=""}
+{preload_replace:section_hero="{images-global}/newspring/editorial/default/cedar.2to1.jpg"}
+
+{if segment_4}
+	{exp:md_detect_page_type url_segment="{segment_4}"}
+		{if pagination_page}
+			{embed="newspring:_embeds/_editorial-list"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				masonry="{masonry}"
+				base_column_width="{base_column_width}"
+				entry_limit="{entry_limit}"
+				paginate="{paginate}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+				section_hero="{section_hero}"
+			}
+		{if:else}
+			{embed="newspring:_embeds/_editorial-entry"
+				title="{title}"
+				site="{site}"
+				channel="{channel}"
+				show_related_entries="{show_related_entries}"
+				section_style="{section_style}"
+				url_prefix="{url_prefix}"
+				section_hero="{section_hero}"
+			}
+		{/if}
+	{/exp:md_detect_page_type}
+{if:else}
+	{embed="newspring:_embeds/_editorial-list"
+		title="{title}"
+		site="{site}"
+		channel="{channel}"
+		masonry="{masonry}"
+		base_column_width="{base_column_width}"
+		entry_limit="{entry_limit}"
+		paginate="{paginate}"
+		section_style="{section_style}"
+		url_prefix="{url_prefix}"
+		section_hero="{section_hero}"
+	}
+{/if}

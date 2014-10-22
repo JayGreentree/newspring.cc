@@ -1,0 +1,69 @@
+{preload_replace:page_channel="{segment_1}"}
+{embed='includes/header' 
+	body_id='blog' 
+	body_class='blog {segment_1} ministries' 
+	title='Groups Blog'
+	group_style="{segment_1}" 
+}
+
+<style type="text/css" media="screen">
+	html { background: #598528; }
+</style>
+
+<h1><a href="/{page_channel}/blog/" title="The {page_channel} blog main page" class="ir">Groups Blog</a></h1>
+<div id="{page_channel}_blog" class="g_12">
+	
+	<div id="archives_categories">
+		<div class="boxed">
+           <p><a href="http://feeds.feedburner.com/NewspringChurchGroupsBlog">Subscribe to the blog <em>(<abbr title="Really Simple Syndication">RSS</abbr>)</em></a></p>
+
+			<h3>Blog Archives</h3>
+			<ul>
+			{exp:channel:month_links channel='{page_channel}'}
+				<li><a href="{path={segment_1}/{segment_2}/{embed:channel_url}/archives/{year}/{month_num}}">{month} {year}</a></li>
+			{/exp:channel:month_links}
+			</ul>
+
+			<h3>Blog Categories</h3>
+			<ul>
+			{exp:channel:category_archive channel='{page_channel}' show_empty='no' style='linear'}
+				{categories}<li><a href="{path={segment_1}/{segment_2}/categories/{category_url_title}/{category_id}}"{if segment_4 == category_url_title} class="current"{/if}>{category_name}</a></li>{/categories}
+			{/exp:channel:category_archive}
+			</ul>
+		</div>
+	</div>	
+	
+<div id="entries">
+	<?php
+		// Ugh, this is so ugly.  EE can handle this natively and need to update when time allows...
+		// Show category entries when a categories URI is present
+		if ('{segment_3}' === 'categories' && '{segment_5}' !== '')
+			echo "{exp:channel:entries channel='{page_channel}' paginate='bottom' limit='5'  disable='member_data|trackbacks' status='open' category='{segment_5}'}";
+		
+		// Otherwise show normal entries
+		else
+			echo "{exp:channel:entries channel='{page_channel}' paginate='bottom' limit='5'  disable='member_data|trackbacks' status='open'}";
+	?>
+	<div class="entry g_6 p_2">
+		<h2><a href="{url_title_path={page_channel}/blog}" title="Permalink for {title}">{title}</a></h2>
+		
+		<p class="date g_2"><a href="{url_title_path={page_channel}/blog}" title="Permalink for {title}">{entry_date format='%m.%d.%y'}</a></p>
+		
+		<div class="body">
+			{editorial_legacy_body}
+		</div>
+	</div>
+	
+	{paginate}
+	<p class="pagination clearfix g_6 p_2">{pagination_links}</p>
+	{/paginate}
+	
+	{/exp:channel:entries}
+</div>
+
+
+</div>
+
+{embed='includes/breadcrumb' links='<li><a href="/ministries/" title="">Ministries</a></li><li><a href="/{page_channel}/" title="">{if page_channel == "kidspring"}KidSpring{if:else}{exp:phpstringfun function="ucfirst"}{page_channel}{/exp:phpstringfun}{/if}</a></li><li class="last"><a href="" title="/{page_channel/">Blog</a></li>'}
+
+{embed='includes/footer'}

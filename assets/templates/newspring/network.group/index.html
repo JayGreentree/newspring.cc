@@ -1,0 +1,107 @@
+{exp:ce_cache:it}
+{exp:ce_cache:escape}
+	{embed="includes/header"
+		body_id="{segment_1}" 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}"
+		use_alt=""
+		title="NewSpring Network"
+		fb_title="NewSpring Network" 
+		fb_describe="An online community designed to equip churches who are reaching people far from God by helping them develop leaders and resourcing them with tools needed to build the Church."
+	}
+{/exp:ce_cache:escape}
+
+<div id="network">
+	<div id="hero" class="g_12">
+		<h2>Coming Soon</h2>
+		<h1>NewSpring Network</h1>
+		<div id="countdown"></div>
+	</div>
+
+	<div class="p_1 g_5">
+		<p>The <span>NewSpring Network</span> is an online community designed to equip churches reaching people far from God. We help develop leaders and resource them with tools to build the Church.</p>
+	</div>
+
+	<ul class="g_4 s_1">
+	   <li>Follow Us for Updates</a></li>
+        <!-- <li><a href="https://www.facebook.com/newspring">NewSpring Network</a> on Facebook</li> -->
+		<li><a href="http://instagram.com/newspringnet">NewSpringNet</a> on Instagram</li>
+        <li><a href="https://twitter.com/NewSpringNet">NewSpringNet</a> on Twitter</li>
+	</ul>
+</div>
+
+<script>
+function convertToServerTimeZone(dateToSet) {
+
+    var year = dateToSet.getUTCFullYear()
+    var month = dateToSet.getUTCMonth()
+    var days = dateToSet.getUTCDate()
+    var hours = dateToSet.getUTCHours()
+    var minutes = dateToSet.getUTCMinutes()
+    var seconds = dateToSet.getUTCSeconds()
+
+    serverDate = new Date(year, month, days, hours - 5, minutes, seconds)
+
+    return serverDate
+
+
+};
+
+	//start visible countdown on screen
+function startCountdown(target_date, target, aftertext) {
+    // set the date we're counting down to
+    console.log(target_date)
+    // variables for time units
+    var days, hours, minutes, seconds,
+        // get tag element
+        countdown = target;
+
+    // update the tag with id "countdown" every 1 second
+    var countdownTimer = window.setInterval(function() {
+  
+        // find the amount of "seconds" between now and target
+        var current_date = convertToServerTimeZone(new Date()),
+            seconds_left = (target_date - current_date) / 1000;
+
+
+        if (seconds_left >= 0) {
+
+            // do some time calculations
+            days = parseInt(seconds_left / 86400);
+            seconds_left = seconds_left % 86400;
+
+            hours = parseInt(seconds_left / 3600);
+            seconds_left = seconds_left % 3600;
+
+            minutes = parseInt(seconds_left / 60);
+            seconds = parseInt(seconds_left % 60);
+
+            //  TODO ** Write better way to format date
+
+            // format countdown string
+            if (days != 0) $('#countdown').text(days + " days " + hours + " hours " + minutes + " minutes ");
+            if (days === 0 && hours != 0) $('#countdown').text(hours + " hours " + minutes + " minutes " + seconds + " seconds ");
+            if (days === 0 && hours === 0) $('#countdown').text(minutes + " minutes " + seconds + " seconds ");
+            if (days === 0 && hours === 0 && minutes === 0) $('#countdown').text(seconds + " seconds ");
+        } else {
+            clearInterval(countdownTimer)
+            $('#countdown').text(aftertext)
+        }
+    }, 1000);
+
+}
+
+var countdownLocation = $('#countdown'),
+	networkLaunch = new Date(2014, 08, 28),
+	afterText = "Visit the Site!";
+
+startCountdown(networkLaunch, $('#countdown'), afterText);
+
+</script>
+
+{exp:ce_cache:escape}
+  {embed="includes/footer"}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

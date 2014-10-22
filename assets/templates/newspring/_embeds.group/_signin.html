@@ -1,0 +1,28 @@
+{embed="newspring:_embeds/_non-hero"
+	section='section--dark'
+	overlay='overlay--light'
+	title='Please Sign In'
+}
+	<div class="grid centered modal--centered" >
+	<div class="grid__item one-half portable-three-quarters handheld-one-whole left" >
+		<div class="floating__item" data-panel-group="login">
+			<div class="text--constrained" data-panel="login, /_forms/login">
+				{exp:zoo_visitor:login_form error_handling="inline" id="login-form" include_jquery ="no"}
+				<fieldset data-ajaxForm="login-form">
+					<legend>Sign In</legend>
+						<p data-ajaxForm-error="login-form, email">
+							<label for="email">Email</label>
+							<input type="text" name="username" id="username" placeholder="Enter your email address">
+						</p>
+
+						<p data-ajaxForm-error="login-form, default">
+							<label for="password">Password</label>
+							<input type="password" name="password" id="password" placeholder="Enter your password">
+						</p>
+				</fieldset>
+				<button type="submit" name="submit" class="submit ready">Log In</button>
+				{/exp:zoo_visitor:login_form}
+			</div>
+		</div>
+	</div>
+</div>

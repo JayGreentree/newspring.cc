@@ -1,0 +1,33 @@
+{exp:ce_cache:it}
+
+{if '{current_time format="%F %d %Y"}' >= 'June 1 2014'}
+{exp:ce_cache:escape}
+{embed="includes/header"
+	body_id="technicaldifficulties"
+	body_class="subnav"
+	page_class="page-border"
+	group_style="{segment_1}"
+	use_alt=""
+	title="We Are Currently Experiencing Technical Difficulties"
+	fb_title="We Are Currently Experiencing Technical Difficulties"
+	fb_url=""
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+}
+{/exp:ce_cache:escape}
+	<div id="hero" class="g_12">
+	  <img src="//ns.images.s3.amazonaws.com/newspring/newspring.homepage.hero.technicaldifficulties.jpg" alt="Technical Difficulties">
+	</div><!-- end #hero -->
+
+		<div class="g_10 p_1 s_1" id="info">
+			<center>
+				<h2>We are currently experiencing technical difficulties and are working to resolve them as quickly as possible. We are sorry for any inconvenience.</h2>
+			</center>
+		</div>
+	{exp:ce_cache:escape}
+		{embed="includes/footer"}
+	{/exp:ce_cache:escape}
+{if:else}
+	{redirect='/newhere/locations' status_code="302"}
+{/if}
+
+{/exp:ce_cache:it}

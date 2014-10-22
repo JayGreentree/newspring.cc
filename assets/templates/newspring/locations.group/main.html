@@ -1,0 +1,80 @@
+{layout="_layouts/master"
+	title="Locations"
+	description="NewSpring is one church in many locations. We currently have campuses across the state of South Carolina in Anderson, Boiling Springs, Charleston, Columbia, Florence, Greenville, Greenwood, Lexington, Myrtle Beach, and Spartanburg."
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+{embed="_embeds/_non-hero"
+	section='section--texture section--pattern'
+	overlay='overlay--light'
+	title='One Church<br>Many Locations'
+	summary='<div class="btn btn--light" data-geolocation-closest="locations">Find my closest campus</div>'
+	image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+	image_classes=""
+}
+
+
+<section class="map-wrapper">
+	<div class="shell hard">
+	  <ul class="zoom-controls visuallyhidden--lap-wide-and-down">
+		  <li data-geolocation-zoom-in="locations"><span class="fa fw fa-plus"></span></li>
+		  <li  data-geolocation-zoom-out="locations"><span class="fa fw fa-minus"></span></li>
+	  </ul>
+	  <div class="ratio handheld-ratio--square ratio--landscape flush">
+		<div class="ratio__item" data-geolocation='locations, all, {embed="newspring:_objects/locations"}'></div>
+	  </div>
+	</div>
+</section>
+
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid centered">
+			{exp:channel:entries channel="campuses" category="not 156" status="Coming Soon|Open" orderby="title" sort="asc"}<div class="grid__item one-third palm-wide-one-half palm-one-whole">
+				{if status != "Coming Soon"}
+					<a href="{path='{segment_1}/{url_title}'}" class="ratio--landscape background--fill clickable flush" style="background-image: url({campus_image}{exp:ce_img:single src='{campus_image_2x1}' width='500' crop='yes' url_only='yes'}{/campus_image});"></a>
+				{if:else}
+					<div class="ratio--landscape background--fill flush" style="background-image: url({campus_image}{exp:ce_img:single src='{campus_image_2x1}' width='500' crop='yes' url_only='yes'}{/campus_image});"></div>
+				{/if}
+				<div class="card">
+					<h3><a href="{path='{segment_1}/{url_title}'}" class="dark">{title}</a></h3>
+					{if status == "Coming Soon" AND campus_launch_date}
+					<h4>Launching {campus_launch_date format="%M %d%S, %Y"}</h4>
+					{/if}
+					{campus_addresses}
+					{if type == "Campus Location" OR type == "Service Location"}
+					<p><b>{if name}{name}{if:else}{title} Campus{/if}</b><br>{if street1}{street1}{/if}{if street2}{street2}{/if}<br>{city}, {state} {zip}</p>
+					{/if}
+					{/campus_addresses}
+					{if status != "Coming Soon"}
+						<a href="{path='{segment_1}/{url_title}'}" class="link--arrow">Plan Your Visit</a>
+					{/if}
+				</div>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

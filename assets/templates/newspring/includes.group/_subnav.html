@@ -1,0 +1,28 @@
+<div id="subnav" class="c_12 clearfix">
+	<div class="g_12">
+
+		{exp:navee:custom 
+			nav_title="{embed:navtitle}" 
+			wrap_type="h1" 
+			start_nav_from_parent="true" 
+			include_single_parent="true"
+		}
+				<a href="{link}" {if class}class="{class}"{/if}>{if name}{name}{if:else}{text}{/if}<span></span></a>
+				{if segment_1 == 'blog'}
+					<a href="http://feeds.newspring.cc/newspring-blog" class="blog-rss" title="Subscribe to the Blog RSS"><span>Subscribe to the Blog RSS </span>f<span>eed</span></a>
+			       	<a onclick="window.open('http://feedpress.it/e/mailverify?feed_id=newspring-blog', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" class="blog-rss no-low popup600" title="Subscribe to the Blog by Email"><span>Subscribe to Blog by Email</span>M<span>ail</span></a>
+		       	{/if}
+		{/exp:navee:custom}
+
+		{exp:navee:custom 
+			nav_title="{embed:navtitle}" 
+			wrap_type="div" class="right" 
+			selected_class="active" 
+			last_class="last" 
+			start_nav_from_parent="true" 
+			start_nav_from_parent_depth="{if embed:startdepth}{embed:startdepth}{/if}{if !embed:startdepth}1{/if}"
+		}
+			<a href="{link}" title="{title}" {if class}class="{class}"{/if}>{text}<span></span></a>
+		{/exp:navee:custom}
+	</div>
+</div>

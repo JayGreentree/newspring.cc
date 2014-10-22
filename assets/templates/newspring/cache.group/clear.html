@@ -1,0 +1,29 @@
+{!--
+	This is an experimental way to clear template cache created with CE Cache
+	
+	Instructions:
+	To clear a specific page, use this format: http://newspring.cc/cache/clear/page/segment/here
+	To clear the home page, visit: http://newspring.cc/cache/clear/
+
+	Requirements: Must be logged in as a Super admin or Super Admin (Give disabled)
+
+	Docs: http://www.causingeffect.com/software/expressionengine/ce-cache/user-guide/tags#clear
+
+--}
+{preload_replace:full_url="{segment_3}/{if segment_4}{segment_4}/{/if}{if segment_5}{segment_5}/{/if}{if segment_6}{segment_6}/{/if}{if segment_7}{segment_7}/{/if}{if segment_8}{segment_8}{/if}"}
+{if logged_in && group_id == "1" OR group_id == "36"}
+		{!-- 
+			If Super Admin, clears out the selected url + children
+
+			To refresh automatically/asynchronously, add refresh="1" (seconds between refreshing items)
+		--}
+		{exp:ce_cache:clear 
+			items="local/{full_url}"
+		} 
+		
+		<p>Cache has been cleared for <strong>{full_url}</strong> and all children</p>
+
+		{redirect="{full_url}"}
+{if:else}
+	{redirect="/"}
+{/if}

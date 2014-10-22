@@ -1,0 +1,98 @@
+{layout="_layouts/loggedin-staff"
+	title="Editorial Preview"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style="y"
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+
+{embed="newspring:_embeds/_non-hero"
+		section='section--dark'
+		overlay='overlay--light'
+		title='Editorial Preview'
+}
+
+
+<section class="section--grey section--condensed">
+	<div class="shell">
+		<div class="grid ">{!--
+		 --}<div class="grid__item one-whole">
+				<table>
+					<tr>
+						<th>Publish Date</th>
+						<th>Channel Name</th>
+						<th>Title / URL</th>
+					</tr>
+					{exp:channel:entries
+						site="newspring|perrynoble"
+						channel="blog|articles|devotionals|stories|news"
+						disable="member_data|trackbacks"
+						orderby="date"
+						limit="100"
+						sort="desc"
+						dynamic="off"
+						status="open|Featured|hidden"
+						show_future_entries="yes"
+						paginate="bottom"
+					}
+						<tr>
+							<td>{entry_date format="%m.%d.%Y %g:%s%a"}</td>
+							<td>{if channel_short_name == 'blog'}Perry's Blog{if:else}{channel_short_name}{/if}</td>
+							<td><strong><a href="{if channel_short_name == 'blog'}http://perrynoble.com/{channel_short_name}/preview/{entry_id}{if:else}{path='{channel_short_name}/{url_title}'}{/if}" title="View the {title} entry" class="dark">{title}</a></strong><br>
+							<input type="text" class="entry_url" value="{if channel_short_name == 'blog'}http://perrynoble.com/{channel_short_name}/{url_title}{if:else}{path='{channel_short_name}/{url_title}'}{/if}" ></td>
+						</tr>
+					{/exp:channel:entries}
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+
+		var urls = document.querySelectorAll('.entry_url');
+
+		var link, _i, _len;
+
+		for (_i = 0, _len = urls.length; _i < _len; _i++) {
+		  link = urls[_i];
+		  
+		  var select = function(e) {
+		  	target = e.target
+	
+		  	target.setSelectionRange(0, target.value.length)
+		  }
+
+		  link.addEventListener('click', select, false);
+
+		}
+
+
+	    // $('a.copy_url').zclip({
+	    //     path:'/assets/backup/old_js/ZeroClipboard.swf',
+	    //     copy:function(){return $(this).prev().val();},
+	    //     afterCopy:function(){$(this).text("3").addClass("complete");}
+	    // });
+    });
+</script>

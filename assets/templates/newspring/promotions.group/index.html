@@ -1,0 +1,16 @@
+{exp:low_reorder:entries set="promotions" 
+	site="newspring" 
+	disable='categories|member_data|pagination|trackbacks'
+}
+	{!--
+		@NOTE
+		We only want to embed the promotions loops once or insanity will follow.
+		Wish there was a better way to to this.
+	--}	
+	{if count == "1"}
+
+		{embed="{segment_1}/_promotions-loop" results_count="{total_results}"}
+
+	{/if}
+
+{/exp:low_reorder:entries}

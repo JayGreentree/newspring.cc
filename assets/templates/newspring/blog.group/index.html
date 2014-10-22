@@ -1,0 +1,61 @@
+{layout="newspring:_layouts/global"
+    title="Blog"
+    description=""
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{embed="_embeds/_masthead"
+    fixed_masthead="n"
+}
+
+{exp:channel:entries channel="articles" limit="1" offset="13"}
+
+{embed="_embeds/_hero"
+    title="{title}"
+    author="John Weirick"
+    type="Sermon In 10 Tweets"
+    image_url="{editorial_image}{editorial_image_2x1}{/editorial_image}"
+}
+
+<section>
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole">
+				<div class="text--constrained text--padded-sides">
+					{editorial_legacy_body}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{/exp:channel:entries}
+
+<hr>
+
+{embed="_embeds/_footer"}

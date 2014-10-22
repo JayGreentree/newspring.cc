@@ -1,0 +1,38 @@
+	{exp:channel:entries 
+		channel="{embed:section_channel}"  
+		limit="12" 
+		orderby="date" 
+		sort="desc" 
+		dynamic="off"
+		disable="member_data"
+		category="{last_segment_category_id}"
+		status="open|featured"
+	}
+		{if count == "1"}
+			<!-- Category Section: {channel} Entries -->
+			<div class="g_12 clearfix section recent category">
+				<div class="g_10 g_a">
+					<h3>{channel}</h3>
+				</div>
+				<div class="g_2 g_o">
+					<a href="{path={segment_1}/{channel_short_name}/category/{segment_3}}" class="btn"> View All <b class="caret right"></b></a>
+				</div>
+				<hr>
+		{/if}
+
+		{if count <= "3"}
+			<div class="g_4 {switch="g_a||g_o"}">
+				{!-- Snippet for thumbnail detection --}
+		        {blog_sidekicks}
+			</div>
+		{/if}
+
+		{if count > "3"}
+			<div class="g_4 list {switch='g_a||g_o'}"><a href="{path={segment_1}/{channel_short_name}/{url_title}}" title="{title} &mdash; {channel}"><strong>{title}</strong> <span>{channel}</span></a></div>
+		{/if}
+
+		{if count == total_results}
+			</div>
+		{/if}
+		
+	{/exp:channel:entries}

@@ -1,0 +1,12 @@
+{if segment_4 != ""}
+	{!-- If segment4 exists, display a specific entry from a Study --}
+	{embed="{segment_1}/_study-entry"}
+{if:else}
+	{if segment_3 == ""}
+		{!-- If segment3 is empty, show the study home page --}
+		{embed="{segment_1}/_study-home"}
+	{if:else}
+		{!-- If segment3 exists, show that study overview --}
+		{embed="{segment_1}/_study-overview"}
+	{/if}
+{/if}

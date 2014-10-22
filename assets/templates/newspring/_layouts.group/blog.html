@@ -1,0 +1,71 @@
+{layout="_layouts/global"
+	title="{layout:title}"
+	description="{layout:description}"
+	image="{layout:image}"
+	page_type="{layout:page_type}"
+	article_section="{layout:article_section}"
+	article_section_images="{layout:article_section_images}"
+	tags="{layout:tags}"
+	publish_time="{layout:publish_time}"
+
+	google_author="{layout:google_author}"
+	google_page_profile="{layout:google_page_profile}"
+
+	twitter_publisher="{layout:twitter_publisher}"
+	twitter_author="{layout:twitter_author}"
+
+	facebook_profile="{layout:facebook_profile}"
+	facebook_app="{layout:facebook_app}"
+
+	section_style="{if layout:section_style != ""}{layout:section_style}{/if}"
+	section_script="{if layout:section_script != ""}{layout:section_script}{/if}"
+
+	typekit="{layout:typekit}"
+}
+
+{layout:set name="meta"}
+	{layout:meta}
+{/layout:set}
+
+{!--
+	This replaces {layout:contents} in the layout defined above
+--}
+<div class="wrapper">
+
+	{embed="_global/masthead"}
+
+	<div class="main">
+		<section class="blog-body">
+			<div class="bg-image-wrapper" data-0="padding-top:200px;padding-bottom:100px;" data-200="padding-top:0px;padding-bottom:0px;">
+				<div class="bg-image" style="background: url({exp:ce_img:single src='{layout:hero}' add_dims='no' url_only='y' filter='gaussian_blur, 40'}) no-repeat center center; background-size: cover;"></div>
+
+				<div class="shell" data-0="opacity: 1;" data-200="opacity: 0;">
+					<h2>{layout:title}</h2>
+				</div>
+			</div>
+
+			<div class="shell">
+				<div class="grid"><!--
+				 --><div class="grid__item one-sixth visuallyhidden--portable">
+					</div><!--
+				 --><div class="grid__item two-thirds portable-one-whole">
+						<div class="wrapper">
+							{layout:contents}
+						</div>
+					</div><!--
+				 --><div class="grid__item one-sixth visuallyhidden--portable">
+					</div><!--
+			 --></div>
+			</div>
+		</section>
+	</div>
+
+	{layout:related-content}
+
+	{embed="_global/footer"}
+
+</div>
+
+{layout:set name="footer"}
+	{layout:footer}
+{/layout:set}

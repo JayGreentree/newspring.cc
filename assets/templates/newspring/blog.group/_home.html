@@ -1,0 +1,114 @@
+{exp:ce_cache:it}
+
+{exp:channel:entries 
+	channel="articles|devotionals|reading_guide|sermons|stories"  
+	limit="10" 
+	orderby="channel|date" 
+	sort="desc|asc" 
+	paginate="bottom" 
+	dynamic="off"
+	disable="member_data"
+	sticky="no"
+	status="open|featured"
+}
+{if count == "1"}
+
+{exp:ce_cache:escape}
+{embed="includes/header"
+	body_id="blog" 
+	body_class="subnav" 
+	page_class="page-border" 
+	group_style="blog"
+	use_alt=""
+	title="Blog"
+	fb_title="Blog" 
+	fb_url="" 
+	fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+}
+{/exp:ce_cache:escape}
+
+</div><!-- //page - wraps header on pages with subnav-->
+
+{embed="includes/_subnav" navtitle="mainnav"}
+
+<div id="main_content" class="c_12 clearfix page-border">
+
+		{categories show="{last_segment_category_id}"}
+			<div class="g_12 clearfix section category">
+				<h2>{channel}: {category_name}</h2>
+			</div>
+		{/categories}
+{/if}
+
+		{if status == "Featured"}
+			<div class="g_12 clearfix section home featured {channel_short_name}">
+				<a href="{path={segment_1}/{channel_short_name}/{url_title}}" class="hero{if editorial_video} video-title{/if}">
+					{blog_hero_home}
+				</a>
+			</div>
+		{if:else}
+			<!-- Section: {channel} -->
+			<div class="g_12 clearfix section home {channel_short_name}">
+				<div class="g_4 g_a">
+					{!-- Snippet for thumbnail detection --}
+					{blog_sidekicks_home}
+				</div>
+				<div class="g_8 g_o">
+					<p class="entry_date">{entry_date format="%m.%d.%Y"}</p>
+					<h2>
+					{if channel_name == 'sermons'}
+						<a href="{path={segment_1}/{channel_short_name}/{url_title}}">Week {episode_week}: {title}</a>
+					{if:elseif channel_short_name == 'reading_guide'}
+						<a href="{if collection_downloads}{collection_downloads}{file}{/collection_downloads}{if:else}/study/{url_title}/{exp:playa:parents channel='reading_guide_entry' limit='1' sort='asc' var_prefix='entry'}{entry:url_title}{/exp:playa:parents}{/if}">{title}</a>
+					{if:else}
+						<a href="{path={segment_1}/{channel_short_name}/{url_title}}">{title}</a>
+					{/if}
+					</h2>
+					<p class="entry-description">
+						{exp:eehive_hacksaw append='&hellip;' chars='165'}
+							{editorial_legacy_body}
+							{entry_description}
+						{/exp:eehive_hacksaw}
+						{if channel_short_name == 'reading_guide'}
+							{exp:eehive_hacksaw append='&hellip;' chars='165'}
+								{collection_description}
+							{/exp:eehive_hacksaw}
+						{/if}			
+					</p>
+					<p class="entry-meta">
+						{categories limit="4" backspace="2"}<a href="{path={segment_1}}" title="View all entries tagged with {category_name}">{category_name}</a>, {/categories}
+					</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+		{/if}
+
+	{paginate}
+
+		<div class="g_12 clearfix pagination">
+			<div class="pagination-outer">
+				<div class="pagination-inner clearfix">
+					{pagination_links}
+				</div>
+			</div>
+		</div>
+	{/paginate}
+
+	{if count == absolute_results}
+		</div>
+		<div class="hr alt g_12"><hr></div>
+	{/if}
+
+{/exp:channel:entries}
+
+{embed="{segment_1}/_promoted" type=""}
+
+{embed="{segment_1}/_categories-list"}
+
+{embed="{segment_1}/_ads-resources" channel="reading_guide"}
+
+{exp:ce_cache:escape}
+{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

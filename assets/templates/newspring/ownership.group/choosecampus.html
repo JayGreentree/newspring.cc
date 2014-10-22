@@ -1,0 +1,100 @@
+<section class="section--condensed section--grey floating__item">
+	<div class="icon icon--close-modal fa fw fa-times" data-modal-close="/ownership/choosecampus/{segment_3}"></div>
+	<div class="shell text--condensed">
+		<div class="grid centered grid--enclosed">
+			{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc" status="Open|Coming Soon" url_title="{segment_3}"}
+				{if {exp:playa:total_parents field_id="85" category="303" show_future_entries="yes"}}
+					<div class="grid__item one-whole centered">
+						<h2>{title} Ownership Class</h2>
+					</div>
+					{exp:playa:parents channel="events" field_id="85" category="303" disable="" orderby="events_date" sort="asc" limit="2" var_prefix="events" show_future_entries="yes"}<div class="grid__item one-half handheld-one-whole">
+						<div class="card  flush centered">
+							<h3>{events:event_date format="%l, %F %j%S"} {events:event_date format="%g:%i"}-{events:event_enddate format="%g:%i%a"}</h3>
+							<h5><small>{if events:event_food != "None"}
+								{events:event_food}
+							{/if}
+							{events:if event_food != "None" AND event_childcare != ""}
+							 and
+							{/events:if}
+							{events:if event_childcare != ""}
+								Childcare
+							{/events:if} Provided</small></h5>
+
+						{events:if event_alternate_location OR '{events:exp:playa:children field="event_alternate_location_campus" var_prefix="alternateCampus"}'}
+							<p>
+								{events:if '{events:exp:playa:children field="event_alternate_location_campus" var_prefix="alternateCampus"}' != '0'}
+								{exp:playa:children field="event_alternate_location_campus" var_prefix="alternateCampus"}
+									This class will be held at the <b>{alternateCampus:title} campus.</b><br />
+									<a href="{alternateCampus:campus_addresses limit="1"}{directions}{/alternateCampus:campus_addresses}" target="_blank" class="link--arrow">Directions</a>
+								{/exp:playa:children}
+								{events:if:else}
+									This class will be held at an alternate location.<br />
+									<a href="{events:event_alternate_location}" target="_blank" class="link--arrow">Directions</a>
+								{/events:if}
+
+							</p>
+						{events:categories}
+						</div>
+						<a target="_blank" href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" style="width: 100%" class="btn btn--corners btn--filled submit ready">Sign Up</a>
+
+						{/categories}
+						{if:else}
+							{campus_addresses limit="1"}<a href="{directions}" target="_blank" class="link--arrow">Directions</a>{/campus_addresses}
+							{events:categories}
+							</div>
+							<a target="_blank" href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" style="width: 100%" class="btn btn--corners btn--filled submit ready">Sign Up</a>
+							{/categories}
+						{/events:if}
+					</div>{/exp:playa:parents}
+				{/if}
+			{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+
+
+{!-- <section class="section--condensed section--grey floating__item">
+	<div class="shell text--constrained">
+		<div class="grid centered grid--enclosed ">
+			<div class="grid__item one-whole">
+				<div>
+					<h2>{title} Ownership Class</h2>
+				</div>
+			</div>{if {exp:playa:total_parents field_id="85" category="303" show_future_entries="yes"}}<!--
+			-->{exp:playa:parents channel="events" category="303" disable="" orderby="events_date" sort="asc" var_prefix="events" show_future_entries="yes"}<div class="grid__item one-half portable-one-whole handheld-one-whole soft-quarter--bottom">
+				<div class="card  flush centered">
+					<h3>{events:event_date format="%l, %F %j%S"} {events:event_date format="%g:%i"}-{events:event_enddate format="%g:%i%a"}</h3>
+					<h5><small>{events:if event_food != "None"}
+						{events:event_food}
+					{/if}
+					{events:if event_food != "None" AND event_childcare == "y"}
+					 and
+					{/if}
+					{events:if event_childcare == "y"}
+						Childcare
+					{/if} Provided</small></h5>
+
+					{events:if event_alternate_location != ''}
+						<p>
+							This class will be held at an alternate location.
+							<a href="{events:event_alternate_location}" class="link--arrow">Directions</a>
+						</p>
+						{events:categories}
+						</div>
+							<a target="_blank" href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" style="width: 100%" class="btn btn--corners btn--filled submit ready">Sign Up</a>
+
+						{/categories}
+					{if:else}
+
+						{campus_addresses limit="1"}<a href="{directions}" class="link--arrow">Directions</a>{/campus_addresses}
+						{events:categories}
+						</div>
+						<a target="_blank" href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" style="width: 100%" class="btn btn--corners btn--filled submit ready">Sign Up</a>
+						{/categories}
+					{/if}
+
+			</div>{/if}{/exp:playa:parents}{/if}
+		</div>
+	</div>
+</section> --}

@@ -1,0 +1,15 @@
+{!--
+	
+	This embed will return all service times of a given service type, for a given campus.
+
+	{embed="newspring:_embeds/_service-times" type="{type}" campus="{campus}"}
+
+--}
+
+{exp:low_reorder:entries site="newspring" set="services_days"}
+	{exp:playa:parents site="newspring" field="services" col="service_relatedday" var_prefix="services_new"}
+		{services_new:services search:service_day="{serviceday_value}" search:service_type="{embed:type}" search:service_campuses="{embed:campus}"}
+			{if row_count == total_rows AND total_rows > 1}&amp; {/if}{if row_count == 1}{service_day:label} at {/if}{service_starttime:label}{if embed:type == 'Fuse'}<br>(Doors Open at {service_doorstime:label}){/if}{if row_count != total_rows}, {if:elseif row_count != total_rows AND total_rows > 1}.{/if}
+		{/services}
+	{/exp:playa:parents}
+{/exp:low_reorder:entries}

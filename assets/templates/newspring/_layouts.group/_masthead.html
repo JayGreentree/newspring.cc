@@ -1,0 +1,22 @@
+<section id="masthead" class="masthead hard{if layout:fixed_masthead == 'y'} masthead--locked{/if}">
+	<div class="shell hard">
+
+		<div class="masthead-wrapper{if layout:fixed_masthead == 'y'} hard{/if}">
+			<div class="masthead-bar floating {if layout:masthead_theme}{layout:masthead_theme}{/if}"><!--
+
+
+			-->{layout:contents}<!--
+
+			-->{if layout:social_nav == 'y'}<!--
+				--><ul class="social-nav floating__item">
+					<li><a href="{site_facebook_url}" class="facebook" target="_blank"><i class="fa fw fa-facebook"></i></a></li><li><a href="{site_twitter_url}" class="twitter" target="_blank"><i class="fa fw fa-twitter"></i></a></li><li><a href="{site_instagram_url}" class="instagram" target="_blank"><i class="fa fw fa-instagram"></i></a></li>
+				</ul><!--
+				-->{/if}<!--
+
+			--><nav class="floating__item">
+				{layout:navigation}
+			  </nav><!--
+			--></div>
+		</div>
+	</div>
+</section>

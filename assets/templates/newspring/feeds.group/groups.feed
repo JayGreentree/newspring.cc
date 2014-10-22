@@ -1,0 +1,3 @@
+{exp:ce_cache:it seconds="5400"}
+	{embed='feeds/rss' channel='groups_leaders' description='editorial_legacy_body' path='groups/leaders'}
+{/exp:ce_cache:it}

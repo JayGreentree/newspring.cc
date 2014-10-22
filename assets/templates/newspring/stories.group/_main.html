@@ -1,0 +1,95 @@
+{layout="_layouts/master"
+	title="Stories"
+	description="Every number has a name, every name has a story, every story matters to God."
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id="contents"}
+
+<section>
+	<div class="shell hard">
+		<div class="grid flush">
+			{exp:channel:entries channel="stories" limit="9" status="Featured"}{exp:stash:set name="total_results_less_three"}{exp:math formula='{total_results} - 3' absolute='yes'}{/exp:stash:set}<div class="grid__item
+			{if count == 1}
+				one-whole
+			{if:else}
+				{if total_results < 3}
+					one-whole
+				{if:else}
+					{if total_results % 2 != 0}
+						one-half handheld-one-whole
+					{if:else}
+						{if count > {exp:stash:get name='total_results_less_three'}}
+							{if count != total_results}
+								one-third portable-one-half handheld-one-whole
+							{if:else}
+								one-third portable-one-whole handheld-one-whole
+							{/if}
+						{if:else}
+							one-half handheld-one-whole
+						{/if}
+					{/if}
+				{/if}
+			{/if}
+			hard flush">
+					<a href="{path='/stories/{url_title}'}" class="{if count == 1}ratio--landscape handheld-ratio--square{if:else}ratio--square{/if} background--fill flush clickable" style="background-image:url({entry_image}{if count == 1}{exp:ce_img:single src='{entry_image_2x1}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{entry_image_1x1}' width='1000' crop='yes' url_only='yes'}{/if}{/entry_image})">
+						<div class="ratio__item floating floating--left floating--bottom overlay overlay--gradient">
+							<div class="floating__item overlay__item overlay--light left">
+								<div class="text--padded">
+									<p class="colfax outlined outlined--tag light"><b>{if entry_video}Watch{if:else}Read{/if}</b></p>
+									<h4 class="flush">{title}</h4>
+								</div>
+							</div>
+						</div>
+					</a>
+			</div>{/exp:channel:entries}
+		</div>
+	</div>
+</section>
+
+<section class="section--dark">
+	<div class="shell">
+		<div class="grid">
+			<div class="grid__item one-whole centered">
+				<div class="text--constrained">
+					<h2>Share Your Story</h2>
+					<p>Watch a short video from Pastor Perry Noble to get tips on how to tell your story for God's glory! Then take a few minutes to share what Jesus has done in your life.</p>
+					<a href="/stories/share" class="btn">Watch Now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{embed="newspring:_embeds/_discover"
+	type="related"
+	title="Stories"
+	suggestions="<span class='tag' data-modal-open='search-modal' data-google-search-link='search-modal'>Freedom</span>, <span class='tag' data-modal-open='search-modal' data-google-search-link='search-modal'>Marriage</span>, or <span class='tag' data-modal-open='search-modal' data-google-search-link='search-modal'>Identity</span>"
+}
+
+{/exp:ce_cache:it}

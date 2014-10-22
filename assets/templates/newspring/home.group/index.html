@@ -1,0 +1,130 @@
+{layout="_layouts/master"
+	title="Welcome! We&rsquo;re Glad You&rsquo;re Here"
+	description="NewSpring exists to reach people far from God and teach them how to follow Jesus step by step. We currently have 10 campuses across the state of South Carolina."
+	image="{images-global}/newspring/icons/newspring.podcast.png"
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents'}
+
+
+{embed="newspring:_embeds/_non-hero"
+	section="section--texture section--pattern"
+	overlay="overlay--light overlay--solid overlay--texture"
+	title="Welcome"
+	subtitle="We&rsquo;re Glad You&rsquo;re Here!"
+	video='homepage, [//s3.amazonaws.com/ns.video/newspring/promotions/homepage/headeralt.newspring.mp4, //s3.amazonaws.com/ns.video/newspring/promotions/homepage/headeralt.newspring.webm]'
+}
+
+
+<section>
+	<div class="shell hard">
+		<div class="grid flush border--inset">
+			{exp:low_reorder:entries set="promotions_{site_short_name}"
+			site="newspring"
+			disable='categories|member_data|pagination|trackbacks'
+			status="Featured"
+			}
+
+				{!--
+
+				@NOTE
+				We only want to embed the promotions loops once or insanity will follow.
+				Wish there was a better way to to this.
+
+				--}
+
+				{if count == "1"}
+					{embed="newspring:_promotions/_promotion-loop"
+						results_count="{total_results}"
+						site="newspring"
+					}
+				{/if}
+			{/exp:low_reorder:entries}
+		</div>
+	</div>
+</section>
+
+{embed="newspring:_embeds/_discover"
+	type="promoted"
+}
+
+<section>
+	<div class="shell background--fill overlay overlay--solid" style="background-image: url({exp:ce_img:single src='{images-global-origin}/{site_short_name}/homepage/newspring.auditorium.2x1.jpg' width='1700' crop='yes' url_only='yes'})">
+		<div class="overlay__item centered">
+			<blockquote class="blockquote--whitequote">
+				<p class="light text--constrained">NewSpring exists to reach people far from God and teach them how to follow Jesus step by step.</p>
+			</blockquote>
+		</div>
+	</div>
+</section>
+
+<section class="section--grey section--condensed">
+	<div class="shell soft-half--ends">
+		<div class="grid grid--enclosed">
+			<div class="grid__item one-third portable-one-half handheld-one-whole centered">
+				<a href="/locations" class="clickable ratio--hero background--fill flush" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/_fpo/fpo.guitar.landscape.jpg' width='1000' crop='yes' url_only='yes'});"></a>
+				<div class="card">
+					{!-- Title --}
+					<h3><a href="/locations" class="dark">Plan a Visit</a></h3>
+
+					{!-- Summary --}
+					<p>NewSpring is one church in many locations. We currently have 10 campuses across the state of South Carolina.</p>
+
+					{!-- Link --}
+					<a href="/locations" class="link--arrow">Find a Location</a>
+				</div>
+			</div><div class="grid__item one-third portable-one-half handheld-one-whole centered">
+
+				<a href="/families" class="clickable ratio--hero background--fill flush" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/_fpo/fpo.highfive.landscape.jpg' width='1000' crop='yes' url_only='yes'});"></a>
+				<div class="card">
+					{!-- Title --}
+					<h3><a href="/families" class="dark">Family Ministries</a></h3>
+
+					{!-- Summary --}
+					<p>We have age-appropriate ministries for your kids and students (birth&ndash;12th grade) so they can learn on their level.</p>
+
+					{!-- Link --}
+					<a href="/families" class="link--arrow">Learn More</a>
+				</div>
+			</div><div class="grid__item one-third portable-one-half handheld-one-whole centered" >
+				<a href="/nextsteps" class="clickable ratio--hero background--fill flush" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/editorial/articles/laughingfriends.jpg' width='1000' crop='yes' url_only='yes'});"></a>
+				<div class="card">
+					{!-- Title --}
+					<h3><a href="/nextsteps" class="dark">Next Steps</a></h3>
+
+					{!-- Summary --}
+					<p>You were created on purpose, with a purpose, for a purpose. No matter where you are in life, you&rsquo;ve got a next step.</p>
+
+					{!-- Link --}
+					<a href="/nextsteps" class="link--arrow">Discover Yours</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{/exp:ce_cache:it}

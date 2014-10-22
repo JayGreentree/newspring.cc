@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{if embed:page_title}{embed:page_title} | {/if}{if embed:study_title}{embed:study_title} | {/if}Bible Study | NewSpring Church</title>
+	
+	<link rel="alternate" type="application/rss+xml" title="NewSpring Church Bible Studies" href="http://feeds.feedburner.com/NewspringChurch30-dayBibleStudy">
+	<!-- Styles -->
+	<link type="text/css" rel="stylesheet" media="screen"  href="{exp:cache_buster file='/assets/css/{site_short_name}/master.css'}">
+
+	<!-- Section Styles -->
+	<link type="text/css" rel="stylesheet" media="screen" charset="utf-8" href="{exp:cache_buster file='/assets/css/{site_short_name}/section/{segment_1}.css'}">
+	<!--[if gt IE 6]><link rel="stylesheet" href="/styles/study_non_css3/?{CSS_VERSION}/" type="text/css" media="screen" charset="utf-8"><![endif]-->
+	
+	<script src="/scripts/study/?{JS_VERSION}/" type="text/javascript" charset="utf-8"></script>
+
+	{if embed:page_title AND embed:meta_description}
+	<meta name="title" content="{embed:page_title}">
+	<meta name="description" content="{embed:meta_description}">
+	{/if}
+</head>
+
+<!--[if !IE]><!-->
+<body{if embed:body_id} id="p_{embed:body_id}"{/if}>
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<body{if embed:body_id} id="p_{embed:body_id}"{/if} class="lt_ie8">
+<![endif]-->
+
+<!--[if gte IE 8]>
+<body{if embed:body_id} id="p_{embed:body_id}"{/if} class="gte_ie8">
+<![endif]-->
+	
+	<div id="masthead" class="c_12 clearfix">
+		<p class="g_7 s_1 title"><a href="{if segment_2 == 'eveandadam'}/eveandadam/{if:else}/study/{/if}" title="NewSpring Church Bible Study Home Page">NewSpring Church | {embed:study_title} Bible Study</a></p>
+		
+		{exp:search:simple_form channel='study|day' search_in='everywhere' result_page='study/results' no_result_page='study/results' status='open' where='all' results='10'}
+			<p><label for="search">Search</label> <input type="text" name="keywords" value="" id="search"></p>
+			<p><input type="submit" value="Search" id="submit"></p>
+		{/exp:search:simple_form}
+		
+		<div class="hr"><hr></div>
+		
+		<div id="masthead_cap"></div>
+	</div>
+	
+	{if embed:body_id == "eveandadam"}
+	<div id="page" class="c_12 clearfix">
+		<div id="page_cap_top"></div>
+	{/if}
+
+		{if segment_3 AND segment_2 != 'results'}
+		<ul id="day_nav" class="clearfix">
+			{exp:channel:entries channel='study' status='open'}
+			
+			{!-- We build links for the days that exist --}
+			{exp:playa:parents channel='day' sort="asc" var_prefix="day"}
+			
+			{!-- preload_replace:full_url='{embed="study/_url" entry_id="{entry_id}" url_title="{url_title}"}' --}
+			
+			<li><a href="{day:url_title_path=study/{segment_2}}" title="" {if '{segment_3}' == '{day:url_title}'}class="current"{/if}>{day:day_count}</a></li>
+			<? $total_days = '{day:total_results}'; ?>
+			
+			{/exp:playa:parents}
+			
+			{!-- Then we build placeholders for the rest of the 30 days --}
+			<?
+				for ($i = $total_days+1; $i <= 30; ++$i)
+					echo '<li '.(($i == 30) ? 'class="last"' : '').'>'.$i.'</li>';
+			?>
+			{/exp:channel:entries}
+		</ul>
+		{/if}
+	{if embed:body_id != "eveandadam"}
+	<div id="page" class="c_12 clearfix">
+		<div id="page_cap_top"></div>
+	{/if}

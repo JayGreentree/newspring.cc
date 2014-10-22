@@ -1,0 +1,121 @@
+{embed='styles/reset'}
+
+/* ----------------------------------------------------------------------------
+   SITE
+---------------------------------------------------------------------------- */
+
+body {
+	margin: 0 auto;
+	padding-bottom: 70px;
+	position: relative;
+	width: 788px;
+}
+
+h1 {
+	background: url(//images.newspring.cc/site/zac/h1.png) 0 0 no-repeat;
+	height: 23px;
+	margin: 0 auto 11px;
+	width: 772px;
+}
+
+#good_fight {
+	background: url(//images.newspring.cc/site/zac/good.fight.png) 0 0 no-repeat;
+	height: 24px;
+	margin: 0 auto 33px;
+	width: 650px;
+}
+
+html { border-top: 7px solid #D4B653; }
+
+li { display: inline; }
+
+ul { text-align: center; }
+ul a {	
+	border: 1px solid #E1E1E1;
+	background: #EDEDED;
+	color: #676767;
+	font: 11px/1 Palatino, Georgia, "Times New Roman", sans-serif;
+	letter-spacing: 1.5px;
+	padding: 8px 13px 5px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #FFF;
+	text-transform: uppercase;
+}
+ul a.first {
+	-khtml-border-radius-bottomleft: 10px;
+	-khtml-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	left: 2px;
+}
+ul a.first:before { content: '« '; }
+ul a.last {
+	-khtml-border-radius-bottomright: 10px;
+	-khtml-border-radius-topright: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	right: 3px;
+	padding-left: 12px;
+}
+ul a.last:after { content: ' »'; }
+
+ul a.first:before,
+ul a.last:after { font-size: 15px; }
+ul a:hover {
+	background: #F6F6F6;
+	color: #444;
+}
+
+#hero {
+	background: url(//images.newspring.cc/site/zac/hero.jpg) 0 0 no-repeat;
+	height: 367px;
+	margin: 45px 0 15px;
+	padding: 170px 0 0 314px;
+	width: 474px;
+}
+
+#join_us {
+	background: url(//images.newspring.cc/site/zac/join.us.png) 0 0 no-repeat;
+	height: 14px;
+	margin: 0 auto 33px;
+	width: 641px;
+}
+
+#play {
+	background: url(//images.newspring.cc/site/zac/play.jpg) 0 0 no-repeat;
+	display: block;
+	height: 160px;
+	width: 160px;
+}
+#play:hover { background-position: 0 100%; }
+
+#trans {
+	background: url(//images.newspring.cc/site/zac/trans_90.png) 0 0 repeat;
+	height: 100%;
+	left: 0;
+	position: fixed !important;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+#video {
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 20px solid #000;
+	margin: 110px 0 0 64px;
+	position: fixed !important;
+	position: absolute;
+	top: 0;
+	z-index: 3;
+}
+
+{embed='styles/hacks'}

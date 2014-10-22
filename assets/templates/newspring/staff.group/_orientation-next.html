@@ -1,0 +1,12 @@
+			{!-- 
+				Using the next_entry tag to pre-populate a hidden custom member field with the next entry's URL title
+				The submit button is actually a save profile action with a redirect to the next entry.
+				Lookie there, the user can now be redirected to their last/current session. Yippeee!
+			--}
+			{exp:channel:next_entry channel="staff_sessions" url_title="{segment_3}"}
+				{exp:user:edit return="{segment_1}/orientation/{url_title}"}
+					<input type="hidden" name="staff_session_current" value="{url_title}" />
+					<input type="submit" name="submit" class="submit next-session"value="Start {title}" />
+					{!--<p class="green-button"><a href="{path={segment_1}/orientation}">Complete {title}</a></p>--}
+				{/exp:user:edit}
+			{/exp:channel:next_entry}

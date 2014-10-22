@@ -1,0 +1,15 @@
+{if segment_3}
+	{if segment_4}
+		{embed="newspring:groups/_studies-entry"}
+	{if:else}
+		{exp:md_detect_page_type url_segment="{segment_3}"}
+			{if pagination_page}
+				{embed="newspring:groups/_studies-list"}
+			{if:else}
+				{embed="newspring:groups/_studies-collection"}
+			{/if}
+		{/exp:md_detect_page_type}
+	{/if}
+{if:else}
+	{embed="newspring:groups/_studies-list"}
+{/if}

@@ -1,0 +1,85 @@
+{layout="_layouts/master"
+    title="Our Pastors"
+    description="Perry Noble is the founding and senior pastor of NewSpring Church in South Carolina."
+    image=""
+    page_type=""
+    article_section=""
+    tags=""
+    publish_time=""
+
+    google_author=""
+    google_page_profile=""
+
+    twitter_publisher=""
+    twitter_author=""
+
+    facebook_profile=""
+    facebook_app=""
+
+    typekit=""
+
+    section_style=""
+    section_script=""
+
+    meta=""
+    footer=""
+}
+
+{layout:set name="meta"}
+    {!-- Add additional meta tags here --}
+{/layout:set}
+
+{exp:ce_cache:it id='contents' seconds="604800"}
+
+{embed="newspring:_embeds/_non-hero"
+    section='section--pattern'
+    overlay='overlay--light'
+    title='Our Pastors'
+    image_url="{images-global}/newspring/editorial/default/cedar.2to1.jpg"
+    image_classes=""
+}
+
+
+
+<section>
+	<div class="shell">
+	    <div class="grid">
+        <div class="grid centered">
+        	{exp:channel:entries channel="members" status="not Resources-id20|Disabled_LDAP_Users-id39" entry_id="104366"}<div class="grid__item five-twelfths lap-wide-one-third lap-two-thirds palm-wide-three-quarters palm-one-whole flush">
+                <div class="image image--round ratio--square" style="background-image: url({if '{mbr_site_image}' != ''}{exp:ce_img:single src='{mbr_site_image}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global-origin}/newspring/newhere/campuspastors/cp.cliffcraig.jpg' width='1000' crop='yes' url_only='yes'}{/if});"></div>
+            </div><div class="grid__item seven-twelfths lap-wide-two-thirds lap-one-whole handheld-one-whole left palm-centered">
+                <h2 class="dark flush"><b>{mbr_first_name} {mbr_last_name}</b></h2>
+                <h4>{mbr_staff_title}</h4>
+                <br>
+                {mbr_site_description}
+                <hr class="hidden">
+            </div>
+        </div>{/exp:channel:entries}
+
+        {exp:channel:entries channel="members" entry_id="not 104366" status="not Resources-id20|Disabled_LDAP_Users-id39" category="473" sort="asc"}<div class="grid__item one-half portable-one-whole handheld-one-whole">
+    		<div class="grid floating">
+    			<div class="grid__item floating__item one-half portable-one-half handheld-three-quarters soft-half--bottom flush">
+    				<div class="image image--round ratio--square flush" style="background-image: url({if '{mbr_site_image}' != ''}{exp:ce_img:single src='{mbr_site_image}' width='1000' crop='yes' url_only='yes'}{if:else}{exp:ce_img:single src='{images-global-origin}/newspring/newhere/campuspastors/cp.cliffcraig.jpg' width='1000' crop='yes' url_only='yes'}{/if});"></div>
+    			</div><div class="grid__item floating__item one-half portable-one-whole handheld-one-whole left handheld-centered">
+    				<h3>{mbr_first_name}<br>{mbr_last_name}</h3>
+    				<h5 class="soft-half--bottom">{mbr_staff_title}</h5>
+    			</div>
+    		</div>
+
+    		{mbr_site_description}
+    	</div>{/exp:channel:entries}
+	</div>
+</section>
+
+<section class="section--grey">
+    <div class="shell">
+        <div class="grid">
+            <div class="grid__item one-whole centered">
+                <h3 class="caps">Who Leads Each Campus?</h3>
+                <p class="text--constrained">NewSpring is one church in many locations, and each location has a Campus Pastor.</p>
+                <a href="/pastors/campuspastors" class="btn">Meet the Campus Pastors</a>
+            </div>
+        </div>
+    </div>
+</section>
+{/exp:ce_cache:it}

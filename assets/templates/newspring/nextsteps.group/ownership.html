@@ -1,0 +1,90 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_template="nextsteps"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header'
+		title='Ownership | Next Steps'
+		body_id='ownership'
+		body_class="subnav"
+		page_class="page-border"
+		group_style="{segment_1}"
+		group_script="{segment_1}"
+		fb_title="Ownership | Next Steps"
+		fb_url="{path={page_template}}"
+		meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}'
+		fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:escape}
+
+	<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div class="c_12 clearfix page-border">
+		<div class="g_12">
+			<div id="hero">
+				<img src="//images.newspring.cc/section/nextsteps/hero.ownership.jpg" width="940" alt="" class="border">
+			</div>
+		</div>
+		<div class="section g_12">
+			<div class="g_7 g_a">
+				<div class="leftCol">
+					<h2>Members have rights; Owners have responsibilities</h2>
+					<p>We believe every Christ-follower should belong to a local church and take ownership of that church. Ownership at NewSpring includes serving, giving and participating in biblical community.</p>
+					<p>We offer monthly Ownership classes where you'll learn the vision and values of NewSpring. At Ownership Class we'll teach you the five core values our church lives by: Found People Find People, Saved People Serve People, Growing People Change, You Can't Do Life Alone and You Can't Outgive God. At the end of the class you'll have an opportunity to become an owner of NewSpring Church.</p>
+					<p>Ownership Class is designed for 6th grade (12 years-old) and up. Sign up at Guest Services on Sunday or by using one of the links below. This class is a requirement for ownership.</p>
+					<p>At NewSpring Church, we're working to reach 100,000 people for Jesus Christ. Will you join us?</p>
+				</div>
+			</div>
+			<div class="g_5 g_o">
+				<h2>Ownership Classes</h2>
+				<div id="accordion">
+					{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc" status="Open|Coming Soon" entry_id="not 2422"}
+						<h3>{title} <div class="arrow"></div></h3>
+						{if {exp:playa:total_parents channel='events' category="303"}}
+							<div>
+					           	<ul>
+					            {exp:playa:parents channel="events" category="303" disable="" orderby="events_date" sort="asc" var_prefix="events" limit="2"}
+									<li>
+										<span class="date">{events:event_date format="%l, %F %j%S"} {events:event_date format="%g:%i"}-{events:event_enddate format="%g:%i%a"}</span><br>
+										{events:if event_food != "None"}
+											<div class="service"><span>3</span> {events:event_food}</div>
+										{/if}
+										{events:if event_childcare != ""}
+											<div class="service"><span>3</span> Childcare</div>
+										{/if}
+										{events:if event_alternate_location}
+											{events:categories}
+												<br><br>
+												<a href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" class="signup btn">Sign Up</a>
+											{/categories}
+											<p class="alt-location">This class will be held at an <a href="{events:event_alternate_location}">alternate location.</a></p>
+										{if:else}
+											{events:categories}
+												<br><br>
+												<a href="https://newspring.wufoo.com/forms/{events:event_wufoo_id}/def/field3={title}&field139={events:event_date format='%l, %F %j, %Y from %g:%i'}-{events:event_enddate format='%g:%i%a'}" class="signup btn">Sign Up</a>
+											{/categories}
+											{campus_addresses limit="1"}<a href="{directions}" class="directions">Get Directions</a>{/campus_addresses}
+										{/if}
+									</li>
+								{/exp:playa:parents}
+								</ul>
+							</div>
+						{if:else}
+							<div class="no-classes">
+								<p><b>No Classes Currently Scheduled</b></p>
+							</div>
+						{/if}
+					{/exp:channel:entries}
+				</div>
+			</div>
+		</div>
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

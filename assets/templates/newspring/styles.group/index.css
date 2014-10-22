@@ -1,0 +1,35 @@
+{preload_replace:directory='styles'}
+
+{embed='{directory}/fontface'}
+{embed='{directory}/fonts'}
+{embed='{directory}/reset'}
+{embed='{directory}/grid'}
+{embed='{directory}/default'}
+{embed='{directory}/home'}
+{embed='{directory}/watch_and_listen'}
+{embed='{directory}/series'}
+{embed='{directory}/archives'}
+{embed='{directory}/episode'}
+{embed='{directory}/player'}
+{embed='{directory}/sub_pages'}
+{embed='{directory}/signage'}
+{embed='{directory}/feeds'}
+{embed='{directory}/heroes'}
+{embed='{directory}/live'}
+{embed='{directory}/ministries'}
+{embed='{directory}/stories'}
+{embed='{directory}/staff_hub'}
+{embed='{directory}/forms'}
+{embed='{directory}/tellafriend'}
+{embed='{directory}/hacks'}
+{embed='{directory}/blogs'}
+{embed='{directory}/iOS'}
+{embed='{directory}/marriage_resource'}
+{embed='{directory}/corevalues'}
+{embed='{directory}/leadership'}
+{embed='{directory}/worship'}
+{embed='{directory}/404'}
+{embed='{directory}/buttons'}
+
+<?php if(substr_count($_SERVER['HTTP_USER_AGENT'], "MSIE") > 0) echo '{embed="styles/ie"}'; ?>
+<?php if(substr_count($_SERVER['HTTP_USER_AGENT'], "AppleWebKit") > 0) echo '{embed="styles/webkit"}'; ?>

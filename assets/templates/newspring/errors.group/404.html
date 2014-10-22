@@ -1,0 +1,60 @@
+{layout="_layouts/master"
+	title="This Page Does Not Exist"
+	description=""
+	image=""
+	page_type=""
+	article_section=""
+	tags=""
+	publish_time=""
+
+	google_author=""
+	google_page_profile=""
+
+	twitter_publisher=""
+	twitter_author=""
+
+	facebook_profile=""
+	facebook_app=""
+
+	typekit=""
+
+	section_style=""
+	section_script=""
+
+	meta=""
+	footer=""
+}
+
+{layout:set name="meta"}
+	{!-- Add additional meta tags here --}
+{/layout:set}
+
+{layout:set name="title"}{exp:phpstringfun function="rtrim" par1="/"}{all_segments}{/exp:phpstringfun} | This Page Does Not Exist{/layout:set}
+
+<section>
+	<div class="shell hard">
+		<div class="ratio--landscape background--fill overlay overlay--solid flush" style="background-image: url({exp:ce_img:single src='{images-global-origin}/newspring/emptytomb/fpo.emptytomb.5.jpg' width='1700' crop='yes' url_only='yes'});">
+			<div class="ratio__item floating">
+				<div class="grid centered overlay__item floating__item">
+			    	<div class="grid__item one-whole">
+			    		<h2 class="light no_hero">He Ain’t In There</h2>
+			    		<h5 class="light caps">(404 Error)</h5>
+			    		<br>
+			    		<br>
+			    		<h4 class="light">Don’t be alarmed. You are looking for <strong>{if segment_1 == 'jesus' OR segment_1 == 'Jesus'}Jesus{if:else}{exp:phpstringfun function="rtrim" par1="/"}{all_segments}{/exp:phpstringfun}{/if}</strong>. {if segment_1 == 'jesus' OR segment_1 == 'Jesus'}He{if:else}It{/if} is not here.</h4>
+			    		<div class='input--icon'>
+
+			    		{if segment_1 == 'jesus' OR segment_1 == 'Jesus'}
+			    			<a href="/salvation" class='btn btn--light'>You Can Find Him Here</a>
+			    		{if:else}
+						<div class='btn btn--icon btn--light' data-modal-open='search-modal'>
+							Search For It
+							<span class='icon icon--search'></span>
+						</div>
+						{/if}
+			    	</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</section>

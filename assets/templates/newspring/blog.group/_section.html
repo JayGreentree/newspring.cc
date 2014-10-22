@@ -1,0 +1,150 @@
+{exp:ce_cache:it seconds="5400"}
+
+{!-- Segment 2 Check added because resources is now manually ordered by reorder --}
+{if segment_2 == 'resources'}
+	{exp:low_reorder:entries set="resources"
+		limit="10" 
+		paginate="bottom" 
+		disable="member_data"
+		category="{last_segment_category_id}"
+	}
+{/if}
+{if segment_2 != 'resources'}
+	{exp:channel:entries 
+		channel="{segment_2}"  
+		limit="10" 
+		orderby="channel|date" 
+		sort="desc|asc" 
+		paginate="bottom" 
+		dynamic="off"
+		disable="member_data"
+		category="{last_segment_category_id}"
+		status="open|featured"
+	}
+{/if}
+{!-- because we're using last_segment_category_id, no categories can match any of the blog channel names --}
+
+{if count == "1"}
+
+	{exp:ce_cache:escape}
+		{embed="includes/header"
+			body_id="blog" 
+			body_class="subnav" 
+			page_class="page-border" 
+			group_style="blog"
+			use_alt=""
+			title="{categories show='{last_segment_category_id}'}Category: {category_name} | {/categories}{channel} | Blog"
+			fb_title="{categories show='{last_segment_category_id}'}Category: {category_name} | {/categories}{channel} | Blog" 
+			fb_url="" 
+			fb_describe="{exp:eehive_hacksaw append='&hellip;' chars='200'}{editorial_legacy_body}{episode_description}{/exp:eehive_hacksaw}"
+      		fb_type="article"
+		}
+	{/exp:ce_cache:escape}
+
+	</div><!-- //page - wraps header on pages with subnav-->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div id="main_content" class="c_12 clearfix page-border">
+
+		{categories show="{last_segment_category_id}"}
+			<div class="g_12 clearfix section category">
+				<h2>{channel}: {category_name}</h2>
+			</div>
+		{/categories}
+
+		<!-- Section: {channel} -->
+		<div class="g_12 clearfix section top {channel_short_name}">
+			<div class="g_4 g_a">
+				{!-- Snippet for thumbnail detection --}
+		        {blog_sidekicks_home}
+			</div>
+			<div class="g_8 g_o">
+				<p class="entry_date">{entry_date format="%m.%d.%Y"}</p>
+					<h2><a href="{if segment_2 == 'episode'}{site_url}/watch/{exp:playa:children channel='series' var_prefix='ser'}{ser:url_title}{/exp:playa:children}/{url_title}{if:else}{path={segment_1}/{channel_short_name}/{url_title}}{/if}">{if channel_name == "episode"}Week {episode_week}: {/if}{title}</a></h2>
+				<p class="entry-description">
+					{if channel_name == "stories"}
+						{exp:eehive_hacksaw append='&hellip;' chars='165'}
+							{editorial_summary}
+						{/exp:eehive_hacksaw}
+					{if:else}
+						{exp:eehive_hacksaw append='&hellip;' chars='165'}
+							{editorial_legacy_body}
+							{episode_description}
+						{/exp:eehive_hacksaw}	
+					{/if}		
+				</p>
+				<p class="entry-meta">
+					{!-- Category links on a section/category page are will assume the user wants to visit a different category within that section. --}
+					{categories limit="2" backspace="4"}<a href="{path={segment_1}/{segment_2}}" title="View all entries tagged with {category_name}">{category_name}</a>, {/categories}
+				</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="clearfix section recent {channel_short_name}">
+
+	{if:else}
+
+	{!--  IF COUNT > 1  --}
+		<div class="g_4">
+			{!-- Snippet for thumbnail detection --}
+	        {blog_sidekicks}
+		</div>
+
+	{if count == total_results}
+		{if channel_short_name == "stories"}
+			<div class="g_12 clearfix">
+				<div class="g_6 g_a">
+					<div class="blackened wide clearfix">
+						<a href="/mystory/share/" title="Share your story">
+						<em>What's your story? How has Jesus Christ changed your life? </em>Share Your Story</a>
+					</div>
+				</div>
+				<div class="g_6 g_o">
+					<div class="blackened wide clearfix">
+						<a href="https://newspring.wufoo.com/forms/join-our-storytelling-team/" title="Share your story">
+						<em>Help us capture more stories for God's glory </em>Join Our Team</a>
+					</div>
+				</div>
+			</div>
+		{/if}
+		</div><!--/recent-->
+	{/if}
+
+	{/if}
+
+	{paginate}
+		<div class="g_12 clearfix pagination">
+			<div class="pagination-outer">
+				<div class="pagination-inner clearfix">
+					{pagination_links}
+				</div>
+			</div>
+		</div>
+	{/paginate}
+
+	{if no_results}
+		{!-- this partial is hit when someone enters a wrong value in segment_2, so we redirect them to the blog --}
+		{redirect="blog"}
+	{/if}
+
+{!-- Segment 2 Check added because resources is now manually ordered by reorder --}
+{if segment_2 == 'resources'}
+	{/exp:low_reorder:entries}
+{/if}
+{if segment_2 != 'resources'}
+	{/exp:channel:entries}
+{/if}
+
+{embed="{segment_1}/_promoted" type=""}
+
+{!-- Show entries from all sections by category --}
+{embed="{segment_1}/_categories-list"}
+
+{embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">{exp:phpstringfun function="ucfirst"}{segment_1}{/exp:phpstringfun}</a></li><li><a href="{path={segment_1}/{segment_2}}" title="View the {segment_2} page" >{exp:phpstringfun function="ucfirst"}{segment_2}{/exp:phpstringfun}</a></li>{if segment_3}<li><a href="{path={segment_1}/{segment_2}/{segment_3}/{segment_4}}" title="You are on this page">Category: {exp:low_title:category url_title="{segment_4}" category_id="{last_segment_category_id}"}</a></li>{/if}'}
+
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}

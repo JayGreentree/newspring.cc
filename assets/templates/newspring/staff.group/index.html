@@ -1,0 +1,78 @@
+{embed='includes/header' 
+	title='Staff Hub' 
+	body_id='hub' 
+	body_class='subnav' 
+	page_class="page-border"
+	group_script='' 
+	group_style="{segment_1}" 
+}
+
+</div><!-- //page -->
+
+{embed="includes/_subnav" navtitle="staffnav"}
+
+<div class="c_12 clearfix page-border hub">
+	{if logged_in}
+		{exp:user:stats dynamic="off"}
+			{if user_access == "staff"}
+
+				{exp:ce_cache:it}
+				
+					{exp:channel:entries channel="staff_hub" order="date" sort="desc" limit="1" url_title="staff-hub"}
+						<div class="staff_section">
+							<div class="divider"></div>
+							<h2>Logins</h2>
+							<ul class="btn-group clearfix">
+								{staff_hub_logins}
+							    	<li class="{switch='g_a||g_o'}"><a href="{login_url}" title="{login_description}" onclick="_gaq.push(['_trackEvent','Staff', 'Link Clicked', '{login_title}']);">{login_title}</a></li>
+								{/staff_hub_logins}
+							</ul>
+						</div>
+
+						<div class="staff_section">
+							<div class="divider"></div>
+							<h2>Requests</h2>
+							<ul class="btn-group clearfix">
+								{staff_hub_requests}
+							    	<li class="{switch='g_a||g_o'}"><a href="{request_url}" title="{request_description}" onclick="_gaq.push(['_trackEvent','Staff', 'Link Clicked', '{request_title}']);">{request_title}</a></li>
+								{/staff_hub_requests}
+							</ul>
+						</div>
+
+
+					{staff_hub_documents}
+						{if row_count == "1"}
+						<div class="staff_section last">
+							<div class="divider"></div>
+							<h2>Documents</h2>
+							<ul class="btn-group clearfix">
+						{/if}
+							    	<li class="{switch='g_a||g_o'}"><a href="{document_upload:url}" title="{document_description}" onclick="_gaq.push(['_trackEvent','Staff', 'Link Clicked', '{document_title}']);">{document_title}</a></li>
+						
+					   	{if row_count == "{total_rows}"}
+							</ul>
+						</div>
+						{/if}
+					{/staff_hub_documents}
+
+						{embed="{segment_1}/_staff-footer"}
+					{/exp:channel:entries}
+
+				{/exp:ce_cache:it}
+
+			{if:else}
+
+				{!-- if user doesn't have access, redirect --}
+				{redirect="/"}
+
+			{/if}
+		{/exp:user:stats}
+	{if:else}
+	
+		{!-- if not logged in, display sign in box --}
+		{redirect="login/staff"}	
+
+	{/if}
+
+
+{embed='includes/footer'}

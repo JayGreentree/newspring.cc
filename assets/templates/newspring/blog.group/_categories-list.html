@@ -1,0 +1,25 @@
+{preload_replace:all_channels="articles|devotionals|resources|episode|stories"}
+
+<!-- Categories List -->
+<div class="g_12 clearfix section categories">
+	{exp:channel:categories category_group="16" parent_only="yes" style="linear"}
+		<div class="g_4<?php 
+			switch ("{count}" % 3){
+			    case 1:
+			        echo " g_a";
+			        break;
+			    case 2:
+			        echo "";
+			        break;
+			    default:
+			        echo " g_o";
+			        break;
+			}
+			?>">
+			<h3><a href="{path=blog/category/{category_url_title}}">{category_name}</a></h3>
+			<ul class="list">
+    			{embed="blog/_categories-list-entries" all_channels="{all_channels}" category_id="{category_id}"}
+    		</ul>
+		</div>
+	{/exp:channel:categories}
+</div>

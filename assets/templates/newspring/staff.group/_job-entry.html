@@ -1,0 +1,93 @@
+{!-- Displays the single job entry page --}
+{preload_replace:page_channel="jobs"}
+{preload_replace:sibling_channel="department"}
+	
+
+{exp:channel:entries 
+	channel="{page_channel}" 
+	disable="member_data" 
+	limit="1" 
+	orderby="job_campus"
+	url_title="{segment_3}"
+	sort="desc" 
+	dynamic="off"
+	status="open|Featured|hidden"
+}
+	{embed="includes/header"
+		body_id="jobs" 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}"
+		script=""
+		use_alt=""
+		title="{title} | Jobs | Staff"
+		fb_title="Jobs | Staff" 
+		fb_url="" 
+	}
+
+	</div><!-- //page - wraps header on pages with subnav-->
+
+	{embed="{segment_1}/_subnav" page_template="blog"}
+
+	<div class="c_12 clearfix page-border">
+
+		{if logged_in AND group_id != "20"}
+
+		<div id="main_content">
+			{if url_title == "internships" OR url_title == "apprenticeships"}
+				<div class="g_12">
+					<div class="top-row clearfix">
+						<h2 class="g_9 g_a">{title}</h2>
+						<div class="g_3 g_o">
+							<a href="#tellafriend_form" class="button">Email This <b class="caret caret-right"></b></a>
+						</div>
+					</div>
+					<hr>
+				</div>
+			{if:else}
+				<div class="top-row clearfix">
+					<div class="g_9"><h3 class="job-department">{exp:playa:children field="job_department"}{title}{/exp:playa:children}</h3></div>
+					<div class="g_3 g_o job-campus">{exp:playa:children field="job_campus"}{title} Campus{/exp:playa:children}</div>
+				</div>
+				<div class="g_12">
+					<div class="jobs-total clearfix">
+						<h2 class="g_9 g_a">{title}</h2>
+						<div class="g_3 g_o">
+							{job_contact}<a href="mailto:{email}?subject={title} Position" class="button email" title="Contact {name} about this position">Email {name} <b class="caret caret-right"></b></a>{/job_contact}
+						</div>
+					</div>
+				</div>
+			{/if}
+			
+			<div class="g_9">
+				{if job_description}
+					{job_description}
+				{if:else}
+					There's no job description available for this job, but don't worry, you can still apply!
+				{/if}
+			</div>
+			<div class="g_3" id="job-requirements">
+				<h4>Requirements</h4>
+				<ul>
+				{job_requirements}
+					<li>{job_requirement}</li>
+				{/job_requirements}
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+				
+		{embed='jobs/_ads'}
+		
+		<div class="g_12 hr alt"><hr></div>
+    {embed='includes/breadcrumb' links='<li><a href="{path={segment_1}}" title="">Staff</a></li><li><a href="{path={segment_1}/{segment_2}}" title="">Jobs</a></li><li class="last"><a href="/{segment_1}/{segment_2}/{segment_3}" title="">{title}</a></li>'}
+
+    {if:else}
+
+		{embed="includes/_signin"}	
+
+	{/if}
+
+	{embed='includes/footer'}
+
+{/exp:channel:entries}

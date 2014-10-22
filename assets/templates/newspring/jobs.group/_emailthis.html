@@ -1,0 +1,48 @@
+{exp:email:contact_form form_id="tellafriend_form" form_class="hidden" charset="utf-8" allow_html="n" user_recipients="yes" return="{current_url}|Return to the Entry"}
+	<p class="clearfix"><label for="share_name">Your Name:</label> <input type="text" id="share_name" name="name" value="{member_name}"></p>
+
+	<p class="clearfix"><label for="share_from">Your Email:</label> <input type="text" id="share_from" name="from" value="{member_email}"></p>
+
+	<p class="clearfix"><label for="share_to">Their Email: </label> <input type="text" id="share_to" name="to" value=""></p>
+
+	<p class="clearfix"><label for="subject">Subject:</label> <input type="text" id="subject" name="subject" value="{embed:title} Position at NewSpring Church"></p>
+
+	<p><label for="share_message">Your Message:</label><textarea id="share_message" name="message">I just found this {embed:title} position with NewSpring Church. I think it's something you'd be interested in. Check it out: {current_url}</textarea></p>
+
+	<p id="share_submit"><input name="submit" type="submit" value="Send Message"></p>
+{/exp:email:contact_form}
+
+<div id="trans_bg" style="display: none;"></div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function()
+	{
+		
+		$('a[href="#tellafriend_form"]').click(function()
+		{
+			var $share = $('#tellafriend_form, #trans_bg');
+			var $video = $('#video object');
+			var $document = $(document);
+			
+			$video.hide();
+			$share.show();
+			
+			$('#trans_bg').click(function()
+			{
+				$share.hide();
+				$video.show();
+			});
+			
+			$document.bind('keyup', function(event)
+			{
+				if (event.keyCode == 27) {
+					$('#tellafriend_form, #trans_bg').hide();
+					$('#video object').show();
+					$document.unbind('keyup');
+				}
+			});
+			
+			return false;
+		});
+	});
+</script>

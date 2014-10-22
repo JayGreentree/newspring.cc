@@ -1,0 +1,92 @@
+{exp:ce_cache:it}
+
+{preload_replace:page_template="nextsteps"}
+
+{exp:ce_cache:escape}
+	{embed='includes/header' 
+		title='Baptism | Next Steps' 
+		body_id='baptism' 
+		body_class="subnav" 
+		page_class="page-border" 
+		group_style="{segment_1}" 
+		group_script="{segment_1}"
+		fb_title="Baptism | Next Steps" 
+		fb_url="{path={page_template}}" 
+		meta_description='{exp:trunchtml ending="..." chars="250"}{/exp:trunchtml}' 
+		fb_describe="{exp:eehive_hacksaw}{/exp:eehive_hacksaw}"
+	}
+{/exp:ce_cache:escape}
+
+	<script src="/assets/backup/old_js/jquery-ui-1.10.3.min.js"></script>
+
+	</div><!-- //page - wraps header -->
+
+	{embed="includes/_subnav" navtitle="mainnav"}
+
+	<div class="c_12 clearfix page-border">
+		<div class="g_12">
+			<div id="hero">
+				<img src="//images.newspring.cc/section/nextsteps/hero.baptism.jpg" width="940" alt="" class="border">
+			</div>
+		</div>
+		<div class="section g_12">
+			<div class="g_7 g_a">
+				<div class="leftCol">
+					<h2>Baptism</h2>
+					<p>The Bible clearly teaches that baptism is the first step of obedience after making a commitment to Christ. Baptism allows a believer to communicate to the world their heart-felt commitment to Christ. People often have questions regarding baptism: Why should I be baptized? I’ve already been baptized. Do I have to do it again? Does it matter if someone is sprinkled or dunked? Take a few minutes to read these <a href="http://media.newspring.cc/docs/nextsteps/baptism-facts.pdf">baptism facts.</a></p>
+					<p>You can also find out more about what the Bible says regarding baptism by visiting the Guest Services desk at your campus.</p>
+				</div>
+			</div>
+			<div class="g_5 g_o">
+				<h2>Sign Up</h2>
+				<div class="baptism-div">
+					<p>Someone from the Next Steps team will contact you about upcoming baptism dates.</p>
+					<p class="baptism-btn"><a href="https://newspring.wufoo.com/forms/zoz3rcs0nhjjo0/">Sign Up Today</a></p>
+				</div>
+				{!--<h2>Baptism Services</h2>
+				<div id="accordion">
+					{exp:channel:entries channel="campuses" category="not 156" orderby="title" sort="asc"}
+					<h3>{title} <div class="arrow"></div></h3>
+					{if {exp:playa:total_parents channel='events' category="306"}}
+					<div>
+						<ul>
+						{exp:playa:parents channel="events" category="306" disable="" sort="asc" var_prefix="events" limit="3"}
+							<li>
+								<span class="date">{events:events_date format="%l, %F %j%S"}</span><br>
+								{events:if events_food != "None"}
+									<div class="service"><span>3</span> {events:events_food}</div>
+								{/if}
+								{events:if events_childcare != ""}
+									<div class="service"><span>3</span> Childcare</div>
+								{/if}
+								{events:if events_location == ""}
+								<p class="alt-location">This class will be held at an <a href="https://www.google.com/maps?q={events:events_alternate_location}">alternate location.</a></p>
+								{/if}
+							</li>
+						{events:if count == "{events:total_results}"}
+						</ul>
+							{events:categories}
+								<a href="https://newspring.wufoo.com/forms/{events:events_wufoo_id}/def/field235={title}" class="signup btn">Sign Up</a>
+							{/categories}
+						{/if}
+						{/exp:playa:parents}
+
+						{locations limit="1"}
+						<a href="{directions}" class="directions">Get Directions</a>
+						{/locations}
+					</div>
+					{if:else}
+					<div class="no-classes">
+						<p><b>No Baptism Services Scheduled</b></p>
+					</div>
+					{/if}
+					{/exp:channel:entries}
+				</div>--}
+			</div>
+		</div>
+			
+{exp:ce_cache:escape}
+	{embed='includes/footer'}
+{/exp:ce_cache:escape}
+
+{/exp:ce_cache:it}
